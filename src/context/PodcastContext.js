@@ -11,8 +11,8 @@ const podcastReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({audioposts}) => {
-    dispatch({type: 'add', payload: {audioposts}})
+  return ({show, audioposts}) => {
+    dispatch({type: 'add', payload: {show, audioposts}})
   }
 }
 
@@ -22,6 +22,7 @@ export const {Provider, Context} = createDataContext(
     add
   },
   {
+    show: {},
     audioposts: []
   }
 )

@@ -4,15 +4,14 @@ import justcastApi from '../api/justcast'
 
 const Podcast = (props) => {
 
-  const {add} = useContext(PodcastContext)
+  const {state, add} = useContext(PodcastContext)
   const id = props.match.params.id;
 
   useEffect(() => {
-    justcastApi.get('/v1/shows/${id}/audioposts')
+    justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
       const data = res.data;
-      const show = data.show;
-      const audioposts = data.audioposts;
+      add(data)
     })
     .catch((err) => {
       console.log(err);
@@ -21,7 +20,11 @@ const Podcast = (props) => {
 
 
   return (
-    <div>Hello world</div>
+
+    <div>
+      <h1>{state.show.name}</h1>
+      <p>{state.audioposts.length}</p>
+    </div>    
   )
 }
 
