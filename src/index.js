@@ -3,9 +3,11 @@ import React from 'react';
 import { hydrate, render } from "react-dom";
 import { Router } from "react-router";
 import { createBrowserHistory } from "history";
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+import './assets/stylesheets/custom.css'
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 const history = createBrowserHistory();
