@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useContext} from "react";
 import {Context as PodcastContext} from '../context/PodcastContext'
 import justcastApi from '../api/justcast'
+import data from './../dumps/result.json'
 
 const Podcast = (props) => {
 
@@ -14,6 +15,8 @@ const Podcast = (props) => {
       add(data)
     })
     .catch((err) => {
+      // development only
+      add(data);
       console.log(err);
     })
   }, [])
