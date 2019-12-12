@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Collapse,
   Navbar,
@@ -14,42 +14,30 @@ import {
   NavbarText
 } from 'reactstrap';
 
+import {Context as PodcastContext} from '../context/PodcastContext'
+
 const TopNavbars = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
+  const {state} = useContext(PodcastContext)
+
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+      <Navbar className="navbar navbar-expand-md navbar-dark bg-dark">
+        <NavbarBrand href={`/shows/${state.show.id}`}>{
+          state.show.name
+        }</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href={`/shows/${state.show.id}`}>Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+              <NavLink href={`/shows/${state.show.id}/episodes`}>Episodes</NavLink>
+            </NavItem>            
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
     </div>
