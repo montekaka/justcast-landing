@@ -6,7 +6,7 @@ import Home from './../pages/Home'
 const MainRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Home}/>
+      <LandingPageRoute exact path="/" component={Home}/>
     </Switch>
   )
 }
