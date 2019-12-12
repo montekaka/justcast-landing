@@ -1,12 +1,14 @@
 import React from "react";
 import { Switch, Route } from 'react-router-dom'
-import LandingPageRoute from './LandingPageRoute';
+import PodcastPageRoute from './PodcastPageRoute';
 import Home from './../pages/Home'
+import Error from './../pages/Error'
 
 const MainRoutes = () => {
   return (
-    <Switch>
-      <LandingPageRoute exact path="/" component={Home}/>
+    <Switch>      
+      <PodcastPageRoute exact path="/shows" component={Home}/>
+      <Route path="/" component={Error}/>
     </Switch>
   )
 }
