@@ -8,9 +8,9 @@ const Home = (props) => {
   const {add} = useContext(PodcastContext)
   const id = props.match.params.id;
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [])
+  // }, [])
 
 
   return (

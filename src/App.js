@@ -1,9 +1,12 @@
 import React from 'react';
+import {Provider as PodcastProvider} from './context/PodcastContext'
 import MainRoutes from './components/MainRoutes'
 
 function App() {
   return (
-    <MainRoutes/>
+    <PodcastProvider>
+      <MainRoutes/>
+    </PodcastProvider>    
   );
 }
 
