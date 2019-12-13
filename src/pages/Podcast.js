@@ -3,6 +3,7 @@ import {Context as PodcastContext} from '../context/PodcastContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import JumbotronHero from './../components/JumbotronHero'
+import EpisodeList from './../components/EpisodeList';
 
 const Podcast = (props) => {
 
@@ -34,6 +35,9 @@ const Podcast = (props) => {
         description={latestEpisode.description}
         audio_date={latestEpisode.audio_date}
       />
+      <div className="container">
+        <EpisodeList items={state.audioposts}/>
+      </div>      
     </div>    
   )
 }
