@@ -57,7 +57,7 @@
   
   body {
     margin: 0;
-    font-family: "HKGroteskPro", serif;
+    font-family: "HKGroteskPro", "serif";
     font-size: 1.0625rem;
     font-weight: 400;
     line-height: 1.6;
@@ -11663,12 +11663,12 @@
   @font-face {
     font-family: "HKGroteskPro";
     font-weight: 400;
-    src: url("/fonts/HK%20Grotesk%20Pro/HKGroteskPro-Regular.woff2") format("woff2"), url("/fonts/HK%20Grotesk%20Pro/HKGroteskPro-Regular.woff") format("woff"); } 
+    src: url("../fonts/HKGroteskPro/HKGroteskPro-Regular.woff2") format("woff2"),  local('HKGroteskPro'),url("../fonts/HKGroteskPro/HKGroteskPro-Regular.woff") format("woff"); } 
 
   @font-face {
     font-family: "HKGroteskPro";
     font-weight: 600;
-     src: url("/fonts/HK%20Grotesk%20Pro/HKGroteskPro-Medium.woff2") format("woff2"), url("/fonts/HK%20Grotesk%20Pro/HKGroteskPro-Medium.woff") format("woff"); } 
+     src: url("../fonts/HKGroteskPro/HKGroteskPro-Medium.woff2") format("woff2"),  local('HKGroteskPro'),url("../fonts/HKGroteskPro/HKGroteskPro-Medium.woff") format("woff"); } 
 
    
   h1, h2,
