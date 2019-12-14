@@ -20,7 +20,9 @@ const JumbotronHero = ({name, id, audio_date, description}) => {
             <p className="font-size-lg text-white-80 mb-6">LATEST EPISODE</p>
             <h1 className="display-3 font-weight-bold text-white">{name}</h1>
             <p className="lead text-white-75 mb-4">{date}</p>
-            <button className="btn btn-sm btn-info text-center rounded">Play</button>            
+            <div className="btn btn-primary btn-rounded-circle btn">
+              <i className="fe fe-play"></i>
+            </div>            
           </div>
         </div>
       </div>

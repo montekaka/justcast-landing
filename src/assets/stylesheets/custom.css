@@ -1,7 +1,8 @@
 #navbar-text-color {
   color: white;
 }
-/* .bd-placeholder-img {
+
+.bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
     -webkit-user-select: none;
@@ -23,6 +24,6 @@
 
 .media-card-item {
   margin-bottom: 20px;
-} */
+} 
 
 /* stylelint-disable selector-list-comma-newline-after */

@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import './assets/stylesheets/custom.css'
 import './assets/css/theme.css'
-//import './assets/fonts/Feather/feather.css'
+import './assets/fonts/Feather/feather.css'
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 const history = createBrowserHistory();

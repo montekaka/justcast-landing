@@ -35,9 +35,9 @@ const Podcast = (props) => {
         description={latestEpisode.description}
         audio_date={latestEpisode.audio_date}
       />
-      {/* <div className="container">
+      <div className="container">
         <EpisodeList items={state.audioposts.slice(0, 5)} artwork_url={state.show.artwork_url}/>
-      </div>       */}
+      </div>      
     </>    
   )
 }
