@@ -6,12 +6,28 @@ import SimplePlayer from './players/SimplePlayer'
 const FooterPlayer = () => {
   const {state} = useContext(PlayerContext);
   // const podcastContext = useContext(PodcastContext);
+  const handleDuration = (duration) => {
+    console.log(duration)
+  }
+
+  const handleProgress = (e) => {
+    console.log(e)
+  }
+
 
   if(state.id) {
     return (
       <footer className="footer mt-auto py-3 fixed-bottom bg-dark">
         <div className="container">
-          <SimplePlayer url={state.url} name={state.name}/>
+          <SimplePlayer 
+            audio_date={state.audio_date}
+            artwork={state.artwork}
+            url={state.url} 
+            name={state.name} 
+            playing={state.playing} 
+            handleDuration={handleDuration} 
+            handleProgress={handleProgress}
+          />
         </div>
       </footer>     
     )

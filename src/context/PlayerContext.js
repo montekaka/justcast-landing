@@ -10,8 +10,8 @@ const playerReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({url, id, name, description, artwork}) => {    
-    dispatch({type: 'add', payload: {url, id, name, description, artwork}})
+  return ({audio_date, url, id, name, description, artwork, playing}) => {    
+    dispatch({type: 'add', payload: {audio_date, url, id, name, description, artwork, playing}})
   }
 }
 
@@ -23,9 +23,11 @@ export const {Provider, Context} = createDataContext(
   {
     id: "",
     name: "",
+    audio_date: "",
     url: "",
     description: "",
-    artwork: ""
+    artwork: "",
+    playing: false,
   }
 )
 
