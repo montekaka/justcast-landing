@@ -1,14 +1,16 @@
 import React, {useEffect, useState, useContext} from "react";
 import {Context as PodcastContext} from '../context/PodcastContext'
+import {Context as PlayerContext} from '../context/PlayerContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import JumbotronHero from './../components/JumbotronHero'
 import EpisodeList from './../components/EpisodeList';
-import FooterPlayer from './../components/FooterPlayer'
 
 const Podcast = (props) => {
 
-  const {state, add} = useContext(PodcastContext)
+  const {state, add} = useContext(PodcastContext);
+  const playerContext = useContext(PlayerContext);
+  
   const [latestEpisode, setLatestEpisode] = useState({})
   const id = props.match.params.id;
 
@@ -27,19 +29,33 @@ const Podcast = (props) => {
     })
   }, [])
 
+  const handlePlay = (id) => {
+    const _ = state.audioposts.filter(audiopost => audiopost.id === id);
+    if(_.length > 0) {
+      const audiopost = _[0];
+      const artwork = state.show.artwork_url;
+      playerContext.add({
+        id: audiopost.id,
+        url: audiopost.url,
+        name: audiopost.name,
+        description: audiopost.description,
+        artwork
+      })
+    }    
+  }
 
   return (
-
     <>
       <JumbotronHero 
-        name={latestEpisode.name} 
+        name={latestEpisode.name}
+        id={latestEpisode.id}
         description={latestEpisode.description}
         audio_date={latestEpisode.audio_date}
+        handlePlay={handlePlay}
       />
       <div className="container">
         <EpisodeList items={state.audioposts.slice(0, 5)} artwork_url={state.show.artwork_url}/>
-      </div>
-      <FooterPlayer/>     
+      </div> 
     </>    
   )
 }

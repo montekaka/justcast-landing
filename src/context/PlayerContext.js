@@ -10,7 +10,7 @@ const playerReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({url, id, name, description, artwork}) => {
+  return ({url, id, name, description, artwork}) => {    
     dispatch({type: 'add', payload: {url, id, name, description, artwork}})
   }
 }

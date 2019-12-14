@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from 'react-router-dom'
 import TopNavbars from './TopNavbars'
+import FooterPlayer from './FooterPlayer'
 
 const PodcastPageRoute = ({ component: Component, ...rest }) => {
   return (
@@ -9,6 +10,7 @@ const PodcastPageRoute = ({ component: Component, ...rest }) => {
         <TopNavbars/>
         <div className="main-content">
           <Component {...props} />
+          <FooterPlayer/>
         </div>
       </>
     )} />

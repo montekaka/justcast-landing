@@ -1,6 +1,5 @@
-import React from "react";
-import moment from 'moment'
-import { Jumbotron, Button } from 'reactstrap';
+import React, {useContext} from "react";
+import moment from 'moment';
 
 const DescriptionHandle = ({description}) => {
   if(description) {
@@ -9,8 +8,12 @@ const DescriptionHandle = ({description}) => {
   return null;
 }
 
-const JumbotronHero = ({name, id, audio_date, description}) => {
-  const date = moment(audio_date).format('YYYY-MM-DD')
+const JumbotronHero = ({name, id, audio_date, description, handlePlay}) => {
+  const date = moment(audio_date).format('YYYY-MM-DD');
+
+  const handlePlayClick = () => {
+    handlePlay(id);
+  }
 
   return (
     <section className="pt-12 pt-md-14 pb-12 pb-md-15 bg-gray-900" style={{"marginTop": "-83px"}} >
@@ -20,7 +23,7 @@ const JumbotronHero = ({name, id, audio_date, description}) => {
             <p className="font-size-lg text-white-80 mb-6">LATEST EPISODE</p>
             <h1 className="display-3 font-weight-bold text-white">{name}</h1>
             <p className="lead text-white-75 mb-4">{date}</p>
-            <div className="btn btn-primary btn-rounded-circle btn">
+            <div className="btn btn-primary btn-rounded-circle btn" onClick={handlePlayClick}>
               <i className="fe fe-play"></i>
             </div>            
           </div>
