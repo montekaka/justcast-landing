@@ -13,19 +13,18 @@ const JumbotronHero = ({name, id, audio_date, description}) => {
   const date = moment(audio_date).format('YYYY-MM-DD')
 
   return (
-    <div>
-      <Jumbotron>
-        <div className="container">
-          <DescriptionHandle description={`LATEST EPISODE ${date}`}/>
-          <h2 className="display-4">{name}</h2>
-          <button className="btn btn-info text-center rounded">
-            <svg className="bi bi-play" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" d="M12.804 10L7 6.633v6.734L12.804 10zm.792-.696a.802.802 0 010 1.392l-6.363 3.692C6.713 14.69 6 14.345 6 13.692V6.308c0-.653.713-.998 1.233-.696l6.363 3.692z" clipRule="evenodd"></path>
-            </svg>
-          </button>
+    <section class="pt-12 pt-md-14 pb-12 pb-md-15 bg-gray-900" style={{"marginTop": "-83px"}} >
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-12 col-md-9 col-lg-9">
+            <p className="font-size-lg text-white-80 mb-6">LATEST EPISODE</p>
+            <h1 className="display-3 font-weight-bold text-white">{name}</h1>
+            <p className="lead text-white-75 mb-4">{date}</p>
+            <button className="btn btn-sm btn-info text-center rounded">Play</button>            
+          </div>
         </div>
-      </Jumbotron>
-    </div>
+      </div>
+    </section>
   )
 } 
 
