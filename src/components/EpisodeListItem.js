@@ -1,11 +1,20 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import moment from 'moment'
 import {
   Card, CardBody, Button
 } from 'reactstrap';
 
+const RenderHTML = ({description}) => {
+  if(description) {
+    return parse(description);
+  }
+  return null;
+}
+
 const EpisodeListItem = ({name, description, audio_date, artwork_url}) => {
-  const date = moment(audio_date).format('YYYY-MM-DD')
+  const date = moment(audio_date).format('YYYY-MM-DD')  
+  const html = description ? parse(description) : null;
 
   return (
     <Card className="col-12 card-border border-primary shadow-light-lg media-card-item" data-aos="fade-up">
@@ -26,7 +35,8 @@ const EpisodeListItem = ({name, description, audio_date, artwork_url}) => {
                 </div>
               </div>              
               <div className="row-two">
-                <div dangerouslySetInnerHTML={{__html: description}} />
+                <RenderHTML description={description}/>
+                {/* <div dangerouslySetInnerHTML={{__html: description}} /> */}
               </div>
             </div>          
           </div>

@@ -34,7 +34,7 @@ const Podcast = (props) => {
     if(_.length > 0) {
       const audiopost = _[0];
       const artwork = state.show.artwork_url;
-      console.log(audiopost)
+      
       playerContext.add({
         audio_date: audiopost.audio_date,
         id: audiopost.id,
@@ -42,6 +42,7 @@ const Podcast = (props) => {
         name: audiopost.name,
         description: audiopost.description,
         artwork,
+        hide: false,
         playing: true
       })
     }    

@@ -15,10 +15,10 @@ const FooterPlayer = () => {
   }
 
 
-  if(state.id) {
+  if(!state.hide) {
     return (
       <footer className="footer mt-auto py-3 fixed-bottom bg-dark">
-        <div className="container">
+        <div className="container text-white">
           <SimplePlayer 
             audio_date={state.audio_date}
             artwork={state.artwork}
