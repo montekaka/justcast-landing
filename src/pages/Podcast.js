@@ -37,7 +37,12 @@ const Podcast = (props) => {
       />
       <div className="container">
         <EpisodeList items={state.audioposts.slice(0, 5)} artwork_url={state.show.artwork_url}/>
-      </div>      
+      </div>
+      <footer className="footer mt-auto py-3 fixed-bottom bg-dark">
+        <div className="container">
+          <span className="text-muted">Place sticky footer content here.</span>
+        </div>
+      </footer>      
     </>    
   )
 }
