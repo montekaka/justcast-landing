@@ -77,30 +77,25 @@
   margin: 10px 0;
 }
 
-.simple-player-body > .player-control {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-}
-
-.simple-player-body > .player-control > .play-time{  
-  display: flex;
-  font-size: 4px;
-}
-
-.simple-player-body > .player-control > .play-control-button {
-  flex: 2;
-}
-
 .simple-player-body > .main-content > .row-one > .date-string {
   font-size: 12px;
 }
 
-.simple-player-body > .player-control > .play-time > div {
+.simple-player-body > .player-control {
+  display: flex;
   flex: 1;
+  align-items: center;
 }
 
+.simple-player-body > .player-control > .play-time {  
+  display: flex;
+  margin-left: 20px;
+  justify-content: space-between;
+}
+
+.simple-player-body > .player-control > .play-time > div {
+  margin-right: 10px;
+}
 
 @media only screen and (min-width: 700px) {
   .simple-player-body > .main-content > .row-one {

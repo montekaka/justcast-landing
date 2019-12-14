@@ -4,20 +4,15 @@ import {Context as PlayerContext} from '../context/PlayerContext'
 import SimplePlayer from './players/SimplePlayer'
 
 const FooterPlayer = () => {
-  const {state, playPause} = useContext(PlayerContext);
+  const {state, playPause, updateDuration, updateProgress} = useContext(PlayerContext);
   // const podcastContext = useContext(PodcastContext);
   const handleDuration = (duration) => {
-    console.log(duration)
+    updateDuration(duration)
   }
 
-  const handleProgress = (e) => {
-    console.log(e)
+  const handleProgress = (progress) => {
+    updateProgress(progress)
   }
-
-  const handlPlayPauseClick = () => {
-    console.log('clicked')
-  }
-
 
   if(state.hide === false) {
     return (
@@ -29,6 +24,8 @@ const FooterPlayer = () => {
             url={state.url} 
             name={state.name} 
             playing={state.playing}
+            playedSeconds={state.playedSeconds}
+            duration={state.duration}
             handleDuration={handleDuration} 
             handleProgress={handleProgress}
             handlPlayPauseClick={playPause}
