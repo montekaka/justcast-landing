@@ -41,9 +41,7 @@ const Podcast = (props) => {
         url: audiopost.audio_url,
         name: audiopost.name,
         description: audiopost.description,
-        artwork,
-        hide: false,
-        playing: true
+        artwork
       })
     }    
   }

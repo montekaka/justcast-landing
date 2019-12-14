@@ -3,22 +3,48 @@ import createDataContext from './createDataContext';
 const playerReducer = (state, action) => {
   switch(action.type) {
     case 'add':
-      return {...action.payload}    
+      return {...state, ...action.payload}
+    case 'playPause':
+      return {...state, playing: !state.playing}
+    case 'hideFooterBar': 
+      return {...state, hide: !state.hide}
     default:
       return state
   }
 }
 
 const add = dispatch => {
-  return ({audio_date, url, id, name, description, artwork, playing, hide}) => {    
-    dispatch({type: 'add', payload: {audio_date, url, id, name, description, artwork, playing, hide}})
+  return ({audio_date, url, id, name, description, artwork}) => {    
+    dispatch({type: 'add', payload: {
+      audio_date, 
+      url, 
+      id, 
+      name, 
+      description, 
+      artwork, 
+      playing: true, 
+      hide: false
+    }})
   }
 }
+
+const playPause = dispatch => {
+  return () => {
+    dispatch({type: 'playPause'});
+  }
+}
+
+// const hideFooterBar = dispatch => {
+//   return () => {
+//     dispatch({type: 'hideFooterBar'});
+//   }
+// }
 
 export const {Provider, Context} = createDataContext(
   playerReducer,
   {
-    add
+    add,
+    playPause
   },
   {
     id: "",
@@ -29,6 +55,7 @@ export const {Provider, Context} = createDataContext(
     artwork: "",
     hide: true,
     playing: false,
+    seeking: true,
   }
 )
 

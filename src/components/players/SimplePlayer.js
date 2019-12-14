@@ -2,7 +2,27 @@ import React from "react";
 import ReactPlayer from 'react-player'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
-const SimplePlayer = ({audio_date, artwork, name, url, playing, handleDuration, handleProgress}) => {
+const PlayPauseButton = ({playing, handlPlayPauseClick}) => {
+  if(playing === true) {
+    return (
+      <div className="play-control-button btn btn-primary btn-rounded-circle btn-sm"
+        onClick={handlPlayPauseClick}
+      >
+        <i className="fe fe-pause"></i>
+      </div> 
+    )
+  }
+
+  return (
+    <div className="play-control-button btn btn-primary btn-rounded-circle btn-sm" 
+      onClick={handlPlayPauseClick}
+    >
+      <i className="fe fe-play"></i>
+    </div>
+  )
+}
+
+const SimplePlayer = ({audio_date, artwork, name, url, playing, handleDuration, handleProgress, handlPlayPauseClick}) => {
   if(url) {
     return (    
       <>
@@ -17,11 +37,9 @@ const SimplePlayer = ({audio_date, artwork, name, url, playing, handleDuration, 
                 <span className="date-string">{audio_date}</span>
               </div>
               <div className="player-control">
-                <div className="play-control-button btn btn-primary btn-rounded-circle btn-sm">
-                  <i className="fe fe-play"></i>
-                </div>
+                <PlayPauseButton playing={playing} handlPlayPauseClick={handlPlayPauseClick}/>
               </div>
-            </div>          
+            </div>
           </div>
         </div>  
         <ReactPlayer url={url} 
@@ -29,9 +47,11 @@ const SimplePlayer = ({audio_date, artwork, name, url, playing, handleDuration, 
           height='0%'
           onReady={() => console.log('onReady')}
           onStart={() => console.log('onStart')}
+          onSeek={e => console.log('onSeek', e)}
           // onProgress={handleProgress}
           onDuration={handleDuration}
           onProgress={handleProgress}
+          volume={0.02}
           onSeek={e => console.log('onSeek', e)}
           playing={playing}
         />

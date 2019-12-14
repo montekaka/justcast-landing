@@ -4,7 +4,7 @@ import {Context as PlayerContext} from '../context/PlayerContext'
 import SimplePlayer from './players/SimplePlayer'
 
 const FooterPlayer = () => {
-  const {state} = useContext(PlayerContext);
+  const {state, playPause} = useContext(PlayerContext);
   // const podcastContext = useContext(PodcastContext);
   const handleDuration = (duration) => {
     console.log(duration)
@@ -14,8 +14,12 @@ const FooterPlayer = () => {
     console.log(e)
   }
 
+  const handlPlayPauseClick = () => {
+    console.log('clicked')
+  }
 
-  if(!state.hide) {
+
+  if(state.hide === false) {
     return (
       <footer className="footer mt-auto py-3 fixed-bottom bg-dark">
         <div className="container text-white">
@@ -24,9 +28,10 @@ const FooterPlayer = () => {
             artwork={state.artwork}
             url={state.url} 
             name={state.name} 
-            playing={state.playing} 
+            playing={state.playing}
             handleDuration={handleDuration} 
             handleProgress={handleProgress}
+            handlPlayPauseClick={playPause}
           />
         </div>
       </footer>     
