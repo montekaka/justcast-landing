@@ -13,7 +13,7 @@ const JumbotronHero = ({name, id, audio_date, description}) => {
   const date = moment(audio_date).format('YYYY-MM-DD')
 
   return (
-    <section class="pt-12 pt-md-14 pb-12 pb-md-15 bg-gray-900" style={{"marginTop": "-83px"}} >
+    <section className="pt-12 pt-md-14 pb-12 pb-md-15 bg-gray-900" style={{"marginTop": "-83px"}} >
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-md-9 col-lg-9">

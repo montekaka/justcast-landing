@@ -4,6 +4,7 @@ import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import JumbotronHero from './../components/JumbotronHero'
 import EpisodeList from './../components/EpisodeList';
+import FooterPlayer from './../components/FooterPlayer'
 
 const Podcast = (props) => {
 
@@ -38,11 +39,7 @@ const Podcast = (props) => {
       <div className="container">
         <EpisodeList items={state.audioposts.slice(0, 5)} artwork_url={state.show.artwork_url}/>
       </div>
-      <footer className="footer mt-auto py-3 fixed-bottom bg-dark">
-        <div className="container">
-          <span className="text-muted">Place sticky footer content here.</span>
-        </div>
-      </footer>      
+      <FooterPlayer/>     
     </>    
   )
 }
