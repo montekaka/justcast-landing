@@ -27,3 +27,91 @@
 } 
 
 /* stylelint-disable selector-list-comma-newline-after */
+/* Simple player */
+.simple-player-container{
+  display: flex;
+  width: 100%;
+  height: auto;  
+  justify-content: flex-start;
+}
+
+.simple-player-container > div {
+  flex: 1;
+  padding: 10px;
+}
+
+.simple-player-container > .simple-player-artwork > img {
+  max-width:100%;
+}
+
+.simple-player-container > .simple-player-body {
+  flex: 9;
+}
+
+.simple-player-body {
+  display: flex;
+  flex: 1;  
+  flex-direction: column;
+}
+
+.simple-player-body > .main-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;  
+}
+
+.simple-player-body > .main-content > .row-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  margin-bottom: 10px;
+}
+
+.simple-player-body > .main-content > .row-two {
+  margin-top: 10px;
+}
+
+
+.simple-player-body > .slider {
+  flex: 1;
+  margin: 10px 0;
+}
+
+.simple-player-body > .player-control {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.simple-player-body > .player-control > .play-time{  
+  display: flex;
+  font-size: 4px;
+}
+
+.simple-player-body > .player-control > .play-control-button {
+  flex: 2;
+}
+
+.simple-player-body > .main-content > .row-one > .date-string {
+  font-size: 12px;
+}
+
+.simple-player-body > .player-control > .play-time > div {
+  flex: 1;
+}
+
+
+@media only screen and (min-width: 700px) {
+  .simple-player-body > .main-content > .row-one {
+      flex-direction: row;
+      flex: 1;
+  }
+  
+  .simple-player-body > .main-content > .row-one > .date-string {
+      margin-left: auto;
+  }
+}
+
+
+/* End Simple player */

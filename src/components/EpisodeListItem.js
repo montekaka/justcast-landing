@@ -10,15 +10,25 @@ const EpisodeListItem = ({name, description, audio_date, artwork_url}) => {
   return (
     <Card className="col-12 card-border border-primary shadow-light-lg media-card-item" data-aos="fade-up">
       <CardBody>
-        <div className="media">
-          <img className="mr-3 media-artwork" src={artwork_url ? artwork_url : "http://download.randgad.com/images/RandGadArt.jpg"} alt="Generic placeholder image"/>
-          <div className="media-body">
-            <p>{date}</p>
-            <h5 className="mt-0">{name}</h5>
-            <div className="btn btn-primary btn-rounded-circle btn-sm">
-              <i className="fe fe-play"></i>
-            </div>
-            <div dangerouslySetInnerHTML={{__html: description}} />
+        <div className="simple-player-container">
+          <div className="simple-player-artwork">
+            <img src={artwork_url ? artwork_url : "http://download.randgad.com/images/RandGadArt.jpg"} alt="Generic placeholder image"/>
+          </div>          
+          <div className="simple-player-body">
+            <div className="main-content">
+              <div className="row-one">
+                <h3 className="name">{name}</h3>
+                <span className="date-string">{date}</span>
+              </div>
+              <div className="player-control">
+                <div className="play-control-button btn btn-primary btn-rounded-circle btn-sm">
+                  <i className="fe fe-play"></i>
+                </div>
+              </div>              
+              <div className="row-two">
+                <div dangerouslySetInnerHTML={{__html: description}} />
+              </div>
+            </div>          
           </div>
         </div>
       </CardBody>      

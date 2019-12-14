@@ -36,7 +36,7 @@ const Podcast = (props) => {
       const artwork = state.show.artwork_url;
       playerContext.add({
         id: audiopost.id,
-        url: audiopost.url,
+        url: audiopost.audio_url,
         name: audiopost.name,
         description: audiopost.description,
         artwork
@@ -52,7 +52,7 @@ const Podcast = (props) => {
         description={latestEpisode.description}
         audio_date={latestEpisode.audio_date}
         handlePlay={handlePlay}
-      />
+      />    
       <div className="container">
         <EpisodeList items={state.audioposts.slice(0, 5)} artwork_url={state.show.artwork_url}/>
       </div> 
