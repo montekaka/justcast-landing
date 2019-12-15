@@ -8,7 +8,7 @@ import Error from './../pages/Error'
 const MainRoutes = () => {
   return (
     <Switch>
-      <PodcastPageRoute exact path="/shows/:id" component={Podcast}/>
+      <PodcastPageRoute exact path="/shows/:id/audioposts" component={Podcast}/>
       <PodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={Episode}/>
       <Route path="/" component={Error}/>
     </Switch>

@@ -32,7 +32,7 @@ const TopNavbars = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand" id="navbar-text-color" to={`/shows/${state.show.id}`}>
+          <Link className="navbar-brand" id="navbar-text-color" to={`/shows/${state.show.id}/audioposts`}>
             {state.show.name}
           </Link>
           <NavbarToggler onClick={toggle} />
@@ -40,11 +40,11 @@ const TopNavbars = () => {
             <NavbarToggler onClick={toggle} >x</NavbarToggler>
             <Nav className="mr-auto ml-auto" navbar>
               <NavItem onClick={handleNavItemClicked}>
-                <NavLink to={`/shows/${state.show.id}`} tag={Link}>Home</NavLink>
+                <NavLink to={`/shows/${state.show.id}/audioposts`} tag={Link}>Home</NavLink>
               </NavItem>
-              <NavItem onClick={handleNavItemClicked}>
-                <NavLink to={`/shows/${state.show.id}/episodes`} tag={Link}>Episodes</NavLink>
-              </NavItem>
+              {/* <NavItem onClick={handleNavItemClicked}>
+                <NavLink to={`/shows/${state.show.id}/about_us`} tag={Link}>About us</NavLink>
+              </NavItem> */}
             </Nav>
             <a className="navbar-btn btn btn-sm btn-primary lift ml-auto" href="https://themes.getbootstrap.com/product/landkit/" target="_blank">
               RSS feed
