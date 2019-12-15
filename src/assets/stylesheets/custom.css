@@ -26,6 +26,10 @@
   margin-bottom: 20px;
 } 
 
+.player-container {
+  margin-bottom: 200px;
+}
+
 /* stylelint-disable selector-list-comma-newline-after */
 /* Simple player */
 .simple-player-container{

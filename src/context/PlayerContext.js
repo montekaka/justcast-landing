@@ -2,7 +2,7 @@ import createDataContext from './createDataContext';
 
 const initState = {
   id: "",
-  name: "aa",
+  name: "",
   audio_date: "",
   url: "",
   description: "",
@@ -46,6 +46,7 @@ const playerReducer = (state, action) => {
 
 const add = dispatch => {
   return ({audio_date, url, id, name, description, artwork}) => {
+    dispatch({type: 'reset'})
     dispatch({type: 'add', payload: {
       audio_date, 
       url, 

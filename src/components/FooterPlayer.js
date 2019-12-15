@@ -1,13 +1,11 @@
-import React, {useContext} from "react";
-import {Context as PodcastContext} from '../context/PodcastContext'
+import React, {useContext, useEffect} from "react";
 import {Context as PlayerContext} from '../context/PlayerContext'
 import SimplePlayer from './players/SimplePlayer'
 
 const FooterPlayer = () => {
   const {state, playPause, updateDuration, updateProgress, toggleSeeking, handleSeekChange} = useContext(PlayerContext);
-  let reactPlayer = {};
+  let reactPlayer = null;
 
-  // const podcastContext = useContext(PodcastContext);
   const handleDuration = (duration) => {
     updateDuration(duration)
   }
@@ -30,8 +28,14 @@ const FooterPlayer = () => {
   }  
 
   const handlePlayerRef = (player) => {
-    reactPlayer = player;
+    if(reactPlayer === null) {
+      reactPlayer = player;
+    }
   }
+
+  // useEffect(() => {
+  //   console.log(reactPlayer)
+  // }, [reactPlayer])
 
   if(state.hide === false) {
     return (

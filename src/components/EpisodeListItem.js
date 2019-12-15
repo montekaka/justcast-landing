@@ -12,7 +12,7 @@ const RenderHTML = ({description}) => {
   return null;
 }
 
-const EpisodeListItem = ({name, description, audio_date, artwork_url}) => {
+const EpisodeListItem = ({id, name, description, audio_date, artwork_url, handlePlay}) => {
   const date = moment(audio_date).format('YYYY-MM-DD')  
   const html = description ? parse(description) : null;
 
@@ -30,7 +30,11 @@ const EpisodeListItem = ({name, description, audio_date, artwork_url}) => {
                 <span className="date-string">{date}</span>
               </div>
               <div className="player-control">
-                <div className="play-control-button btn btn-primary btn-rounded-circle btn-sm">
+                <div className="play-control-button btn btn-primary btn-rounded-circle btn-sm"
+                  onClick={() => {
+                    handlePlay(id)
+                  }}
+                >
                   <i className="fe fe-play"></i>
                 </div>
               </div>              
