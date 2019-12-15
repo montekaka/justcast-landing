@@ -9,12 +9,12 @@ const initState = {
   artwork: "",
   hide: true,
   playing: false,
-  seeking: true,
   duration: 0,
   loaded: 0, // in percentage
   loadedSeconds: 0,
   played: 0, // in percentage
-  playedSeconds: 0,  
+  playedSeconds: 0,
+  seeking: false
 }
 
 const playerReducer = (state, action) => {
@@ -28,6 +28,14 @@ const playerReducer = (state, action) => {
     case 'update_duration':
       return {...state, ...action.payload}
     case 'update_progress':
+      // We only want to update time slider if we are not currently seeking
+      if(!state.seeking) {
+        return {...state, ...action.payload}
+      }
+      return {...state};
+    case 'toggle_seeking':
+      return {...state, seeking: !state.seeking}
+    case 'seek_change':
       return {...state, ...action.payload}
     case 'reset': 
       return {...initState}
@@ -65,7 +73,20 @@ const updateDuration = dispatch => {
 
 const updateProgress = dispatch => {
   return (progress) => {
+    //console.log(progress)
     dispatch({type: 'update_progress', payload: {...progress}})
+  }
+}
+
+const toggleSeeking = dispatch => {
+  return () => {
+    dispatch({type: 'toggle_seeking', payload: {}})
+  }
+}
+
+const handleSeekChange = dispatch => {
+  return (playedSeconds) => {
+    dispatch({type: 'seek_change', payload: {playedSeconds: playedSeconds}})
   }
 }
 
@@ -81,7 +102,9 @@ export const {Provider, Context} = createDataContext(
     add,
     playPause,
     updateDuration,
-    updateProgress
+    updateProgress,
+    toggleSeeking,
+    handleSeekChange
   },
   initState
 )

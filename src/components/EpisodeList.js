@@ -24,7 +24,6 @@ const EpisodeList = ({items, artwork_url}) => {
           )}
         </div>
       </div>
-
     </section>
   )
 }

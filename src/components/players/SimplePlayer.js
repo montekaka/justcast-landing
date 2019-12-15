@@ -22,7 +22,7 @@ const PlayPauseButton = ({playing, handlPlayPauseClick}) => {
   )
 }
 
-const SimplePlayer = ({audio_date, artwork, name, url, duration, playedSeconds, playing, handleDuration, handleProgress, handlPlayPauseClick}) => {
+const SimplePlayer = ({audio_date, artwork, name, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef}) => {
   if(url) {
     return (    
       <>
@@ -42,15 +42,29 @@ const SimplePlayer = ({audio_date, artwork, name, url, duration, playedSeconds, 
               <div className="play-time">
                 <div>{playedSeconds}</div><div>/</div><div>{duration}</div>
               </div>
-            </div>            
+            </div>
+            <CustomInput 
+              className="slider" 
+              type="range" 
+              id="footer-player-slider-bar"
+              value={playedSeconds}
+              min={0}
+              max={duration}
+              step='any'
+              onMouseDown={handleSeekMouseDown}
+              onMouseUp={handleSeekMouseUp}
+              onChange={handleSliderChange}
+              />
           </div>
         </div>  
-        <ReactPlayer url={url} 
+        <ReactPlayer url={url}
+          className='react-player'
           width='0%'
           height='0%'
-          onReady={() => console.log('onReady')}
-          onStart={() => console.log('onStart')}
-          onSeek={e => console.log('onSeek', e)}
+          ref={handlePlayerRef}
+          // onReady={() => console.log('onReady')}
+          // onStart={() => console.log('onStart')}
+          // onSeek={e => console.log('onSeek', e)}
           onDuration={handleDuration}
           onProgress={handleProgress}
           volume={0.02}
