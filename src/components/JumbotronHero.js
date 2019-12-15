@@ -15,7 +15,7 @@ const JumbotronHero = ({name, id, audio_date, description, handlePlay}) => {
     handlePlay(id);
   }
 
-  return (
+  return (   
     <section className="pt-12 pt-md-14 pb-12 pb-md-15 bg-gray-900" style={{"marginTop": "-83px"}} >
       <div className="container">
         <div className="row align-items-center">
@@ -29,7 +29,7 @@ const JumbotronHero = ({name, id, audio_date, description, handlePlay}) => {
           </div>
         </div>
       </div>
-    </section>
+    </section>         
   )
 } 
 

@@ -3,7 +3,7 @@ import EpisodeListItem from './../components/EpisodeListItem'
 
 const EpisodeList = ({items, artwork_url, handlePlay}) => {
   return (
-    <section className="py-8 py-md-11">
+    <section className="py-4 py-md-10">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-md-6">

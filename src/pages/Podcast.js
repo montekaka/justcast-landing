@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
+import {Link} from 'react-router-dom'
 import {Context as PodcastContext} from '../context/PodcastContext'
 import {Context as PlayerContext} from '../context/PlayerContext'
 import justcastApi from '../api/justcast'
@@ -61,7 +62,18 @@ const Podcast = (props) => {
           artwork_url={state.show.artwork_url}
           handlePlay={handlePlay}
         />
-      </div> 
+        <section>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-9 col-lg-8 col-xl-7">            
+                <Link to={`shows/${id}/audioposts`} className="btn btn-block btn-outline-gray-300 d-flex align-items-center">
+                  <span className="mx-auto">More</span> <i className="fe fe-arrow-right"></i>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>         
+      </div>     
     </>    
   )
 }
