@@ -13,7 +13,7 @@ const RenderHTML = ({description}) => {
 }
 
 const EpisodeListItem = ({id, name, description, audio_date, artwork_url, handlePlay}) => {
-  const date = moment(audio_date).format('YYYY-MM-DD')  
+  const date = moment(audio_date).format('YYYY-MM-DD');
   const html = description ? parse(description) : null;
 
   return (

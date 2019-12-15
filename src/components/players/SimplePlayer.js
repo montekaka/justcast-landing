@@ -1,6 +1,9 @@
 import React from "react";
 import ReactPlayer from 'react-player'
+import moment from 'moment'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
+
+var momentDurationFormatSetup = require("moment-duration-format");
 
 const PlayPauseButton = ({playing, handlPlayPauseClick}) => {
   if(playing === true) {
@@ -24,6 +27,7 @@ const PlayPauseButton = ({playing, handlPlayPauseClick}) => {
 
 const SimplePlayer = ({audio_date, artwork, name, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef}) => {
   if(url) {
+    const date = moment(audio_date).format('YYYY-MM-DD');
     return (    
       <>
         <div className="simple-player-container">
@@ -34,13 +38,13 @@ const SimplePlayer = ({audio_date, artwork, name, url, duration, playedSeconds, 
             <div className="main-content">
               <div className="row-one">
                 <h3 className="name">{name}</h3>
-                <span className="date-string">{audio_date}</span>
+                <span className="date-string">{date}</span>
               </div>              
             </div>
             <div className="player-control">
               <PlayPauseButton playing={playing} handlPlayPauseClick={handlPlayPauseClick}/>
               <div className="play-time">
-                <div>{playedSeconds}</div><div>/</div><div>{duration}</div>
+                <div>{moment.duration(Math.floor(playedSeconds), "seconds").format()}</div><div>/</div><div>{moment.duration(Math.floor(duration), "seconds").format()}</div>
               </div>
             </div>
             <CustomInput 
@@ -67,7 +71,7 @@ const SimplePlayer = ({audio_date, artwork, name, url, duration, playedSeconds, 
           // onSeek={e => console.log('onSeek', e)}
           onDuration={handleDuration}
           onProgress={handleProgress}
-          volume={0.02}
+          // volume={0.02}
           playing={playing}
         />
       </>
