@@ -11,7 +11,7 @@ import './assets/stylesheets/custom.css'
 import './assets/css/theme.css'
 import './assets/fonts/Feather/feather.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// ReactDOM.render(<App />, document.getElementById('root'));
 const history = createBrowserHistory();
 
 ReactDOM.render(
