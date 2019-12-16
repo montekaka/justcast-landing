@@ -1,7 +1,6 @@
 import React, {useEffect, useState, useContext} from "react";
 import {Link} from 'react-router-dom'
 import {Context as PodcastContext} from '../context/PodcastContext'
-import {Context as PlayerContext} from '../context/PlayerContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import PageHeader from './../components/PageHeader'
@@ -30,7 +29,6 @@ const MoreEpisodes = ({handleMoreEpisodesClicked, totalNumberOfEpisodes, showing
 const Podcast = (props) => {
 
   const {state, add} = useContext(PodcastContext);
-  const playerContext = useContext(PlayerContext);
   
   const [latestEpisode, setLatestEpisode] = useState({})
   const [numberOfEpisodes, setNumberOfEpisodes] = useState(5)
@@ -52,23 +50,6 @@ const Podcast = (props) => {
     })
   }, [id])
 
-  const handlePlay = (id) => {
-    const _ = state.audioposts.filter(audiopost => audiopost.id.toString() === id.toString());
-    if(_.length > 0) {
-      const audiopost = _[0];
-      const artwork = state.show.artwork_url;
-      
-      playerContext.add({
-        audio_date: audiopost.audio_date,
-        id: audiopost.id,
-        url: audiopost.audio_url,
-        name: audiopost.name,
-        description: audiopost.description,
-        artwork
-      })
-    }    
-  }
-
   const handleMoreEpisodesClicked = () => {
     setNumberOfEpisodes(numberOfEpisodes + 5);
   }
@@ -89,7 +70,6 @@ const Podcast = (props) => {
           showId={id}
           items={state.audioposts.slice(0, numberOfEpisodes)} 
           artwork_url={state.show.artwork_url}
-          handlePlay={handlePlay}
         />
         <MoreEpisodes
           handleMoreEpisodesClicked={handleMoreEpisodesClicked}

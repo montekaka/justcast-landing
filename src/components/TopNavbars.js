@@ -45,6 +45,9 @@ const TopNavbars = () => {
               <NavItem onClick={handleNavItemClicked}>
                 <NavLink to={`/shows/${state.show.slug}/about_us`} tag={Link}>About us</NavLink>
               </NavItem>
+              <NavItem onClick={handleNavItemClicked}>
+                <NavLink to={`/shows/${state.show.slug}/episodes`} tag={Link}>Episodes</NavLink>
+              </NavItem>              
             </Nav>
             <a className="navbar-btn btn btn-sm btn-primary lift ml-auto" href="https://themes.getbootstrap.com/product/landkit/" target="_blank">
               RSS feed
