@@ -40,7 +40,7 @@ const Episode = (props) => {
       add(data);
       console.log(err);
     })
-  }, [id])
+  }, [showId, id])
 
   return (
     <>
