@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import parse from 'html-react-parser';
 import moment from 'moment'
 import {
@@ -12,21 +13,24 @@ const RenderHTML = ({description}) => {
   return null;
 }
 
-const EpisodeListItem = ({id, name, description, audio_date, artwork_url, handlePlay}) => {
+const EpisodeListItem = ({showId, id, name, description, audio_date, artwork_url, handlePlay}) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
   const html = description ? parse(description) : null;
+  const pageUrl = `/shows/${showId}/audioposts/${id}`
 
   return (
     <Card className="col-12 card-border border-primary shadow-light-lg media-card-item" data-aos="fade-up">
       <CardBody>
         <div className="simple-player-container">
           <div className="simple-player-artwork">
-            <img src={artwork_url ? artwork_url : "http://download.randgad.com/images/RandGadArt.jpg"} alt="Generic placeholder image"/>
+            <Link to={pageUrl}>
+              <img src={artwork_url ? artwork_url : "http://download.randgad.com/images/RandGadArt.jpg"} alt="Generic placeholder image"/>
+            </Link>            
           </div>          
           <div className="simple-player-body">
             <div className="main-content">
               <div className="row-one">
-                <h3 className="name">{name}</h3>
+                <Link to={pageUrl} className="name-black" ><h3 >{name}</h3></Link>
                 <span className="date-string">{date}</span>
               </div>
               <div className="player-control">

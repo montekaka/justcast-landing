@@ -1,7 +1,7 @@
 import React from 'react';
 import EpisodeListItem from './../components/EpisodeListItem'
 
-const EpisodeList = ({items, artwork_url, handlePlay}) => {
+const EpisodeList = ({showId, items, artwork_url, handlePlay}) => {
   return (
     <section className="py-4 py-md-10">
       <div className="container">
@@ -15,6 +15,7 @@ const EpisodeList = ({items, artwork_url, handlePlay}) => {
             items.map((item) => 
               <EpisodeListItem 
                 key={item.id.toString()}
+                showId={showId}
                 id={item.id}
                 artwork_url={artwork_url}
                 name={item.name} 

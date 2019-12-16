@@ -85,7 +85,8 @@ const Podcast = (props) => {
         handlePlay={handlePlay}
       />    
       <div className="container player-container">
-        <EpisodeList 
+        <EpisodeList
+          showId={id}
           items={state.audioposts.slice(0, numberOfEpisodes)} 
           artwork_url={state.show.artwork_url}
           handlePlay={handlePlay}

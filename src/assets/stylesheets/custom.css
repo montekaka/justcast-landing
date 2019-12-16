@@ -48,6 +48,10 @@
   max-width:100%;
 }
 
+.simple-player-container > .simple-player-artwork > a > img {
+  max-width:100%;
+}
+
 .simple-player-container > .simple-player-body {
   flex: 9;
 }
@@ -76,10 +80,13 @@
   margin-top: 10px;
 }
 
-
 .simple-player-body > .slider {
   flex: 1;
   margin: 10px 0;
+}
+
+.simple-player-body > .main-content > .row-one > .name-black {
+  color: black;
 }
 
 .simple-player-body > .main-content > .row-one > .date-string {
