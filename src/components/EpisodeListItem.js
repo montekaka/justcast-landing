@@ -26,7 +26,7 @@ const EpisodeListItem = ({showId, id, name, description, audio_date, url, artwor
         <div className="simple-player-container">
           <div className="simple-player-artwork">
             <Link to={pageUrl}>
-              <img src={artwork_url ? artwork_url : "http://download.randgad.com/images/RandGadArt.jpg"} />
+              <img src={artwork_url ? artwork_url : "http://download.randgad.com/images/RandGadArt.jpg"} alt="podcast artwork"/>
             </Link>            
           </div>          
           <div className="simple-player-body">
