@@ -5,6 +5,8 @@ import moment from 'moment'
 import {
   Card, CardBody, Button
 } from 'reactstrap';
+import PlayPauseButton from './PlayPauseButton';
+
 
 const RenderHTML = ({description}) => {
   if(description) {
@@ -13,7 +15,7 @@ const RenderHTML = ({description}) => {
   return null;
 }
 
-const EpisodeListItem = ({showId, id, name, description, audio_date, artwork_url, handlePlay}) => {
+const EpisodeListItem = ({showId, id, name, description, audio_date, url, artwork_url}) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
   const html = description ? parse(description) : null;
   const pageUrl = `/shows/${showId}/audioposts/${id}`
@@ -34,13 +36,7 @@ const EpisodeListItem = ({showId, id, name, description, audio_date, artwork_url
                 <span className="date-string">{date}</span>
               </div>
               <div className="player-control">
-                <div className="play-control-button btn btn-primary btn-rounded-circle btn-sm"
-                  onClick={() => {
-                    handlePlay(id)
-                  }}
-                >
-                  <i className="fe fe-play"></i>
-                </div>
+                <PlayPauseButton className="play-control-button" audio_date={audio_date} id={id} url={url} name={name} artwork={artwork_url} description={description}/>                
               </div>              
               <div className="row-two">
                 <RenderHTML description={description}/>

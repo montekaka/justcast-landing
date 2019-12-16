@@ -6,12 +6,8 @@ const sectionCSS = {
   backgroundImage: `url("https://source.unsplash.com/c1ZN57GfDB0/1600x900")`
 }
 
-const PageHeader = ({headerTitle, artwork, name, id, url, description, audio_date, handlePlay}) => {
+const PageHeader = ({headerTitle, artwork, name, id, url, description, audio_date}) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
-
-  const handlePlayClick = () => {
-    handlePlay(id);
-  }  
 
   return (
     <section data-jarallax
@@ -33,7 +29,9 @@ const PageHeader = ({headerTitle, artwork, name, id, url, description, audio_dat
             <p className="lead text-center text-md-left text-muted mb-6 mb-lg-8">
               {date}
             </p>
-            <PlayPauseButton audio_date={audio_date} id={id} url={url} name={name} artwork={artwork} description={description}/>
+            <div className="text-center text-md-left">
+              <PlayPauseButton audio_date={audio_date} id={id} url={url} name={name} artwork={artwork} description={description}/>
+            </div>            
           </div>
         </div>        
       </div>

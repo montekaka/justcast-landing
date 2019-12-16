@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
 import {Context as PodcastContext} from '../context/PodcastContext'
-import {Context as PlayerContext} from '../context/PlayerContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 
@@ -22,7 +21,6 @@ const Episode = (props) => {
   const [audiopost, setAudiopost] = useState({});
   
   const {state, add} = useContext(PodcastContext);
-  const playerContext = useContext(PlayerContext);
 
   useEffect(() => {
     justcastApi.get(`/v1/shows/${showId}/audioposts`)
@@ -44,26 +42,15 @@ const Episode = (props) => {
     })
   }, [id])
 
-  const handlePlay = () => {            
-      const artwork = state.show.artwork_url;
-      
-      playerContext.add({
-        audio_date: audiopost.audio_date,
-        id: audiopost.id,
-        url: audiopost.audio_url,
-        name: audiopost.name,
-        description: audiopost.description,
-        artwork
-      })
-  }  
-
   return (
     <>
       <PageHeader 
         name={audiopost.name}
         id={audiopost.id}
+        url={audiopost.url}
+        artwork={state.show.artwork_url}
         audio_date={audiopost.audio_date}
-        handlePlay={handlePlay}
+        description={audiopost.description}
       />
       <section className="pt-8 pt-md-11">
         <div className="container">

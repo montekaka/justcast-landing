@@ -32,11 +32,9 @@ const PlayPauseButton = ({
   }
 
   return (
-    <div className="text-center text-md-left">
-      <div className="btn btn-primary btn-rounded-circle btn" onClick={handlePlayClick}>
-        <ButtonIcon playing={state.playing} playingId={state.id} id={id}/>
-      </div>  
-    </div>  
+    <div className="btn btn-primary btn-rounded-circle btn" onClick={handlePlayClick}>
+      <ButtonIcon playing={state.playing} playingId={state.id} id={id}/>
+    </div>    
   )
 
 }
