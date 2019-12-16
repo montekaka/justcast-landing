@@ -44,7 +44,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, url, duration, playe
             maxvalue={duration}/> : 
           <div className="simple-player-container">
             <div className="simple-player-artwork">
-              <img src={artwork ? artwork : "http://download.randgad.com/images/RandGadArt.jpg"} alt="Generic placeholder image"/>
+              <img src={artwork ? artwork : "http://download.randgad.com/images/RandGadArt.jpg"} />
             </div>
             <div className="simple-player-body">
               <div className="main-content">

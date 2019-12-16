@@ -50,7 +50,7 @@ const Podcast = (props) => {
       setLatestEpisode(data.audioposts[0]);
       console.log(err);
     })
-  }, [])
+  }, [id])
 
   const handlePlay = (id) => {
     const _ = state.audioposts.filter(audiopost => audiopost.id.toString() === id.toString());
