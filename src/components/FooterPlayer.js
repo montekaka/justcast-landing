@@ -3,7 +3,7 @@ import {Context as PlayerContext} from '../context/PlayerContext'
 import SimplePlayer from './players/SimplePlayer'
 
 const FooterPlayer = () => {
-  const {state, playPause, updateDuration, updateProgress, toggleSeeking, handleSeekChange} = useContext(PlayerContext);
+  const {state, playPause, updateDuration, updateProgress, toggleSeeking, handleSeekChange, toggleMinimizePlayer} = useContext(PlayerContext);
   let reactPlayer = null;
 
   const handleDuration = (duration) => {
@@ -33,12 +33,16 @@ const FooterPlayer = () => {
     }
   }
 
+  const handleMinimizePlayer = () => {
+    toggleMinimizePlayer();
+  }
+
   // useEffect(() => {
   //   console.log(reactPlayer)
   // }, [reactPlayer])
 
   if(state.hide === false) {
-    return (
+    return (      
       <footer className="footer mt-auto py-3 fixed-bottom bg-dark">
         <div className="container text-white">
           <SimplePlayer 
@@ -57,6 +61,8 @@ const FooterPlayer = () => {
             handleSeekMouseDown={handleSeekMouseDown}
             handleSliderChange={handleSliderChange}
             handlePlayerRef={handlePlayerRef}
+            handleMinimizePlayer={handleMinimizePlayer}
+            minimize={state.minimize}
           />
         </div>
       </footer>     
