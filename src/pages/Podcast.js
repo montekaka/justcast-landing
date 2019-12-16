@@ -5,7 +5,28 @@ import {Context as PlayerContext} from '../context/PlayerContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import JumbotronHero from './../components/JumbotronHero'
+import PageHeader from './../components/PageHeader'
 import EpisodeList from './../components/EpisodeList';
+
+const MoreEpisodes = ({handleMoreEpisodesClicked, totalNumberOfEpisodes, showingNumberOfEpisodes}) => {
+  if(totalNumberOfEpisodes > showingNumberOfEpisodes) {
+    return (
+      <section>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-9 col-lg-8 col-xl-7">            
+              <div className="btn btn-block btn-outline-gray-300 d-flex align-items-center" onClick={handleMoreEpisodesClicked}>
+                <span className="mx-auto">MORE EPISODES</span> <i className="fe fe-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>       
+    )
+  }
+  return null;
+}
+
 
 const Podcast = (props) => {
 
@@ -14,6 +35,7 @@ const Podcast = (props) => {
   
   const [latestEpisode, setLatestEpisode] = useState({})
   const [numberOfEpisodes, setNumberOfEpisodes] = useState(5)
+  //const [showingNumberOfEpisodes, setShowingNumberOfEpisodes] = useState(0)
   const id = props.match.params.id;
 
   useEffect(() => {
@@ -54,7 +76,8 @@ const Podcast = (props) => {
 
   return (
     <>
-      <JumbotronHero 
+      <PageHeader 
+        headerTitle={"LATEST EPISODE"}
         name={latestEpisode.name}
         id={latestEpisode.id}
         description={latestEpisode.description}
@@ -67,17 +90,11 @@ const Podcast = (props) => {
           artwork_url={state.show.artwork_url}
           handlePlay={handlePlay}
         />
-        <section>
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 col-md-9 col-lg-8 col-xl-7">            
-                <div className="btn btn-block btn-outline-gray-300 d-flex align-items-center" onClick={handleMoreEpisodesClicked}>
-                  <span className="mx-auto">MORE EPISODES</span> <i className="fe fe-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>         
+        <MoreEpisodes
+          handleMoreEpisodesClicked={handleMoreEpisodesClicked}
+          totalNumberOfEpisodes={state.audioposts.length}
+          showingNumberOfEpisodes={numberOfEpisodes}
+        />
       </div>     
     </>    
   )

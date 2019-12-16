@@ -30,9 +30,9 @@ const TopNavbars = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white">
         <div className="container-fluid">
-          <Link className="navbar-brand" id="navbar-text-color" to={`/shows/${state.show.id}/audioposts`}>
+          <Link className="navbar-brand" to={`/shows/${state.show.id}/audioposts`}>
             {state.show.name}
           </Link>
           <NavbarToggler onClick={toggle} />
