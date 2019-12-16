@@ -4,7 +4,6 @@ import {Context as PodcastContext} from '../context/PodcastContext'
 import {Context as PlayerContext} from '../context/PlayerContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
-import JumbotronHero from './../components/JumbotronHero'
 import PageHeader from './../components/PageHeader'
 import EpisodeList from './../components/EpisodeList';
 
@@ -54,7 +53,7 @@ const Podcast = (props) => {
   }, [])
 
   const handlePlay = (id) => {
-    const _ = state.audioposts.filter(audiopost => audiopost.id === id);
+    const _ = state.audioposts.filter(audiopost => audiopost.id.toString() === id.toString());
     if(_.length > 0) {
       const audiopost = _[0];
       const artwork = state.show.artwork_url;

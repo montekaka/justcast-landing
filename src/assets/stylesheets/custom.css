@@ -30,6 +30,10 @@
   margin-bottom: 200px;
 }
 
+.last-piece {
+  margin-bottom: 200px;
+}
+
 /* stylelint-disable selector-list-comma-newline-after */
 /* Simple player */
 .simple-player-container{

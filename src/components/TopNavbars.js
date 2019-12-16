@@ -32,7 +32,7 @@ const TopNavbars = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
         <div className="container-fluid">
-          <Link className="navbar-brand" to={`/shows/${state.show.id}/audioposts`}>
+          <Link className="navbar-brand" to={`/shows/${state.show.slug}/audioposts`}>
             {state.show.name}
           </Link>
           <NavbarToggler onClick={toggle} />
@@ -40,7 +40,7 @@ const TopNavbars = () => {
             <NavbarToggler onClick={toggle} >x</NavbarToggler>
             <Nav className="mr-auto ml-auto" navbar>
               <NavItem onClick={handleNavItemClicked}>
-                <NavLink to={`/shows/${state.show.id}/audioposts`} tag={Link}>Home</NavLink>
+                <NavLink to={`/shows/${state.show.slug}/audioposts`} tag={Link}>Home</NavLink>
               </NavItem>
               {/* <NavItem onClick={handleNavItemClicked}>
                 <NavLink to={`/shows/${state.show.id}/about_us`} tag={Link}>About us</NavLink>
