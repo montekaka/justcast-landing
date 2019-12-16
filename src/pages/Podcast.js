@@ -79,6 +79,8 @@ const Podcast = (props) => {
         headerTitle={"LATEST EPISODE"}
         name={latestEpisode.name}
         id={latestEpisode.id}
+        url={latestEpisode.url}
+        artwork={state.show.artwork_url}
         description={latestEpisode.description}
         audio_date={latestEpisode.audio_date}
         handlePlay={handlePlay}

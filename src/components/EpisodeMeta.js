@@ -21,7 +21,7 @@ const EpisodeMeta = ({artwork, showName, audio_date}) => {
         </h6>
     
     
-        <time className="font-size-sm text-muted" datetime={datetime}>
+        <time className="font-size-sm text-muted" dateTime={datetime}>
           Published on {englishDateString}
         </time>
     
