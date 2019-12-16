@@ -25,7 +25,7 @@ const Episodes = (props) => {
 
   return (
     <>
-      <SimplePageHeader title={state.show.name}/>
+      <SimplePageHeader title={state.show.name} bodyText="All Episodes"/>
       <div className="container player-container">
         <EpisodeList
           showId={id}
