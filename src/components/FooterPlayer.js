@@ -42,9 +42,8 @@ const FooterPlayer = () => {
   // }, [reactPlayer])
 
   if(state.hide === false) {
-    return (      
-      <footer className="footer mt-auto py-3 fixed-bottom bg-dark">
-        <div className="container text-white">
+    return (     
+        <div className="fixed-bottom">
           <SimplePlayer 
             audio_date={state.audio_date}
             artwork={state.artwork}
@@ -65,7 +64,6 @@ const FooterPlayer = () => {
             minimize={state.minimize}
           />
         </div>
-      </footer>     
     )
   }
   return null;

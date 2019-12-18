@@ -5,6 +5,12 @@ import { CustomInput, Form, FormGroup, Label, Progress } from 'reactstrap';
 
 var momentDurationFormatSetup = require("moment-duration-format");
 
+const MinimizePlayer = ({valuenow, maxvalue, handleMinimizePlayer}) => {
+  return (
+    <Progress value={valuenow} max={maxvalue} onClick={handleMinimizePlayer}/>
+  )
+}
+
 const PlayPauseButton = ({playing, handlPlayPauseClick}) => {
   if(playing === true) {
     return (
@@ -25,9 +31,72 @@ const PlayPauseButton = ({playing, handlPlayPauseClick}) => {
   )
 }
 
-const MinimizePlayer = ({valuenow, maxvalue, handleMinimizePlayer}) => {
+const MinimizePlayerButton = () => {
   return (
-    <Progress value={valuenow} max={maxvalue} onClick={handleMinimizePlayer}/>
+    <></
+  )
+}
+
+const FullPlayer = ({minimize, date, artwork, name, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer}) => {
+  return (
+    <div className="widget-player-container dark-html-widget-player">
+      <section className="widget-player-app">
+        <div className="artwork">
+          <img src={artwork ? artwork : "http://download.randgad.com/images/RandGadArt.jpg"} />
+        </div>
+        <div className="main">
+          <section className="podcast-name">
+              {date}
+          </section>
+          <section className="episode-name">
+              {name}
+          </section>
+          <section className="controls">
+            <div className="play-button">
+              <PlayPauseButton playing={playing} handlPlayPauseClick={handlPlayPauseClick} />              
+            </div>
+            <div className="miscellaneous">
+              <div className="player-progress-bar">                
+                <CustomInput 
+                  className="input-progress" 
+                  type="range" 
+                  value={playedSeconds}
+                  min={0}
+                  max={duration}
+                  step='any'
+                  onMouseDown={handleSeekMouseDown}
+                  onMouseUp={handleSeekMouseUp}
+                  onChange={handleSliderChange}
+                />
+                <Progress max={duration} value={playedSeconds} />
+              </div>          
+              <div className="buttons">            
+                <section className="time">
+                  <span>{moment.duration(Math.floor(playedSeconds), "seconds").format()}</span>
+                  <span>|</span>
+                  <span>{moment.duration(Math.floor(duration), "seconds").format()}</span>              
+                </section>
+              </div>
+            </div>            
+          </section>
+          <section className="menu">
+            <nav>
+              <a className="item">subscribe</a>
+              <a className="item">SHARE</a>
+              <a className="item">MORE INFO</a>
+            </nav>
+            <div className="power-by">
+            </div>
+          </section>
+        </div>
+        {
+          
+        }
+        <div className="minimize-button">
+          M
+        </div>
+      </section>
+    </div>    
   )
 }
 
@@ -38,46 +107,9 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, url, duration, playe
     return (    
       <>
         {
-          minimize ? <MinimizePlayer  
-            handleMinimizePlayer ={handleMinimizePlayer}
-            valuenow={playedSeconds} 
-            maxvalue={duration}/> : 
-          <div className="simple-player-container">
-            <div className="simple-player-artwork">
-              <img src={artwork ? artwork : "http://download.randgad.com/images/RandGadArt.jpg"} alt="podcast artwork"/>
-            </div>
-            <div className="simple-player-body">
-              <div className="main-content">
-                <div className="row-one">
-                  <h3 className="name">{name}</h3>
-                  <span className="date-string">{date}</span>
-                </div>              
-              </div>
-              <div className="player-control">
-                <PlayPauseButton playing={playing} handlPlayPauseClick={handlPlayPauseClick}/>
-                <div className="play-time">
-                  <div>{moment.duration(Math.floor(playedSeconds), "seconds").format()}</div><div>/</div><div>{moment.duration(Math.floor(duration), "seconds").format()}</div>
-                </div>
-              </div>
-              <CustomInput 
-                className="slider" 
-                type="range" 
-                id="footer-player-slider-bar"
-                value={playedSeconds}
-                min={0}
-                max={duration}
-                step='any'
-                onMouseDown={handleSeekMouseDown}
-                onMouseUp={handleSeekMouseUp}
-                onChange={handleSliderChange}
-                />
-            </div>
-            <div className="simple-player-min-handler" onClick={handleMinimizePlayer}>
-              min
-            </div>
-          </div>  
-        }
-      
+          minimize ? <MinimizePlayer  handleMinimizePlayer ={handleMinimizePlayer} valuenow={playedSeconds} maxvalue={duration}/> : 
+          <FullPlayer minimize={minimize} date={date} artwork={artwork} name={name} url={url} duration={duration} playedSeconds={playedSeconds} played={played} playing={playing} handleDuration={handleDuration} handleProgress={handleProgress} handlPlayPauseClick={handlPlayPauseClick} handleSliderChange={handleSliderChange} handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} handlePlayerRef={handlePlayerRef} handleMinimizePlayer={handleMinimizePlayer} />
+        }      
         <ReactPlayer url={url}
           className='react-player'
           width='0%'
