@@ -8,8 +8,8 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, url, duration, playe
     return (    
       <>
         {
-          minimize ? <MinimizePlayer  handleMinimizePlayer ={handleMinimizePlayer} valuenow={playedSeconds} maxvalue={duration}/> : 
-          <FullPlayer minimize={minimize} audio_date={audio_date} artwork={artwork} name={name} url={url} duration={duration} playedSeconds={playedSeconds} played={played} playing={playing} handleDuration={handleDuration} handleProgress={handleProgress} handlPlayPauseClick={handlPlayPauseClick} handleSliderChange={handleSliderChange} handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} handlePlayerRef={handlePlayerRef} handleMinimizePlayer={handleMinimizePlayer} />
+          minimize ? <MinimizePlayer handleMinimizePlayer ={handleMinimizePlayer} valuenow={playedSeconds} maxvalue={duration}/> : 
+          <FullPlayer progressBarIdName="footer-player-progressbar" minimize={minimize} audio_date={audio_date} artwork={artwork} name={name} url={url} duration={duration} playedSeconds={playedSeconds} played={played} playing={playing} handleDuration={handleDuration} handleProgress={handleProgress} handlPlayPauseClick={handlPlayPauseClick} handleSliderChange={handleSliderChange} handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} handlePlayerRef={handlePlayerRef} handleMinimizePlayer={handleMinimizePlayer} />
         }      
         <ReactPlayer url={url}
           className='react-player'

@@ -66,7 +66,7 @@ const FullPlayer = ({minimize, audio_date, artwork, name, url, duration, playedS
     </div>    
   )
 }
-  
+
 const PlayPauseButton = ({playing, handlPlayPauseClick}) => {
   if(playing === true) {
     return (
