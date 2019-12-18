@@ -7,7 +7,9 @@ var momentDurationFormatSetup = require("moment-duration-format");
 
 const MinimizePlayer = ({valuenow, maxvalue, handleMinimizePlayer}) => {
   return (
-    <Progress value={valuenow} max={maxvalue} onClick={handleMinimizePlayer}/>
+    <div className="footer-minimize-player">
+      <Progress value={valuenow} max={maxvalue} onClick={handleMinimizePlayer}/>
+    </div>    
   )
 }
 
@@ -35,7 +37,9 @@ const MinimizePlayerButton = ({handleMinimizePlayer}) => {
   if(handleMinimizePlayer) {
     return (
       <div onClick={handleMinimizePlayer}>
-        M
+        <svg className="bi bi-dash" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fillRule="evenodd" d="M5.5 10a.5.5 0 01.5-.5h8a.5.5 0 010 1H6a.5.5 0 01-.5-.5z" clipRule="evenodd"></path>
+        </svg>
       </div>
     )
   }
@@ -62,7 +66,8 @@ const FullPlayer = ({minimize, date, artwork, name, url, duration, playedSeconds
             </div>
             <div className="miscellaneous">
               <div className="player-progress-bar">                
-                <CustomInput 
+                <CustomInput
+                  id="footer-player-progressbar"
                   className="input-progress" 
                   type="range" 
                   value={playedSeconds}
@@ -93,12 +98,9 @@ const FullPlayer = ({minimize, date, artwork, name, url, duration, playedSeconds
             <div className="power-by">
             </div>
           </section>
-        </div>
-        {
-          
-        }
+        </div>       
         <div className="minimize-button">
-          <MinimizePlayerButton MinimizePlayerButton={MinimizePlayerButton}/>
+          <MinimizePlayerButton handleMinimizePlayer={handleMinimizePlayer}/>
         </div>
       </section>
     </div>    

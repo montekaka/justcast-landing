@@ -43,6 +43,11 @@
   justify-content: flex-start;
 }
 
+.footer-minimize-player {
+  background-color: #0c1824;
+  padding: 5px 20px;
+}
+
 .simple-player-container > div {
   flex: 1;
   padding: 10px;
