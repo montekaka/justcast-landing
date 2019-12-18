@@ -31,10 +31,15 @@ const PlayPauseButton = ({playing, handlPlayPauseClick}) => {
   )
 }
 
-const MinimizePlayerButton = () => {
-  return (
-    <></
-  )
+const MinimizePlayerButton = ({handleMinimizePlayer}) => {
+  if(handleMinimizePlayer) {
+    return (
+      <div onClick={handleMinimizePlayer}>
+        M
+      </div>
+    )
+  }
+  return null;
 }
 
 const FullPlayer = ({minimize, date, artwork, name, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer}) => {
@@ -93,7 +98,7 @@ const FullPlayer = ({minimize, date, artwork, name, url, duration, playedSeconds
           
         }
         <div className="minimize-button">
-          M
+          <MinimizePlayerButton MinimizePlayerButton={MinimizePlayerButton}/>
         </div>
       </section>
     </div>    
