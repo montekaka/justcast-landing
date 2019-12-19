@@ -6,14 +6,14 @@
 .widget-player-container {
   display: flex;
   background-color: #0c1824;
-/*   border-radius: 10px; */
+  border-radius: 10px;
 }
 
 .widget-player-app {
   display: flex;
   width: 100%;
   padding: 15px;
-/*   border-radius: 10px; */
+  border-radius: 10px;
   background-color: #30343c; 
   justify-content: space-start;
 }
