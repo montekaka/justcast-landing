@@ -4,7 +4,7 @@ import { CustomInput, Form, FormGroup, Label, Progress } from 'reactstrap';
 
 var momentDurationFormatSetup = require("moment-duration-format");
 
-const FullPlayer = ({minimize, audio_date, artwork, name, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, progressBarIdName}) => {
+const FullPlayer = ({widgetPlayer, minimize, audio_date, artwork, name, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, progressBarIdName}) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
 
   return (

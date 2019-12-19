@@ -10,6 +10,19 @@ const ButtonIcon = ({playing, playingId, id}) => {
 
 const PlayPauseButton = ({
   audio_date,
+  id, // currently playing
+  url,
+  name,
+  description,
+  artwork
+}) => {
+  return (
+    <SimplePlayerPlayPauseButton audio_date={audio_date} id={id} url={url} name={name} description={description} artwork={artwork}/>
+  )
+}
+
+const SimplePlayerPlayPauseButton = ({
+  audio_date,
   id,
   url,
   name,
@@ -36,7 +49,5 @@ const PlayPauseButton = ({
       <ButtonIcon playing={state.playing} playingId={state.id} id={id}/>
     </div>    
   )
-
 }
-
 export default PlayPauseButton;
