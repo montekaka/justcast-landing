@@ -12,16 +12,18 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_API_PROXY_SERVER_BASE_PATH 
 })
 
-app.get('/shows/:id/audioposts', function(request, response) {
-  console.log('Home page visited!');
-  const filePath = path.resolve(__dirname, './build', 'index.html');
+const filePath = path.resolve(__dirname, './build', 'index.html');
+
+app.get('/shows/:id/audioposts', function(request, response) {  
+  
   const id = request.params.id;
-  instance.get(`/shows/${id}/audioposts`)
+  instance.get(`/v1/shows/${id}/audioposts`)
   .then((res) => {
     const show = res.data.show;
     const title = show.name;
     const description = show.description ? show.description : "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
+    const keywords = show.keywords ? show.keywords : '';
     
     fs.readFile(filePath, 'utf8', function (err,data) {
       if (err) {
@@ -29,10 +31,14 @@ app.get('/shows/:id/audioposts', function(request, response) {
         return console.log(err);
       }
 
-      data = data.replace(/\$OG_TITLE/g, title);
-      data = data.replace(/\$OG_DESCRIPTION/g, description);
-      result = data.replace(/\$OG_IMAGE/g, img);
-      response.send(result);
+      data = data.replace(/\$DESCRIPTION/g, description);
+      data = data.replace(/\$KEYWORKDS/g, keywords);
+
+
+
+      
+
+      response.send(data);
     });
   })
   .catch((err) => {
@@ -43,14 +49,15 @@ app.get('/shows/:id/audioposts', function(request, response) {
 });
 
 app.get('/shows/:show_id/audioposts/:id', (request, response) => {
-  
+  const show_id = request.params.show_id;
+  const id = request.params.id;
+  instance.get(`/`)
 })
 
 
 app.use(express.static(path.resolve(__dirname, './build')));
 
 app.get('*', function(request, response) {
-  const filePath = path.resolve(__dirname, './build', 'index.html');
   response.sendFile(filePath);
 });
 
