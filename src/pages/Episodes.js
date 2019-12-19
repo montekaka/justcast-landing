@@ -22,19 +22,22 @@ const Episodes = (props) => {
     })
   }, [id])
 
+  if(state.show.id) {
+    return (
+      <>
+        <SimplePageHeader title={state.show.name} bodyText="All Episodes"/>
+        <div className="container player-container">
+          <EpisodeList
+            showId={id}
+            items={state.audioposts} 
+            artwork_url={state.show.artwork_url}
+          />
+        </div>
+      </>
+    )
+  }
 
-  return (
-    <>
-      <SimplePageHeader title={state.show.name} bodyText="All Episodes"/>
-      <div className="container player-container">
-        <EpisodeList
-          showId={id}
-          items={state.audioposts} 
-          artwork_url={state.show.artwork_url}
-        />
-      </div>
-    </>
-  )
+  return null;
 }
 
 export default Episodes;

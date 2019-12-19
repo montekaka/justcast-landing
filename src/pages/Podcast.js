@@ -54,31 +54,35 @@ const Podcast = (props) => {
     setNumberOfEpisodes(numberOfEpisodes + 5);
   }
 
-  return (
-    <>
-      <PageHeader 
-        headerTitle={"LATEST EPISODE"}
-        name={latestEpisode.name}
-        id={latestEpisode.id}
-        url={latestEpisode.url}
-        artwork={state.show.artwork_url}
-        description={latestEpisode.description}
-        audio_date={latestEpisode.audio_date}
-      />    
-      <div className="container player-container">
-        <EpisodeList
-          showId={id}
-          items={state.audioposts.slice(0, numberOfEpisodes)} 
-          artwork_url={state.show.artwork_url}
-        />
-        <MoreEpisodes
-          handleMoreEpisodesClicked={handleMoreEpisodesClicked}
-          totalNumberOfEpisodes={state.audioposts.length}
-          showingNumberOfEpisodes={numberOfEpisodes}
-        />
-      </div>     
-    </>    
-  )
+  if(state.show.id) {
+    return (
+      <>
+        <PageHeader 
+          headerTitle={"LATEST EPISODE"}
+          name={latestEpisode.name}
+          id={latestEpisode.id}
+          url={latestEpisode.url}
+          artwork={state.show.artwork_url}
+          description={latestEpisode.description}
+          audio_date={latestEpisode.audio_date}
+        />    
+        <div className="container player-container">
+          <EpisodeList
+            showId={id}
+            items={state.audioposts.slice(0, numberOfEpisodes)} 
+            artwork_url={state.show.artwork_url}
+          />
+          <MoreEpisodes
+            handleMoreEpisodesClicked={handleMoreEpisodesClicked}
+            totalNumberOfEpisodes={state.audioposts.length}
+            showingNumberOfEpisodes={numberOfEpisodes}
+          />
+        </div>     
+      </>    
+    )
+  }
+
+  return null;
 }
 
 export default Podcast

@@ -40,40 +40,44 @@ const Episode = (props) => {
     })
   }, [showId, id])
 
-  return (
-    <>
-      <PageHeader 
-        name={audiopost.name}
-        id={audiopost.id}
-        url={audiopost.url}
-        artwork={state.show.artwork_url}
-        audio_date={audiopost.audio_date}
-        description={audiopost.description}
-      />
-      <section className="pt-8 pt-md-11">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-10 col-lg-9 col-xl-8">
-              <h1 className="display-4 text-center">{audiopost.name}</h1>
-              <EpisodeMeta artwork={state.show.artwork_url ? state.show.artwork_url :  "http://download.randgad.com/images/RandGadArt.jpg"}
-                showName={state.show.name}
-                audio_date={audiopost.audio_date}
-              />                
+  if(audiopost.id) {
+    return (
+      <>
+        <PageHeader 
+          name={audiopost.name}
+          id={audiopost.id}
+          url={audiopost.url}
+          artwork={state.show.artwork_url}
+          audio_date={audiopost.audio_date}
+          description={audiopost.description}
+        />
+        <section className="pt-8 pt-md-11">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-10 col-lg-9 col-xl-8">
+                <h1 className="display-4 text-center">{audiopost.name}</h1>
+                <EpisodeMeta artwork={state.show.artwork_url ? state.show.artwork_url :  "http://download.randgad.com/images/RandGadArt.jpg"}
+                  showName={state.show.name}
+                  audio_date={audiopost.audio_date}
+                />                
+              </div>          
             </div>          
-          </div>          
-        </div>
-      </section>
-      <section className="pt-6 pt-md-8 last-piece">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
-              dangerouslySetInnerHTML={{__html: audiopost.description}}>
+          </div>
+        </section>
+        <section className="pt-6 pt-md-8 last-piece">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
+                dangerouslySetInnerHTML={{__html: audiopost.description}}>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </>
-  )
+        </section>
+      </>
+    )
+  }
+
+  return null;
 }
 
 export default Episode;

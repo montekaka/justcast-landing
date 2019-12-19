@@ -22,13 +22,16 @@ const PodcastAbout = (props) => {
     })
   }, [id])
 
-  return (
-    <>
-      <SimplePageHeader title="About our podcast" bodyText={state.show.name}/>
-      <SimplePageBody bodyText="Hello world...."/>
-    </>
-  )
+  if(state.show.id) {
+    return (
+      <>
+        <SimplePageHeader title="About our podcast" bodyText={state.show.name}/>
+        <SimplePageBody bodyText="Hello world...."/>
+      </>
+    )
+  }
 
+  return null;
 }
 
 export default PodcastAbout;
