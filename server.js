@@ -19,15 +19,19 @@ app.get('/shows/:id/audioposts', function(request, response) {
   instance.get(`/shows/${id}/audioposts`)
   .then((res) => {
     const show = res.data.show;
+    const title = show.name;
+    const description = show.description ? show.description : "Podcast power by JustCast";
+    const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     
     fs.readFile(filePath, 'utf8', function (err,data) {
       if (err) {
         // redirect to error page
         return console.log(err);
       }
-      result = data.replace(/\$OG_TITLE/g, show.name);
-      //result = data.replace(/\$OG_DESCRIPTION/g, "Home page description");
-      //result = data.replace(/\$OG_IMAGE/g, 'https://i.imgur.com/V7irMl8.png');
+
+      data = data.replace(/\$OG_TITLE/g, title);
+      data = data.replace(/\$OG_DESCRIPTION/g, description);
+      result = data.replace(/\$OG_IMAGE/g, img);
       response.send(result);
     });
   })
@@ -36,9 +40,11 @@ app.get('/shows/:id/audioposts', function(request, response) {
     console.log('error')
     response.redirect('/error')
   })
-
-
 });
+
+app.get('/shows/:show_id/audioposts/:id', (request, response) => {
+  
+})
 
 
 app.use(express.static(path.resolve(__dirname, './build')));
