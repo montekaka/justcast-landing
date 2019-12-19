@@ -95,9 +95,10 @@ const SingleWidgetPlayer = (props) => {
           id: audio.id,
           name: audio.name,
           audio_date: audio.audio_date,
-          url: 'http://download.randgad.com/shows/2019.12.15_RandGad_ep486.mp3'//audio.audio_url
+          url: audio.audio_url
         })
-      }      
+      }
+      //TODO - handle error
       console.log(err);
     })
   }, [showId, id])  

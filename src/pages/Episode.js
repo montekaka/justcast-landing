@@ -2,7 +2,6 @@ import React, {useEffect, useState, useContext} from "react";
 import {Context as PodcastContext} from '../context/PodcastContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
-
 import PageHeader from './../components/PageHeader'
 import EpisodeMeta from './../components/EpisodeMeta'
 
@@ -13,7 +12,6 @@ const getAudiopostById = (audioposts, id) => {
   }
   return null;
 }
-
 
 const Episode = (props) => {
   const id = props.match.params.id;
