@@ -21,8 +21,9 @@ app.get('/shows/:id/audioposts', function(request, response) {
 
     const show = res.data.show;
     const url = show.link;
-    const title = show.name;
-    const description = show.description ? show.description : "Podcast power by JustCast";
+    const title = `${show.name}`;
+    // const description = show.description ? show.description : "Podcast power by JustCast";
+    const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     const img_16 = show.artwork_url_16;
     const img_32 = show.artwork_url_32;
@@ -70,7 +71,8 @@ app.get('/shows/:show_id/audioposts/:id', (request, response) => {
     const show = res.data.show;
     const url = audiopost.link;
     const title = audiopost.name;
-    const description = audiopost.description ? show.description : "Podcast power by JustCast";
+    // const description = audiopost.description ? show.description : "Podcast power by JustCast";
+    const description = "Podcast power by JustCast";
     //TODO individual artwork per episode
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     const keywords = audiopost.keywords ? audiopost.keywords : '';
