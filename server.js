@@ -24,6 +24,11 @@ app.get('/shows/:id/audioposts', function(request, response) {
     const title = show.name;
     const description = show.description ? show.description : "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
+    const img_16 = show.artwork_url_16;
+    const img_32 = show.artwork_url_32;
+    const img_64 = show.artwork_url_64;
+    const img_256 = show.artwork_url_256;
+
     const keywords = show.keywords ? show.keywords : '';
     const twitter_hanlde = show.twitter_hanlde ? show.twitter_hanlde : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
@@ -34,10 +39,10 @@ app.get('/shows/:id/audioposts', function(request, response) {
       img,
       keywords,
       url,
-      img_16: img,
-      img_32: img,
-      img_64: img,
-      img_256: img,
+      img_16: img_16,
+      img_32: img_32,
+      img_64: img_64,
+      img_256: img_256,
       twitter_hanlde,
       apple_iutnes_app_id
     }
@@ -78,10 +83,10 @@ app.get('/shows/:show_id/audioposts/:id', (request, response) => {
       img,
       keywords,
       url,
-      img_16: img,
-      img_32: img,
-      img_64: img,
-      img_256: img,
+      img_16: img_16,
+      img_32: img_32,
+      img_64: img_64,
+      img_256: img_256,
       twitter_hanlde,
       apple_iutnes_app_id
     }
