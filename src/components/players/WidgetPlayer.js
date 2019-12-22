@@ -20,7 +20,9 @@ const WidgetPlayer = ({
   handleSeekMouseDown, 
   handleSeekMouseUp, 
   handlePlayerRef, 
-  handleMinimizePlayer
+  handleMinimizePlayer,
+  section,
+  handleSectionChange
 }) => {
   return (
     <>
@@ -34,7 +36,10 @@ const WidgetPlayer = ({
       handleDuration={handleDuration} handleProgress={handleProgress} 
       handlPlayPauseClick={handlPlayPauseClick} handleSliderChange={handleSliderChange} 
       handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} 
-      handlePlayerRef={handlePlayerRef}/>
+      handlePlayerRef={handlePlayerRef}
+      section={section}
+      handleSectionChange={handleSectionChange}
+      />
       <ReactPlayer url={url}
           className='react-player'
           width='0%'

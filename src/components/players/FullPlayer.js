@@ -11,7 +11,8 @@ const FullPlayer = ({
   artwork, name, url, duration, 
   playedSeconds, played, playing, handleDuration, 
   handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, 
-  handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, progressBarIdName}) => {
+  handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, progressBarIdName,
+  section, handleSectionChange}) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
 
   return (
@@ -25,7 +26,8 @@ const FullPlayer = ({
             date={date} name={name} playing={playing} handlPlayPauseClick={handlPlayPauseClick}
             progressBarIdName={progressBarIdName} playedSeconds={playedSeconds} duration={duration}
             handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} 
-            handleSliderChange={handleSliderChange}
+            handleSliderChange={handleSliderChange} section={section}
+            handleSectionChange={handleSectionChange}
           />
         </div>       
         <div className="minimize-button">

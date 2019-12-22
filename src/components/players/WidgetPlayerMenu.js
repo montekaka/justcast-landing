@@ -1,12 +1,24 @@
 import React from "react";
 
-const WidgetPlayerMenu = () => {
+const WidgetPlayerMenu = ({handleSectionChange}) => {
   return (
     <>
       <nav>
-        <div className="nav-item">Subscribe</div>
-        <div className="nav-item">SHARE</div>
-        <div className="nav-item">MORE INFO</div>
+        <div className="nav-item" onClick={
+          () => {
+            handleSectionChange('subscribe')
+          }
+        }>Subscribe</div>
+        <div className="nav-item" onClick={
+          () => {
+            handleSectionChange('share')
+          }
+        }>SHARE</div>
+        <div className="nav-item" onClick={
+          () => {
+            handleSectionChange('more_info')
+          }
+        }>MORE INFO</div>
       </nav>
       <div className="power-by"></div>
     </>    

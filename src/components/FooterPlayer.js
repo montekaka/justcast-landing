@@ -3,7 +3,8 @@ import {Context as PlayerContext} from '../context/PlayerContext'
 import SimplePlayer from './players/SimplePlayer'
 
 const FooterPlayer = () => {
-  const {state, playPause, updateDuration, updateProgress, toggleSeeking, handleSeekChange, toggleMinimizePlayer} = useContext(PlayerContext);
+  const {state, playPause, updateDuration, updateProgress, updateSection,
+    toggleSeeking, handleSeekChange, toggleMinimizePlayer} = useContext(PlayerContext);
   let reactPlayer = null;
 
   const handleDuration = (duration) => {
@@ -15,7 +16,7 @@ const FooterPlayer = () => {
   }
 
   const handleSliderChange = (event) => {
-    handleSeekChange(parseFloat(event.target.value));
+    handleSeekChange(parseFloat(event.target.value)); 
   }
 
   const handleSeekMouseUp = (e) => {
@@ -62,6 +63,8 @@ const FooterPlayer = () => {
             handlePlayerRef={handlePlayerRef}
             handleMinimizePlayer={handleMinimizePlayer}
             minimize={state.minimize}
+            section={state.section}
+            updateSection={updateSection}
           />
         </div>
     )

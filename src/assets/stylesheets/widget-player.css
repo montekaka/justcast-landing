@@ -93,6 +93,13 @@
   width: 100%;
 }
 
+.widget-player-container > .widget-player-app > .main > .controls > .miscellaneous > .buttons > .time {
+  display: flex;
+  flex-direction: row;
+  width: 60px;
+  justify-content: space-between;
+}
+
 .widget-player-container > .widget-player-app > .main > .controls > .miscellaneous > .buttons > .time > span {
   font-size: 10px;
   opacity: 0.55;

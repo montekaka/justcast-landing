@@ -27,6 +27,7 @@ const initState = {
   playedSeconds: 0,
   seeking: false,
   minimize: false,
+  section: 'control' //[control, subscribe, share, more_info]
 }
 
 
@@ -62,6 +63,10 @@ const SingleWidgetPlayer = (props) => {
   const handleSeekMouseUp = (e) => {
     toggleSeeking()
     reactPlayer.seekTo(audiopost.playedSeconds);
+  }
+
+  const handleSectionChange = (sectionName) => {
+    setAudiopost({...audiopost, section: sectionName});
   }
 
   const handleSeekMouseDown = (event) => {    
@@ -123,6 +128,8 @@ const SingleWidgetPlayer = (props) => {
         handleSliderChange={handleSliderChange}
         handlePlayerRef={handlePlayerRef}
         minimize={audiopost.minimize}
+        section={audiopost.section}
+        handleSectionChange={handleSectionChange}
       />
     </>
   )

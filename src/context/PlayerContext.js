@@ -16,6 +16,7 @@ const initState = {
   playedSeconds: 0,
   seeking: false,
   minimize: false,
+  section: "control" // [control, subscribe, share, more_info]
 }
 
 const playerReducer = (state, action) => {
@@ -39,6 +40,8 @@ const playerReducer = (state, action) => {
     case 'toggle_minimize':
       return {...state, minimize: !state.minimize}
     case 'seek_change':
+      return {...state, ...action.payload}
+    case 'update_section':
       return {...state, ...action.payload}
     case 'reset': 
       return {...initState}
@@ -100,6 +103,12 @@ const toggleMinimizePlayer = dispatch => {
   }
 }
 
+const updateSection = dispatch => {
+  return (status) => {
+    dispatch({type: 'update_section', payload: {section: status}})
+  }
+}
+
 // const hideFooterBar = dispatch => {
 //   return () => {
 //     dispatch({type: 'hide_footer_bar'});
@@ -115,7 +124,8 @@ export const {Provider, Context} = createDataContext(
     updateProgress,
     toggleSeeking,
     handleSeekChange,
-    toggleMinimizePlayer
+    toggleMinimizePlayer,
+    updateSection
   },
   initState
 )
