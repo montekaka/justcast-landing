@@ -31,7 +31,7 @@ const FullPlayer = ({
           />
         </div>       
         <div className="minimize-button">
-          <MinimizePlayerButton handleMinimizePlayer={handleMinimizePlayer}/>
+          <MinimizePlayerButton handleMinimizePlayer={handleMinimizePlayer} handleSectionChange={handleSectionChange} section={section}/>
         </div>
       </section>
     </div>    

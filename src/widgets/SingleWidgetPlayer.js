@@ -26,16 +26,15 @@ const initState = {
   played: 0, // in percentage
   playedSeconds: 0,
   seeking: false,
-  minimize: false,
-  section: 'control' //[control, subscribe, share, more_info]
+  minimize: false,  
 }
-
 
 const SingleWidgetPlayer = (props) => {
   let reactPlayer = null;
   const id = props.match.params.id;
   const showId = props.match.params.show_id;  
   const [audiopost, setAudiopost] = useState(initState);
+  const [section, setSection] = useState('control') //[control, subscribe, share, more_info]
 
 
   const toggleSeeking = () => {
@@ -65,10 +64,6 @@ const SingleWidgetPlayer = (props) => {
     reactPlayer.seekTo(audiopost.playedSeconds);
   }
 
-  const handleSectionChange = (sectionName) => {
-    setAudiopost({...audiopost, section: sectionName});
-  }
-
   const handleSeekMouseDown = (event) => {    
     toggleSeeking()
   }  
@@ -83,12 +78,14 @@ const SingleWidgetPlayer = (props) => {
     justcastApi.get(`/v1/shows/${showId}/audioposts/${id}`)
     .then((res) => {
       const data = res.data;
+      
       setAudiopost({
         ...audiopost, 
         id: data.id,
         name: data.name,
         audio_date: data.audio_date,
-        url: data.audio_url
+        url: data.audio_url,
+        artwork: data.show.artwork_url_256
       })
     })
     .catch((err) => {
@@ -108,31 +105,34 @@ const SingleWidgetPlayer = (props) => {
     })
   }, [showId, id])  
 
-  return (
-    <>
-      <WidgetPlayer
-        progressBarIdName={id}
-        audio_date={audiopost.audio_date}
-        artwork={audiopost.artwork}
-        url={audiopost.url}
-        name={audiopost.name}
-        playing={audiopost.playing}
-        played={audiopost.played}
-        playedSeconds={audiopost.playedSeconds}
-        duration={audiopost.duration}
-        handleDuration={handleDuration} 
-        handleProgress={handleProgress}
-        handlPlayPauseClick={playPause}
-        handleSeekMouseUp={handleSeekMouseUp}
-        handleSeekMouseDown={handleSeekMouseDown}
-        handleSliderChange={handleSliderChange}
-        handlePlayerRef={handlePlayerRef}
-        minimize={audiopost.minimize}
-        section={audiopost.section}
-        handleSectionChange={handleSectionChange}
-      />
-    </>
-  )
+  if(audiopost.id) {
+    return (
+      <>
+        <WidgetPlayer
+          progressBarIdName={id}
+          audio_date={audiopost.audio_date}
+          artwork={audiopost.artwork}
+          url={audiopost.url}
+          name={audiopost.name}
+          playing={audiopost.playing}
+          played={audiopost.played}
+          playedSeconds={audiopost.playedSeconds}
+          duration={audiopost.duration}
+          handleDuration={handleDuration} 
+          handleProgress={handleProgress}
+          handlPlayPauseClick={playPause}
+          handleSeekMouseUp={handleSeekMouseUp}
+          handleSeekMouseDown={handleSeekMouseDown}
+          handleSliderChange={handleSliderChange}
+          handlePlayerRef={handlePlayerRef}
+          minimize={audiopost.minimize}
+          section={section}
+          handleSectionChange={setSection}
+        />
+      </>
+    )
+  }
+  return null;
 }
 
 export default SingleWidgetPlayer
