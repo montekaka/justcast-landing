@@ -49,7 +49,10 @@ const TopNavbars = () => {
                 <NavLink to={`/shows/${state.show.slug}/episodes`} tag={Link}>Episodes</NavLink>
               </NavItem>              
             </Nav>
-            <a className="navbar-btn btn btn-sm btn-primary lift ml-auto" href="https://themes.getbootstrap.com/product/landkit/" target="_blank">
+            <a
+              className="navbar-btn btn btn-sm btn-primary lift ml-auto" 
+              href={`${process.env.REACT_APP_API_PROXY_SERVER_BASE_PATH}/shows/${state.show.slug}/audioposts.rss`}
+              target="_blank">
               RSS feed
             </a>            
           </Collapse>
