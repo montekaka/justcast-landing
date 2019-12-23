@@ -3,12 +3,14 @@ import moment from 'moment'
 
 import MinimizePlayerButton from './MinimizePlayerButton'
 import WidgetPlayerControl from './WidgetPlayerControl'
+import WidgetPlayerMoreInfo from './WidgetPlayerMoreInfo'
+
 
 var momentDurationFormatSetup = require("moment-duration-format");
 
 const FullPlayer = ({
   minimize, audio_date, 
-  artwork, name, url, duration, 
+  artwork, name, description, url, duration, 
   playedSeconds, played, playing, handleDuration, 
   handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, 
   handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, progressBarIdName,
@@ -27,8 +29,11 @@ const FullPlayer = ({
             progressBarIdName={progressBarIdName} playedSeconds={playedSeconds} duration={duration}
             handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} 
             handleSliderChange={handleSliderChange} section={section}
-            handleSectionChange={handleSectionChange}
+            handleSectionChange={handleSectionChange}            
           />
+          <WidgetPlayerMoreInfo section={section === 'subscribe'} title='Subscribe' />
+          <WidgetPlayerMoreInfo section={section === 'share'} title='Share' shareInputs={[{'label':"Embed", 'url':"http://www.helloworld.com"}]}/>
+          <WidgetPlayerMoreInfo section={section === 'more_info'} title={name} description={description}/>
         </div>       
         <div className="minimize-button">
           <MinimizePlayerButton handleMinimizePlayer={handleMinimizePlayer} handleSectionChange={handleSectionChange} section={section}/>

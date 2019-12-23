@@ -50,8 +50,9 @@ const FooterPlayer = () => {
             artwork={state.artwork}
             url={state.url} 
             name={state.name} 
+            description={state.description}
             playing={state.playing}
-            played={state.played}
+            played={state.played}            
             playedSeconds={state.playedSeconds}
             duration={state.duration}
             handleDuration={handleDuration} 

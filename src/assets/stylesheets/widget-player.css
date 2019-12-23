@@ -30,13 +30,14 @@
   width: 20px;
 }
 
-.widget-player-container > .widget-player-app > .main  {
+.widget-player-container > .widget-player-app > .main {
   display: flex;
   height: 150px;
   width: 100%;
   min-width: 0;
   padding: 0 10px;
   flex-direction: column;
+  overflow:auto;
 }
 
 .widget-player-container > .widget-player-app > .main > .podcast-name  {  
@@ -144,7 +145,6 @@
 
 .widget-player-container > .widget-player-app > .main > .info > .body > .inputs > .input {
   display: flex;
-  background-color: grey;
   flex-direction: row;
   align-items: center;
   align-content: space-around;
@@ -160,6 +160,8 @@
 
 .widget-player-container > .widget-player-app > .main > .info > .body > .inputs > .input > input {
   width: 100%;
+  height: 24px;
+  opacity: 80%;
 }
 
 .widget-player-container > .widget-player-app > .main > .info > .body > .icons-with-label {

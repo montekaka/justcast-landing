@@ -10,6 +10,7 @@ const WidgetPlayerControl = ({
     handleSeekMouseDown, handleSeekMouseUp, handleSliderChange,
     section, handleSectionChange
   }) => {
+
   if(section === 'control') {
     return (
       <>
@@ -54,7 +55,6 @@ const WidgetPlayerControl = ({
       </>
     )
   } 
-  
   return null;
 }
 

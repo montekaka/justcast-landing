@@ -78,11 +78,11 @@ const SingleWidgetPlayer = (props) => {
     justcastApi.get(`/v1/shows/${showId}/audioposts/${id}`)
     .then((res) => {
       const data = res.data;
-      
       setAudiopost({
         ...audiopost, 
         id: data.id,
         name: data.name,
+        description: data.description,
         audio_date: data.audio_date,
         url: data.audio_url,
         artwork: data.show.artwork_url_256
@@ -114,6 +114,7 @@ const SingleWidgetPlayer = (props) => {
           artwork={audiopost.artwork}
           url={audiopost.url}
           name={audiopost.name}
+          description={audiopost.description}
           playing={audiopost.playing}
           played={audiopost.played}
           playedSeconds={audiopost.playedSeconds}

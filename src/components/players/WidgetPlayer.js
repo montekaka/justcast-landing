@@ -8,6 +8,7 @@ const WidgetPlayer = ({
   audio_date, 
   artwork, 
   name, 
+  description,
   url, 
   duration, 
   playedSeconds, 
@@ -31,7 +32,8 @@ const WidgetPlayer = ({
       progressBarIdName={progressBarIdName} 
       minimize={minimize} 
       audio_date={audio_date} 
-      artwork={artwork} name={name} url={url} duration={duration} 
+      description={description}
+      artwork={artwork} name={name} url={url} duration={duration}       
       playedSeconds={playedSeconds} played={played} playing={playing} 
       handleDuration={handleDuration} handleProgress={handleProgress} 
       handlPlayPauseClick={handlPlayPauseClick} handleSliderChange={handleSliderChange} 
