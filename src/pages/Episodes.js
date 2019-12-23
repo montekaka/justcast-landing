@@ -29,7 +29,7 @@ const Episodes = (props) => {
         <div className="container player-container">
           <EpisodeList
             showId={id}
-            items={state.audioposts} 
+            items={state.audioposts}
             artwork_url={state.show.artwork_url}
           />
         </div>

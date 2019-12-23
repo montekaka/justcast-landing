@@ -44,30 +44,32 @@ const FooterPlayer = () => {
 
   if(state.hide === false) {
     return (     
-        <div className="fixed-bottom">
-          <SimplePlayer 
-            audio_date={state.audio_date}
-            artwork={state.artwork}
-            url={state.url} 
-            name={state.name} 
-            description={state.description}
-            playing={state.playing}
-            played={state.played}            
-            playedSeconds={state.playedSeconds}
-            duration={state.duration}
-            handleDuration={handleDuration} 
-            handleProgress={handleProgress}
-            handlPlayPauseClick={playPause}
-            handleSeekMouseUp={handleSeekMouseUp}
-            handleSeekMouseDown={handleSeekMouseDown}
-            handleSliderChange={handleSliderChange}
-            handlePlayerRef={handlePlayerRef}
-            handleMinimizePlayer={handleMinimizePlayer}
-            minimize={state.minimize}
-            section={state.section}
-            updateSection={updateSection}
-          />
-        </div>
+      <div className="fixed-bottom">
+        <SimplePlayer 
+          audio_date={state.audio_date}
+          artwork={state.artwork}
+          url={state.url} 
+          embedUrl={state.embedUrl}
+          shareUrl={state.shareUrl}
+          name={state.name} 
+          description={state.description}          
+          playing={state.playing}
+          played={state.played}            
+          playedSeconds={state.playedSeconds}
+          duration={state.duration}
+          handleDuration={handleDuration} 
+          handleProgress={handleProgress}
+          handlPlayPauseClick={playPause}
+          handleSeekMouseUp={handleSeekMouseUp}
+          handleSeekMouseDown={handleSeekMouseDown}
+          handleSliderChange={handleSliderChange}
+          handlePlayerRef={handlePlayerRef}
+          handleMinimizePlayer={handleMinimizePlayer}
+          minimize={state.minimize}
+          section={state.section}
+          updateSection={updateSection}
+        />
+      </div>
     )
   }
   return null;

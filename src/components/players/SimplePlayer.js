@@ -3,13 +3,21 @@ import ReactPlayer from 'react-player'
 import MinimizePlayer from './MinimizePlayer'
 import FullPlayer from './FullPlayer'
 
-const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, section, updateSection}) => {
+const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, section, updateSection, embedUrl, shareUrl}) => {
   if(url) {    
     return (    
       <>
         {
           minimize ? <MinimizePlayer handleMinimizePlayer ={handleMinimizePlayer} valuenow={playedSeconds} maxvalue={duration}/> : 
-          <FullPlayer progressBarIdName="footer-player-progressbar" minimize={minimize} audio_date={audio_date} artwork={artwork} description={description} name={name} url={url} duration={duration} playedSeconds={playedSeconds} played={played} playing={playing} handleDuration={handleDuration} handleProgress={handleProgress} handlPlayPauseClick={handlPlayPauseClick} handleSliderChange={handleSliderChange} handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} handlePlayerRef={handlePlayerRef} handleMinimizePlayer={handleMinimizePlayer} section={section} handleSectionChange={updateSection}/>
+          <FullPlayer progressBarIdName="footer-player-progressbar" minimize={minimize} audio_date={audio_date} 
+            artwork={artwork} description={description} name={name} url={url} duration={duration} 
+            playedSeconds={playedSeconds} played={played} playing={playing} handleDuration={handleDuration} 
+            handleProgress={handleProgress} handlPlayPauseClick={handlPlayPauseClick} handleSliderChange={handleSliderChange} 
+            handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} 
+            handlePlayerRef={handlePlayerRef} handleMinimizePlayer={handleMinimizePlayer} 
+            section={section} handleSectionChange={updateSection}
+            embedUrl={embedUrl} shareUrl={shareUrl}
+          />
         }      
         <ReactPlayer url={url}
           className='react-player'

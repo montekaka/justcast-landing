@@ -32,7 +32,9 @@ const initState = {
 const SingleWidgetPlayer = (props) => {
   let reactPlayer = null;
   const id = props.match.params.id;
-  const showId = props.match.params.show_id;  
+  const showId = props.match.params.show_id;
+  const embedUrl = `${process.env.REACT_APP_BASE_PATH}/widget/${showId}/audioposts/${id}`
+  const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`    
   const [audiopost, setAudiopost] = useState(initState);
   const [section, setSection] = useState('control') //[control, subscribe, share, more_info]
 
@@ -113,6 +115,8 @@ const SingleWidgetPlayer = (props) => {
           audio_date={audiopost.audio_date}
           artwork={audiopost.artwork}
           url={audiopost.url}
+          embedUrl={embedUrl}
+          shareUrl={shareUrl}
           name={audiopost.name}
           description={audiopost.description}
           playing={audiopost.playing}

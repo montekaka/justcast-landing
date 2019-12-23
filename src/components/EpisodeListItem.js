@@ -19,6 +19,8 @@ const EpisodeListItem = ({showId, id, name, description, audio_date, url, artwor
   const date = moment(audio_date).format('YYYY-MM-DD');
   const html = description ? parse(description) : null;
   const pageUrl = `/shows/${showId}/audioposts/${id}`
+  const embedUrl = `${process.env.REACT_APP_BASE_PATH}/widget/${showId}/audioposts/${id}`
+  const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`
 
   return (
     <Card className="col-12 card-border border-primary shadow-light-lg media-card-item" data-aos="fade-up">
@@ -36,7 +38,7 @@ const EpisodeListItem = ({showId, id, name, description, audio_date, url, artwor
                 <span className="date-string">{date}</span>
               </div>
               <div className="player-control">
-                <PlayPauseButton className="play-control-button" audio_date={audio_date} id={id} url={url} name={name} artwork={artwork_url} description={description}/>                
+                <PlayPauseButton className="play-control-button" audio_date={audio_date} id={id} url={url} name={name} artwork={artwork_url} description={description} embedUrl={embedUrl} shareUrl={shareUrl}/>
               </div>              
               <div className="row-two">
                 <RenderHTML description={description}/>

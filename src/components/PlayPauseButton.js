@@ -14,10 +14,13 @@ const PlayPauseButton = ({
   url,
   name,
   description,
-  artwork
+  artwork,
+  embedUrl,
+  shareUrl  
 }) => {
   return (
-    <SimplePlayerPlayPauseButton audio_date={audio_date} id={id} url={url} name={name} description={description} artwork={artwork}/>
+    <SimplePlayerPlayPauseButton audio_date={audio_date} id={id} url={url} name={name} 
+    description={description} artwork={artwork} embedUrl={embedUrl} shareUrl={shareUrl}/>
   )
 }
 
@@ -27,17 +30,19 @@ const SimplePlayerPlayPauseButton = ({
   url,
   name,
   description,
-  artwork
+  artwork,
+  embedUrl,
+  shareUrl
 }) => {
   const {state, add, playPause} = useContext(PlayerContext);
 
   const handlePlayClick = () => {
     if(!state.id) {
       // new
-      add({audio_date,id,url,name,description,artwork})
+      add({audio_date,id,url,name,description,artwork, embedUrl, shareUrl})
     } else {
       if(state.id !== id) {
-        add({audio_date,id,url,name,description,artwork});
+        add({audio_date,id,url,name,description,artwork, embedUrl, shareUrl});
       } else {
         playPause();
       }

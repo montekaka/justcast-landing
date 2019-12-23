@@ -14,8 +14,9 @@ const FullPlayer = ({
   playedSeconds, played, playing, handleDuration, 
   handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, 
   handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, progressBarIdName,
-  section, handleSectionChange}) => {
+  section, handleSectionChange, embedUrl, shareUrl}) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
+  const embedCode = `<iframe src='${embedUrl}' width='100%' height='180' frameborder='0' scrolling='no' seamless='true' style='width:100%; height:180px;'></iframe>`
 
   return (
     <div className="widget-player-container dark-html-widget-player">
@@ -32,7 +33,9 @@ const FullPlayer = ({
             handleSectionChange={handleSectionChange}            
           />
           <WidgetPlayerMoreInfo section={section === 'subscribe'} title='Subscribe' />
-          <WidgetPlayerMoreInfo section={section === 'share'} title='Share' shareInputs={[{'label':"Embed", 'url':"http://www.helloworld.com"}]}/>
+          <WidgetPlayerMoreInfo section={section === 'share'} 
+            title='Share' 
+            shareInputs={[{'label':"Embed", 'url': embedCode}, {'label':"Share", 'url':shareUrl}]}/>
           <WidgetPlayerMoreInfo section={section === 'more_info'} title={name} description={description}/>
         </div>       
         <div className="minimize-button">

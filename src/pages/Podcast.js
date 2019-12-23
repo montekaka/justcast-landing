@@ -38,7 +38,7 @@ const Podcast = (props) => {
   useEffect(() => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
-      const data = res.data;
+      const data = res.data;      
       add(data)
       setLatestEpisode(data.audioposts[0]);
     })
@@ -65,6 +65,8 @@ const Podcast = (props) => {
           artwork={state.show.artwork_url}
           description={latestEpisode.description}
           audio_date={latestEpisode.audio_date}
+          embedUrl={`${process.env.REACT_APP_BASE_PATH}/widget/${id}/audioposts/${latestEpisode.id}`}
+          shareUrl={`${process.env.REACT_APP_BASE_PATH}/shows/${id}/audioposts/${latestEpisode.id}`}
         />    
         <div className="container player-container">
           <EpisodeList
