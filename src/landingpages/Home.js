@@ -3,7 +3,9 @@ import LandingPageHero from './../components/LandingPageHero'
 
 const Home = () => {
   return (
-    <></>
+    <>
+      <LandingPageHero/>
+    </>
   )
 }
 

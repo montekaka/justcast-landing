@@ -44,8 +44,11 @@ const LandingPageNavbars = ({navItems}) => {
             <NavbarToggler onClick={toggle} >x</NavbarToggler>
             <Nav className="mr-auto ml-auto" navbar>
               {_navItems}           
-            </Nav>                     
-          </Collapse>           
+            </Nav>
+            <a className="navbar-btn btn btn-sm btn-primary lift ml-auto" href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`} target="_blank">
+              Sign in
+            </a>
+          </Collapse>
         </div>
       </nav>
     </div>
