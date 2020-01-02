@@ -10,7 +10,6 @@ const WidgetPlayerControl = ({
     handleSeekMouseDown, handleSeekMouseUp, handleSliderChange,
     section, handleSectionChange
   }) => {
-
   if(section === 'control') {
     return (
       <>
@@ -22,7 +21,7 @@ const WidgetPlayerControl = ({
         </section>
         <section className="controls">
           <div className="play-button">
-            <WidgetPlayerPlayPauseButton playing={playing} handlPlayPauseClick={handlPlayPauseClick} />              
+            <WidgetPlayerPlayPauseButton playing={playing} handlPlayPauseClick={handlPlayPauseClick} loading={duration ? false : true}/>              
           </div>
           <div className="miscellaneous">
             <div className="player-progress-bar">                
