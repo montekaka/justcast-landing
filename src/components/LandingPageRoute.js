@@ -11,9 +11,7 @@ const LandingPageRoute = ({ component: Component, ...rest }) => {
     <Route {...rest} render={(props) => (
       <>
         <LandingPageNavbars navItems={navItems}/>
-        <div className="main-content">
-          <Component {...props} />
-        </div>
+        <Component {...props} />
       </>
     )} />
   )
