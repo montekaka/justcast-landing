@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from 'react-router-dom'
 import LandingPageNavbars from './LandingPageNavbars'
+import LandingPageFooter from './LandingPageFooter'
 
 const navItems = [
   {label:'Home', url: "/"},
@@ -12,6 +13,7 @@ const LandingPageRoute = ({ component: Component, ...rest }) => {
       <>
         <LandingPageNavbars navItems={navItems}/>
         <Component {...props} />
+        <LandingPageFooter/>
       </>
     )} />
   )
