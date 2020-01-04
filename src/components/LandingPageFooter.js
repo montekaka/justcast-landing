@@ -98,6 +98,7 @@ const LandingPageFooter = () => {
         </div>
         <div className="row">
           <div className="col-12">
+            <br/>
             <p>© {(new Date()).getFullYear()} JustCast All rights reserved.</p>
           </div>          
         </div>
