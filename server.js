@@ -2,11 +2,13 @@ const axios = require('axios');
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
+const logger = require('morgan');
 const path = require('path');
 const fs = require('fs')
 const SEOHelpers = require('./lib/index')
 
 dotenv.config();
+app.use(logger('dev'));
 const port = process.env.PORT || 5000;
 
 const instance = axios.create({
@@ -109,9 +111,7 @@ app.get('/shows/:show_id/audioposts/:id', (request, response) => {
 })
 
 
-app.use(express.static(path.resolve(__dirname, './build')));
-
-app.get('*', function(request, response) {
+app.get('/', (request, response) => {
   const meta = {
     title: "JustCast",
     description: "Turns your Dropbox into Podcast Hosting",
@@ -125,15 +125,21 @@ app.get('*', function(request, response) {
     twitter_hanlde: "@thejustcast",
     apple_iutnes_app_id: ""
   }
-
-  // response.sendFile(filePath);
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
     }
     const result = SEOHelpers.set(meta, data)
     response.send(result);
-  });     
+  });   
+})
+
+app.use(express.static(path.resolve(__dirname, './build')));
+
+app.get('*', function(request, response) {  
+  
+  response.sendFile(filePath);
+    
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
