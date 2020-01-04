@@ -112,7 +112,28 @@ app.get('/shows/:show_id/audioposts/:id', (request, response) => {
 app.use(express.static(path.resolve(__dirname, './build')));
 
 app.get('*', function(request, response) {
-  response.sendFile(filePath);
+  const meta = {
+    title: "JustCast",
+    description: "Turns your Dropbox into Podcast Hosting",
+    img: "",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "",    
+    keywords: "Podcasting, Dropbox",
+    url: "https://www.justcast.com",
+    twitter_hanlde: "@thejustcast",
+    apple_iutnes_app_id: ""
+  }
+
+  // response.sendFile(filePath);
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });     
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
