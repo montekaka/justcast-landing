@@ -1,10 +1,7 @@
 import React from "react";
-import logo1 from './../assets/img/brands/thesweetsetup.png'
+import logo1 from '../../assets/img/brands/thesweetsetup.png'
 
 const Testimonial = () => {
-  const divstyle = {
-    backgroundImage: `url(${logo1})`,
-  }
 
   return (
     <div className="col-12 d-flex">    
@@ -31,7 +28,7 @@ const Testimonial = () => {
 
 const LandingPageTestimonials = () => {
   return (
-    <section className="pt-10 pt-md-12">
+    <section className="pt-10 pt-md-12 pricing-testimonials">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 text-center">
@@ -40,7 +37,7 @@ const LandingPageTestimonials = () => {
         </div>
         <div className="row">
           <Testimonial/>
-        </div>  
+        </div>
       </div>
     </section>
   )

@@ -1,5 +1,5 @@
 import React from "react";
-import PodcastSvg from "./../assets/img/illustrations/podcast.svg"
+import PodcastSvg from "../../assets/img/illustrations/podcast.svg"
 
 const LandingPageHero = () => {
 

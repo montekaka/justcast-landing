@@ -1,8 +1,9 @@
 import React from "react";
-import LandingPageHero from './../components/LandingPageHero'
-import LandingPageAbout from './../components/LandingPageAbout'
-import LandingPageTestimonials from './../components/LandingPageTestimonials'
-import LandingPagePricing from './../components/LandingPagePricing'
+import LandingPageHero from './../components/landingpages/LandingPageHero'
+import LandingPageAbout from './../components/landingpages/LandingPageAbout'
+import LandingPageTestimonials from './../components/landingpages/LandingPageTestimonials'
+import LandingPagePricing from './../components/landingpages/LandingPagePricing'
+import LandingPageDashboardDemo from './../components/landingpages/LandingPageDashboardDemo'
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
       <LandingPageHero/>
       <LandingPageAbout/>
       <LandingPageTestimonials/>
-      <LandingPagePricing/>
+      <LandingPageDashboardDemo/>
+      <LandingPagePricing/>      
     </>
   )
 }

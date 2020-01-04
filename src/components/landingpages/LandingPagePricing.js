@@ -20,6 +20,9 @@ const LandingPagePricing = () => {
             <PriceCard title="PRO PLAN" periodLabel="per year" price={50} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Unlimited* Items in RSS feed', 'All Episodes stats', 'Free cancelation']}/>
           </div>          
         </div>
+        <div className="row">
+          <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p>
+        </div>
       </div>
     </section>
   )
