@@ -14,7 +14,7 @@ const Testimonial = () => {
         <a className="card-meta" href="https://thesweetsetup.com/quick-tip-create-a-personal-podcast-feed-from-dropbox-with-justcast/">
           <hr className="card-meta-divider"/>
           <div className="avatar avatar-sm mr-2">
-            <img src={logo1} alt="the-sweet-setup-logo" class="avatar-img rounded-circle"/>
+            <img src={logo1} alt="the-sweet-setup-logo" className="avatar-img rounded-circle"/>
           </div>        
           <h6 className="text-uppercase text-muted mr-2 mb-0">
             The Sweet Setup

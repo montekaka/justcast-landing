@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import fbicon from './../assets/img/icons/social/facebook.svg'
 import twtricon from './../assets/img/icons/social/twitter.svg'
 
@@ -36,9 +37,9 @@ const LandingPageFooter = () => {
 
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li className="mb-3">
-                <a href="#!" className="text-reset">
+                <Link to="/features-pricing" className="text-reset">
                   Features &#38; Pricing
-                </a>
+                </Link>
               </li>
               <li className="mb-3">
                 <a href="#!" className="text-reset">

@@ -8,6 +8,7 @@ import Episodes from './../pages/Episodes'
 import PodcastAbout from './../pages/PodcastAbout'
 import Error from './../pages/Error'
 import Home from './../landingpages/Home'
+import Pricing from './../landingpages/Pricing'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
 
 const MainRoutes = () => {
@@ -19,6 +20,7 @@ const MainRoutes = () => {
       <PodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={Episode}/>
       <Route exact path="/widget/:show_id/audioposts/:id" component={SingleWidgetPlayer} />
       <LandingPageRoute exact path="/" component={Home}/>
+      <LandingPageRoute exact path="/features-pricing" component={Pricing}/>
       <Route path="/" component={Error}/>
     </Switch>
   )

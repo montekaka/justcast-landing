@@ -1,12 +1,12 @@
 import React from "react";
 
-const LandingPagePricing = () => {
+const LandingPagePricing = ({sectionClassName, titleColor}) => {
   return (
-    <section className="pt-9 pt-md-12 bg-gray-200">
+    <section className={sectionClassName ? sectionClassName : "pt-9 pt-md-12 bg-gray-200"}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 text-center">
-            <h1>Fair, simple pricing for all.</h1>
+            <h1 className={titleColor}>Fair, simple pricing for all.</h1>
           </div>
         </div>
         <div className="row mb-5">
