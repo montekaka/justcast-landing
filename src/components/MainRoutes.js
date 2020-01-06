@@ -9,6 +9,7 @@ import PodcastAbout from './../pages/PodcastAbout'
 import Error from './../pages/Error'
 import Home from './../landingpages/Home'
 import Pricing from './../landingpages/Pricing'
+import TermsOfService from './../landingpages/TermsOfService'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
 
 const MainRoutes = () => {
@@ -21,6 +22,7 @@ const MainRoutes = () => {
       <Route exact path="/widget/:show_id/audioposts/:id" component={SingleWidgetPlayer} />
       <LandingPageRoute exact path="/" component={Home}/>
       <LandingPageRoute exact path="/features-pricing" component={Pricing}/>
+      <LandingPageRoute exact path="/terms" component={TermsOfService}/>
       <Route path="/" component={Error}/>
     </Switch>
   )

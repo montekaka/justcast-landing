@@ -73,7 +73,7 @@ const LandingPageFooter = () => {
 
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li className="mb-3">
-                <a href="#!" className="text-reset">
+                <a href="/terms" className="text-reset">
                   Terms
                 </a>
               </li>
