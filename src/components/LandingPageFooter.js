@@ -52,12 +52,12 @@ const LandingPageFooter = () => {
                 </a>
               </li>
               <li className="mb-3">
-                <a href="#!" className="text-reset">
+                <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`} className="text-reset" target="_blank">
                   Sign in
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-reset">
+                <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`} className="text-reset" target="_blank">
                   Get Started
                 </a>
               </li>
