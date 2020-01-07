@@ -43,9 +43,11 @@ const Podcast = (props) => {
       setLatestEpisode(data.audioposts[0]);
     })
     .catch((err) => {
-      // development only
-      add(data);
-      setLatestEpisode(data.audioposts[0]);
+      if(process.env.ENV === 'DEVELOPMENT') {
+        // development only
+        add(data);
+        setLatestEpisode(data.audioposts[0]);
+      }
       console.log(err);
     })
   }, [id])

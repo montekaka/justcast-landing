@@ -16,8 +16,10 @@ const PodcastAbout = (props) => {
       add(data)
     })
     .catch((err) => {
+      if(process.env.ENV === 'DEVELOPMENT') {
       // development only
-      add(data);
+        add(data);
+      }
       console.log(err);
     })
   }, [id])

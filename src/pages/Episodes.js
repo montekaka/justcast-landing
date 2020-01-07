@@ -17,7 +17,9 @@ const Episodes = (props) => {
     })
     .catch((err) => {
       // development only
-      add(data);
+      if(process.env.ENV === 'DEVELOPMENT') {
+        add(data);
+      }      
       console.log(err);
     })
   }, [id])

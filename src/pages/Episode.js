@@ -32,10 +32,12 @@ const Episode = (props) => {
     })
     .catch((err) => {
       // development only
-      if(getAudiopostById(data.audioposts, id)) {
-        setAudiopost(getAudiopostById(data.audioposts, id))
-      }      
-      add(data);
+      if(process.env.ENV === 'DEVELOPMENT') {
+        if(getAudiopostById(data.audioposts, id)) {
+          setAudiopost(getAudiopostById(data.audioposts, id))
+        }      
+        add(data);
+      }
       console.log(err);
     })
   }, [showId, id])
