@@ -78,20 +78,10 @@ const LandingPageFooter = () => {
                 </a>
               </li>
               <li className="mb-3">
-                <a href="#!" className="text-reset">
+                <a href="/privacy" className="text-reset">
                   Privacy
                 </a>
-              </li>
-              <li className="mb-3">
-                <a href="#!" className="text-reset">
-                  DMCA
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="text-reset">
-                  DPA
-                </a>
-              </li>
+              </li>          
             </ul>
           </div>
           

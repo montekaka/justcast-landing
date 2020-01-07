@@ -10,6 +10,7 @@ import Error from './../pages/Error'
 import Home from './../landingpages/Home'
 import Pricing from './../landingpages/Pricing'
 import TermsOfService from './../landingpages/TermsOfService'
+import Privacy from './../landingpages/Privacy'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
 
 const MainRoutes = () => {
@@ -23,6 +24,7 @@ const MainRoutes = () => {
       <LandingPageRoute exact path="/" component={Home}/>
       <LandingPageRoute exact path="/features-pricing" component={Pricing}/>
       <LandingPageRoute exact path="/terms" component={TermsOfService}/>
+      <LandingPageRoute exact path="/privacy" component={Privacy}/>
       <Route path="/" component={Error}/>
     </Switch>
   )

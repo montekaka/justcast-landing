@@ -12,7 +12,7 @@ const TermsOfService = () => {
               </h1>
 
               <p className="font-size-lg text-gray-700 mb-md-0">
-                Updated 3/15/2019
+                Updated 3/14/2020
               </p>
             </div>        
           </div>
