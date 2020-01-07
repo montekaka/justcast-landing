@@ -1,8 +1,11 @@
 import React from "react";
+import {Mixpanel} from '../api/mixpanel'
 import ShapeHeader from './../components/ShapeHeader'
 import LandingPagePricing from './../components/landingpages/LandingPagePricing'
 
 const Pricing = () => {
+  Mixpanel.track('Pricing page loaded');
+
   return (
     <>
       <ShapeHeader 
