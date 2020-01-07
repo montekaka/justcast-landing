@@ -5,7 +5,7 @@ import {Provider as PodcastProvider} from './context/PodcastContext'
 import {Provider as PlayerProvider} from './context/PlayerContext'
 import MainRoutes from './components/MainRoutes'
 
-mixpanel.init("YOUR_TOKEN");
+mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN);
 
 function App() {
   return (
