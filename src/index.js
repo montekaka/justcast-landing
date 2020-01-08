@@ -11,7 +11,6 @@ import './assets/stylesheets/custom.css'
 import './assets/stylesheets/widget-player.css'
 import './assets/css/theme.css'
 import './assets/fonts/Feather/feather.css'
-import 'plyr/dist/plyr.css'
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 const history = createBrowserHistory();
