@@ -31,8 +31,8 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
 
 const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClassName}) => {
 
-  const mixpanelClickTrack = (name) => {
-    Mixpanel.track(`${name} clicked`);
+  const mixpanelClickTrack = (name, props) => {
+    Mixpanel.track(`${name} clicked`, props);
   }
 
 
@@ -57,7 +57,7 @@ const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClas
         href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup?${title}`} 
         className={`btn btn-block ${buttonClassName}`}
           onClick={() => {
-            mixpanelClickTrack(`Sign up with ${title}`)
+            mixpanelClickTrack(`Sign up`, {Price: price})
           }}
         >          
           {buttonLabel} <i className="fe fe-arrow-right ml-3"></i>
