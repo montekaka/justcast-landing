@@ -17,7 +17,7 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
             <PriceCard title="PRO PLAN" periodLabel="per month" price={5} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Unlimited* Items in RSS feed', 'All Episodes stats', 'Free cancelation']}/>
           </div>
           <div className="col-12 col-lg-4">
-            <PriceCard title="PRO PLAN" periodLabel="per year" price={50} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Unlimited* Items in RSS feed', 'All Episodes stats', 'Free cancelation']}/>
+            <PriceCard title="PRO PLAN ANNUAL" periodLabel="per year" price={50} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Unlimited* Items in RSS feed', 'All Episodes stats', 'Free cancelation']}/>
           </div>          
         </div>
         <div className="row">
@@ -46,7 +46,7 @@ const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClas
           {periodLabel}
         </p>        
         <Features features={features}/>
-        <a href="#!" className={`btn btn-block ${buttonClassName}`}>
+        <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup?${title}`} className={`btn btn-block ${buttonClassName}`}>
           {buttonLabel} <i className="fe fe-arrow-right ml-3"></i>
         </a>        
       </div>
