@@ -1,6 +1,9 @@
 import React from "react";
+import {Mixpanel} from '../api/mixpanel'
 
 const Privacy = () => {
+  Mixpanel.track('Privacy page loaded');
+  
   return (
       <section className="pt-8 pt-md-11 pb-8 pb-md-14">
         <div className="container">

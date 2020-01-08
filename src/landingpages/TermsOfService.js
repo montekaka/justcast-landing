@@ -1,6 +1,8 @@
 import React from "react";
+import {Mixpanel} from '../api/mixpanel'
 
 const TermsOfService = () => {
+  Mixpanel.track('Terms of service page loaded');
   return (
     <>
       <section className="pt-8 pt-md-11 pb-8 pb-md-14">
