@@ -1,4 +1,5 @@
 import React from "react";
+import {Mixpanel} from '../../api/mixpanel'
 
 const LandingPagePricing = ({sectionClassName, titleColor}) => {
   return (
@@ -29,6 +30,12 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
 }
 
 const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClassName}) => {
+
+  const mixpanelClickTrack = (name) => {
+    Mixpanel.track(`${name} clicked`);
+  }
+
+
   return (
     <div className="card shadow-lg mb-6 mb-xl-0">
       <div className="card-body">
@@ -46,7 +53,13 @@ const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClas
           {periodLabel}
         </p>        
         <Features features={features}/>
-        <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup?${title}`} className={`btn btn-block ${buttonClassName}`}>
+        <a 
+        href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup?${title}`} 
+        className={`btn btn-block ${buttonClassName}`}
+          onClick={() => {
+            mixpanelClickTrack(`Sign up with ${title}`)
+          }}
+        >          
           {buttonLabel} <i className="fe fe-arrow-right ml-3"></i>
         </a>        
       </div>
