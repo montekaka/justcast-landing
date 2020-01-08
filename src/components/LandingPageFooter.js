@@ -1,9 +1,15 @@
 import React from "react";
+import {Mixpanel} from '../api/mixpanel'
 import {Link} from 'react-router-dom'
 import fbicon from './../assets/img/icons/social/facebook.svg'
 import twtricon from './../assets/img/icons/social/twitter.svg'
 
 const LandingPageFooter = () => {
+
+  const mixpanelClickTrack = (name) => {
+    Mixpanel.track(`${name} clicked`);
+  }
+
   return (
     <footer className="py-8 py-md-11 bg-gray-200">
       <div className="container">
@@ -52,12 +58,21 @@ const LandingPageFooter = () => {
                 </a>
               </li>
               <li className="mb-3">
-                <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`} className="text-reset" target="_blank">
+                <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`} 
+                onClick={() => {
+                  mixpanelClickTrack("Sign in")
+                }}
+                className="text-reset" 
+                target="_blank">
                   Sign in
                 </a>
               </li>
               <li>
-                <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`} className="text-reset" target="_blank">
+                <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`} 
+                onClick={() => {
+                  mixpanelClickTrack("Sign up")
+                }}                
+                className="text-reset" target="_blank">
                   Get Started
                 </a>
               </li>
