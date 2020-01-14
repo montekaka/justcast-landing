@@ -4,6 +4,7 @@ import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import SimplePageHeader from './../components/SimplePageHeader'
 import SimplePageBody from './../components/SimplePageBody'
+import SocialNetwork from './../components/SocialNetwork'
 
 const PodcastAbout = (props) => {
   const id = props.match.params.id;
@@ -13,6 +14,7 @@ const PodcastAbout = (props) => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
       const data = res.data;
+      console.log(data)
       add(data)
     })
     .catch((err) => {
@@ -28,7 +30,8 @@ const PodcastAbout = (props) => {
     return (
       <>
         <SimplePageHeader title="About our podcast" bodyText={state.show.name}/>
-        <SimplePageBody bodyText="Hello world...."/>
+        <SimplePageBody bodyText={state.show.description}/>
+        <SocialNetwork facebook_page={state.show.facebook_page} twitter_handle={state.show.twitter_handle}/>
       </>
     )
   }
