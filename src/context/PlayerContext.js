@@ -18,7 +18,9 @@ const initState = {
   minimize: false,
   section: "control", // [control, subscribe, share, more_info]
   embedUrl: "",
-  shareUrl: ""
+  shareUrl: "",
+  shareOnFacebook: "",
+  shareOnTwitter: ""
 }
 
 const playerReducer = (state, action) => {
@@ -53,7 +55,7 @@ const playerReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({audio_date, url, id, name, description, artwork, shareUrl, embedUrl}) => {
+  return ({audio_date, url, id, name, description, artwork, shareUrl, embedUrl, shareOnFacebook, shareOnTwitter}) => {
     dispatch({type: 'reset'})
     dispatch({type: 'add', payload: {
       audio_date, 
@@ -64,6 +66,8 @@ const add = dispatch => {
       artwork, 
       shareUrl,
       embedUrl,
+      shareOnFacebook,
+      shareOnTwitter,
       playing: true, 
       hide: false
     }})
