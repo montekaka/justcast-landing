@@ -184,6 +184,10 @@
   padding-right: 5px;
 }
 
+.widget-player-container > .widget-player-app > .main > .info > .body > .icons-with-label > .icon-with-label {
+  margin-right: 5px;
+}
+
 .widget-player-container > .widget-player-app > .main > .info > .body > .icons-with-label > .item > .label {
   font-size: 12px;
 }

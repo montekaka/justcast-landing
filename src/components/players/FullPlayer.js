@@ -35,7 +35,9 @@ const FullPlayer = ({
           <WidgetPlayerMoreInfo section={section === 'subscribe'} title='Subscribe' />
           <WidgetPlayerMoreInfo section={section === 'share'} 
             title='Share' 
-            shareInputs={[{'label':"Embed", 'url': embedCode}, {'label':"Share", 'url':shareUrl}]}/>
+            shareInputs={[{'label':"Embed", 'url': embedCode}, {'label':"Share", 'url':shareUrl}]}
+            shareIconWithLabels={[{'label': "Facebook", url:"", iconName:"fe fe-facebook"}, {'label': "Twitter", url:"", iconName:"fe fe-twitter"}]}
+            />            
           <WidgetPlayerMoreInfo section={section === 'more_info'} title={name} description={description}/>
         </div>       
         <div className="minimize-button">

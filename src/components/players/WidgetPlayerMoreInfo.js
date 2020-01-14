@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom"
 
 const WidgetPlayerMoreInfo = ({section, title, subtitle, description, shareInputs, shareIconWithLabels}) => {
   if(section) {
@@ -61,7 +60,7 @@ const ShareIconWithLabels = ({items}) => {
       <div className="icons-with-label">
         {
           items.map((item) => 
-            <ShareIconWithLabel label={item.label} url={item.url}/>
+            <ShareIconWithLabel key={item.label} label={item.label} url={item.url} iconName={item.iconName}/>
           )
         }
       </div>
@@ -72,10 +71,9 @@ const ShareIconWithLabels = ({items}) => {
 
 const ShareIconWithLabel = ({iconName, label, url}) => {
   return (
-    <div className="item" tag={Link} to={url}>
-      {/* <span className="icon"></span> */}
-      <span className="label">{label}</span>
-    </div>
+    <button className="badge badge-lg badge-rounded-circle badge-light icon-with-label">
+      <i className={iconName}></i>      
+    </button>
   )
 }
 
