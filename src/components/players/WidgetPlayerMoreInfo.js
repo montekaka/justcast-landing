@@ -70,8 +70,12 @@ const ShareIconWithLabels = ({items}) => {
 }
 
 const ShareIconWithLabel = ({iconName, label, url}) => {
+
+  const onClickHander = () => {
+    window.open(url, "_blank");
+  }
   return (
-    <button className="badge badge-lg badge-rounded-circle badge-light icon-with-label">
+    <button className="badge badge-lg badge-rounded-circle badge-light icon-with-label" onClick={onClickHander}>
       <i className={iconName}></i>      
     </button>
   )
