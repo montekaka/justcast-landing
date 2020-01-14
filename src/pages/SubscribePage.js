@@ -3,11 +3,9 @@ import {Context as PodcastContext} from '../context/PodcastContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import SimplePageHeader from './../components/SimplePageHeader'
-import SimplePageBody from './../components/SimplePageBody'
-import SocialNetwork from './../components/SocialNetwork'
 import PodcastApps from './../components/PodcastApps'
 
-const PodcastAbout = (props) => {
+const SubscribePage = (props) => {
   const id = props.match.params.id;
   const {state, add} = useContext(PodcastContext);
 
@@ -15,7 +13,6 @@ const PodcastAbout = (props) => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
       const data = res.data;
-      console.log(data)
       add(data)
     })
     .catch((err) => {
@@ -30,9 +27,8 @@ const PodcastAbout = (props) => {
   if(state.show.id) {
     return (
       <>
-        <SimplePageHeader title="About our podcast" bodyText={state.show.name}/>        
-        <SocialNetwork facebook_page={state.show.facebook_page} twitter_handle={state.show.twitter_handle}/>
-        <SimplePageBody bodyText={state.show.description}/>
+        <SimplePageHeader title={`${state.show.name}`} bodyText="Listen in your favorite apps"/>
+        <PodcastApps show={state.show}/>
       </>
     )
   }
@@ -40,4 +36,4 @@ const PodcastAbout = (props) => {
   return null;
 }
 
-export default PodcastAbout;
+export default SubscribePage;

@@ -136,3 +136,40 @@
 .pricing-testimonials {
   margin-bottom: 100px;
 }
+
+/* subscribe button */
+
+.icon-subscribe-button {
+  display:flex;  
+  align-items: center;  
+  background-color: #E4E3E8;
+  border-radius: 5px;
+  padding: 5px;
+  max-width: 180px;
+  margin: 10px;  
+}
+
+.icon-subscribe-button:link {
+  color: none;
+}
+
+.icon-subscribe-button > img {
+  width: 26px;
+  height: 26px;
+}
+
+.icon-subscribe-items {
+  padding: 0 10px;
+  display: flex;
+  color: black;
+  flex-direction: column;
+  align-items: start;
+}
+.icon-subscribe-subtitle {
+  font-size: 12px;
+}
+
+.icon-subscribe-title {
+  font-size: 16px;
+  font-weight: bold;
+}
