@@ -159,9 +159,20 @@
 }
 
 .widget-player-container > .widget-player-app > .main > .info > .body > .inputs > .input > input {
-  width: 100%;
+  width: 80%;
   height: 24px;
   font-size: 12px;
+  border-radius: 5px;
+}
+
+.widget-player-container > .widget-player-app > .main > .info > .body > .inputs > .input > .copyButton {
+  width: 60px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  border-style: solid;
+  border-color: #fff;
   border-radius: 5px;
 }
 

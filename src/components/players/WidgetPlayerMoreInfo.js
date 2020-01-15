@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 const WidgetPlayerMoreInfo = ({section, title, subtitle, description, shareInputs, shareIconWithLabels}) => {
   if(section) {
@@ -33,7 +33,7 @@ const ShareInputs = ({shareInputs}) => {
       <div className="inputs">
         {
           shareInputs.map((shareInput) => 
-            <ShareInput key={shareInput.url} url={shareInput.url} label={shareInput.label}/>
+            <ShareInput key={shareInput.label} url={shareInput.url} label={shareInput.label}/>
           )
         }
       </div>
@@ -44,12 +44,26 @@ const ShareInputs = ({shareInputs}) => {
 }
 
 const ShareInput = ({url, label}) => {
+
+  const [buttonLabel, setButtonLabel] = useState('Copy');
+
+  const handleCopy = () => {
+    const copyText = document.querySelector(`#${label}`);
+    copyText.select();
+    document.execCommand("Copy");
+    setButtonLabel("Copied");
+    // change back to Copy in 3 seconds
+    setTimeout(() => {
+      setButtonLabel("Copy");
+    }, 3000)
+  }
+
+
   return (
     <div className="input">
       <label>{label}</label>
-      <input value={url} type="text" name={label} onChange={(e) => {
-        console.log(e.target.name)
-      }}/>      
+      <input value={url} type="text" name={label} readOnly id={label} />
+      <button className="copyButton" onClick={handleCopy}>{buttonLabel}</button>
     </div>
   )
 }
