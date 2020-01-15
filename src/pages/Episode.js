@@ -52,8 +52,8 @@ const Episode = (props) => {
           artwork={state.show.artwork_url}
           audio_date={audiopost.audio_date}
           description={audiopost.description}
-          embedUrl={`${process.env.REACT_APP_BASE_PATH}/widget/${id}/audioposts/${audiopost.id}`}
-          shareUrl={`${process.env.REACT_APP_BASE_PATH}/shows/${id}/audioposts/${audiopost.id}`}          
+          embedUrl={`${process.env.REACT_APP_BASE_PATH}/widget/${showId}/audioposts/${id}`}
+          shareUrl={`${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`}          
           shareOnFacebook={audiopost.share_on_facebook}
           shareOnTwitter={audiopost.share_on_twitter}
         />
