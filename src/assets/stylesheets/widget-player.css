@@ -129,7 +129,6 @@
   display: flex;
   align-content: center;
   flex-direction: column;
-  padding: 10px 0;
 }
 
 .widget-player-container > .widget-player-app > .main > .info > .header > .title {
