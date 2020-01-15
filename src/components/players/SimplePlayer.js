@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
+import {Context as PlayerContext} from '../../context/PlayerContext'
 import ReactPlayer from 'react-player'
 import MinimizePlayer from './MinimizePlayer'
 import FullPlayer from './FullPlayer'
 
 const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, section, updateSection, embedUrl, shareUrl}) => {
+
+  const {state} = useContext(PlayerContext);
+
   if(url) {    
     return (    
       <>
@@ -17,6 +21,8 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
             handlePlayerRef={handlePlayerRef} handleMinimizePlayer={handleMinimizePlayer} 
             section={section} handleSectionChange={updateSection}
             embedUrl={embedUrl} shareUrl={shareUrl}
+            shareOnFacebook={state.shareOnFacebook}
+            shareOnTwitter={state.shareOnTwitter}
           />
         }      
         <ReactPlayer url={url}

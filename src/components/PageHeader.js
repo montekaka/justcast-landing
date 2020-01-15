@@ -6,7 +6,19 @@ const sectionCSS = {
   backgroundImage: `url("https://source.unsplash.com/c1ZN57GfDB0/1600x900")`
 }
 
-const PageHeader = ({headerTitle, artwork, name, id, url, description, audio_date, embedUrl, shareUrl}) => {
+const PageHeader = ({
+  headerTitle, 
+  artwork, 
+  name, 
+  id, 
+  url, 
+  description, 
+  audio_date, 
+  embedUrl, 
+  shareUrl,
+  shareOnFacebook,
+  shareOnTwitter
+}) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
 
   return (
@@ -30,7 +42,7 @@ const PageHeader = ({headerTitle, artwork, name, id, url, description, audio_dat
               {date}
             </p>
             <div className="text-center text-md-left">
-              <PlayPauseButton audio_date={audio_date} id={id} url={url} name={name} artwork={artwork} description={description} embedUrl={embedUrl} shareUrl={shareUrl}/>
+              <PlayPauseButton audio_date={audio_date} id={id} url={url} name={name} artwork={artwork} description={description} embedUrl={embedUrl} shareUrl={shareUrl} shareOnFacebook={shareOnFacebook} shareOnTwitter={shareOnTwitter}/>
             </div>            
           </div>
         </div>        

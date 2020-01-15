@@ -23,6 +23,8 @@ const EpisodeList = ({showId, items, artwork_url, handlePlay}) => {
                 description={item.description}
                 audio_date={item.audio_date}
                 handlePlay={handlePlay}
+                share_on_facebook={item.share_on_facebook}
+                share_on_twitter={item.share_on_twitter}
               />     
           )}
         </div>

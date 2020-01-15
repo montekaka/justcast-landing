@@ -1,6 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
 import moment from 'moment'
-
 import MinimizePlayerButton from './MinimizePlayerButton'
 import WidgetPlayerControl from './WidgetPlayerControl'
 import WidgetPlayerMoreInfo from './WidgetPlayerMoreInfo'
@@ -14,10 +13,12 @@ const FullPlayer = ({
   playedSeconds, played, playing, handleDuration, 
   handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, 
   handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, progressBarIdName,
-  section, handleSectionChange, embedUrl, shareUrl}) => {
+  section, handleSectionChange, embedUrl, shareUrl,shareOnFacebook, shareOnTwitter
+}) => {
+  
   const date = moment(audio_date).format('YYYY-MM-DD');
   const embedCode = `<iframe src='${embedUrl}' width='100%' height='180' frameborder='0' scrolling='no' seamless='true' style='width:100%; height:180px;'></iframe>`
-
+  
   return (
     <div className="widget-player-container dark-html-widget-player">
       <section className="widget-player-app">
@@ -36,7 +37,7 @@ const FullPlayer = ({
           <WidgetPlayerMoreInfo section={section === 'share'} 
             title='Share' 
             shareInputs={[{'label':"Embed", 'url': embedCode}, {'label':"Share", 'url':shareUrl}]}
-            shareIconWithLabels={[{'label': "Facebook", url:"", iconName:"fe fe-facebook"}, {'label': "Twitter", url:"", iconName:"fe fe-twitter"}]}
+            shareIconWithLabels={[{'label': "Facebook", url: shareOnFacebook, iconName:"fe fe-facebook"}, {'label': "Twitter", url: shareOnTwitter, iconName:"fe fe-twitter"}]}
             />            
           <WidgetPlayerMoreInfo section={section === 'more_info'} title={name} description={description}/>
         </div>       

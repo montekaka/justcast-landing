@@ -15,7 +15,17 @@ const RenderHTML = ({description}) => {
   return null;
 }
 
-const EpisodeListItem = ({showId, id, name, description, audio_date, url, artwork_url}) => {
+const EpisodeListItem = ({
+  showId, 
+  id, 
+  name, 
+  description, 
+  audio_date, 
+  url, 
+  artwork_url,
+  share_on_facebook,
+  share_on_twitter
+  }) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
   const html = description ? parse(description) : null;
   const pageUrl = `/shows/${showId}/audioposts/${id}`
@@ -38,7 +48,18 @@ const EpisodeListItem = ({showId, id, name, description, audio_date, url, artwor
                 <span className="date-string">{date}</span>
               </div>
               <div className="player-control">
-                <PlayPauseButton className="play-control-button" audio_date={audio_date} id={id} url={url} name={name} artwork={artwork_url} description={description} embedUrl={embedUrl} shareUrl={shareUrl}/>
+                <PlayPauseButton className="play-control-button" 
+                  audio_date={audio_date} 
+                  id={id} 
+                  url={url} 
+                  name={name} 
+                  artwork={artwork_url} 
+                  description={description} 
+                  embedUrl={embedUrl} 
+                  shareUrl={shareUrl}
+                  shareOnFacebook={share_on_facebook}
+                  shareOnTwitter={share_on_twitter}
+                />
               </div>              
               <div className="row-two">
                 <RenderHTML description={description}/>
