@@ -74,7 +74,9 @@ const ShareIconWithLabels = ({items}) => {
       <div className="icons-with-label">
         {
           items.map((item) => 
-            <ShareIconWithLabel key={item.label} label={item.label} url={item.url} iconName={item.iconName} buttonImg={item.buttonImg}/>
+            {
+              return ( item ? <ShareIconWithLabel key={item.label} label={item.label} url={item.url} iconName={item.iconName} buttonImg={item.buttonImg}/> : null)
+            }
           )
         }
       </div>
