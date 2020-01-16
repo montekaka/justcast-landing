@@ -39,7 +39,7 @@ const SingleWidgetPlayer = (props) => {
   const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`    
   const [audiopost, setAudiopost] = useState(initState);
   const [section, setSection] = useState('control') //[control, subscribe, share, more_info]
-
+  const [show, setShow] = useState({});
 
   const toggleSeeking = () => {
     setAudiopost({...audiopost, seeking: !audiopost.seeking});
@@ -82,7 +82,8 @@ const SingleWidgetPlayer = (props) => {
     justcastApi.get(`/v1/shows/${showId}/audioposts/${id}`)
     .then((res) => {
       const data = res.data;
-      console.log(data)
+      const show = data.show;
+
       setAudiopost({
         ...audiopost, 
         id: data.id,
@@ -94,6 +95,8 @@ const SingleWidgetPlayer = (props) => {
         shareOnFacebook: data.share_on_facebook,
         shareOnTwitter: data.share_on_twitter      
       })
+
+      setShow(show);
     })
     .catch((err) => {
       // development only
@@ -140,6 +143,20 @@ const SingleWidgetPlayer = (props) => {
           handleSectionChange={setSection}
           shareOnFacebook={audiopost.shareOnFacebook}
           shareOnTwitter={audiopost.shareOnTwitter}
+          apple_podcast={show.apple_podcast}
+          google_podcast={show.google_podcast}
+          overcast={show.overcast}
+          spotify={show.spotify}
+          pocket_casts={show.pocket_casts}
+          breaker={show.breaker}
+          castro={show.castro}
+          radio_public={show.radio_public}
+          castbox={show.castbox}
+          tune_in={show.tune_in}
+          stitcher={show.stitcher}
+          rssFeed={show.rss_feed}
+          facebook_page={show.facebook_page}
+          twitter_handle={show.twitter_handle}      
         />
       </>
     )

@@ -27,7 +27,21 @@ const WidgetPlayer = ({
   section,
   handleSectionChange,
   shareOnTwitter,
-  shareOnFacebook
+  shareOnFacebook,
+  apple_podcast,
+  google_podcast,
+  overcast,
+  spotify,
+  pocket_casts,
+  breaker,
+  castro,
+  radio_public,
+  castbox,
+  tune_in,
+  stitcher,
+  rssFeed,
+  facebook_page,
+  twitter_handle  
 }) => {
   return (
     <>
@@ -49,6 +63,20 @@ const WidgetPlayer = ({
       handleSectionChange={handleSectionChange}
       shareOnTwitter={shareOnTwitter}
       shareOnFacebook={shareOnFacebook}
+      facebook_page={facebook_page}
+      twitter_handle={twitter_handle}
+      apple_podcast={apple_podcast}
+      google_podcast={google_podcast}
+      overcast={overcast}
+      spotify={spotify}
+      pocket_casts={pocket_casts}
+      breaker={breaker}
+      castro={castro}
+      radio_public={radio_public}
+      castbox={castbox}
+      tune_in={tune_in}
+      stitcher={stitcher}
+      rssFeed={rssFeed}      
       />
       <ReactPlayer url={url}
           className='react-player'

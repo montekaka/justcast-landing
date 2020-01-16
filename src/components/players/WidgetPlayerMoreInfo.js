@@ -91,19 +91,23 @@ const ShareIconWithLabel = ({iconName, label, url, buttonImg}) => {
     window.open(url, "_blank");
   }
 
-  if(buttonImg) {
-    return (      
-      <button href={url} className="btn btn-light btn-sm lift button-with-icon-podcast-apps">
-        <img src={iconName} />
-        <span className="label">{label}</span>
+  if(url) {
+    if(buttonImg) {
+      return (      
+        <button className="btn btn-light btn-sm lift button-with-icon-podcast-apps" onClick={onClickHander}>
+          <img src={iconName} />
+          <span className="label">{label}</span>
+        </button>
+      )
+    }
+    return (
+      <button className="badge badge-rounded-circle badge-light icon-with-label" onClick={onClickHander}>
+        <i className={iconName}></i>      
       </button>
     )
   }
-  return (
-    <button className="badge badge-lg badge-rounded-circle badge-light icon-with-label" onClick={onClickHander}>
-      <i className={iconName}></i>      
-    </button>
-  )
+
+  return null;
 }
 
 const SectionDesc = ({text}) => {
