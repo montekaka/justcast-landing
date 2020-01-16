@@ -25,7 +25,9 @@ const WidgetPlayer = ({
   handlePlayerRef, 
   handleMinimizePlayer,
   section,
-  handleSectionChange
+  handleSectionChange,
+  shareOnTwitter,
+  shareOnFacebook
 }) => {
   return (
     <>
@@ -45,6 +47,8 @@ const WidgetPlayer = ({
       handlePlayerRef={handlePlayerRef}
       section={section}
       handleSectionChange={handleSectionChange}
+      shareOnTwitter={shareOnTwitter}
+      shareOnFacebook={shareOnFacebook}
       />
       <ReactPlayer url={url}
           className='react-player'

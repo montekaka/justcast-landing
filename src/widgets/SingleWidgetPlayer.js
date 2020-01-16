@@ -28,7 +28,7 @@ const initState = {
   seeking: false,
   minimize: false,  
   shareOnFacebook: "",
-  shareOnTwitter: "abcdes"  
+  shareOnTwitter: ""  
 }
 
 const SingleWidgetPlayer = (props) => {
@@ -82,6 +82,7 @@ const SingleWidgetPlayer = (props) => {
     justcastApi.get(`/v1/shows/${showId}/audioposts/${id}`)
     .then((res) => {
       const data = res.data;
+      console.log(data)
       setAudiopost({
         ...audiopost, 
         id: data.id,
