@@ -25,6 +25,8 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
             embedUrl={embedUrl} shareUrl={shareUrl}
             shareOnFacebook={state.shareOnFacebook}
             shareOnTwitter={state.shareOnTwitter}
+            facebook_page={podcastConext.state.show.facebook_page}
+            twitter_handle={podcastConext.state.show.twitter_handle}
             apple_podcast={podcastConext.state.show.apple_podcast}
             google_podcast={podcastConext.state.show.google_podcast}
             overcast={podcastConext.state.show.overcast}

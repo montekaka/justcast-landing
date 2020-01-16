@@ -35,7 +35,9 @@ const FullPlayer = ({
   castbox,
   tune_in,
   stitcher,
-  rssFeed
+  rssFeed,
+  facebook_page,
+  twitter_handle
 }) => {
   
   const date = moment(audio_date).format('YYYY-MM-DD');
@@ -78,7 +80,12 @@ const FullPlayer = ({
             shareInputs={[{'label':"Embed", 'url': embedCode}, {'label':"Share", 'url':shareUrl}]}
             shareIconWithLabels={[{'label': "Facebook", url: shareOnFacebook, iconName:"fe fe-facebook"}, {'label': "Twitter", url: shareOnTwitter, iconName:"fe fe-twitter"}]}
             />            
-          <WidgetPlayerMoreInfo section={section === 'more_info'} title={name} description={description}/>
+          <WidgetPlayerMoreInfo 
+            section={section === 'more_info'} 
+            title={name} 
+            description={description}
+            shareIconWithLabels={[{'label': "Facebook", url: facebook_page, iconName:"fe fe-facebook"}, {'label': "Twitter", url: twitter_handle, iconName:"fe fe-twitter"}]}
+          />
         </div>       
         <div className="minimize-button">
           <MinimizePlayerButton handleMinimizePlayer={handleMinimizePlayer} handleSectionChange={handleSectionChange} section={section}/>
