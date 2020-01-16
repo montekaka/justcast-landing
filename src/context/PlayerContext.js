@@ -66,19 +66,7 @@ const playerReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({audio_date, url, id, name, description, artwork, 
-    shareUrl, embedUrl, shareOnFacebook, shareOnTwitter,
-    applePodcast,
-    googlePodcast,
-    overcast,
-    spotify,
-    pocketCasts,
-    breaker,
-    castro,
-    radioPublic,
-    castbox,
-    tuneIn,
-    stitcher
+  return ({audio_date, url, id, name, description, artwork, shareUrl, embedUrl, shareOnFacebook, shareOnTwitter
   }) => {
     dispatch({type: 'reset'})
     dispatch({type: 'add', payload: {
@@ -93,7 +81,26 @@ const add = dispatch => {
       shareOnFacebook,
       shareOnTwitter,
       playing: true, 
-      hide: false,
+      hide: false   
+    }})
+  }
+}
+
+const addPodcastApps = dispatch => {
+  return ({
+    applePodcast,
+    googlePodcast,
+    overcast,
+    spotify,
+    pocketCasts,
+    breaker,
+    castro,
+    radioPublic,
+    castbox,
+    tuneIn,
+    stitcher
+  }) => {
+    dispatch({type: 'add', payload: {
       applePodcast,
       googlePodcast,
       overcast,
@@ -104,8 +111,8 @@ const add = dispatch => {
       radioPublic,
       castbox,
       tuneIn,
-      stitcher      
-    }})
+      stitcher
+    }})    
   }
 }
 
@@ -168,7 +175,8 @@ export const {Provider, Context} = createDataContext(
     toggleSeeking,
     handleSeekChange,
     toggleMinimizePlayer,
-    updateSection
+    updateSection,
+    addPodcastApps
   },
   initState
 )
