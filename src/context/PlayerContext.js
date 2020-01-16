@@ -20,7 +20,18 @@ const initState = {
   embedUrl: "",
   shareUrl: "",
   shareOnFacebook: "",
-  shareOnTwitter: ""
+  shareOnTwitter: "",
+  applePodcast: "",
+  googlePodcast: "",
+  overcast: "",
+  spotify: "",
+  pocketCasts: "",
+  breaker: "",
+  castro: "",
+  radioPublic: "",
+  castbox: "",
+  tuneIn: "",
+  stitcher: ""
 }
 
 const playerReducer = (state, action) => {
@@ -55,7 +66,20 @@ const playerReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({audio_date, url, id, name, description, artwork, shareUrl, embedUrl, shareOnFacebook, shareOnTwitter}) => {
+  return ({audio_date, url, id, name, description, artwork, 
+    shareUrl, embedUrl, shareOnFacebook, shareOnTwitter,
+    applePodcast,
+    googlePodcast,
+    overcast,
+    spotify,
+    pocketCasts,
+    breaker,
+    castro,
+    radioPublic,
+    castbox,
+    tuneIn,
+    stitcher
+  }) => {
     dispatch({type: 'reset'})
     dispatch({type: 'add', payload: {
       audio_date, 
@@ -69,7 +93,18 @@ const add = dispatch => {
       shareOnFacebook,
       shareOnTwitter,
       playing: true, 
-      hide: false
+      hide: false,
+      applePodcast,
+      googlePodcast,
+      overcast,
+      spotify,
+      pocketCasts,
+      breaker,
+      castro,
+      radioPublic,
+      castbox,
+      tuneIn,
+      stitcher      
     }})
   }
 }
