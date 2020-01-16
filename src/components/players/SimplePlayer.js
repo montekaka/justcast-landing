@@ -23,6 +23,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
             embedUrl={embedUrl} shareUrl={shareUrl}
             shareOnFacebook={state.shareOnFacebook}
             shareOnTwitter={state.shareOnTwitter}
+            applePodcast={'https://abc.com'}
           />
         }      
         <ReactPlayer url={url}

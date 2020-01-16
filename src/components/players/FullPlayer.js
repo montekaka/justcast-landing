@@ -3,6 +3,7 @@ import moment from 'moment'
 import MinimizePlayerButton from './MinimizePlayerButton'
 import WidgetPlayerControl from './WidgetPlayerControl'
 import WidgetPlayerMoreInfo from './WidgetPlayerMoreInfo'
+import applePodcastSrc from './../../assets/img/icons/podcasts/apple_podcast.svg'
 
 
 var momentDurationFormatSetup = require("moment-duration-format");
@@ -13,12 +14,28 @@ const FullPlayer = ({
   playedSeconds, played, playing, handleDuration, 
   handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, 
   handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, progressBarIdName,
-  section, handleSectionChange, embedUrl, shareUrl,shareOnFacebook, shareOnTwitter
+  section, handleSectionChange, embedUrl, shareUrl,shareOnFacebook, shareOnTwitter,
+  applePodcast
 }) => {
   
   const date = moment(audio_date).format('YYYY-MM-DD');
   const embedCode = `<iframe src='${embedUrl}' width='100%' height='180' frameborder='0' scrolling='no' seamless='true' style='width:100%; height:180px;'></iframe>`
-  
+  const podcastApps = [
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+    applePodcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: applePodcast, buttonImg: true} : null,
+  ]
+
+
   return (
     <div className="widget-player-container dark-html-widget-player">
       <section className="widget-player-app">
@@ -33,7 +50,10 @@ const FullPlayer = ({
             handleSliderChange={handleSliderChange} section={section}
             handleSectionChange={handleSectionChange}            
           />
-          <WidgetPlayerMoreInfo section={section === 'subscribe'} title='Subscribe' />
+          <WidgetPlayerMoreInfo section={section === 'subscribe'} 
+            title='Subscribe' 
+            shareIconWithLabels={podcastApps}
+          />
           <WidgetPlayerMoreInfo section={section === 'share'} 
             title='Share' 
             shareInputs={[{'label':"Embed", 'url': embedCode}, {'label':"Share", 'url':shareUrl}]}

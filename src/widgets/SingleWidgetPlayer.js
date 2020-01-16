@@ -27,6 +27,8 @@ const initState = {
   playedSeconds: 0,
   seeking: false,
   minimize: false,  
+  shareOnFacebook: "",
+  shareOnTwitter: "abcdes"  
 }
 
 const SingleWidgetPlayer = (props) => {
@@ -86,8 +88,10 @@ const SingleWidgetPlayer = (props) => {
         name: data.name,
         description: data.description,
         audio_date: data.audio_date,
-        url: data.audio_url,
-        artwork: data.show.artwork_url_256
+        url: data.url,
+        artwork: data.show.artwork_url_256,
+        shareOnFacebook: data.share_on_facebook,
+        shareOnTwitter: data.share_on_twitter      
       })
     })
     .catch((err) => {
@@ -99,7 +103,7 @@ const SingleWidgetPlayer = (props) => {
           id: audio.id,
           name: audio.name,
           audio_date: audio.audio_date,
-          url: audio.audio_url
+          url: audio.url
         })
       }
       //TODO - handle error
@@ -133,6 +137,8 @@ const SingleWidgetPlayer = (props) => {
           minimize={audiopost.minimize}
           section={section}
           handleSectionChange={setSection}
+          shareOnFacebook={audiopost.shareOnFacebook}
+          shareOnTwitter={audiopost.shareOnTwitter}
         />
       </>
     )

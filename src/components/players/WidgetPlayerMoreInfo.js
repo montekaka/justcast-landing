@@ -74,7 +74,7 @@ const ShareIconWithLabels = ({items}) => {
       <div className="icons-with-label">
         {
           items.map((item) => 
-            <ShareIconWithLabel key={item.label} label={item.label} url={item.url} iconName={item.iconName}/>
+            <ShareIconWithLabel key={item.label} label={item.label} url={item.url} iconName={item.iconName} buttonImg={item.buttonImg}/>
           )
         }
       </div>
@@ -83,10 +83,19 @@ const ShareIconWithLabels = ({items}) => {
   return null;
 }
 
-const ShareIconWithLabel = ({iconName, label, url}) => {
+const ShareIconWithLabel = ({iconName, label, url, buttonImg}) => {
 
   const onClickHander = () => {
     window.open(url, "_blank");
+  }
+
+  if(buttonImg) {
+    return (      
+      <button href={url} className="btn btn-light btn-sm lift button-with-icon-podcast-apps">
+        <img src={iconName} />
+        <span className="label">{label}</span>
+      </button>
+    )
   }
   return (
     <button className="badge badge-lg badge-rounded-circle badge-light icon-with-label" onClick={onClickHander}>

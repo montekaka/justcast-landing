@@ -201,3 +201,12 @@
 .widget-player-container > .widget-player-app > .main > .info > .body > .icons-with-label > .item > .label {
   font-size: 12px;
 }
+
+.button-with-icon-podcast-apps {
+  margin: 5px;
+}
+
+.button-with-icon-podcast-apps > .label {
+  margin: 0 5px;
+  font-size: 12px;
+}
