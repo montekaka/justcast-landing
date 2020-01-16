@@ -36,6 +36,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
             castbox={podcastConext.state.show.castbox}
             tune_in={podcastConext.state.show.tune_in}
             stitcher={podcastConext.state.show.stitcher}
+            rssFeed={podcastConext.state.show.rss_feed}
           />
         }      
         <ReactPlayer url={url}

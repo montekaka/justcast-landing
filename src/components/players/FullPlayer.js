@@ -34,7 +34,8 @@ const FullPlayer = ({
   radio_public,
   castbox,
   tune_in,
-  stitcher
+  stitcher,
+  rssFeed
 }) => {
   
   const date = moment(audio_date).format('YYYY-MM-DD');
@@ -69,6 +70,7 @@ const FullPlayer = ({
           />
           <WidgetPlayerMoreInfo section={section === 'subscribe'} 
             title='Subscribe' 
+            shareInputs={[{'label':"RSS", 'url': rssFeed}]}
             shareIconWithLabels={podcastApps}
           />
           <WidgetPlayerMoreInfo section={section === 'share'} 
