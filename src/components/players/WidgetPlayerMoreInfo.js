@@ -95,7 +95,7 @@ const ShareIconWithLabel = ({iconName, label, url, buttonImg}) => {
     if(buttonImg) {
       return (      
         <button className="btn btn-light btn-sm lift button-with-icon-podcast-apps" onClick={onClickHander}>
-          <img src={iconName} />
+          <img src={iconName} alt={label}/>
           <span className="label">{label}</span>
         </button>
       )
