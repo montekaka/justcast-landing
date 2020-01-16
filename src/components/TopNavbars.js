@@ -50,7 +50,7 @@ const TopNavbars = () => {
               </NavItem>
               <NavItem onClick={handleNavItemClicked}>
                 <NavLink to={`/shows/${state.show.slug}/subscribe`} tag={Link}>SUBSCRIBE</NavLink>
-              </NavItem>                            
+              </NavItem>
             </Nav>
             <a
               className="navbar-btn btn btn-sm btn-primary lift ml-auto" 
