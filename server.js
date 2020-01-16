@@ -20,6 +20,7 @@ const filePath = path.resolve(__dirname, './build', 'index.html');
 
 app.get('/shows/:show_id/audioposts/:id', function(request, response) {    
   const id = request.params.id;
+  const show_id = request.params.show_id;
   instance.get(`/v1/shows/${show_id}/audioposts/${id}`)
   .then((res) => {
     const data = res.data;
@@ -85,7 +86,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
     const img_256 = show.artwork_url_256;
 
     const keywords = show.keywords ? show.keywords : '';
-    const twitter_hanlde = show.twitter_hanlde ? show.twitter_hanlde : '';
+    const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
     const meta = {
@@ -98,7 +99,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
       img_32: img_32,
       img_64: img_64,
       img_256: img_256,
-      twitter_hanlde,
+      twitter_handle,
       apple_iutnes_app_id
     }
     
@@ -116,21 +117,25 @@ app.get('/shows/:id/audioposts', function(request, response) {
   })
 });
 
-app.get('/shows/:show_id/audioposts/:id', (request, response) => {
-  const show_id = request.params.show_id;
+
+app.get('/shows/:id/episodes', function(request, response) {    
   const id = request.params.id;
-  instance.get(`/v1/shows/${show_id}/audioposts/${id}`)
+  instance.get(`/v1/shows/${id}/audioposts`)
   .then((res) => {
-    const audiopost = res.data;
+
     const show = res.data.show;
-    const url = audiopost.link;
-    const title = audiopost.name;
-    // const description = audiopost.description ? show.description : "Podcast power by JustCast";
-    const description = "Podcast power by JustCast";
-    //TODO individual artwork per episode
+    const url = show.link;
+    const title = `${show.name} | Episodes`;
+    const description = show.description ? show.description : "Podcast power by JustCast";
+    // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
-    const keywords = audiopost.keywords ? audiopost.keywords : '';
-    const twitter_hanlde = show.twitter_hanlde ? show.twitter_hanlde : '';
+    const img_16 = show.artwork_url_16;
+    const img_32 = show.artwork_url_32;
+    const img_64 = show.artwork_url_64;
+    const img_256 = show.artwork_url_256;
+
+    const keywords = show.keywords ? show.keywords : '';
+    const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
     const meta = {
@@ -143,24 +148,121 @@ app.get('/shows/:show_id/audioposts/:id', (request, response) => {
       img_32: img_32,
       img_64: img_64,
       img_256: img_256,
-      twitter_hanlde,
+      twitter_handle,
       apple_iutnes_app_id
     }
-
+    
     fs.readFile(filePath, 'utf8', function (err,data) {
       if (err) {
         return console.log(err);
       }
       const result = SEOHelpers.set(meta, data)
       response.send(result);
-    });    
-    
+    });
   })
   .catch((err) => {
     // TODO: redirect to error page
     response.redirect('/error')
   })
-})
+});
+
+
+app.get('/shows/:id/subscribe', function(request, response) {    
+  const id = request.params.id;
+  instance.get(`/v1/shows/${id}/audioposts`)
+  .then((res) => {
+
+    const show = res.data.show;
+    const url = show.link;
+    const title = `${show.name} | Subscribe`;
+    const description = show.description ? show.description : "Podcast power by JustCast";
+    // const description = "Podcast power by JustCast";
+    const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
+    const img_16 = show.artwork_url_16;
+    const img_32 = show.artwork_url_32;
+    const img_64 = show.artwork_url_64;
+    const img_256 = show.artwork_url_256;
+
+    const keywords = show.keywords ? show.keywords : '';
+    const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
+    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+
+    const meta = {
+      title,
+      description,
+      img,
+      keywords,
+      url,
+      img_16: img_16,
+      img_32: img_32,
+      img_64: img_64,
+      img_256: img_256,
+      twitter_handle,
+      apple_iutnes_app_id
+    }
+    
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      const result = SEOHelpers.set(meta, data)
+      response.send(result);
+    });
+  })
+  .catch((err) => {
+    // TODO: redirect to error page
+    response.redirect('/error')
+  })
+});
+
+app.get('/shows/:id/about_us', function(request, response) {    
+  const id = request.params.id;
+  instance.get(`/v1/shows/${id}/audioposts`)
+  .then((res) => {
+
+    const show = res.data.show;
+    const url = show.link;
+    const title = `${show.name} | About Us`;
+    const description = show.description ? show.description : "Podcast power by JustCast";
+    // const description = "Podcast power by JustCast";
+    const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
+    const img_16 = show.artwork_url_16;
+    const img_32 = show.artwork_url_32;
+    const img_64 = show.artwork_url_64;
+    const img_256 = show.artwork_url_256;
+
+    const keywords = show.keywords ? show.keywords : '';
+    const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
+    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+
+    const meta = {
+      title,
+      description,
+      img,
+      keywords,
+      url,
+      img_16: img_16,
+      img_32: img_32,
+      img_64: img_64,
+      img_256: img_256,
+      twitter_handle,
+      apple_iutnes_app_id
+    }
+    
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      const result = SEOHelpers.set(meta, data)
+      response.send(result);
+    });
+  })
+  .catch((err) => {
+    // TODO: redirect to error page
+    response.redirect('/error')
+  })
+});
+
 
 app.get('/features-pricing', (request, response) => {
   const meta = {
@@ -173,7 +275,7 @@ app.get('/features-pricing', (request, response) => {
     img_256: "",    
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
-    twitter_hanlde: "@thejustcast",
+    twitter_handle: "@thejustcast",
     apple_iutnes_app_id: ""
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -196,7 +298,7 @@ app.get('/terms', (request, response) => {
     img_256: "",    
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
-    twitter_hanlde: "@thejustcast",
+    twitter_handle: "@thejustcast",
     apple_iutnes_app_id: ""
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -219,7 +321,7 @@ app.get('/privacy', (request, response) => {
     img_256: "",    
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
-    twitter_hanlde: "@thejustcast",
+    twitter_handle: "@thejustcast",
     apple_iutnes_app_id: ""
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -242,7 +344,7 @@ app.get('/', (request, response) => {
     img_256: "",    
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
-    twitter_hanlde: "@thejustcast",
+    twitter_handle: "@thejustcast",
     apple_iutnes_app_id: ""
   }
   fs.readFile(filePath, 'utf8', function (err,data) {

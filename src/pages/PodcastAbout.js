@@ -15,7 +15,6 @@ const PodcastAbout = (props) => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
       const data = res.data;
-      console.log(data)
       add(data)
     })
     .catch((err) => {
