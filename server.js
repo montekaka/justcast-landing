@@ -16,6 +16,58 @@ const instance = axios.create({
 })
 const filePath = path.resolve(__dirname, './build', 'index.html');
 
+
+
+app.get('/shows/:show_id/audioposts/:id', function(request, response) {    
+  const id = request.params.id;
+  instance.get(`/v1/shows/${show_id}/audioposts/${id}`)
+  .then((res) => {
+    const data = res.data;
+
+    const show = data.show;
+    const podcastName = data.name;
+    const url = data.permulink;
+    const title = `${show.name} | ${data.name}`;
+    const description = data.description ? data.description : "Podcast power by JustCast";
+    // const description = "Podcast power by JustCast";
+    const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
+    const img_16 = show.artwork_url_16;
+    const img_32 = show.artwork_url_32;
+    const img_64 = show.artwork_url_64;
+    const img_256 = show.artwork_url_256;
+
+    const keywords = show.keywords ? show.keywords : '';
+    const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
+    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+
+    const meta = {
+      title,
+      description,
+      img,
+      keywords,
+      url,
+      img_16: img_16,
+      img_32: img_32,
+      img_64: img_64,
+      img_256: img_256,
+      twitter_handle,
+      apple_iutnes_app_id
+    }
+    
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      const result = SEOHelpers.set(meta, data)
+      response.send(result);
+    });
+  })
+  .catch((err) => {
+    // TODO: redirect to error page
+    response.redirect('/error')
+  })
+});
+
 app.get('/shows/:id/audioposts', function(request, response) {    
   const id = request.params.id;
   instance.get(`/v1/shows/${id}/audioposts`)
@@ -24,8 +76,8 @@ app.get('/shows/:id/audioposts', function(request, response) {
     const show = res.data.show;
     const url = show.link;
     const title = `${show.name}`;
-    // const description = show.description ? show.description : "Podcast power by JustCast";
-    const description = "Podcast power by JustCast";
+    const description = show.description ? show.description : "Podcast power by JustCast";
+    // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     const img_16 = show.artwork_url_16;
     const img_32 = show.artwork_url_32;
@@ -112,7 +164,7 @@ app.get('/shows/:show_id/audioposts/:id', (request, response) => {
 
 app.get('/features-pricing', (request, response) => {
   const meta = {
-    title: "JustCast",
+    title: "JustCast - Turns your Dropbox into Podcast Hosting",
     description: "Turns your Dropbox into Podcast Hosting",
     img: "",
     img_16: "",
@@ -135,7 +187,7 @@ app.get('/features-pricing', (request, response) => {
 
 app.get('/terms', (request, response) => {
   const meta = {
-    title: "JustCast",
+    title: "JustCast - Turns your Dropbox into Podcast Hosting",
     description: "Turns your Dropbox into Podcast Hosting",
     img: "",
     img_16: "",
@@ -158,7 +210,7 @@ app.get('/terms', (request, response) => {
 
 app.get('/privacy', (request, response) => {
   const meta = {
-    title: "JustCast",
+    title: "JustCast - Turns your Dropbox into Podcast Hosting",
     description: "Turns your Dropbox into Podcast Hosting",
     img: "",
     img_16: "",
@@ -181,7 +233,7 @@ app.get('/privacy', (request, response) => {
 
 app.get('/', (request, response) => {
   const meta = {
-    title: "JustCast",
+    title: "JustCast - Turns your Dropbox into Podcast Hosting",
     description: "Turns your Dropbox into Podcast Hosting",
     img: "",
     img_16: "",
