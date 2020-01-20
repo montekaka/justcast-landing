@@ -53,14 +53,18 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
       twitter_handle,
       apple_iutnes_app_id
     }
-    
-    fs.readFile(filePath, 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      const result = SEOHelpers.set(meta, data)
-      response.send(result);
-    });
+
+    if(show.is_private) {
+      response.redirect('/private_podcast')
+    } else {    
+      fs.readFile(filePath, 'utf8', function (err,data) {
+        if (err) {
+          return console.log(err);
+        }
+        const result = SEOHelpers.set(meta, data)
+        response.send(result);
+      });
+    }
   })
   .catch((err) => {
     // TODO: redirect to error page
@@ -156,13 +160,17 @@ app.get('/shows/:id/episodes', function(request, response) {
       apple_iutnes_app_id
     }
     
-    fs.readFile(filePath, 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      const result = SEOHelpers.set(meta, data)
-      response.send(result);
-    });
+    if(show.is_private) {
+      response.redirect('/private_podcast')
+    } else {
+      fs.readFile(filePath, 'utf8', function (err,data) {
+        if (err) {
+          return console.log(err);
+        }
+        const result = SEOHelpers.set(meta, data)
+        response.send(result);
+      });
+    }
   })
   .catch((err) => {
     // TODO: redirect to error page
@@ -205,13 +213,17 @@ app.get('/shows/:id/subscribe', function(request, response) {
       apple_iutnes_app_id
     }
     
-    fs.readFile(filePath, 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      const result = SEOHelpers.set(meta, data)
-      response.send(result);
-    });
+    if(show.is_private) {
+      response.redirect('/private_podcast')
+    } else {
+      fs.readFile(filePath, 'utf8', function (err,data) {
+        if (err) {
+          return console.log(err);
+        }
+        const result = SEOHelpers.set(meta, data)
+        response.send(result);
+      });
+    }
   })
   .catch((err) => {
     // TODO: redirect to error page
@@ -253,13 +265,17 @@ app.get('/shows/:id/about_us', function(request, response) {
       apple_iutnes_app_id
     }
     
-    fs.readFile(filePath, 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      const result = SEOHelpers.set(meta, data)
-      response.send(result);
-    });
+    if(show.is_private) {
+      response.redirect('/private_podcast')
+    } else {
+      fs.readFile(filePath, 'utf8', function (err,data) {
+        if (err) {
+          return console.log(err);
+        }
+        const result = SEOHelpers.set(meta, data)
+        response.send(result);
+      });
+    }
   })
   .catch((err) => {
     // TODO: redirect to error page
