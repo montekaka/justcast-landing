@@ -4,6 +4,7 @@ import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import SimplePageHeader from './../components/SimplePageHeader'
 import PodcastApps from './../components/PodcastApps'
+import PrivateShow from './../components/PrivateShow';
 
 const SubscribePage = (props) => {
   const id = props.match.params.id;
@@ -25,6 +26,9 @@ const SubscribePage = (props) => {
   }, [id])
 
   if(state.show.id) {
+    if(state.show.is_private) {
+      return <PrivateShow/>;
+    }       
     return (
       <>
         <SimplePageHeader title={`${state.show.name}`} bodyText="Listen in your favorite apps"/>

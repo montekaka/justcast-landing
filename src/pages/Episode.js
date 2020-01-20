@@ -4,6 +4,7 @@ import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import PageHeader from './../components/PageHeader'
 import EpisodeMeta from './../components/EpisodeMeta'
+import PrivateShow from './../components/PrivateShow';
 
 const getAudiopostById = (audioposts, id) => {
   const _ = audioposts.filter(audiopost => audiopost.id.toString() === id.toString());
@@ -43,6 +44,9 @@ const Episode = (props) => {
   }, [showId, id])
 
   if(audiopost.id) {
+    if(state.show.is_private) {
+      return <PrivateShow/>;
+    }    
     return (
       <>
         <PageHeader 

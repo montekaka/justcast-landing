@@ -4,6 +4,7 @@ import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import SimplePageHeader from './../components/SimplePageHeader'
 import EpisodeList from './../components/EpisodeList';
+import PrivateShow from './../components/PrivateShow';
 
 const Episodes = (props) => {
   const id = props.match.params.id;
@@ -25,6 +26,9 @@ const Episodes = (props) => {
   }, [id])
 
   if(state.show.id) {
+    if(state.show.is_private) {
+      return <PrivateShow/>;
+    }    
     return (
       <>
         <SimplePageHeader title={state.show.name} bodyText="All Episodes"/>

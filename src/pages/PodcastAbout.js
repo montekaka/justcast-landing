@@ -5,7 +5,7 @@ import data from './../dumps/result.json'
 import SimplePageHeader from './../components/SimplePageHeader'
 import SimplePageBody from './../components/SimplePageBody'
 import SocialNetwork from './../components/SocialNetwork'
-import PodcastApps from './../components/PodcastApps'
+import PrivateShow from './../components/PrivateShow';
 
 const PodcastAbout = (props) => {
   const id = props.match.params.id;
@@ -27,6 +27,9 @@ const PodcastAbout = (props) => {
   }, [id])
 
   if(state.show.id) {
+    if(state.show.is_private) {
+      return <PrivateShow/>;
+    }        
     return (
       <>
         <SimplePageHeader title="About our podcast" bodyText={state.show.name}/>        
