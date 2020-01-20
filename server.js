@@ -15,8 +15,7 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_API_PROXY_SERVER_BASE_PATH 
 })
 const filePath = path.resolve(__dirname, './build', 'index.html');
-
-
+const privatePodcastFilePath = path.resolve(__dirname, './build', 'privatepodcast.html');
 
 app.get('/shows/:show_id/audioposts/:id', function(request, response) {    
   const id = request.params.id;
@@ -102,14 +101,19 @@ app.get('/shows/:id/audioposts', function(request, response) {
       twitter_handle,
       apple_iutnes_app_id
     }
-    
-    fs.readFile(filePath, 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      const result = SEOHelpers.set(meta, data)
-      response.send(result);
-    });
+
+    if(show.is_private) {
+      // redirect to error page
+      response.redirect('/private_podcast')
+    } else {
+      fs.readFile(filePath, 'utf8', function (err,data) {
+        if (err) {
+          return console.log(err);
+        }
+        const result = SEOHelpers.set(meta, data)
+        response.send(result);
+      });
+    }
   })
   .catch((err) => {
     // TODO: redirect to error page
@@ -332,6 +336,31 @@ app.get('/privacy', (request, response) => {
     response.send(result);
   });   
 })
+
+
+app.get('/private_podcast', (request, response) => {
+  const meta = {
+    title: "JustCast - Turns your Dropbox into Podcast Hosting",
+    description: "Turns your Dropbox into Podcast Hosting",
+    img: "",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "",    
+    keywords: "Podcasting, Dropbox",
+    url: "https://www.justcast.com",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: ""
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
+
 
 app.get('/', (request, response) => {
   const meta = {
