@@ -27,7 +27,10 @@ const TopNavbars = () => {
   }
 
   const {state} = useContext(PodcastContext)
-
+  if(state.show.is_private) {
+    return null;
+  }
+  
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-white">

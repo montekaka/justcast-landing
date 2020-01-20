@@ -1,9 +1,10 @@
-import React, {useContext} from "react";
+import React from "react";
 import { Route } from 'react-router-dom'
 import TopNavbars from './TopNavbars'
 import FooterPlayer from './FooterPlayer'
 
 const PodcastPageRoute = ({ component: Component, ...rest }) => {
+  
   return (
     <Route {...rest} render={(props) => (
       <>

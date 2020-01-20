@@ -5,6 +5,7 @@ import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import PageHeader from './../components/PageHeader'
 import EpisodeList from './../components/EpisodeList';
+import PrivateShow from './../components/PrivateShow';
 
 const MoreEpisodes = ({handleMoreEpisodesClicked, totalNumberOfEpisodes, showingNumberOfEpisodes}) => {
   if(totalNumberOfEpisodes > showingNumberOfEpisodes) {
@@ -34,7 +35,7 @@ const Podcast = (props) => {
   const [numberOfEpisodes, setNumberOfEpisodes] = useState(5)
   //const [showingNumberOfEpisodes, setShowingNumberOfEpisodes] = useState(0)
   const id = props.match.params.id;
-
+  
   useEffect(() => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
@@ -56,7 +57,10 @@ const Podcast = (props) => {
     setNumberOfEpisodes(numberOfEpisodes + 5);
   }
 
-  if(state.show.id) {
+  if(state.show.id) {    
+    if(state.show.is_private) {
+      return <PrivateShow/>;
+    }
     return (
       <>
         <PageHeader 
