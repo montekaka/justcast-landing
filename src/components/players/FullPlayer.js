@@ -60,7 +60,7 @@ const FullPlayer = ({
     <div className="widget-player-container dark-html-widget-player">
       <section className="widget-player-app">
         <div className="artwork">
-          <img src={artwork ? artwork : "http://download.randgad.com/images/RandGadArt.jpg"} />
+          <img src={artwork ? artwork : "https://justcast.herokuapp.com/images/default_thumb_show_image.png"} />
         </div>
         <div className="main">
           <WidgetPlayerControl

@@ -38,7 +38,7 @@ const EpisodeListItem = ({
         <div className="simple-player-container">
           <div className="simple-player-artwork">
             <Link to={pageUrl}>
-              <img src={artwork_url ? artwork_url : "http://download.randgad.com/images/RandGadArt.jpg"} alt="podcast artwork"/>
+              <img src={artwork_url ? artwork_url : "https://justcast.herokuapp.com/images/default_thumb_show_image.png"} alt="podcast artwork"/>
             </Link>            
           </div>          
           <div className="simple-player-body">

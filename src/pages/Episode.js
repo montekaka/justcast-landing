@@ -66,7 +66,7 @@ const Episode = (props) => {
             <div className="row justify-content-center">
               <div className="col-12 col-md-10 col-lg-9 col-xl-8">
                 <h1 className="display-4 text-center">{audiopost.name}</h1>
-                <EpisodeMeta artwork={state.show.artwork_url ? state.show.artwork_url :  "http://download.randgad.com/images/RandGadArt.jpg"}
+                <EpisodeMeta artwork={state.show.artwork_url ? state.show.artwork_url :  "https://justcast.herokuapp.com/images/default_thumb_show_image.png"}
                   showName={state.show.name}
                   audio_date={audiopost.audio_date}
                 />                
