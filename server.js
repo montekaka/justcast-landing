@@ -378,6 +378,29 @@ app.get('/private_podcast', (request, response) => {
 })
 
 
+app.get('/about_us', (request, response) => {
+  const meta = {
+    title: "JustCast - Turns your Dropbox into Podcast Hosting",
+    description: "Turns your Dropbox into Podcast Hosting",
+    img: "",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "",    
+    keywords: "Podcasting, Dropbox",
+    url: "https://www.justcast.com",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: ""
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
+
 app.get('/', (request, response) => {
   const meta = {
     title: "JustCast - Turns your Dropbox into Podcast Hosting",
