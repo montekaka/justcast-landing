@@ -6,6 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const fs = require('fs')
 const SEOHelpers = require('./lib/index')
+const sanitizeHtml = require('sanitize-html');
 
 dotenv.config();
 app.use(logger('dev'));
@@ -28,7 +29,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
     const podcastName = data.name;
     const url = data.permulink;
     const title = `${show.name} | ${data.name}`;
-    const description = data.description ? data.description : "Podcast power by JustCast";
+    const description = data.description ? sanitizeHtml(data.description) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     const img_16 = show.artwork_url_16;
