@@ -15,7 +15,7 @@ const initState = {
   played: 0, // in percentage
   playedSeconds: 0,
   seeking: false,
-  minimize: false,
+  minimize: true,
   section: "control", // [control, subscribe, share, more_info]
   embedUrl: "",
   shareUrl: ""
