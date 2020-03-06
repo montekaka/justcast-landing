@@ -8,6 +8,7 @@ const WidgetPlaylist = (props) => {
   const [show, setShow] = useState({});
   const [audioposts, setAudioposts] = useState([]);
   const [selectedAudiopost, setSelectedAudiopost] = useState({});
+  const [autoplay, setAutoplay] = useState(false);
 
   useEffect(() => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
@@ -26,6 +27,7 @@ const WidgetPlaylist = (props) => {
     const audiopost = audioposts.filter(audiopost => audiopost.id === selectedId);
     if(audiopost.length > 0) {
       setSelectedAudiopost(audiopost[0]);
+      setAutoplay(true);
     }
   }
 
@@ -37,6 +39,7 @@ const WidgetPlaylist = (props) => {
           showId={id}
           show={show}
           audiopostData={selectedAudiopost}
+          autoplay={autoplay}
         />    
         <div className="widget-playlist">
           {
@@ -49,7 +52,7 @@ const WidgetPlaylist = (props) => {
                 duration={audiopost.duration}
                 selectedId={selectedAudiopost.id}
                 handleClicked={handleAudiopostClicked}
-                />            
+              />            
             )
           }
         </div>

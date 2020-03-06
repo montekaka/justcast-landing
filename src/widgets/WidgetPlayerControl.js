@@ -21,7 +21,7 @@ const initState = {
   shareOnTwitter: ""  
 }
 
-const WidgetPlayerControl = ({id, showId, show, audiopostData}) => {
+const WidgetPlayerControl = ({id, showId, show, audiopostData, autoplay}) => {
   let reactPlayer = null;
   const embedUrl = `${process.env.REACT_APP_BASE_PATH}/widget/${showId}/audioposts/${id}`
   const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`    
@@ -76,7 +76,8 @@ const WidgetPlayerControl = ({id, showId, show, audiopostData}) => {
         url: audiopostData.url,
         artwork: show.artwork_url_256,
         shareOnFacebook: audiopostData.share_on_facebook,
-        shareOnTwitter: audiopostData.share_on_twitter      
+        shareOnTwitter: audiopostData.share_on_twitter,
+        playing: autoplay ? autoplay : false
       })      
     }
   }, [showId, id])  
