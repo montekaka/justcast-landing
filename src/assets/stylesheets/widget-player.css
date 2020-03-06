@@ -237,6 +237,10 @@
   padding: 5px 20px;
 }
 
+.widget-playlist > .playlist-items {
+  max-height: 300px;  
+  overflow: scroll;
+}
 .widget-playlist > .playlist-items > .selected-item {
   background-color: #272c33;
   font-weight: bold;
