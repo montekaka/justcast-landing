@@ -81,7 +81,7 @@ const WidgetPlayerControl = ({id, showId, show, audiopostData}) => {
     }
   }, [showId, id])  
 
-  if(audiopost.id) {
+  if(audiopost.id && show) {
     return (
       <>
         <WidgetPlayer

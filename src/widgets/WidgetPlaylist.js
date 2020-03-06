@@ -12,10 +12,10 @@ const WidgetPlaylist = (props) => {
   useEffect(() => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
-      const showdate = res.data;
-      setShow(showdate);
-      setAudioposts(showdate.audioposts);
-      setSelectedAudiopost(showdate.audioposts[0]);
+      const showdata = res.data;
+      setShow(showdata.show);
+      setAudioposts(showdata.audioposts);
+      setSelectedAudiopost(showdata.audioposts[0]);
     })
     .catch((err) => {
       console.log('this is not available')
@@ -29,31 +29,34 @@ const WidgetPlaylist = (props) => {
     }
   }
 
-  return (
-    <>
-      <WidgetPlayerControl
-        id={selectedAudiopost.id}
-        showId={id}
-        show={show}
-        audiopostData={selectedAudiopost}
-      />    
-      <div className="widget-playlist">
-        {
-          audioposts.map((audiopost) => 
-            <WidgetPlaylistItem 
-              key={audiopost.id.toString()} 
-              name={audiopost.name} 
-              id={audiopost.id} 
-              audioDate={audiopost.audio_date}
-              duration={audiopost.duration}
-              selectedId={selectedAudiopost.id}
-              handleClicked={handleAudiopostClicked}
-              />            
-          )
-        }
-      </div>
-    </>
-  )
+  if(show) {
+    return (
+      <>
+        <WidgetPlayerControl
+          id={selectedAudiopost.id}
+          showId={id}
+          show={show}
+          audiopostData={selectedAudiopost}
+        />    
+        <div className="widget-playlist">
+          {
+            audioposts.map((audiopost) => 
+              <WidgetPlaylistItem 
+                key={audiopost.id.toString()} 
+                name={audiopost.name} 
+                id={audiopost.id} 
+                audioDate={audiopost.audio_date}
+                duration={audiopost.duration}
+                selectedId={selectedAudiopost.id}
+                handleClicked={handleAudiopostClicked}
+                />            
+            )
+          }
+        </div>
+      </>
+    )
+  }
+  return null
 }
 
 export default WidgetPlaylist
