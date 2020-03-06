@@ -37,7 +37,8 @@ const FullPlayer = ({
   stitcher,
   rssFeed,
   facebook_page,
-  twitter_handle
+  twitter_handle,
+  playerControlSquare,
 }) => {
   
   const date = moment(audio_date).format('YYYY-MM-DD');
@@ -56,9 +57,11 @@ const FullPlayer = ({
     stitcher ? {label: "Stitcher", iconName: stitcherSrc, url: stitcher, buttonImg: true} : null,
   ]
 
+  const playerControlClass = playerControlSquare ? 'widget-player-app' : 'widget-player-app widget-player-app-rounded';
+
   return (
-    <div className="widget-player-container dark-html-widget-player">
-      <section className="widget-player-app">
+    <div className='widget-player-container dark-html-widget-player'>
+      <section className={playerControlClass}>
         <div className="artwork">
           <img src={artwork ? artwork : "https://justcast.herokuapp.com/images/default_thumb_show_image.png"} />
         </div>

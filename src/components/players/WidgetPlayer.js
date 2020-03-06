@@ -41,7 +41,8 @@ const WidgetPlayer = ({
   stitcher,
   rssFeed,
   facebook_page,
-  twitter_handle  
+  twitter_handle,
+  playerControlSquare
 }) => {
   return (
     <>
@@ -76,7 +77,8 @@ const WidgetPlayer = ({
       castbox={castbox}
       tune_in={tune_in}
       stitcher={stitcher}
-      rssFeed={rssFeed}      
+      rssFeed={rssFeed}  
+      playerControlSquare={playerControlSquare}    
       />
       <ReactPlayer url={url}
           className='react-player'

@@ -35,6 +35,7 @@ const WidgetPlaylist = (props) => {
     return (
       <>
         <WidgetPlayerControl
+          playerControlSquare={true}          
           id={selectedAudiopost.id}
           showId={id}
           show={show}
@@ -42,19 +43,24 @@ const WidgetPlaylist = (props) => {
           autoplay={autoplay}
         />    
         <div className="widget-playlist">
-          {
-            audioposts.map((audiopost) => 
-              <WidgetPlaylistItem 
-                key={audiopost.id.toString()} 
-                name={audiopost.name} 
-                id={audiopost.id} 
-                audioDate={audiopost.audio_date}
-                duration={audiopost.duration}
-                selectedId={selectedAudiopost.id}
-                handleClicked={handleAudiopostClicked}
-              />            
-            )
-          }
+          <div className="playlist-header">
+            <div>{audioposts.length} LATEST EPISODES</div>
+          </div>
+          <div className="playlist-items">
+            {
+              audioposts.map((audiopost) => 
+                <WidgetPlaylistItem 
+                  key={audiopost.id.toString()} 
+                  name={audiopost.name} 
+                  id={audiopost.id} 
+                  audioDate={audiopost.audio_date}
+                  duration={audiopost.duration}
+                  selectedId={selectedAudiopost.id}
+                  handleClicked={handleAudiopostClicked}
+                />            
+              )
+            }
+          </div>
         </div>
       </>
     )

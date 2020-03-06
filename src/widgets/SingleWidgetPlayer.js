@@ -12,10 +12,8 @@ const SingleWidgetPlayer = (props) => {
     justcastApi.get(`/v1/shows/${showId}/audioposts/${id}`)
     .then((res) => {
       const data = res.data;
-      const show = data.show;
-
       setAudiopost(data)
-      setShow(show);
+      setShow(data.show);
     })
     .catch((err) => {
       console.log(err);

@@ -21,7 +21,7 @@ const initState = {
   shareOnTwitter: ""  
 }
 
-const WidgetPlayerControl = ({id, showId, show, audiopostData, autoplay}) => {
+const WidgetPlayerControl = ({playerControlSquare, id, showId, show, audiopostData, autoplay}) => {
   let reactPlayer = null;
   const embedUrl = `${process.env.REACT_APP_BASE_PATH}/widget/${showId}/audioposts/${id}`
   const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`    
@@ -66,7 +66,7 @@ const WidgetPlayerControl = ({id, showId, show, audiopostData, autoplay}) => {
   }
 
   useEffect(() => {
-    if(audiopostData) {
+    if(audiopostData.id && show.id) {
       setAudiopost({
         ...audiopost, 
         id: audiopostData.id,
@@ -80,12 +80,13 @@ const WidgetPlayerControl = ({id, showId, show, audiopostData, autoplay}) => {
         playing: autoplay ? autoplay : false
       })      
     }
-  }, [showId, id])  
+  }, [show.id, audiopostData.id])  
 
   if(audiopost.id && show) {
     return (
       <>
         <WidgetPlayer
+          playerControlSquare={playerControlSquare}
           progressBarIdName={id}
           audio_date={audiopost.audio_date}
           artwork={audiopost.artwork}
