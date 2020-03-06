@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Spinner } from 'reactstrap';
 import WidgetPlayer from './../components/players/WidgetPlayer'
 
 const initState = {
@@ -129,7 +130,7 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, audiopostDa
       </>
     )
   }
-  return null;
+  return <Spinner color="primary" />
 }
 
 export default WidgetPlayerControl

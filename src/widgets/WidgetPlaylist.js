@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Spinner } from 'reactstrap';
 import justcastApi from '../api/justcast'
 import WidgetPlayerControl from './WidgetPlayerControl';
 import WidgetPlaylistItem from './WidgetPlaylistItem'
@@ -65,7 +66,7 @@ const WidgetPlaylist = (props) => {
       </>
     )
   }
-  return null
+  return <Spinner color="primary" />
 }
 
 export default WidgetPlaylist
