@@ -74,7 +74,7 @@ const WidgetPlayerControl = ({id, showId, show, audiopostData}) => {
         description: audiopostData.description,
         audio_date: audiopostData.audio_date,
         url: audiopostData.url,
-        artwork: audiopostData.show.artwork_url_256,
+        artwork: show.artwork_url_256,
         shareOnFacebook: audiopostData.share_on_facebook,
         shareOnTwitter: audiopostData.share_on_twitter      
       })      

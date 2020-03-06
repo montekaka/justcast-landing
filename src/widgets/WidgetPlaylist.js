@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import justcastApi from '../api/justcast'
-import data from './../dumps/result.json'
+import WidgetPlayerControl from './WidgetPlayerControl';
 import WidgetPlaylistItem from './WidgetPlaylistItem'
 
 const WidgetPlaylist = (props) => {
@@ -30,21 +30,29 @@ const WidgetPlaylist = (props) => {
   }
 
   return (
-    <div className="widget-playlist">
-      {
-        audioposts.map((audiopost) => 
-          <WidgetPlaylistItem 
-            key={audiopost.id.toString()} 
-            name={audiopost.name} 
-            id={audiopost.id} 
-            audioDate={audiopost.audio_date}
-            duration={audiopost.duration}
-            selectedId={selectedAudiopost.id}
-            handleClicked={handleAudiopostClicked}
-            />            
-        )
-      }
-    </div>
+    <>
+      <WidgetPlayerControl
+        id={selectedAudiopost.id}
+        showId={id}
+        show={show}
+        audiopostData={selectedAudiopost}
+      />    
+      <div className="widget-playlist">
+        {
+          audioposts.map((audiopost) => 
+            <WidgetPlaylistItem 
+              key={audiopost.id.toString()} 
+              name={audiopost.name} 
+              id={audiopost.id} 
+              audioDate={audiopost.audio_date}
+              duration={audiopost.duration}
+              selectedId={selectedAudiopost.id}
+              handleClicked={handleAudiopostClicked}
+              />            
+          )
+        }
+      </div>
+    </>
   )
 }
 
