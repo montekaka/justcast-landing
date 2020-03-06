@@ -15,6 +15,7 @@ import TermsOfService from './../landingpages/TermsOfService'
 import Privacy from './../landingpages/Privacy'
 import AboutUs from './../landingpages/AboutUs'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
+import WidgetPlaylist from './../widgets/WidgetPlaylist'
 
 const MainRoutes = () => {
   return (
@@ -24,8 +25,9 @@ const MainRoutes = () => {
       <PodcastPageRoute exact path="/shows/:id/episodes" component={Episodes}/>
       <PodcastPageRoute exact path="/shows/:id/audioposts" component={Podcast}/>
       <PodcastPageRoute exact path="/shows/:id/subscribe" component={SubscribePage}/>
-      <PodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={Episode}/>
+      <PodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={Episode}/>      
       <Route exact path="/widget/:show_id/audioposts/:id" component={SingleWidgetPlayer} />
+      <Route exact path="/widget/:id/audioposts" component={WidgetPlaylist} />
       <LandingPageRoute exact path="/" component={Home}/>
       <LandingPageRoute exact path="/features-pricing" component={Pricing}/>
       <LandingPageRoute exact path="/terms" component={TermsOfService}/>
