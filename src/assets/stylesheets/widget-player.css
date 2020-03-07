@@ -13,12 +13,12 @@
   display: flex;
   width: 100%;
   padding: 15px;
-  /* border-radius: 10px; */
+  /* border-radius: 10px; */  
   background-color: #30343c; 
   justify-content: space-start;
 }
 
-.widget-player-app-rounded {
+.widget-player-app-rounded {  
   border-radius: 10px;
 }
 

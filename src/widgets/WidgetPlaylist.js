@@ -36,7 +36,7 @@ const WidgetPlaylist = (props) => {
     return (
       <>
         <WidgetPlayerControl
-          playerControlSquare={true}          
+          playerControlSquare={true}
           id={selectedAudiopost.id}
           showId={id}
           show={show}

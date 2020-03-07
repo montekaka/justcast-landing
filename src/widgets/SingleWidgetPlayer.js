@@ -27,6 +27,7 @@ const SingleWidgetPlayer = (props) => {
           id={id}
           showId={showId}
           show={show}
+          playerControlSquare={true}
           audiopostData={audiopost}
         />
       </>
