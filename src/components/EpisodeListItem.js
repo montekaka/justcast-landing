@@ -15,6 +15,19 @@ const RenderHTML = ({description}) => {
   return null;
 }
 
+const RenderImg = ({artwork, name}) => {
+  if(artwork) {
+    return (
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <img className="figure-img img-fluid rounded lift lift-lg" src={artwork} alt={`${name} artwork`}/>
+        </div>
+      </div>      
+    )     
+  }
+  return null
+}
+
 const EpisodeListItem = ({
   showId, 
   id, 
@@ -23,6 +36,7 @@ const EpisodeListItem = ({
   audio_date, 
   url, 
   artwork_url,
+  episode_artwork_url,
   share_on_facebook,
   share_on_twitter
   }) => {
@@ -31,7 +45,7 @@ const EpisodeListItem = ({
   const pageUrl = `/shows/${showId}/audioposts/${id}`
   const embedUrl = `${process.env.REACT_APP_BASE_PATH}/widget/${showId}/audioposts/${id}`
   const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`
-
+  
   return (
     <Card className="col-12 card-border border-primary shadow-light-lg media-card-item" data-aos="fade-up">
       <CardBody>
@@ -62,8 +76,8 @@ const EpisodeListItem = ({
                 />
               </div>              
               <div className="row-two">
-                <RenderHTML description={description}/>
-                {/* <div dangerouslySetInnerHTML={{__html: description}} /> */}
+                <RenderImg artwork={episode_artwork_url} name={name}/>
+                <RenderHTML description={description}/>                
               </div>
             </div>          
           </div>

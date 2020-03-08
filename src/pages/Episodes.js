@@ -31,7 +31,7 @@ const Episodes = (props) => {
     }    
     return (
       <>
-        <SimplePageHeader title={state.show.name} bodyText={`Total episodes: ${state.audioposts.length}`}/>
+        <SimplePageHeader title={state.show.name} bodyText={`Total episodes: ${state.audioposts.length}`}/>        
         <div className="container player-container">
           <EpisodeList
             showId={id}

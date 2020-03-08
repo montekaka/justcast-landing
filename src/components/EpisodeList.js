@@ -19,6 +19,7 @@ const EpisodeList = ({showId, items, artwork_url, handlePlay}) => {
                 id={item.id}
                 url={item.url}
                 artwork_url={artwork_url}
+                episode_artwork_url={item.artwork_url_256}
                 name={item.name} 
                 description={item.description}
                 audio_date={item.audio_date}
