@@ -18,8 +18,8 @@ const RenderHTML = ({description}) => {
 const RenderImg = ({artwork, name}) => {
   if(artwork) {
     return (
-      <div class="row justify-content-center">
-        <div class="col-10">
+      <div className="row justify-content-center">
+        <div className="col-10">
           <img className="figure-img img-fluid rounded lift lift-lg" src={artwork} alt={`${name} artwork`}/>
         </div>
       </div>      

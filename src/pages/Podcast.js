@@ -57,7 +57,7 @@ const Podcast = (props) => {
     setNumberOfEpisodes(numberOfEpisodes + 5);
   }
 
-  if(state.show.id) {    
+  if(state.show.id) {   
     if(state.show.is_private) {
       return <PrivateShow/>;
     }

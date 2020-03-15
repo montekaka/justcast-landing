@@ -14,6 +14,19 @@ const getAudiopostById = (audioposts, id) => {
   return null;
 }
 
+const RenderImg = ({artwork, name}) => {
+  if(artwork) {
+    return (
+      <div className="row justify-content-center">
+        <div className="col-10">
+          <img className="figure-img img-fluid rounded lift lift-lg" src={artwork} alt={`${name} artwork`}/>
+        </div>
+      </div>      
+    )     
+  }
+  return null
+}
+
 const Episode = (props) => {
   const id = props.match.params.id;
   const showId = props.match.params.show_id;
@@ -81,6 +94,7 @@ const Episode = (props) => {
               <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
                 dangerouslySetInnerHTML={{__html: audiopost.description}}>
               </div>
+              <RenderImg artwork={audiopost.artwork_url} name={audiopost.name}/>
             </div>
           </div>
         </section>
