@@ -24,7 +24,7 @@ const Episode = (props) => {
   useEffect(() => {
     justcastApi.get(`/v1/shows/${showId}/audioposts`)
     .then((res) => {
-      const data = res.data;      
+      const data = res.data;
       
       if(getAudiopostById(data.audioposts, id)) {        
         setAudiopost(getAudiopostById(data.audioposts, id))
@@ -60,6 +60,7 @@ const Episode = (props) => {
           shareUrl={`${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`}          
           shareOnFacebook={audiopost.share_on_facebook}
           shareOnTwitter={audiopost.share_on_twitter}
+          imgURL={state.show.header_img_url}
         />
         <section className="pt-8 pt-md-11">
           <div className="container">

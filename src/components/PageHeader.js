@@ -2,8 +2,11 @@ import React from "react";
 import moment from 'moment';
 import PlayPauseButton from './PlayPauseButton';
 
-const sectionCSS = {
-  backgroundImage: `url("https://source.unsplash.com/c1ZN57GfDB0/1600x900")`
+const sectionCSS = (imgURL) => {
+  const backgroundImg = imgURL ? imgURL : "https://source.unsplash.com/c1ZN57GfDB0/1600x900";
+  return {
+    backgroundImage: `url(${backgroundImg})`
+  }
 }
 
 const PageHeader = ({
@@ -17,7 +20,8 @@ const PageHeader = ({
   embedUrl, 
   shareUrl,
   shareOnFacebook,
-  shareOnTwitter
+  shareOnTwitter,
+  imgURL
 }) => {
   const date = moment(audio_date).format('YYYY-MM-DD');
 
@@ -25,7 +29,7 @@ const PageHeader = ({
     <section data-jarallax
       className="py-10 py-md-14 overlay overlay-black overlay-60 bg-cover jarallax"
       data-speed=".8"
-      style={sectionCSS}
+      style={sectionCSS(imgURL)}
     >
       <div className="container">
         <div className="row align-items-center">

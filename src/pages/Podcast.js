@@ -74,7 +74,8 @@ const Podcast = (props) => {
           embedUrl={`${process.env.REACT_APP_BASE_PATH}/widget/${id}/audioposts/${latestEpisode.id}`}
           shareUrl={`${process.env.REACT_APP_BASE_PATH}/shows/${id}/audioposts/${latestEpisode.id}`}
           shareOnFacebook={latestEpisode.share_on_facebook}
-          shareOnTwitter={latestEpisode.share_on_twitter}          
+          shareOnTwitter={latestEpisode.share_on_twitter} 
+          imgURL={state.show.header_img_url}         
         />    
         <div className="container player-container">
           <EpisodeList
