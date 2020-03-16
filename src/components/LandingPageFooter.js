@@ -22,14 +22,14 @@ const LandingPageFooter = () => {
 
             <ul className="list-unstyled list-inline list-social mb-6 mb-md-0">
               <li className="list-inline-item list-social-item mr-3">
-                <a href="#!" className="text-decoration-none">
-                  <img src={fbicon} className="list-social-icon" alt="..."/>
+                <a href="https://www.facebook.com/thejustcast/" className="text-decoration-none">
+                  <img src={fbicon} className="list-social-icon" alt="justcast facebook page"/>
                 </a>
               </li>
 
               <li className="list-inline-item list-social-item mr-3">
-                <a href="#!" className="text-decoration-none">
-                  <img src={twtricon} className="list-social-icon" alt="..."/>
+                <a href="https://twitter.com/thejustcast" className="text-decoration-none">
+                  <img src={twtricon} className="list-social-icon" alt="justcast twitter page"/>
                 </a>
               </li>
             </ul>
@@ -48,7 +48,7 @@ const LandingPageFooter = () => {
                 </Link>
               </li>
               <li className="mb-3">
-                <a href="#!" className="text-reset">
+                <a href="https://medium.com/@justcastapp" className="text-reset">
                   Blog
                 </a>
               </li>
