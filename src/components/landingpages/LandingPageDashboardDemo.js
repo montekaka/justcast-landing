@@ -1,5 +1,6 @@
 import React from "react";
 import macbook from '../../assets/img/devices/macbook.svg'
+import dashboarddemo from '../../assets/img/dashboardemo.png'
 
 const LandingPageDashboardDemo = () => {
   return (
@@ -26,7 +27,7 @@ const LandingPageDashboardDemo = () => {
 
             <div className="w-100 w-md-130 float-right mb-6 mb-md-0">
               <div className="device device-macbook">
-                <img src="https://s3.amazonaws.com/thejustcast/LandingPageAssets/Images/justcast_subscriber_count.png" className="device-screen" alt="dashboard demo"/>
+                <img src={dashboarddemo} className="device-screen" alt="dashboard demo"/>
                 <img src={macbook} className="img-fluid" alt="..."/>
               </div>
 
