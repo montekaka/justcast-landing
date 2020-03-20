@@ -40,7 +40,7 @@ const Podcast = (props) => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
       const data = res.data;      
-      add(data)      
+      add(data)
       setLatestEpisode(data.audioposts[0]);
     })
     .catch((err) => {
@@ -60,7 +60,7 @@ const Podcast = (props) => {
   if(state.show.id) {   
     if(state.show.is_private) {
       return <PrivateShow/>;
-    }
+    } else if (latestEpisode) {
     return (
       <>
         <PageHeader 
@@ -90,7 +90,7 @@ const Podcast = (props) => {
           />
         </div>     
       </>    
-    )
+    )}
   }
 
   return null;
