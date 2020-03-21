@@ -5,7 +5,7 @@ import PlayPauseButton from './PlayPauseButton';
 const sectionCSS = (imgURL) => {
   const backgroundImg = imgURL ? imgURL : "https://source.unsplash.com/c1ZN57GfDB0/1600x900";
   console.log(imgURL)
-  console.log(backgroundImage)
+  console.log(backgroundImg)
   return {
     backgroundImage: `url(${backgroundImg})`
   }
