@@ -54,7 +54,7 @@ const LandingPageFooter = () => {
               </li>
               <li className="mb-3">
                 <a href="https://justcast.zendesk.com/hc/en-us" target="_blank" className="text-reset">
-                  Support
+                  Help
                 </a>
               </li>
               <li className="mb-3">
