@@ -48,12 +48,12 @@ const LandingPageFooter = () => {
                 </Link>
               </li>
               <li className="mb-3">
-                <a href="https://medium.com/@justcastapp" className="text-reset">
+                <a href="https://medium.com/@justcastapp" target="_blank" className="text-reset">
                   Blog
                 </a>
               </li>
               <li className="mb-3">
-                <a href="#!" className="text-reset">
+                <a href="https://justcast.zendesk.com/hc/en-us" target="_blank" className="text-reset">
                   Support
                 </a>
               </li>
