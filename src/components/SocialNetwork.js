@@ -17,6 +17,8 @@ const ListItem = ({url, iconImg, name}) => {
 }
 
 const SocialNetwork = ({facebook_page, twitter_handle}) => {
+  const twitterLink = twitter_handle.replace('@', 'https://www.twitter.com/');
+
   return (
     <>
       <section className="pt-8 pt-md-11">
@@ -33,7 +35,7 @@ const SocialNetwork = ({facebook_page, twitter_handle}) => {
                 <div className="col-auto">
                   <ul className="d-inline list-unstyled list-inline list-social">
                     <ListItem url={facebook_page} iconImg={facebookImg} name="facebook"/>
-                    <ListItem url={twitter_handle} iconImg={twitterImg} name="twitter"/>
+                    <ListItem url={twitterLink} iconImg={twitterImg} name="twitter"/>
                   </ul>
                 </div>
               </div>
