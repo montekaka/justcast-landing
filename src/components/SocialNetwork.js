@@ -17,7 +17,7 @@ const ListItem = ({url, iconImg, name}) => {
 }
 
 const SocialNetwork = ({facebook_page, twitter_handle}) => {
-  const twitterLink = twitter_handle.replace('@', 'https://www.twitter.com/');
+  const twitterLink = twitter_handle ? twitter_handle.replace('@', 'https://www.twitter.com/') : null;
 
   return (
     <>
