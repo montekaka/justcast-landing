@@ -19,7 +19,7 @@ const initState = {
   seeking: false,
   minimize: false,  
   shareOnFacebook: "",
-  shareOnTwitter: ""  
+  shareOnTwitter: ""
 }
 
 const WidgetPlayerControl = ({playerControlSquare, id, showId, show, audiopostData, autoplay}) => {
@@ -125,7 +125,8 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, audiopostDa
           stitcher={show.stitcher}
           rssFeed={show.rss_feed}
           facebook_page={show.facebook_page}
-          twitter_handle={show.twitter_handle}      
+          twitter_handle={show.twitter_handle}
+          hideWidgetPubDate={show.hide_widget_pub_date}    
         />
       </>
     )

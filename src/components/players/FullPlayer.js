@@ -39,9 +39,10 @@ const FullPlayer = ({
   facebook_page,
   twitter_handle,
   playerControlSquare,
+  hideWidgetPubDate
 }) => {
-  
-  const date = moment(audio_date).format('YYYY-MM-DD');
+  console.log(hideWidgetPubDate)
+  const date = hideWidgetPubDate === true ? '' : moment(audio_date).format('YYYY-MM-DD');
   const embedCode = `<iframe src='${embedUrl}' width='100%' height='180' frameborder='0' scrolling='no' seamless='true' style='width:100%; height:180px;'></iframe>`
   const podcastApps = [
     apple_podcast ? {label: "Apple Podcasts", iconName: applePodcastSrc, url: apple_podcast, buttonImg: true} : null,
