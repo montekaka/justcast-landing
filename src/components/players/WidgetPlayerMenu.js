@@ -1,11 +1,6 @@
 import React from "react";
-const menuItems = [
-  {key: 'subscribe', label: 'Subscribe'},
-  {key: 'share', label: 'share'},
-  {key: 'more_info', label: 'More info'}
-]
 
-const WidgetPlayerMenu = ({handleSectionChange}) => {
+const WidgetPlayerMenu = ({handleSectionChange, menuItems}) => {
   if(handleSectionChange) {
     return (
       <>

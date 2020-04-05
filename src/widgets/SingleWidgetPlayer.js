@@ -7,6 +7,7 @@ const SingleWidgetPlayer = (props) => {
   const showId = props.match.params.show_id;  
   const [audiopost, setAudiopost] = useState({});
   const [show, setShow] = useState({});
+  const [menuItems, setMenuItems] = useState([])
 
   useEffect(() => {
     justcastApi.get(`/v1/shows/${showId}/audioposts/${id}`)
@@ -29,6 +30,7 @@ const SingleWidgetPlayer = (props) => {
           show={show}
           playerControlSquare={true}
           audiopostData={audiopost}
+          menuItems={menuItems}
         />
       </>
     )

@@ -4,11 +4,17 @@ import { CustomInput, Form, FormGroup, Label, Progress } from 'reactstrap';
 import WidgetPlayerPlayPauseButton from './WidgetPlayerPlayPauseButton'
 import WidgetPlayerMenu from './WidgetPlayerMenu';
 
+// const menuItems = [
+//   {key: 'subscribe', label: 'Subscribe'},
+//   {key: 'share', label: 'share'},
+//   {key: 'more_info', label: 'More info'}
+// ]
+
 const WidgetPlayerControl = ({
     date, name, playing, handlPlayPauseClick,
     progressBarIdName, playedSeconds, duration,
     handleSeekMouseDown, handleSeekMouseUp, handleSliderChange,
-    section, handleSectionChange
+    section, handleSectionChange, menuItems
   }) => {
   if(section === 'control') {
     return (
@@ -49,7 +55,7 @@ const WidgetPlayerControl = ({
           </div>
         </section>
         <section className="menu">
-          <WidgetPlayerMenu handleSectionChange={handleSectionChange}/>
+          <WidgetPlayerMenu handleSectionChange={handleSectionChange} menuItems={menuItems}/>
         </section>    
       </>
     )

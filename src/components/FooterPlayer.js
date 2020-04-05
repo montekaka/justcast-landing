@@ -68,6 +68,7 @@ const FooterPlayer = () => {
           minimize={state.minimize}
           section={state.section}
           updateSection={updateSection}
+          menuItems={[{key: 'subscribe', label: 'Subscribe'}, {key: 'share', label: 'share'}, {key: 'more_info', label: 'More info'}]}
         />
       </div>
     )

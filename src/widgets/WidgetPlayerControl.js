@@ -22,12 +22,13 @@ const initState = {
   shareOnTwitter: ""
 }
 
-const WidgetPlayerControl = ({playerControlSquare, id, showId, show, audiopostData, autoplay}) => {
+const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, audiopostData, autoplay}) => {
   let reactPlayer = null;
   const embedUrl = `${process.env.REACT_APP_BASE_PATH}/widget/${showId}/audioposts/${id}`
   const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`    
   const [audiopost, setAudiopost] = useState(initState);
   const [section, setSection] = useState('control') //[control, subscribe, share, more_info]
+  // const [navItems, setNavItems] = useState([]);
 
   const toggleSeeking = () => {
     setAudiopost({...audiopost, seeking: !audiopost.seeking});
@@ -126,7 +127,8 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, audiopostDa
           rssFeed={show.rss_feed}
           facebook_page={show.facebook_page}
           twitter_handle={show.twitter_handle}
-          hideWidgetPubDate={show.hide_widget_pub_date}    
+          hideWidgetPubDate={show.hide_widget_pub_date}  
+          menuItems={menuItems}        
         />
       </>
     )

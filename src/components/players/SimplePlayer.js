@@ -4,8 +4,8 @@ import {Context as PodcastContext} from '../../context/PodcastContext'
 import ReactPlayer from 'react-player'
 import MinimizePlayer from './MinimizePlayer'
 import FullPlayer from './FullPlayer'
-
-const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, section, updateSection, embedUrl, shareUrl}) => {
+// menuItems={[{key: 'subscribe', label:'subscribe'},{key: 'share', label: 'share'},{key: 'more_info', label: 'more info'}]}
+const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, section, updateSection, embedUrl, shareUrl, menuItems}) => {
 
   const {state} = useContext(PlayerContext);
   const podcastConext = useContext(PodcastContext);
@@ -39,6 +39,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
             tune_in={podcastConext.state.show.tune_in}
             stitcher={podcastConext.state.show.stitcher}
             rssFeed={podcastConext.state.show.rss_feed}
+            menuItems={menuItems}
           />
         }      
         <ReactPlayer url={url}

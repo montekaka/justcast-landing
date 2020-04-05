@@ -39,7 +39,8 @@ const FullPlayer = ({
   facebook_page,
   twitter_handle,
   playerControlSquare,
-  hideWidgetPubDate
+  hideWidgetPubDate,
+  menuItems
 }) => {
   const date = hideWidgetPubDate === true ? '' : moment(audio_date).format('YYYY-MM-DD');
   const embedCode = `<iframe src='${embedUrl}' width='100%' height='180' frameborder='0' scrolling='no' seamless='true' style='width:100%; height:180px;'></iframe>`
@@ -71,7 +72,8 @@ const FullPlayer = ({
             progressBarIdName={progressBarIdName} playedSeconds={playedSeconds} duration={duration}
             handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} 
             handleSliderChange={handleSliderChange} section={section}
-            handleSectionChange={handleSectionChange}            
+            handleSectionChange={handleSectionChange}
+            menuItems={menuItems}            
           />
           <WidgetPlayerMoreInfo section={section === 'subscribe'} 
             title='Subscribe' 

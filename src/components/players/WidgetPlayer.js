@@ -43,7 +43,8 @@ const WidgetPlayer = ({
   facebook_page,
   twitter_handle,
   playerControlSquare,
-  hideWidgetPubDate
+  hideWidgetPubDate,
+  menuItems
 }) => {
   return (
     <>
@@ -81,6 +82,7 @@ const WidgetPlayer = ({
       rssFeed={rssFeed}  
       playerControlSquare={playerControlSquare}
       hideWidgetPubDate={hideWidgetPubDate}
+      menuItems={menuItems}
       />
       <ReactPlayer url={url}
           className='react-player'

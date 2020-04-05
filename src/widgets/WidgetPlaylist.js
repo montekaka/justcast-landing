@@ -10,6 +10,7 @@ const WidgetPlaylist = (props) => {
   const [audioposts, setAudioposts] = useState([]);
   const [selectedAudiopost, setSelectedAudiopost] = useState({});
   const [autoplay, setAutoplay] = useState(false);
+  const [menuItems, setMenuItems] = useState([])
 
   useEffect(() => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
@@ -18,6 +19,7 @@ const WidgetPlaylist = (props) => {
       setShow(showdata.show);
       setAudioposts(showdata.audioposts);
       setSelectedAudiopost(showdata.audioposts[0]);
+      setMenuItems([{key: 'subscribe', label: 'Subscribe'}, {key: 'share', label: 'share'}, {key: 'more_info', label: 'more info'}])
     })
     .catch((err) => {
       console.log('this is not available')
@@ -42,6 +44,7 @@ const WidgetPlaylist = (props) => {
           show={show}
           audiopostData={selectedAudiopost}
           autoplay={autoplay}
+          menuItems={menuItems}
         />    
         <div className="widget-playlist">
           <div className="playlist-header">
