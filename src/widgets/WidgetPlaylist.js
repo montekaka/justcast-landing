@@ -19,7 +19,16 @@ const WidgetPlaylist = (props) => {
       setShow(showdata.show);
       setAudioposts(showdata.audioposts);
       setSelectedAudiopost(showdata.audioposts[0]);
-      setMenuItems([{key: 'subscribe', label: 'Subscribe'}, {key: 'share', label: 'share'}, {key: 'more_info', label: 'more info'}])
+      // setMenuItems([{key: 'subscribe', label: 'Subscribe'}, {key: 'share', label: 'share'}, {key: 'more_info', label: 'more info'}])
+      const menus = [];
+      if(showdata.show.hide_widget_subscribe !== true) {
+        menus.push({key: 'subscribe', label: 'subscribe'})
+      }
+      if(showdata.show.hide_widget_share !== true) {
+        menus.push({key: 'share', label: 'share'})
+      }
+      menus.push({key: 'more_info', label: 'more info'})
+      setMenuItems(menus)      
     })
     .catch((err) => {
       console.log('this is not available')

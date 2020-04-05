@@ -15,6 +15,15 @@ const SingleWidgetPlayer = (props) => {
       const data = res.data;
       setAudiopost(data)
       setShow(data.show);
+      const menus = [];
+      if(data.show.hide_widget_subscribe !== true) {
+        menus.push({key: 'subscribe', label: 'subscribe'})
+      }
+      if(data.show.hide_widget_share !== true) {
+        menus.push({key: 'share', label: 'share'})
+      }
+      menus.push({key: 'more_info', label: 'more info'})
+      setMenuItems(menus)
     })
     .catch((err) => {
       console.log(err);
