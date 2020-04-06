@@ -404,7 +404,7 @@ app.get('/about_us', (request, response) => {
 
 app.get('/examples', (request, response) => {
   const meta = {
-    title: "What podcasts are hosted on Transistor?",
+    title: "What podcasts are hosted on JustCast?",
     description: "Turns your Dropbox into Podcast Hosting",
     img: "",
     img_16: "",
