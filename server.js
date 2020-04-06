@@ -438,17 +438,25 @@ app.get('/widget/:id/audioposts', function(request, response) {
       apple_iutnes_app_id
     }
     
-    if(show.is_private) {
-      response.redirect('/private_podcast')
-    } else {
-      fs.readFile(filePath, 'utf8', function (err,data) {
-        if (err) {
-          return console.log(err);
-        }
-        const result = SEOHelpers.set(meta, data)
-        response.send(result);
-      });
-    }
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      const result = SEOHelpers.set(meta, data)
+      response.send(result);
+    });    
+
+    // if(show.is_private) {
+    //   response.redirect('/private_podcast')
+    // } else {
+    //   fs.readFile(filePath, 'utf8', function (err,data) {
+    //     if (err) {
+    //       return console.log(err);
+    //     }
+    //     const result = SEOHelpers.set(meta, data)
+    //     response.send(result);
+    //   });
+    // }
   })
   .catch((err) => {
     // TODO: redirect to error page
@@ -494,17 +502,25 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
       apple_iutnes_app_id
     }
 
-    if(show.is_private) {
-      response.redirect('/private_podcast')
-    } else {    
-      fs.readFile(filePath, 'utf8', function (err,data) {
-        if (err) {
-          return console.log(err);
-        }
-        const result = SEOHelpers.set(meta, data)
-        response.send(result);
-      });
-    }
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      const result = SEOHelpers.set(meta, data)
+      response.send(result);
+    });    
+
+    // if(show.is_private) {
+    //   response.redirect('/private_podcast')
+    // } else {    
+    //   fs.readFile(filePath, 'utf8', function (err,data) {
+    //     if (err) {
+    //       return console.log(err);
+    //     }
+    //     const result = SEOHelpers.set(meta, data)
+    //     response.send(result);
+    //   });
+    // }
   })
   .catch((err) => {
     // TODO: redirect to error page
