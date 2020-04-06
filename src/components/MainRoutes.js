@@ -14,6 +14,7 @@ import Pricing from './../landingpages/Pricing'
 import TermsOfService from './../landingpages/TermsOfService'
 import Privacy from './../landingpages/Privacy'
 import AboutUs from './../landingpages/AboutUs'
+import Examples from './../landingpages/Examples'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
 import WidgetPlaylist from './../widgets/WidgetPlaylist'
 
@@ -33,6 +34,7 @@ const MainRoutes = () => {
       <LandingPageRoute exact path="/terms" component={TermsOfService}/>
       <LandingPageRoute exact path="/privacy" component={Privacy}/>
       <LandingPageRoute exact path="/about_us" component={AboutUs}/>
+      <LandingPageRoute exact path="/examples" component={Examples}/>
       <Route path="/" component={Error}/>
     </Switch>
   )

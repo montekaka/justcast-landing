@@ -5,11 +5,12 @@ import LandingPageFooter from './LandingPageFooter'
 
 const navItems = [
   {label:'Home', url: "/"},
-  {label:'About us', url: "/about_us"}
+  {label:'About us', url: "/about_us"},
+  {label:'Examples', url: "/examples"}
 ]
 const LandingPageRoute = ({ component: Component, ...rest }) => {
   useEffect(() => {
-    console.log('hi')
+    
     // Include the Crisp code here, without the <script></script> tags
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = process.env.REACT_APP_CRISP_CHAT_WEBSITE_ID;
