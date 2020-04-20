@@ -19,7 +19,7 @@ const LandingPageWidgetDemos = () => {
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 text-center">
             <h2>How does this sound?</h2>
-            <p>Embed the podcast player on your website.</p>
+            <p className="font-size-lg">Embed the podcast player on your website.</p>
           </div>
         </div>
         <div className="row">
