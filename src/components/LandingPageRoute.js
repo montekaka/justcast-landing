@@ -4,8 +4,7 @@ import LandingPageNavbars from './LandingPageNavbars'
 import LandingPageFooter from './LandingPageFooter'
 
 const navItems = [
-  {label:'Home', url: "/"},
-  {label:'About us', url: "/about_us"},
+  {label:'Pricing', url: "/features-pricing"},
   {label:'Examples', url: "/examples"}
 ]
 const LandingPageRoute = ({ component: Component, ...rest }) => {

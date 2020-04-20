@@ -43,11 +43,6 @@ const LandingPageFooter = () => {
 
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li className="mb-3">
-                <Link to="/features-pricing" className="text-reset">
-                  Features &#38; Pricing
-                </Link>
-              </li>
-              <li className="mb-3">
                 <a href="https://medium.com/@justcastapp" target="_blank" className="text-reset">
                   Blog
                 </a>
@@ -88,6 +83,11 @@ const LandingPageFooter = () => {
 
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li className="mb-3">
+                <Link to="/about_us" className="text-reset">
+                  About us
+                </Link>
+              </li>                
+              <li className="mb-3">
                 <a href="/terms" className="text-reset">
                   Terms
                 </a>
@@ -96,7 +96,7 @@ const LandingPageFooter = () => {
                 <a href="/privacy" className="text-reset">
                   Privacy
                 </a>
-              </li>
+              </li>            
               <li className="mb-3">
                 <a href="mailto:justcastapp@gmail.com" className="text-reset">Contact us</a>
               </li>       

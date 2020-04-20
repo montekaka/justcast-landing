@@ -18,7 +18,7 @@ const Examples = () => {
           <div className="row justify-content-center">
             <div className="col-12 col-md-10 col-lg-9 col-xl-8">
               <h2 className="font-weight-bold">Something Good For Ya</h2>
-              <div dangerouslySetInnerHTML={{__html: `<iframe src='https://justcast.com/widget/something-good-for-ya/audioposts/1000866' width='100%' height='180' frameborder='0' scrolling='no' seamless='true' style='width:100%; height:180px;'></iframe>`}}>                
+              <div dangerouslySetInnerHTML={{__html: `<iframe src='https://justcast.com/widget/something-good-for-ya/audioposts/1000866' width='100%' height='180' frameborder='0' scrolling='no' seamless='true' style='width:100%; height:180px;'></iframe>`}}>
               </div>
             </div>
           </div>
