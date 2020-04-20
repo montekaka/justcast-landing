@@ -23,6 +23,7 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
         </div>
         <div className="row">
           <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p>
+          <p>Need more bandwidth and spaces?  <a href="mailto:justcastapp@gmail.com">Contact us</a>  for a quota</p>
         </div>
       </div>
     </section>

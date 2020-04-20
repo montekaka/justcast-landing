@@ -96,7 +96,10 @@ const LandingPageFooter = () => {
                 <a href="/privacy" className="text-reset">
                   Privacy
                 </a>
-              </li>          
+              </li>
+              <li className="mb-3">
+                <a href="mailto:justcastapp@gmail.com" className="text-reset">Contact us</a>
+              </li>       
             </ul>
           </div>
           
