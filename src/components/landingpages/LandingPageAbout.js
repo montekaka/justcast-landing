@@ -24,7 +24,7 @@ const LandingPageAbout = () => {
           <div className="col-12 col-md-12 col-lg-6">            
             <div data-aos="fade-left">
               <div className="embed-responsive embed-responsive-16by9">	              
-                <iframe className="embed-responsive-item" src="https://player.vimeo.com/video/76843050?title=0&byline=0&portrait=0&api=1&player_id=pPlayer" allowFullScreen></iframe>	
+                <iframe className="embed-responsive-item" src="https://www.loom.com/embed/a205de6c584d433a8423b07770ebc566" allowFullScreen></iframe>	
               </div>
             </div>
           </div>                    
