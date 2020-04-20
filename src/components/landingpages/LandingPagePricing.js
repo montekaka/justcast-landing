@@ -12,13 +12,13 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
         </div>
         <div className="row mb-5">
           <div className="col-12 col-md-6 col-lg-4">
-            <PriceCard title="TESTER PLAN" periodLabel="per month" price={0} buttonLabel="Start for free" buttonClassName="btn-primary-soft" features={['3 Items in RSS feed', '3 Episodes stats', 'Free cancelation']}/>
+            <PriceCard title="TESTER PLAN" periodLabel="per month" price={0} buttonLabel="Start for free" buttonClassName="btn-primary-soft" features={['Create unlimited podcasts','3 Items in RSS feed','Live customer support' ,'3 Episodes analytics', 'Built-in podcast website']}/>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <PriceCard title="PRO PLAN" periodLabel="per month" price={5} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Unlimited* Items in RSS feed', 'All Episodes stats', 'Free cancelation']}/>
+            <PriceCard title="PRO PLAN" periodLabel="per month" price={5} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Create unlimited podcasts','Unlimited Items in RSS feed', 'Live customer support','All Episodes analytics','Built-in podcast website' ,'Free cancelation']}/>
           </div>
           <div className="col-12 col-lg-4">
-            <PriceCard title="PRO PLAN ANNUAL" periodLabel="per year" price={50} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Unlimited* Items in RSS feed', 'All Episodes stats', 'Free cancelation']}/>
+            <PriceCard title="PRO PLAN ANNUAL" periodLabel="per year" price={50} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Create unlimited podcasts','Unlimited Items in RSS feed','Live customer support', 'All Episodes analytics', 'Built-in podcast website','Free cancelation']}/>
           </div>          
         </div>
         <div className="row">
