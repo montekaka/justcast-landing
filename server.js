@@ -584,7 +584,7 @@ app.get('/', (request, response) => {
     img_16: "",
     img_32: "",
     img_64: "",
-    img_256: "",    
+    img_256: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-v1-gradient-color-icon.png",    
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
