@@ -13,7 +13,7 @@ const CovidAlert = ({rest}) => {
   if(rest.path === '/') {
     return (
       <Alert color="secondary">
-        COVID-19: Resources to help your church manage through uncertainty.  <Link to="#" className="alert-link">Learn more</Link>
+        COVID-19: Resources to help your church manage through uncertainty.  <Link to="/blogs/resources-for-church-impacted-by-coronavirus" className="alert-link">Learn more</Link>
       </Alert>    
     )
   }

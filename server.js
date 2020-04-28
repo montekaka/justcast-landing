@@ -307,6 +307,31 @@ app.get('/features-pricing', (request, response) => {
   });   
 })
 
+
+app.get('/blogs/resources-for-church-impacted-by-coronavirus', (request, response) => {
+  const meta = {
+    title: "Resources for church impacted by coronavirus",
+    description: "During the coronavirus pandemic, JustCast is making free Pro accounts for churchs.",
+    img: "",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "",    
+    keywords: "Podcasting, Church, COVID-19 Response",
+    url: "https://www.justcast.com/blogs/resources-for-church-impacted-by-coronavirus",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: ""
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
+
+
 app.get('/terms', (request, response) => {
   const meta = {
     title: "JustCast - Turns your Dropbox into Podcast Hosting",
