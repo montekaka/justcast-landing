@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
-import { Route } from 'react-router-dom'
+import { Route, Link} from 'react-router-dom'
+import { Alert } from 'reactstrap';
 import LandingPageNavbars from './LandingPageNavbars'
 import LandingPageFooter from './LandingPageFooter'
 
@@ -7,6 +8,18 @@ const navItems = [
   {label:'Pricing', url: "/features-pricing"},
   {label:'Examples', url: "/examples"}
 ]
+
+const CovidAlert = ({rest}) => {
+  if(rest.path === '/') {
+    return (
+      <Alert color="secondary">
+        COVID-19: Resources to help your church manage through uncertainty.  <Link to="#" className="alert-link">Learn more</Link>
+      </Alert>    
+    )
+  }
+  return null;
+}
+
 const LandingPageRoute = ({ component: Component, ...rest }) => {
   useEffect(() => {
     
@@ -28,6 +41,7 @@ const LandingPageRoute = ({ component: Component, ...rest }) => {
   return (
     <Route {...rest} render={(props) => (
       <>
+        <CovidAlert rest={rest}/>
         <LandingPageNavbars navItems={navItems}/>
         <Component {...props} />
         <LandingPageFooter/>
