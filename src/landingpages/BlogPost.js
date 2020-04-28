@@ -1,4 +1,5 @@
 import React from "react";
+import {Mixpanel} from '../api/mixpanel'
 import {Link} from 'react-router-dom'
 import fbicon from './../assets/img/icons/social/facebook.svg'
 import twtricon from './../assets/img/icons/social/twitter.svg'
@@ -8,7 +9,7 @@ const backgrounImgStyle = {
   backgroundImage: `url("https://images.unsplash.com/photo-1472905981516-5ac09f35b7f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2106&q=80")`
 }
 
-const Published = () => {
+const Published = () => {  
   return (
     <div className="row align-items-center py-5 border-top border-bottom">
       <div className="col-auto">
@@ -27,7 +28,7 @@ const Published = () => {
             </a>
           </li>
           <li className="list-inline-item list-social-item mr-3">
-            <a href="https://twitter.com/home?status=https://www.justcast.com/blogs/resources-for-church-impacted-by-coronavirus Helping your church through COVID-19 @justcastapp" className="text-decoration-none">
+            <a href="https://twitter.com/home?status=https://www.justcast.com/blogs/resources-for-church-impacted-by-coronavirus" className="text-decoration-none">
               <img src={twtricon} className="list-social-icon" alt="share to facebook"/>
             </a>
           </li>
@@ -38,6 +39,8 @@ const Published = () => {
 }
 
 const BlogPost = () => {
+  Mixpanel.track('COVID-19 page loaded');
+
   return (
     <>
       <section datajarallax="true" dataspeed=".8" className="py-12 py-md-15 bg-cover jarallax" style={backgrounImgStyle}></section>
