@@ -288,7 +288,7 @@ app.get('/features-pricing', (request, response) => {
   const meta = {
     title: "JustCast - Turns your Dropbox into Podcast Hosting",
     description: "Turns your Dropbox into Podcast Hosting",
-    img: "",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-v1-gradient-color-icon.png",
     img_16: "",
     img_32: "",
     img_64: "",
@@ -312,7 +312,7 @@ app.get('/blogs/resources-for-church-impacted-by-coronavirus', (request, respons
   const meta = {
     title: "Resources for church impacted by coronavirus",
     description: "During the coronavirus pandemic, JustCast is making free Pro accounts for churchs.",
-    img: "",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-v1-gradient-color-icon.png",
     img_16: "",
     img_32: "",
     img_64: "",
@@ -336,7 +336,7 @@ app.get('/terms', (request, response) => {
   const meta = {
     title: "JustCast - Turns your Dropbox into Podcast Hosting",
     description: "Turns your Dropbox into Podcast Hosting",
-    img: "",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-v1-gradient-color-icon.png",
     img_16: "",
     img_32: "",
     img_64: "",
@@ -359,7 +359,7 @@ app.get('/privacy', (request, response) => {
   const meta = {
     title: "JustCast - Turns your Dropbox into Podcast Hosting",
     description: "Turns your Dropbox into Podcast Hosting",
-    img: "",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-v1-gradient-color-icon.png",
     img_16: "",
     img_32: "",
     img_64: "",

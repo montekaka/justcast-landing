@@ -28,7 +28,7 @@ const Published = () => {
             </a>
           </li>
           <li className="list-inline-item list-social-item mr-3">
-            <a href="https://twitter.com/home?status=https://www.justcast.com/blogs/resources-for-church-impacted-by-coronavirus" className="text-decoration-none">
+            <a href="https://twitter.com/intent/tweet?url=https://www.justcast.com/blogs/resources-for-church-impacted-by-coronavirus&text=We%20know%20this%20is%20a%20difficult%20time%20for%20people%20everywhere,%20including%20small%20business%20owners.%20We%20are%20offering%20free%20Pro%20Plan%20services%20for%20churches%20who%20use%20our%20podcast%20hosting%20services%20@thejustcast" className="text-decoration-none">
               <img src={twtricon} className="list-social-icon" alt="share to facebook"/>
             </a>
           </li>
