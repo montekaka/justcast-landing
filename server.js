@@ -308,6 +308,30 @@ app.get('/features-pricing', (request, response) => {
 })
 
 
+app.get('/how-justcast-works', (request, response) => {
+  const meta = {
+    title: "How JustCast works",
+    description: "Instructions on how to host your podcast from Dropbox with JustCast",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    keywords: "Podcasting, Church, COVID-19 Response",
+    url: "https://www.justcast.com/how-justcast-works",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: ""
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
+
+
 app.get('/blogs/resources-for-church-impacted-by-coronavirus', (request, response) => {
   const meta = {
     title: "Resources for church impacted by coronavirus",

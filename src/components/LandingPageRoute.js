@@ -6,6 +6,7 @@ import LandingPageFooter from './LandingPageFooter'
 
 const navItems = [
   {label:'Pricing', url: "/features-pricing"},
+  {label:'How JustCast works', url: "/how-justcast-works"},
   {label:'Examples', url: "/examples"}
 ]
 

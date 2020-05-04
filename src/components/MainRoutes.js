@@ -16,6 +16,7 @@ import Privacy from './../landingpages/Privacy'
 import AboutUs from './../landingpages/AboutUs'
 import Examples from './../landingpages/Examples'
 import BlogPost from './../landingpages/BlogPost'
+import HowJustCastWorks from './../landingpages/HowJustCastWorks'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
 import WidgetPlaylist from './../widgets/WidgetPlaylist'
 
@@ -37,6 +38,7 @@ const MainRoutes = () => {
       <LandingPageRoute exact path="/about_us" component={AboutUs}/>
       <LandingPageRoute exact path="/examples" component={Examples}/>
       <LandingPageRoute exact path="/blogs/resources-for-church-impacted-by-coronavirus" component={BlogPost}/>
+      <LandingPageRoute exact path="/how-justcast-works" component={HowJustCastWorks}/>
       <Route path="/" component={Error}/>
     </Switch>
   )
