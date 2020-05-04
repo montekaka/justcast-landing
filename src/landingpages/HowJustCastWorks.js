@@ -1,4 +1,5 @@
 import React from "react";
+import TryPodcastingForFree from './../components/TryPodcastingForFree'
 
 const HowJustCastWorks = () => {
   return (
@@ -24,16 +25,7 @@ const HowJustCastWorks = () => {
           </div>
         </div>
       </section>
-      <section className="pt-6 pt-md-8">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-10 col-lg-9 col-xl-8">
-              
-            </div>
-          </div>
-        </div>
-      </section>
-                
+      <TryPodcastingForFree/>
     </>
   )
 }
