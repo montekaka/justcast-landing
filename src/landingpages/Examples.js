@@ -1,7 +1,9 @@
 import React from "react";
+import {Mixpanel} from '../api/mixpanel'
 import TryPodcastingForFree from './../components/TryPodcastingForFree'
 
 const Examples = () => {
+  Mixpanel.track('Widget player example page loaded');
   return (
     <>
       <section className="pt-8 pt-md-11">

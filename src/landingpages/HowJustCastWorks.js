@@ -1,7 +1,10 @@
 import React from "react";
+import {Mixpanel} from '../api/mixpanel'
 import TryPodcastingForFree from './../components/TryPodcastingForFree'
 
 const HowJustCastWorks = () => {
+  Mixpanel.track('How justcast works page loaded');
+
   return (
     <>
       <section className="pt-8 pt-md-11">
