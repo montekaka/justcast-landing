@@ -1,4 +1,5 @@
 import React from "react";
+import {Mixpanel} from '../../api/mixpanel'
 
 const features = [
   {
@@ -28,13 +29,27 @@ const features = [
 ];
 
 const FeatureLink = ({urlLink, urlTitle}) => {
+  const mixpanelClickTrack = (name, props) => {
+    Mixpanel.track(`${name} clicked`, props);
+  }
+
   if(urlLink) {
-    return <a href={urlLink} target="_blank"  className="btn btn-link lift text-white">{urlTitle}</a>
+    return <a href={urlLink} target="_blank" 
+      onClick={() => {
+        mixpanelClickTrack(`features ${urlTitle} clicked`, {
+          page: "Landing page",
+          section: "Features",
+          name: urlTitle,
+          url: urlLink
+        })
+      }}
+      className="btn btn-link lift text-white"
+    >{urlTitle}</a>
   }
   return null;
 }
 
-const FeatureItem = ({title, bodyText, urlLink, urlTitle, iconName}) => {
+const FeatureItem = ({title, bodyText, urlLink, urlTitle, iconName}) => {  
   return (
     <div className="col-12 col-md-4 text-center">
       <div className="row mb-5">
