@@ -6,6 +6,7 @@ import LandingPageTestimonials from './../components/landingpages/LandingPageTes
 import LandingPagePricing from './../components/landingpages/LandingPagePricing'
 import LandingPageDashboardDemo from './../components/landingpages/LandingPageDashboardDemo'
 import LandingPageWidgetDemo from './../components/landingpages/LandingPageWidgetDemo'
+import LandingPageFeatures from './../components/landingpages/LandingPageFeatures'
 
 const Home = () => {
   Mixpanel.track('Landing page loaded');
@@ -14,7 +15,7 @@ const Home = () => {
       <LandingPageHero/>
       <LandingPageAbout/>
       <LandingPageTestimonials/>
-      <LandingPageWidgetDemo/>
+      <LandingPageFeatures/>
       <LandingPageDashboardDemo/>
       <LandingPagePricing/>
     </>
