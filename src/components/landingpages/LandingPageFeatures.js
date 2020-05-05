@@ -5,7 +5,7 @@ const features = [
     key: 'embed-player', 
     title: 'Embeddable players', 
     bodyText: 'Embed your episodes anywhere you can use HTML.',
-    urlLink: '',
+    urlLink: 'https://justcast.zendesk.com/hc/en-us/articles/360042428891-What-does-embed-widget-look-like-',
     urlTitle: 'See the players',
     iconName: "fe fe-headphones"
   },
@@ -13,7 +13,7 @@ const features = [
     key: 'podcast-website', 
     title: 'Podcast website', 
     bodyText: 'A website for your show: auto-updated, responsive, SEO-optimized, and customizable with our site builder tool.',
-    urlLink: '',
+    urlLink: 'https://www.justcast.com/shows/something-good-for-ya/audioposts',
     urlTitle: 'See the website',
     iconName: "fe fe-layout"
   },
@@ -29,7 +29,7 @@ const features = [
 
 const FeatureLink = ({urlLink, urlTitle}) => {
   if(urlLink) {
-    return <p><a href={urlLink}>{urlTitle}</a></p>
+    return <a href={urlLink} target="_blank"  className="btn btn-link lift text-white">{urlTitle}</a>
   }
   return null;
 }
@@ -48,6 +48,7 @@ const FeatureItem = ({title, bodyText, urlLink, urlTitle, iconName}) => {
       </div>
       <h3 className="font-weight-bold text-white">{title}</h3>
       <p className="text-muted mb-6 mb-md-0">{bodyText}</p>
+      <p className="mb-6 mb-md-0"><FeatureLink urlLink={urlLink} urlTitle={urlTitle}/></p>
     </div>
   )
 }
@@ -75,6 +76,7 @@ const LandingPageFeatures = () => {
                   title={feature.title}
                   bodyText={feature.bodyText}
                   urlLink={feature.urlLink}
+                  urlTitle={feature.urlTitle}
                   iconName={feature.iconName}
                 />
               )
