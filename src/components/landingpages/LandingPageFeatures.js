@@ -21,8 +21,8 @@ const features = [
   {
     key: 'podcast-audiograms', 
     title: 'Social-optimized audiograms (beta)', 
-    bodyText: 'Boost your social media posts with our audiogram builder.  Create beautiful, shareable trailer videos for your podcast.',
-    urlLink: '',
+    bodyText: 'Turn your podcast or musical audio into engaging animated videos to share on social media!',
+    urlLink: 'https://justcast.zendesk.com/hc/en-us/articles/360042714192',
     urlTitle: 'Learn more',
     iconName: "fe fe-video"
   }   
