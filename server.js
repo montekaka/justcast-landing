@@ -627,7 +627,8 @@ app.get('/', (request, response) => {
 // sitemaps
 
 app.get('/sitemap.xml', (request, response) => {
-  const urls = ['/', 'features-pricing', 'examples', 'about_us'];
+  const rootPath = process.env.REACT_APP_BASE_PATH;
+  const urls = [`${rootPath}/features-pricing`, `${rootPath}/examples`, `${rootPath}/about_us`, 'https://justcast.zendesk.com/hc/en-us/categories/360002641372-FAQs'];
   const sitemapXml = Sitemap.generateXml(urls);
   response.header('Content-Type', 'text/xml');
   response.send(sitemapXml); 
