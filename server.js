@@ -6,6 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const fs = require('fs')
 const SEOHelpers = require('./lib/index')
+const Sitemap = require('./lib/Sitemap');
 const sanitizeHtml = require('sanitize-html');
 
 dotenv.config();
@@ -621,6 +622,15 @@ app.get('/', (request, response) => {
     const result = SEOHelpers.set(meta, data)
     response.send(result);
   });   
+})
+
+// sitemaps
+
+app.get('/sitemap.xml', (request, response) => {
+  const urls = ['/', 'features-pricing', 'examples', 'about_us'];
+  const sitemapXml = Sitemap.generateXml(urls);
+  response.header('Content-Type', 'text/xml');
+  response.send(sitemapXml); 
 })
 
 app.use(express.static(path.resolve(__dirname, './build')));
