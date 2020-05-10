@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Mixpanel} from '../../api/mixpanel'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
+import FAQs from './../FAQs'
 
 const LandingPagePricing = ({sectionClassName, titleColor}) => {
   const [isMonthlyPlan, setIsMonthlyPlan] = useState(true);
@@ -9,34 +10,37 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
     setIsMonthlyPlan(!isMonthlyPlan)
   }
 
-  return (    
-    <section className={sectionClassName ? sectionClassName : "pt-9 pt-md-12 bg-gray-200"}>   
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-10 col-lg-8 text-center">
-            <h1 className={titleColor}>Fair, simple pricing for all.</h1>
-            <p className="lead mb-6 mb-md-8">A plan customized to meet your needs. JustCast provides you powerful tools to manage, distribute, share, and grow your podcast — from your first listener to your first million.</p>
-            <SwitchPayment handleSwitchChange={handleSwitchChange}/>
-            <p className="lead mb-6 mb-md-8">12 months for the price of 10 when you pay yearly.</p>
+  return (   
+    <> 
+      <section className={sectionClassName ? sectionClassName : "pt-9 pt-md-12 bg-gray-200"}>   
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-10 col-lg-8 text-center">
+              <h1 className={titleColor}>Fair, simple pricing for all.</h1>
+              <p className={`lead mb-6 mb-md-8 ${titleColor}`}>A plan customized to meet your needs. JustCast provides you powerful tools to manage, distribute, share, and grow your podcast — from your first listener to your first million.</p>
+              <SwitchPayment handleSwitchChange={handleSwitchChange}/>
+              <p className="lead mb-6 mb-md-8">12 months for the price of 10 when you pay yearly.</p>
+            </div>
+          </div>
+          <div className="row mb-5">
+            <div className="col-12 col-md-6 col-lg-4">
+              <PriceCard title="TESTER" periodLabel="Forever" price={0} buttonLabel="Try for Free" buttonClassName="btn-primary-soft" features={['Create unlimited podcasts','3 Items in RSS feed','Chat & email support']}/>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <PriceCard title="PERSONAL" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 5: 50} buttonLabel="Try for Free" buttonClassName="btn-primary" features={['Create unlimited podcasts', 'Unlimited episodes', 'Private podcasting', 'Chat & email support']}/>
+            </div>
+            <div className="col-12 col-lg-4">
+              <PriceCard title="PROFESSIONAL" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 7: 70} buttonLabel="Try for Free" buttonClassName="btn-primary" features={['Create unlimited podcasts', 'Unlimited episodes', 'Embedded player', 'Podcast website', 'Standard analytics', 'Episode scheduler', 'Audiogram (beta)', 'Private podcasting', 'Chat & email support']}/>
+            </div>
+          </div>
+          <div className="row text-white">
+            <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p>
+            <p>Need more bandwidth and spaces?  <a href="mailto:justcastapp@gmail.com" className="badge badge-warning">Contact us <span class="fe fe-mail"></span></a>  for a quota</p>
           </div>
         </div>
-        <div className="row mb-5">
-          <div className="col-12 col-md-6 col-lg-4">
-            <PriceCard title="TESTER" periodLabel="Forever" price={0} buttonLabel="Try for Free" buttonClassName="btn-primary-soft" features={['Create unlimited podcasts','3 Items in RSS feed','Chat & email support']}/>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4">
-            <PriceCard title="PERSONAL" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 5: 50} buttonLabel="Try for Free" buttonClassName="btn-primary" features={['Create unlimited podcasts', 'Unlimited episodes', 'Private podcasting', 'Chat & email support']}/>
-          </div>
-          <div className="col-12 col-lg-4">
-            <PriceCard title="PROFESSIONAL" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 7: 70} buttonLabel="Try for Free" buttonClassName="btn-primary" features={['Create unlimited podcasts', 'Unlimited episodes', 'Embedded player', 'Podcast website', 'Standard analytics', 'Episode scheduler', 'Audiogram (beta)', 'Private podcasting', 'Chat & email support']}/>
-          </div>
-        </div>
-        <div className="row">
-          <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p>
-          <p>Need more bandwidth and spaces?  <a href="mailto:justcastapp@gmail.com">Contact us</a>  for a quota</p>
-        </div>
-      </div>
-    </section>
+      </section>
+      <FAQs/>
+    </>
   )
 }
 
@@ -79,17 +83,17 @@ const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClas
         <p className="text-center text-muted mb-5">
           {periodLabel}
         </p>        
-        <Features features={features}/>
-        <a 
+        <Features features={features}/>        
+      </div>
+      <a 
         href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup?${title}`} 
-        className={`btn btn-block ${buttonClassName}`}
+        className={`card-btn btn btn-block btn-lg ${buttonClassName}`}
           onClick={() => {
             mixpanelClickTrack(`Sign up`, {Price: price})
           }}
         >          
           {buttonLabel} <i className="fe fe-arrow-right ml-3"></i>
-        </a>        
-      </div>
+      </a>      
     </div>    
   )
 }
