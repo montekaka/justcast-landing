@@ -1,25 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 import {Mixpanel} from '../../api/mixpanel'
+import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
 const LandingPagePricing = ({sectionClassName, titleColor}) => {
-  return (
-    <section className={sectionClassName ? sectionClassName : "pt-9 pt-md-12 bg-gray-200"}>
+  const [isMonthlyPlan, setIsMonthlyPlan] = useState(true);
+
+  const handleSwitchChange = () => {
+    setIsMonthlyPlan(!isMonthlyPlan)
+  }
+
+  return (    
+    <section className={sectionClassName ? sectionClassName : "pt-9 pt-md-12 bg-gray-200"}>   
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 text-center">
             <h1 className={titleColor}>Fair, simple pricing for all.</h1>
+            <p className="lead mb-6 mb-md-8">A plan customized to meet your needs. JustCast provides you powerful tools to manage, distribute, share, and grow your podcast — from your first listener to your first million.</p>
+            <SwitchPayment handleSwitchChange={handleSwitchChange}/>
           </div>
         </div>
         <div className="row mb-5">
           <div className="col-12 col-md-6 col-lg-4">
-            <PriceCard title="TESTER PLAN" periodLabel="per month" price={0} buttonLabel="Start for free" buttonClassName="btn-primary-soft" features={['Create unlimited podcasts','3 Items in RSS feed','Live customer support' ,'3 Episodes analytics', 'Built-in podcast website']}/>
+            <PriceCard title="TESTER" periodLabel="Forever" price={0} buttonLabel="Try for Free" buttonClassName="btn-primary-soft" features={['Create unlimited podcasts','3 Items in RSS feed','Chat & email support']}/>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <PriceCard title="PRO PLAN" periodLabel="per month" price={5} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Create unlimited podcasts','Unlimited Items in RSS feed', 'Live customer support','All Episodes analytics','Built-in podcast website' ,'Free cancelation']}/>
+            <PriceCard title="PERSONAL" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 5: 50} buttonLabel="Try for Free" buttonClassName="btn-primary" features={['Create unlimited podcasts', 'Unlimited episodes', 'Private podcasting', 'Chat & email support']}/>
           </div>
           <div className="col-12 col-lg-4">
-            <PriceCard title="PRO PLAN ANNUAL" periodLabel="per year" price={50} buttonLabel="Start for premium" buttonClassName="btn-primary" features={['Create unlimited podcasts','Unlimited Items in RSS feed','Live customer support', 'All Episodes analytics', 'Built-in podcast website','Free cancelation']}/>
-          </div>          
+            <PriceCard title="PROFESSIONAL" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 7: 70} buttonLabel="Try for Free" buttonClassName="btn-primary" features={['Create unlimited podcasts', 'Unlimited episodes', 'Embedded player', 'Podcast website', 'Standard analytics', 'Episode scheduler', 'Audiogram (beta)', 'Private podcasting', 'Chat & email support']}/>
+          </div>
         </div>
         <div className="row">
           <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p>
@@ -30,12 +39,28 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
   )
 }
 
+const SwitchPayment = ({handleSwitchChange}) => {
+  return (
+    <form className="d-flex align-items-center justify-content-center mb-7 mb-md-9">
+      <span>
+        Monthly
+      </span>
+      <div className="custom-control custom-switch mx-3">
+        <input type="checkbox" className="custom-control-input info" id="billingSwitch" onChange={handleSwitchChange}/>
+        <label className="custom-control-label" for="billingSwitch"></label>
+      </div>   
+      <span>
+        Annaul
+      </span>   
+    </form>
+  )
+}
+
 const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClassName}) => {
 
   const mixpanelClickTrack = (name, props) => {
     Mixpanel.track(`${name} clicked`, props);
   }
-
 
   return (
     <div className="card shadow-lg mb-6 mb-xl-0">
