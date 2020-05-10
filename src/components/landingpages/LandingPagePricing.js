@@ -17,6 +17,7 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
             <h1 className={titleColor}>Fair, simple pricing for all.</h1>
             <p className="lead mb-6 mb-md-8">A plan customized to meet your needs. JustCast provides you powerful tools to manage, distribute, share, and grow your podcast — from your first listener to your first million.</p>
             <SwitchPayment handleSwitchChange={handleSwitchChange}/>
+            <p className="lead mb-6 mb-md-8">12 months for the price of 10 when you pay yearly.</p>
           </div>
         </div>
         <div className="row mb-5">
@@ -50,7 +51,7 @@ const SwitchPayment = ({handleSwitchChange}) => {
         <label className="custom-control-label" for="billingSwitch"></label>
       </div>   
       <span>
-        Annaul
+        Yearly
       </span>   
     </form>
   )
