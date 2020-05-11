@@ -24,7 +24,6 @@ const faqs = [
     ],
     lists: [
       `A podcast-ready RSS feed`,
-      `Global CDN for your audio files`,
       `Customizable podcast website`,
       `Standard analytics`,
       `Embeddable audio player`,
@@ -100,7 +99,7 @@ const FAQItem = ({title, paragraphs, lists, classNameItem}) => { //mb-12
   )  
 }
 
-const FAQs = () => {
+const faFAQs = () => {
   return (
     <>
       <Shape/>
