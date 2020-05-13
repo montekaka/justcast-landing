@@ -99,7 +99,7 @@ const FAQItem = ({title, paragraphs, lists, classNameItem}) => { //mb-12
   )  
 }
 
-const faFAQs = () => {
+const FAQs = () => {
   return (
     <>
       <Shape/>
