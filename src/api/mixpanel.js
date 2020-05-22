@@ -10,9 +10,14 @@ let actions = {
   alias: (id) => {
     if (process.env.REACT_APP_MIXPANEL_TOKEN) mixpanel.alias(id);
   },
-  track: (name, props) => {
-    if (process.env.REACT_APP_MIXPANEL_TOKEN) mixpanel.track(name, props);
+  track: (name, props, cb) => {
+    if (process.env.REACT_APP_MIXPANEL_TOKEN) {
+      mixpanel.track(name, props, cb)
+    };
   },
+  register: (props) => {
+    if (process.env.REACT_APP_MIXPANEL_TOKEN) mixpanel.register(props)
+  },  
   people: {
     set: (props) => {
       if (process.env.REACT_APP_MIXPANEL_TOKEN) mixpanel.people.set(props);

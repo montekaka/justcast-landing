@@ -9,7 +9,9 @@ import LandingPageWidgetDemo from './../components/landingpages/LandingPageWidge
 import LandingPageFeatures from './../components/landingpages/LandingPageFeatures'
 
 const Home = () => {
-  Mixpanel.track('Landing page loaded');
+  Mixpanel.track('Landing page loaded', {"First Time": "TRUE"}, () => {
+    setTimeout(Mixpanel.register({"First Time": "FALSE"}), 500);
+  });
   return (
     <>
       <LandingPageHero/>

@@ -35,7 +35,7 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
           </div>
           <div className="row text-white">
             <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p>
-            <p>Need more bandwidth and spaces?  <a href="mailto:justcastapp@gmail.com" className="badge badge-warning">Contact us <span class="fe fe-mail"></span></a>  for a quota</p>
+            <p>Need more bandwidth and spaces?  <a href="mailto:justcastapp@gmail.com" className="badge badge-warning">Contact us <span className="fe fe-mail"></span></a>  for a quota</p>
           </div>
         </div>
       </section>
@@ -52,7 +52,7 @@ const SwitchPayment = ({handleSwitchChange}) => {
       </span>
       <div className="custom-control custom-switch mx-3">
         <input type="checkbox" className="custom-control-input info" id="billingSwitch" onChange={handleSwitchChange}/>
-        <label className="custom-control-label" for="billingSwitch"></label>
+        <label className="custom-control-label" htmlFor="billingSwitch"></label>
       </div>   
       <span>
         Yearly

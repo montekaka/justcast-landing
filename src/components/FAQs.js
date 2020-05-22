@@ -58,7 +58,7 @@ const FaqList = ({listItems}) => {
         {
           listItems.map((item, index) => {
             return (
-              <li key={index.toString()} className="text-white-80">{item}</li>
+              <li key={`faq-${index.toString()}`} className="text-white-80">{item}</li>
             )
           })
         }
@@ -83,9 +83,9 @@ const FAQItem = ({title, paragraphs, lists, classNameItem}) => { //mb-12
                   {title}
                 </h4>
                 {
-                  paragraphs.map((paragraph) => {
+                  paragraphs.map((paragraph, index) => {
                     return (
-                      <p className="text-white-80">{paragraph}</p>
+                      <p key={`paragraph-${index}`} className="text-white-80">{paragraph}</p>
                     )
                   })
                 }
@@ -107,9 +107,9 @@ const FAQs = () => {
         <div className="container pt-8 pt-md-11">
           <h1 className="display-4 text-white text-center">Frequently Asked Questions</h1>
           {
-            faqs.map((faq) => {
+            faqs.map((faq, index) => {
               return (
-                <FAQItem title={faq.title} paragraphs={faq.paragraphs} lists={faq.lists} classNameItem={faq.classNameItem}/>
+                <FAQItem key={index.toString()} title={faq.title} paragraphs={faq.paragraphs} lists={faq.lists} classNameItem={faq.classNameItem}/>
               )
             })
           }
