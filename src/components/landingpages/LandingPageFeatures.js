@@ -18,14 +18,22 @@ const features = [
     urlTitle: 'See the website',
     iconName: "fe fe-layout"
   },
+  // {
+  //   key: 'podcast-audiograms', 
+  //   title: 'Social-optimized audiograms (beta)', 
+  //   bodyText: 'Turn your podcast or musical audio into engaging animated videos to share on social media!',
+  //   urlLink: 'https://justcast.zendesk.com/hc/en-us/articles/360042714192',
+  //   urlTitle: 'Learn more',
+  //   iconName: "fe fe-video"
+  // }   
   {
-    key: 'podcast-audiograms', 
-    title: 'Social-optimized audiograms (beta)', 
-    bodyText: 'Turn your podcast or musical audio into engaging animated videos to share on social media!',
-    urlLink: 'https://justcast.zendesk.com/hc/en-us/articles/360042714192',
-    urlTitle: 'Learn more',
-    iconName: "fe fe-video"
-  }   
+    key: 'podcast-analytics', 
+    title: 'Podcast analytics', 
+    bodyText: 'See your average downloads per episode, popular podcast apps, number of subscribers, trends.',
+    // urlLink: 'https://justcast.zendesk.com/hc/en-us/articles/360042714192',
+    // urlTitle: 'Learn more',
+    iconName: "fe fe-bar-chart-2"
+  }     
 ];
 
 const FeatureLink = ({urlLink, urlTitle}) => {

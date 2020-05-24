@@ -10,15 +10,16 @@ const LandingPageDashboardDemo = () => {
           <div className="col-12 col-md-6 col-lg-5 order-md-2">
         
             <span className="badge badge-pill badge-primary-soft mb-3">
-              <span className="h6 text-uppercase">dashboard</span>
+              <span className="h6 text-uppercase">AUDIOGRAM</span>
             </span>
 
             <h2>
-              Podcast analytics
+              Turn podcast into audiogram
             </h2>
 
             <p className="font-size-lg text-gray-700 mb-8 mb-md-0">
-              See your average downloads per episode, popular podcast apps, number of subscribers, trends.
+              Social video generates 1200% more shares than text and image content combined.
+              <a href="https://learn.g2.com/video-marketing-statistics">G2 Crowd</a>
             </p>
 
           </div>
