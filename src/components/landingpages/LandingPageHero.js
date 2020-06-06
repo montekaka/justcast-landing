@@ -18,7 +18,8 @@ const LandingPageHero = () => {
               Record your audio and upload it to Dropbox.  We'll help you distribute your podcast to Apple Podcasts, Spotify, and Google Podcasts.
             </p>
             <div className="text-center text-md-left">
-              <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`} className="btn btn-primary shadow lift mr-1">
+              <a id="justcast_landing_page_signup" 
+                href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`} className="btn btn-primary shadow lift mr-1">
                 Sign up <i className="fe fe-arrow-right d-none d-md-inline ml-3"></i>
               </a>
             </div>
