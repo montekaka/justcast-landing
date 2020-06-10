@@ -14,6 +14,7 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
+import {localStorageManagement} from './../libs'
 
 const LandingPageNavbars = ({navItems}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +31,12 @@ const LandingPageNavbars = ({navItems}) => {
     </NavItem>
   )
 
+  const getSignInURL = () => {
+    const keys = ['via'];
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`;
+    return localStorageManagement.getURLwithParams(url, keys);    
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <div className="container">
@@ -42,7 +49,7 @@ const LandingPageNavbars = ({navItems}) => {
           <Nav className="mr-auto ml-auto" navbar>
             {_navItems}           
           </Nav>
-          <a className="navbar-btn btn btn-sm btn-primary lift ml-auto" href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`} target="_blank">
+          <a className="navbar-btn btn btn-sm btn-primary lift ml-auto" href={getSignInURL()} target="_blank">
             Sign in
           </a>
         </Collapse>
