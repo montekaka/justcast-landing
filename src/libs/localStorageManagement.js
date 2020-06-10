@@ -16,9 +16,21 @@ localStorageManagement.setItemWithDateValue = (key, val) => {
 }
 
 localStorageManagement.getURLwithParams = (url, keys) => {
-  const strings = keys.map((key) => `${key}=${localStorage.getItem(key)}`)
+  const strings = [];
+  for(let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const val = localStorage.getItem(key);
+
+    if(val) {
+      strings.push(`${key}=${val}`);
+    }
+  }
   const params = strings.join('&');
-  return `${url}?${params}`
+
+  if(strings.length > 0) {
+    return `${url}?${params}`
+  }
+  return url;
 }
 
 export default localStorageManagement;

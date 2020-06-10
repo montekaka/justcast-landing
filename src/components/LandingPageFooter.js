@@ -1,13 +1,20 @@
 import React from "react";
 import {Mixpanel} from '../api/mixpanel'
+import {localStorageManagement} from './../libs'
 import {Link} from 'react-router-dom'
 import fbicon from './../assets/img/icons/social/facebook.svg'
 import twtricon from './../assets/img/icons/social/twitter.svg'
 
 const LandingPageFooter = () => {
 
-  const mixpanelClickTrack = (name) => {
+  const mixpanelClickTrack = (name) => {    
     Mixpanel.track(`${name} clicked`);
+  }
+
+  const signInURL = () => {
+    const keys = ['via'];
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`    
+    return localStorageManagement.getURLwithParams(url, keys);
   }
 
   return (
@@ -63,7 +70,7 @@ const LandingPageFooter = () => {
                 </a>
               </li>
               <li>
-                <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`} 
+                <a href={signInURL()} 
                 onClick={() => {
                   mixpanelClickTrack("Sign up")
                 }}                
