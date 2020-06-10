@@ -1,7 +1,14 @@
 import React from "react";
 import PodcastSvg from "../../assets/img/illustrations/podcast.svg"
+import {localStorageManagement} from './../../libs'
 
 const LandingPageHero = () => {
+
+  const signUpURL = () => {
+    const keys = ['via'];
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
+    return localStorageManagement.getURLwithParams(url, keys);    
+  }
 
   return (   
     <section className="pt-4 pt-md-11">
@@ -19,7 +26,7 @@ const LandingPageHero = () => {
             </p>
             <div className="text-center text-md-left">
               <a id="justcast_landing_page_signup" 
-                href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`} className="btn btn-primary shadow lift mr-1">
+                href={signUpURL()} className="btn btn-primary shadow lift mr-1">
                 Sign up <i className="fe fe-arrow-right d-none d-md-inline ml-3"></i>
               </a>
             </div>
