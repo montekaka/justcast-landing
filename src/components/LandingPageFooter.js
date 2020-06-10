@@ -17,6 +17,12 @@ const LandingPageFooter = () => {
     return localStorageManagement.getURLwithParams(url, keys);
   }
 
+  const signUpURL = () => {
+    const keys = ['via'];
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
+    return localStorageManagement.getURLwithParams(url, keys);    
+  }
+
   return (
     <footer className="py-8 py-md-11 bg-gray-200">
       <div className="container">
@@ -60,7 +66,7 @@ const LandingPageFooter = () => {
                 </a>
               </li>
               <li className="mb-3">
-                <a href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`} 
+                <a href={signInURL()} 
                 onClick={() => {
                   mixpanelClickTrack("Sign in")
                 }}
@@ -70,7 +76,7 @@ const LandingPageFooter = () => {
                 </a>
               </li>
               <li>
-                <a href={signInURL()} 
+                <a href={signUpURL()} 
                 onClick={() => {
                   mixpanelClickTrack("Sign up")
                 }}                
