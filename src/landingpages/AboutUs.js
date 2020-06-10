@@ -1,6 +1,14 @@
 import React from "react";
+import {localStorageManagement} from './../libs'
 
 const AboutUs = () => {
+
+  const signUpURL = () => {
+    const keys = ['via'];
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
+    return localStorageManagement.getURLwithParams(url, keys);    
+  }
+
   return (
     <>
       <section className="pt-8 pt-md-11">
@@ -69,7 +77,7 @@ const AboutUs = () => {
             </div>
             <div className="col-12 col-md-3">
               <div className="col-auto ml-n5">
-                <a className="btn btn-primary" href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`}>Sign up now</a>
+                <a className="btn btn-primary" href={signUpURL()}>Sign up now</a>
               </div>
             </div>
           </div>

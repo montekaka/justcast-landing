@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Mixpanel} from '../../api/mixpanel'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 import FAQs from './../FAQs'
+import {localStorageManagement} from './../../libs'
 
 const LandingPagePricing = ({sectionClassName, titleColor}) => {
   const [isMonthlyPlan, setIsMonthlyPlan] = useState(true);
@@ -9,7 +10,6 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
   const handleSwitchChange = () => {
     setIsMonthlyPlan(!isMonthlyPlan)
   }
-
   return (   
     <> 
       <section className={sectionClassName ? sectionClassName : "pt-9 pt-md-12 bg-gray-200"}>   
@@ -67,6 +67,14 @@ const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClas
     Mixpanel.track(`${name} clicked`, props);
   }
 
+
+  const signUpURL = () => {
+    const keys = ['via'];
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
+    return localStorageManagement.getURLwithParams(url, keys);    
+  }
+
+
   return (
     <div className="card shadow-lg mb-6 mb-xl-0">
       <div className="card-body">
@@ -86,7 +94,7 @@ const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClas
         <Features features={features}/>        
       </div>
       <a 
-        href={`${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup?${title}`} 
+        href={signUpURL()} 
         className={`card-btn btn btn-block btn-lg ${buttonClassName}`}
           onClick={() => {
             mixpanelClickTrack(`Sign up`, {Price: price})
