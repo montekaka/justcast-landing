@@ -14,7 +14,6 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
-import {localStorageManagement} from './../libs'
 import {Context as LocalStorageContext} from '../context/LocalStorageContext'
 
 const LandingPageNavbars = ({navItems}) => {

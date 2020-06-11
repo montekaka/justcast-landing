@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import PodcastSvg from "../../assets/img/illustrations/podcast.svg"
-import {localStorageManagement} from './../../libs'
+import {Context as LocalStorageContext} from '../../context/LocalStorageContext'
 
 const LandingPageHero = () => {
+  const {state, getURL} = useContext(LocalStorageContext);
 
   const signUpURL = () => {
-    const keys = ['via'];
     const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
-    return localStorageManagement.getURLwithParams(url, keys);    
+    return getURL(state, url);
   }
 
   return (   

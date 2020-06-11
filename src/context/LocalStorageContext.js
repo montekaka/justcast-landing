@@ -12,8 +12,12 @@ const LocalStorageReducer = (state, action) => {
 
 const initLocalStorageState = dispatch => {
   return (params) => {
-    const item = localStorageManagement.getAll();
-    // console.log(item)
+    const keys = Object.keys(params);
+    for(let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      localStorageManagement.setItem(key, params[key]);
+    }
+    const item = localStorageManagement.getAll();    
     dispatch({type: 'add', payload: {...item, ...params} })
   }
 }

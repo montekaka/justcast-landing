@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {Mixpanel} from '../../api/mixpanel'
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 import FAQs from './../FAQs'
-import {localStorageManagement} from './../../libs'
+import {Context as LocalStorageContext} from '../../context/LocalStorageContext'
 
 const LandingPagePricing = ({sectionClassName, titleColor}) => {
   const [isMonthlyPlan, setIsMonthlyPlan] = useState(true);
@@ -62,18 +61,16 @@ const SwitchPayment = ({handleSwitchChange}) => {
 }
 
 const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClassName}) => {
+  const {state, getURL} = useContext(LocalStorageContext);
 
   const mixpanelClickTrack = (name, props) => {
     Mixpanel.track(`${name} clicked`, props);
   }
-
-
+  
   const signUpURL = () => {
-    const keys = ['via'];
     const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
-    return localStorageManagement.getURLwithParams(url, keys);    
+    return getURL(state, url);
   }
-
 
   return (
     <div className="card shadow-lg mb-6 mb-xl-0">

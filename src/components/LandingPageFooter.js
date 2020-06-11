@@ -1,26 +1,25 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Mixpanel} from '../api/mixpanel'
-import {localStorageManagement} from './../libs'
+import {Context as LocalStorageContext} from '../context/LocalStorageContext'
 import {Link} from 'react-router-dom'
 import fbicon from './../assets/img/icons/social/facebook.svg'
 import twtricon from './../assets/img/icons/social/twitter.svg'
 
 const LandingPageFooter = () => {
+  const {state, getURL} = useContext(LocalStorageContext);
 
   const mixpanelClickTrack = (name) => {    
     Mixpanel.track(`${name} clicked`);
   }
 
   const signInURL = () => {
-    const keys = ['via'];
     const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`    
-    return localStorageManagement.getURLwithParams(url, keys);
+    return getURL(state, url);
   }
 
   const signUpURL = () => {
-    const keys = ['via'];
     const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
-    return localStorageManagement.getURLwithParams(url, keys);    
+    return getURL(state, url);    
   }
 
   return (

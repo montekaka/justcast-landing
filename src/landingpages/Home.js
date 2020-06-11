@@ -20,18 +20,13 @@ const Home = (props) => {
   });
 
   useEffect(() => {
-    // initLocalStorageState()
-
     const values = queryString.parse(props.location.search);
     if(values && values["via"]) {
       const via = values['via'];
-      // localStorageManagement.setItem('via', via);
       initLocalStorageState({via})
     } else {
       initLocalStorageState({})
     }
-    
-    //localStorage.getItem()
   }, []);
 
   return (
