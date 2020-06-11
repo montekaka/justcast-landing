@@ -15,6 +15,10 @@ localStorageManagement.setItemWithDateValue = (key, val) => {
   return {[key]: `${val}|${date}`};
 }
 
+localStorageManagement.removeItem = (key) => {
+  localStorage.removeItem(key);
+}
+
 localStorageManagement.getURLwithParams = (url, keys) => {
   const strings = [];
   for(let i = 0; i < keys.length; i++) {
@@ -31,6 +35,16 @@ localStorageManagement.getURLwithParams = (url, keys) => {
     return `${url}?${params}`
   }
   return url;
+}
+
+localStorageManagement.getAll = () => {
+  const items = {};
+
+  Object.entries(localStorage).forEach(([key, value]) => {
+    items[key] = value;
+  })
+
+  return items;
 }
 
 export default localStorageManagement;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {Link} from 'react-router-dom'
 import {
   Collapse,
@@ -15,9 +15,12 @@ import {
   NavbarText
 } from 'reactstrap';
 import {localStorageManagement} from './../libs'
+import {Context as LocalStorageContext} from '../context/LocalStorageContext'
 
 const LandingPageNavbars = ({navItems}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const {state, getURL} = useContext(LocalStorageContext);
+
   const toggle = () => setIsOpen(!isOpen);
   const handleNavItemClicked = () => {
     if(isOpen) {
@@ -31,10 +34,9 @@ const LandingPageNavbars = ({navItems}) => {
     </NavItem>
   )
 
-  const getSignInURL = () => {
-    const keys = ['via'];
+  const getSignInURL = () => {    
     const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`;
-    return localStorageManagement.getURLwithParams(url, keys);    
+    return getURL(state, url);
   }
 
   return (

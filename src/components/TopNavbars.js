@@ -14,7 +14,6 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
-
 import {Context as PodcastContext} from '../context/PodcastContext'
 
 const TopNavbars = () => {
