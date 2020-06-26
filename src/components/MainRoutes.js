@@ -23,7 +23,7 @@ import WidgetPlaylist from './../widgets/WidgetPlaylist'
 const MainRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/private_podcast" component={PodcastPrivate}/>
+      <Route exact path="/page_404" component={PodcastPrivate}/>
       <PodcastPageRoute exact path="/shows/:id/about_us" component={PodcastAbout}/>
       <PodcastPageRoute exact path="/shows/:id/episodes" component={Episodes}/>
       <PodcastPageRoute exact path="/shows/:id/audioposts" component={Podcast}/>
