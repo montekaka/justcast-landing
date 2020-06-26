@@ -422,7 +422,7 @@ app.get('/private_podcast', (request, response) => {
     if (err) {
       return console.log(err);
     }
-    const result = SEOHelpers.set(meta, data)
+    const result = SEOHelpers.set({}, data)
     response.send(result);
   });   
 })

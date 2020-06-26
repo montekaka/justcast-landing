@@ -15,7 +15,7 @@ export default () => {
               Uh Oh.
             </h1>
             <p className="mb-5 text-muted">
-              This is a private podcast.  You don't have rights to access it.
+              Sorry, this page does not exist
             </p>
           </div>
           <div className="col-lg-7 offset-lg-1 align-self-stretch d-none d-lg-block">
