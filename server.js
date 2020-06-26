@@ -57,7 +57,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
     }
 
     if(show.is_private) {
-      response.redirect('/private_podcast')
+      response.redirect('/page_404')
     } else {    
       fs.readFile(filePath, 'utf8', function (err,data) {
         if (err) {
@@ -109,7 +109,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
 
     if(show.is_private) {
       // redirect to error page
-      response.redirect('/private_podcast')
+      response.redirect('/page_404')
     } else {
       fs.readFile(filePath, 'utf8', function (err,data) {
         if (err) {
@@ -162,7 +162,7 @@ app.get('/shows/:id/episodes', function(request, response) {
     }
     
     if(show.is_private) {
-      response.redirect('/private_podcast')
+      response.redirect('/page_404')
     } else {
       fs.readFile(filePath, 'utf8', function (err,data) {
         if (err) {
@@ -215,7 +215,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
     }
     
     if(show.is_private) {
-      response.redirect('/private_podcast')
+      response.redirect('/page_404')
     } else {
       fs.readFile(filePath, 'utf8', function (err,data) {
         if (err) {
@@ -267,7 +267,7 @@ app.get('/shows/:id/about_us', function(request, response) {
     }
     
     if(show.is_private) {
-      response.redirect('/private_podcast')
+      response.redirect('/page_404')
     } else {
       fs.readFile(filePath, 'utf8', function (err,data) {
         if (err) {
@@ -404,7 +404,7 @@ app.get('/privacy', (request, response) => {
 })
 
 
-app.get('/private_podcast', (request, response) => {
+app.get('/page_404', (request, response) => {
   const meta = {
     title: "JustCast - Turns your Dropbox into Podcast Hosting",
     description: "Turns your Dropbox into Podcast Hosting",
@@ -520,7 +520,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
     });    
 
     // if(show.is_private) {
-    //   response.redirect('/private_podcast')
+    //   response.redirect('/page_404')
     // } else {
     //   fs.readFile(filePath, 'utf8', function (err,data) {
     //     if (err) {
@@ -584,7 +584,7 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
     });    
 
     // if(show.is_private) {
-    //   response.redirect('/private_podcast')
+    //   response.redirect('/page_404')
     // } else {    
     //   fs.readFile(filePath, 'utf8', function (err,data) {
     //     if (err) {
