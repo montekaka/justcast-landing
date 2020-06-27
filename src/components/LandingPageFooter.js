@@ -95,9 +95,9 @@ const LandingPageFooter = () => {
 
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li className="mb-3">
-                <Link to="/about_us" className="text-reset">
+                <a href="/about_us" className="text-reset">
                   About us
-                </Link>
+                </a>
               </li>                
               <li className="mb-3">
                 <a href="/terms" className="text-reset">
@@ -108,7 +108,12 @@ const LandingPageFooter = () => {
                 <a href="/privacy" className="text-reset">
                   Privacy
                 </a>
-              </li>            
+              </li>
+              <li className="mb-3">
+                <a href="/affiliates" className="text-reset">
+                  Affiliates
+                </a>
+              </li>                          
               <li className="mb-3">
                 <a href="mailto:justcastapp@gmail.com" className="text-reset">Contact us</a>
               </li>       

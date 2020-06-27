@@ -13,6 +13,7 @@ import Home from './../landingpages/Home'
 import Pricing from './../landingpages/Pricing'
 import TermsOfService from './../landingpages/TermsOfService'
 import Privacy from './../landingpages/Privacy'
+import Affiliate from './../landingpages/Affiliate'
 import AboutUs from './../landingpages/AboutUs'
 import Examples from './../landingpages/Examples'
 import BlogPost from './../landingpages/BlogPost'
@@ -37,6 +38,7 @@ const MainRoutes = () => {
       <LandingPageRoute exact path="/privacy" component={Privacy}/>
       <LandingPageRoute exact path="/about_us" component={AboutUs}/>
       <LandingPageRoute exact path="/examples" component={Examples}/>
+      <LandingPageRoute exact path="/affiliates" component={Affiliate}/>
       <LandingPageRoute exact path="/blogs/resources-for-church-impacted-by-coronavirus" component={BlogPost}/>
       <LandingPageRoute exact path="/how-justcast-works" component={HowJustCastWorks}/>
       <Route path="/" component={Error}/>
