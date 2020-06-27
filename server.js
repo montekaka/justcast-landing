@@ -309,6 +309,29 @@ app.get('/features-pricing', (request, response) => {
 })
 
 
+app.get('/affiliates', (request, response) => {
+  const meta = {
+    title: "JustCast's podcast affiliate program",
+    description: "Earn a commission for every customer you refer to JustCast for podcast hosting and analytics.",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    keywords: "affiliate",
+    url: "https://www.justcast.com/affiliates",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: ""
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
+
 app.get('/how-justcast-works', (request, response) => {
   const meta = {
     title: "How JustCast works",
