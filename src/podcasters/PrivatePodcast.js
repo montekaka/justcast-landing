@@ -34,7 +34,8 @@ const PrivatePodcast = (props) => {
       ]
       setLinks(_links);
       setRssFeed(res.data.private_feed.rss_feed)
-      setBackgroundImage("https://source.unsplash.com/1600x900/?"+data.show.name.split(' ').join(','))
+      // setBackgroundImage("https://source.unsplash.com/1600x900/?"+data.show.name.split(' ').join(','))
+      setBackgroundImage(data.show.artwork_url_256)
     })
     .catch((err) => {
       console.log(err);
@@ -74,8 +75,7 @@ const PrivatePodcast = (props) => {
             
             <input defaultValue={rssFeed} id="text-rss-feed" style={{position: "absolute", left: '-9999px'}}/>
           </div>
-          <RightSideCoverImage imageURL={backgroundImage}/>
-          
+          <RightSideCoverImage imageURL={backgroundImage}/>          
         </div>        
       </div>
 
