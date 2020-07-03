@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import ColorThief from 'colorthief'
-import justcastApi from '../api/justcast'
 import QRCode from "react-qr-code";
+import Select from 'react-select';
+import justcastApi from '../api/justcast'
 import RightSideCoverImage from './../components/RightSideCoverImage'
 const colorThief = new ColorThief()
 
@@ -12,28 +13,29 @@ const PrivatePodcast = (props) => {
   const [links, setLinks] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState('')
   const [rssFeed, setRssFeed] = useState('')
+  const [qrCode, setQRCode] = useState({})
 
   const copyToClipboard = () => {
     const copyText = document.querySelector('#text-rss-feed');
     copyText.select();
     document.execCommand("Copy");
   }
-  
+
   useEffect(() => {
     justcastApi.get(`/v1/shows/${showId}/private_feeds/${id}`)
     .then((res) => {
       const data = res.data;
       setShow(data.show)
       const _links = [
-        {url: res.data.private_feed.rss_feed, name: "Apple Podcasts", kind: "link", id: "apple_podcast"},
-        {url: res.data.private_feed.overcast_url, name: "Overcast", kind: "link", id: "overcast"},
-        {url: res.data.private_feed.breaker_url, name: "Breaker", kind: "link", id: "breaker"},
-        {url: res.data.private_feed.pocketcast_url, name: "Pocket Casts", kind: "link", id: "pocketcasts"},
-        {url: res.data.private_feed.downcast_url, name: "Downcast", kind: "link", id: "downcast"},
-        {url: res.data.private_feed.rss_feed, name: "Copy Feed Link", kind: "copyToClipboard", id: "rssfeed"}, 
+        {value: res.data.private_feed.rss_feed, name: "Apple Podcasts", label: "RSS feed",  id: "apple_podcast"},
+        {value: res.data.private_feed.overcast_url, name: "Overcast", label: "Overcast", id: "overcast"},        
+        {value: res.data.private_feed.pocketcast_url, name: "Pocket Casts", label: "Pocket Casts", id: "pocketcasts"},
+        {value: res.data.private_feed.downcast_url, name: "Downcast", label: "Downcast", id: "downcast"},
+        {value: res.data.private_feed.breaker_url, name: "Breaker", label: "Breaker", id: "breaker"},
       ]
       setLinks(_links);
       setRssFeed(res.data.private_feed.rss_feed)
+      setQRCode(_links[0])
       // setBackgroundImage("https://source.unsplash.com/1600x900/?"+data.show.name.split(' ').join(','))
       setBackgroundImage(data.show.artwork_url_256)
     })
@@ -52,27 +54,23 @@ const PrivatePodcast = (props) => {
             </div>
             <h1 className="mb-0 font-weight-bold">{show.name}</h1>
             <p className="mb-6">Add our private content to your favorite podcast player</p>
+            <hr/>
+            <Select value={qrCode} options={links} onChange={setQRCode}/>
             <div className="private-podcast-subscribers-page-artwork-container">
-              <QRCode value={rssFeed} size={128}/>
-            </div>            
+              <QRCode value={qrCode.value ? qrCode.value : ""} size={200}/>
+            </div>
+            <hr/>
             {
               links.map((link) => {
-                if(link.kind === 'copyToClipboard') {
-                  return (
-                    <div 
-                      key={link.id}
-                      onClick={copyToClipboard}
-                      className="btn btn-secondary btn-block lift">{link.name}</div>
-                  )
-                }
                 return (
                   <a className="btn btn-secondary btn-block lift"
-                    href={link.url}
+                    href={link.value}
                     key={link.id}>{link.name}</a>
                 )}
               )
-            }
-            
+            }                  
+            <hr/>
+            <div onClick={copyToClipboard} className="btn btn-secondary btn-block lift">Copy Feed Link</div>            
             <input defaultValue={rssFeed} id="text-rss-feed" style={{position: "absolute", left: '-9999px'}}/>
           </div>
           <RightSideCoverImage imageURL={backgroundImage}/>          
