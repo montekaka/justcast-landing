@@ -624,6 +624,52 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
   })
 });
 
+// Protect podcast
+
+app.get('/shows/:show_id/subscribers/:id', function(request, response) {    
+  const id = request.params.id;
+  const show_id = request.params.show_id;
+  instance.get(`/v1/shows/${show_id}/private_feeds/${id}`)
+  .then((res) => {
+    const data = res.data;
+    const show = data.show;
+    const podcastName = data.name;
+    const url = data.permulink;
+    const title = `${show.name} | ${data.name}`;
+    const description = data.description ? sanitizeHtml(data.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
+    // const description = "Podcast power by JustCast";
+    const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
+    const img_16 = show.artwork_url_16;
+    const img_32 = show.artwork_url_32;
+    const img_64 = show.artwork_url_64;
+    const img_256 = show.artwork_url_256;
+
+    const meta = {
+      title,
+      description,
+      img,      
+      url,
+      img_16: img_16,
+      img_32: img_32,
+      img_64: img_64,
+      img_256: img_256,
+    }
+
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      const result = SEOHelpers.set(meta, data)
+      response.send(result);
+    });    
+
+  })
+  .catch((err) => {
+    // TODO: redirect to error page
+    response.redirect('/error')
+  })
+});
+
 app.get('/', (request, response) => {
   const meta = {
     title: "JustCast - Turns your Dropbox into Podcast Hosting",
