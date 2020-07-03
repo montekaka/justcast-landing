@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ColorThief from 'colorthief'
 import justcastApi from '../api/justcast'
+import QRCode from "react-qr-code";
 import RightSideCoverImage from './../components/RightSideCoverImage'
 const colorThief = new ColorThief()
 
@@ -50,6 +51,9 @@ const PrivatePodcast = (props) => {
             </div>
             <h1 className="mb-0 font-weight-bold">{show.name}</h1>
             <p className="mb-6">Add our private content to your favorite podcast player</p>
+            <div className="private-podcast-subscribers-page-artwork-container">
+              <QRCode value={rssFeed} size={128}/>
+            </div>            
             {
               links.map((link) => {
                 if(link.kind === 'copyToClipboard') {
