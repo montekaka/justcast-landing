@@ -14,11 +14,16 @@ const PrivatePodcast = (props) => {
   const [backgroundImage, setBackgroundImage] = useState('')
   const [rssFeed, setRssFeed] = useState('')
   const [qrCode, setQRCode] = useState({})
+  const [copyFeedLink, setCopyFeedLink] = useState('Copy Feed Link')
 
   const copyToClipboard = () => {
     const copyText = document.querySelector('#text-rss-feed');
     copyText.select();
     document.execCommand("Copy");
+    setCopyFeedLink('Copied!');
+    setTimeout(() => {
+      setCopyFeedLink('Copy Feed Link');      
+    }, 5000)     
   }
 
   useEffect(() => {
@@ -27,7 +32,7 @@ const PrivatePodcast = (props) => {
       const data = res.data;
       setShow(data.show)
       const _links = [
-        {value: res.data.private_feed.rss_feed, name: "Apple Podcasts", label: "RSS feed",  id: "apple_podcast"},
+        {value: res.data.private_feed.rss_feed, name: "Apple Podcasts", label: "RSS feed / Apple Podcasts",  id: "apple_podcast"},
         {value: res.data.private_feed.overcast_url, name: "Overcast", label: "Overcast", id: "overcast"},        
         {value: res.data.private_feed.pocketcast_url, name: "Pocket Casts", label: "Pocket Casts", id: "pocketcasts"},
         {value: res.data.private_feed.downcast_url, name: "Downcast", label: "Downcast", id: "downcast"},
@@ -70,7 +75,7 @@ const PrivatePodcast = (props) => {
               )
             }                  
             <hr/>
-            <div onClick={copyToClipboard} className="btn btn-secondary btn-block lift">Copy Feed Link</div>            
+            <div onClick={copyToClipboard} className="btn btn-secondary btn-block lift">{copyFeedLink}</div>            
             <input defaultValue={rssFeed} id="text-rss-feed" style={{position: "absolute", left: '-9999px'}}/>
           </div>
           <RightSideCoverImage imageURL={backgroundImage}/>          
