@@ -173,3 +173,14 @@
   font-size: 16px;
   font-weight: bold;
 }
+
+.private-podcast-subscribers-page-artwork-container {
+  display: flex;  
+  justify-content: center;
+  padding: 20px;
+}
+
+.private-podcast-subscribers-page-artwork {
+  width: 200px;
+  height: 200px;
+}
