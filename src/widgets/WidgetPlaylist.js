@@ -13,7 +13,8 @@ const WidgetPlaylist = (props) => {
   const [menuItems, setMenuItems] = useState([])
 
   useEffect(() => {
-    justcastApi.get(`/v1/shows/${id}/audioposts`)
+    const referer_url = document.referrer;
+    justcastApi.get(`/v1/shows/${id}/audioposts?referer_url=${referer_url}`)
     .then((res) => {
       const showdata = res.data;
       setShow(showdata.show);

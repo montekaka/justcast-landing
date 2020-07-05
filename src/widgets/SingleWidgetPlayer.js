@@ -10,7 +10,8 @@ const SingleWidgetPlayer = (props) => {
   const [menuItems, setMenuItems] = useState([])
 
   useEffect(() => {
-    justcastApi.get(`/v1/shows/${showId}/audioposts/${id}`)
+    const referer_url = document.referrer;
+    justcastApi.get(`/v1/shows/${showId}/audioposts/${id}?referer_url=${referer_url}`)
     .then((res) => {
       const data = res.data;
       setAudiopost(data)

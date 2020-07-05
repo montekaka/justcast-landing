@@ -563,6 +563,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
 
 
 app.get('/widget/:show_id/audioposts/:id', function(request, response) {    
+  const referer_url = request.headers.referer;
   const id = request.params.id;
   const show_id = request.params.show_id;
   instance.get(`/v1/shows/${show_id}/audioposts/${id}?referer_url=${referer_url}`)
