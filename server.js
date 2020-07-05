@@ -74,9 +74,9 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
   })
 });
 
-app.get('/shows/:id/audioposts', function(request, response) {    
+app.get('/shows/:id/audioposts', function(request, response) {
   const id = request.params.id;
-  instance.get(`/v1/shows/${id}/audioposts`)
+  instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
     const show = res.data.show;
@@ -129,7 +129,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
 
 app.get('/shows/:id/episodes', function(request, response) {    
   const id = request.params.id;
-  instance.get(`/v1/shows/${id}/audioposts`)
+  instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
     const show = res.data.show;
@@ -182,7 +182,7 @@ app.get('/shows/:id/episodes', function(request, response) {
 
 app.get('/shows/:id/subscribe', function(request, response) {    
   const id = request.params.id;
-  instance.get(`/v1/shows/${id}/audioposts`)
+  instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
     const show = res.data.show;
@@ -234,7 +234,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
 
 app.get('/shows/:id/about_us', function(request, response) {    
   const id = request.params.id;
-  instance.get(`/v1/shows/${id}/audioposts`)
+  instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
     const show = res.data.show;
@@ -501,8 +501,9 @@ app.get('/examples', (request, response) => {
 // widgets
 
 app.get('/widget/:id/audioposts', function(request, response) {    
+  const referer_url = request.headers.referer;
   const id = request.params.id;
-  instance.get(`/v1/shows/${id}/audioposts`)
+  instance.get(`/v1/shows/${id}/audioposts?referer_url=${referer_url}`)
   .then((res) => {
 
     const show = res.data.show;
@@ -564,7 +565,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
 app.get('/widget/:show_id/audioposts/:id', function(request, response) {    
   const id = request.params.id;
   const show_id = request.params.show_id;
-  instance.get(`/v1/shows/${show_id}/audioposts/${id}`)
+  instance.get(`/v1/shows/${show_id}/audioposts/${id}?referer_url=${referer_url}`)
   .then((res) => {
     const data = res.data;
 
