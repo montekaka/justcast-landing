@@ -29,7 +29,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
     const show = data.show;
     const podcastName = data.name;
     const url = data.permulink;
-    const title = `${show.name} | ${data.name}`;
+    const title = `${show.name} | ${podcastName}`;
     const description = data.description ? sanitizeHtml(data.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
@@ -79,7 +79,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
-    const show = res.data.show;
+    const show = res.data;
     const url = show.link;
     const title = `${show.name}`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
@@ -132,7 +132,7 @@ app.get('/shows/:id/episodes', function(request, response) {
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
-    const show = res.data.show;
+    const show = res.data;
     const url = show.link;
     const title = `${show.name} | Episodes`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
@@ -185,7 +185,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
-    const show = res.data.show;
+    const show = res.data;
     const url = show.link;
     const title = `${show.name} | Subscribe`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
@@ -237,7 +237,7 @@ app.get('/shows/:id/about_us', function(request, response) {
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
-    const show = res.data.show;
+    const show = res.data;
     const url = show.link;
     const title = `${show.name} | About Us`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
