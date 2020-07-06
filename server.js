@@ -502,9 +502,9 @@ app.get('/examples', (request, response) => {
 
 app.get('/widget/:id/audioposts', function(request, response) {    
   const referer_url = request.headers.referer;
-  console.log("---------referer_url-------------")
-  console.log(referer_url)
-  console.log("---------referer_url-------------")
+  console.log("---------request header-------------")
+  console.log(request.headers)
+  console.log("---------request header-------------")
   const id = request.params.id;
   instance.get(`/v1/shows/${id}/audioposts?referer_url=${referer_url}`)
   .then((res) => {
