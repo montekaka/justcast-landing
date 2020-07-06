@@ -36,7 +36,7 @@ const PrivatePodcast = (props) => {
         {value: res.data.private_feed.overcast_url, name: "Overcast", label: "Overcast", id: "overcast"},        
         {value: res.data.private_feed.pocketcast_url, name: "Pocket Casts", label: "Pocket Casts", id: "pocketcasts"},
         {value: res.data.private_feed.downcast_url, name: "Downcast", label: "Downcast", id: "downcast"},
-        {value: res.data.private_feed.breaker_url, name: "Breaker", label: "Breaker", id: "breaker"},
+        // {value: res.data.private_feed.breaker_url, name: "Breaker", label: "Breaker", id: "breaker"},
       ]
       setLinks(_links);
       setRssFeed(res.data.private_feed.rss_feed)
