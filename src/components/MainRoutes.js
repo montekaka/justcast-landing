@@ -21,6 +21,7 @@ import HowJustCastWorks from './../landingpages/HowJustCastWorks'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
 import WidgetPlaylist from './../widgets/WidgetPlaylist'
 import PrivatePodcast from './../podcasters/PrivatePodcast'
+import PrivatePodcastPage from './../landingpages/PrivatePodcastPage'
 
 const MainRoutes = () => {
   return (
@@ -43,6 +44,7 @@ const MainRoutes = () => {
       <LandingPageRoute exact path="/affiliates" component={Affiliate}/>
       <LandingPageRoute exact path="/blogs/resources-for-church-impacted-by-coronavirus" component={BlogPost}/>
       <LandingPageRoute exact path="/how-justcast-works" component={HowJustCastWorks}/>
+      <LandingPageRoute exact path="/private-podcast" component={PrivatePodcastPage}/>      
       <Route path="/" component={Error}/>
     </Switch>
   )

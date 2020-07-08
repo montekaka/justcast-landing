@@ -13427,3 +13427,39 @@
     .sidenav-right {
       right: 0; } }
   
+
+      .btn-gray-300-20 {
+        background-color: rgba(217, 226, 239, 0.2);
+        color: #FFFFFF; }
+        .btn-gray-300-20:hover, .btn-gray-300-20:focus {
+          background-color: rgba(217, 226, 239, 0.25);
+          color: #FFFFFF; }
+        .btn-gray-300-20.active {
+          background-color: rgba(217, 226, 239, 0.25);
+          color: #FFFFFF; }
+      
+      .btn-gray-400 {
+        background-color: #C6D3E6;
+        color: #FFFFFF; }
+        .btn-gray-400:hover, .btn-gray-400:focus {
+          background-color: #b4c5de;
+          color: #f2f2f2; }
+        .btn-gray-400.active {
+          background-color: #b4c5de;
+          color: #f2f2f2; }
+      
+      .btn-gray-400-10 {
+        background-color: rgba(198, 211, 230, 0.1);
+        color: #FFFFFF; }
+        .btn-gray-400-10:hover, .btn-gray-400-10:focus {
+          background-color: rgba(198, 211, 230, 0.15);
+          color: #FFFFFF; }
+        .btn-gray-400-10.active {
+          background-color: rgba(198, 211, 230, 0.15);
+          color: #FFFFFF; }
+
+
+          .border-gray-900-50 {
+            border-color: rgba(27, 42, 78, 0.5) !important; }
+          
+            
