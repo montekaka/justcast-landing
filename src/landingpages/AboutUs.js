@@ -6,7 +6,7 @@ const AboutUs = () => {
   const signUpURL = () => {
     const keys = ['via','utm_term'];
     const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
-    return localStorageManagement.getURLwithParams(url, keys);    
+    return localStorageManagement.getURLwithParams(url, keys);
   }
 
   return (

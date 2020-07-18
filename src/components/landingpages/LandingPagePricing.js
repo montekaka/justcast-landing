@@ -2,6 +2,7 @@ import React, {useState, useContext} from "react";
 import {Mixpanel} from '../../api/mixpanel'
 import FAQs from './../FAQs'
 import {Context as LocalStorageContext} from '../../context/LocalStorageContext'
+import {localStorageManagement} from '../../libs'
 
 const LandingPagePricing = ({sectionClassName, titleColor}) => {
   const [isMonthlyPlan, setIsMonthlyPlan] = useState(true);
@@ -67,9 +68,10 @@ const PriceCard = ({title, periodLabel, price, features, buttonLabel, buttonClas
     Mixpanel.track(`${name} clicked`, props);
   }
   
-  const signUpURL = () => {
-    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
-    return getURL(state, url);
+  const signUpURL = () => {  
+    const keys = ['via','utm_term'];  
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`        
+    return localStorageManagement.getURLwithParams(url, keys);
   }
 
   return (
