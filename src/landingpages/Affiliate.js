@@ -3,7 +3,7 @@ import {localStorageManagement} from './../libs'
 
 const Affiliate = () => {
   const signUpURL = () => {
-    const keys = ['via'];
+    const keys = ['via','utm_term'];
     const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`
     return localStorageManagement.getURLwithParams(url, keys);    
   }
