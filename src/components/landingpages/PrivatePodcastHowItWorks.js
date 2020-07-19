@@ -1,92 +1,67 @@
 import React from "react";
+import {Row} from 'reactstrap'
+import screen from './../../assets/img/marketing/privatepodcast.png'
 
 const PrivatePodcastHowItWorks = () => {
   return (
-    <section className="section bg-black pt-12 pt-md-15 pb-8 pb-md-11">
+    <section className="pt-8 pt-md-11" id="howItWork">
       <div className="container">
-        <div className="row justify-content-center">
+        <Row className="justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 text-center">
-            
-            <h1 className="font-weight-bold text-white">
-              How does a private podcast work?
+            <span className="badge badge-pill badge-primary-soft mb-3">
+              <span className="h6 text-uppercase">how it works</span>
+            </span>
+            <h1>
+              Control who can access your episodes by creating an <span className="text-primary">invite-only</span> podcast.
             </h1>
-
-            <p className="font-size-lg text-muted mb-7 mb-md-9">
-              A private podcast isn't publicly accessible or discoverable. Instead, each subscriber gets an individual invitation to the private podcast in their email inbox. This allows employees to:
-            </p>
-
+            <p className="lead text-gray-700 mb-7 mb-md-9">
+              With more people working from home these days, keeping your team up-to-date is more important than ever. Many CEOs and managers are turning to private podcasts to communicate with their employees.
+            </p>            
           </div>
-        </div>
-
-        <div className="row">
-          <div className="col-12 col-md-4">
-            <div className="row">
-              <div className="col-auto col-md-12">
-                <div className="row no-gutters align-items-center mb-md-5">
-                  <div className="col-auto">
-                    <span className="btn btn-sm btn-rounded-circle btn-gray-400-10 disabled opacity-1">
-                      <span>1</span>
-                    </span>
-                  </div>
-                  <div className="col">
-                    <hr className="d-none d-md-block border-gray-900-50 mr-n7"/>
-                  </div>
-                </div>
+        </Row>
+        <Row className="align-items-center">
+          <div className="col-12 col-md-6 col-lg-7">
+            <div className="mb-8 mb-md-0">
+              <img loading="lazy" src={screen} alt="how to add subscriber" className="screenshot img-fluid mw-md-110 float-right mr-md-6 mb-6 mb-md-0"/>
+            </div>
+          </div>
+          <div className="col-12 col-md-6 col-lg-5">
+            <div className="d-flex">
+              <div className="badge badge-lg badge-rounded-circle badge-primary-soft mt-1">
+                <span>1</span>
               </div>
-              <div className="col col-md-12 ml-n5 ml-md-0">
-                <h4 className="text-white">
+              <div className="ml-5">
+                <h3>Invite</h3>
+                <p className="text-gray-700 mb-6">
+                  Add subscribers via email invite.
+                </p>
+              </div>
+            </div>
+            <div className="d-flex">
+              <div className="badge badge-lg badge-rounded-circle badge-primary-soft mt-1">
+                <span>2</span>
+              </div>
+              <div className="ml-5">
+                <h3>Subscribe</h3>
+                <p className="text-gray-700 mb-6">
                   Subscribe to the podcast in their podcast player (Apple Podcasts, Overcast, Pocket Casts)
-                </h4>
+                </p>
               </div>
-            </div>
+            </div>            
+            <div className="d-flex">
+              <div className="badge badge-lg badge-rounded-circle badge-primary-soft mt-1">
+                <span>3</span>
+              </div>
+              <div className="ml-5">
+                <h3>Update</h3>
+                <p className="text-gray-700 mb-6">
+                  Receive new episodes on their phone
+                </p>
+              </div>
+            </div>            
           </div>
-
-          <div className="col-12 col-md-4">
-            <div className="row">
-              <div className="col-auto col-md-12">
-                <div className="row no-gutters align-items-center mb-md-5">
-                  <div className="col-auto">
-                    <span className="btn btn-sm btn-rounded-circle btn-gray-400-10 disabled opacity-1">
-                      <span>2</span>
-                    </span>
-                  </div>
-                  <div className="col">
-                    <hr className="d-none d-md-block border-gray-900-50 mr-n7"/>
-                  </div>
-                </div>
-              </div>
-              <div className="col col-md-12 ml-n5 ml-md-0">
-                <h4 className="text-white">
-                Receive new episodes on their phone
-                </h4>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-md-4">
-            <div className="row">
-              <div className="col-auto col-md-12">
-                <div className="row no-gutters align-items-center mb-md-5">
-                  <div className="col-auto">
-                    <span className="btn btn-sm btn-rounded-circle btn-gray-400-10 disabled opacity-1">
-                      <span>3</span>
-                    </span>
-                  </div>
-                  <div className="col">
-                    <hr className="d-none d-md-block border-gray-900-50 mr-n7"/>
-                  </div>
-                </div>
-              </div>
-              <div className="col col-md-12 ml-n5 ml-md-0">
-                <h4 className="text-white">
-                  Download episodes on their phone for offline listening.
-                </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div> 
+        </Row>
+      </div>
     </section>
   )
 }

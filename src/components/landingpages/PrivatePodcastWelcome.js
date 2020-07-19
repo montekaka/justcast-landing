@@ -1,66 +1,20 @@
 import React from "react";
-import iphoneXsvg from './../../assets/img/devices/iphonex.svg'
-import screen1 from './../../assets/img/marketing/private_podcast_screen_1.png'
-import screen2 from './../../assets/img/marketing/private_podcast_screen_2.png'
 
 const PrivatePodcastWelcome = () => {
   return (
-    <section className="pt-6 pt-md-8">
+    <section data-jarallax className="pt-10 pt-md-14 pb-12 pb-md-15 overlay overlay-primary overlay-80 jarallax" style={{"backgroundImage": `url("https://images.unsplash.com/photo-1556761175-129418cb2dfe?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9")`}}>
       <div className="container">
-        <div className="row align-items-center justify-content-center justify-content-md-between">
-          <div className="col-10 col-sm-8 col-md-6 order-md-2">
-                        
-            <div className="device-combo device-combo-iphonex-iphonex mb-6 mb-md-0">
-              
-              
-              <div className="device device-iphonex" data-aos="fade-left">
-                <img src={screen1} className="device-screen" alt="..."/>
-                <img src={iphoneXsvg} className="img-fluid" alt="..."/>
-              </div>
-
-              
-              <div className="device device-iphonex" data-aos="fade-left" data-aos-delay="150">
-                <img src={screen2} className="device-screen" alt="..."/>
-                <img src={iphoneXsvg} className="img-fluid" alt="..."/>
-              </div>
-              
-            </div>
-
-          </div>
-          <div className="col-12 col-md-6 col-lg-5" data-aos="fade-right">
-            
-            
-            <h1 className="font-weight-bold">
-              Publish a podcast for your <span className="text-primary">remote employees.</span> <br/>
-              Anywhere in the world.
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-8 text-center">
+            <h1 className="display-1 font-weight-bold text-white mb-6 mt-n3">
+              Create private podcasts
             </h1>
-            
-            
-            <p className="font-size-lg text-muted mb-6">
-              With more people working from home these days, keeping your team up-to-date is more important than ever. Many CEOs and managers are turning to private podcasts to communicate with their employees.
-            </p>
-
-            
-            <form className="mb-6 mb-md-8 mb-md-0 order-md-1">
-              <div className="form-row">
-                <div className="col">
-                  
-                  
-                  <input type="url" className="form-control bg-light border-0"/>
-
-                </div>
-                <div className="col-auto">
-                  
-                  
-                  <button type="submit" className="btn btn-primary">
-                    Text link
-                  </button>
-
-                </div>
-              </div>
-            </form>
-
           </div>
+        </div>
+      </div>
+      <div className="position-absolute right-0 bottom-0 left-0">
+        <div className="position-relative shape shape-bottom shape-fluid-x svg-shim text-white">
+          <svg viewBox="0 0 2880 250" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M720 125L2160 0h720v250H0V125h720z" fill="currentColor"/></svg>
         </div>
       </div>
     </section>
