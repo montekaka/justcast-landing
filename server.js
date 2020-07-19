@@ -475,6 +475,28 @@ app.get('/about_us', (request, response) => {
 })
 
 
+app.get('/audiogram', (request, response) => {
+  const meta = {
+    title: "How to create a audiogram",
+    description: "Video is the best way to promote your podcast. We've created tools for you to make podcast audiogram to share on social media, blog, and even messaging services like iMessage and Slack.",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",    
+    keywords: "Podcasting, audiogram",
+    url: "https://www.justcast.com/audiogram",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: ""
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
 
 app.get('/private-podcast', (request, response) => {
   const meta = {
