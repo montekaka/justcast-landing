@@ -475,6 +475,31 @@ app.get('/about_us', (request, response) => {
 })
 
 
+
+app.get('/private-podcast', (request, response) => {
+  const meta = {
+    title: "How to create a private podcast",
+    description: "Create unlimited podcasts for one monthly price. Invite team members, see your podcast's stats, and distribute to Apple Podcasts, Spotify, Google Podcasts. We also offer private podcasting for your company or membership site.",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",    
+    keywords: "Podcasting, Dropbox",
+    url: "https://www.justcast.com/private-podcast",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: ""
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
+
+
 app.get('/examples', (request, response) => {
   const meta = {
     title: "What podcasts are hosted on JustCast?",
