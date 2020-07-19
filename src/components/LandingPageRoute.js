@@ -41,8 +41,7 @@ const LandingPageRoute = ({ component: Component, ...rest }) => {
 
   return (
     <Route {...rest} render={(props) => (
-      <>
-        <CovidAlert rest={rest}/>
+      <>        
         <LandingPageNavbars navItems={navItems}/>
         <Component {...props} />
         <LandingPageFooter/>
