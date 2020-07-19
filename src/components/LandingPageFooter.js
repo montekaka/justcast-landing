@@ -48,9 +48,22 @@ const LandingPageFooter = () => {
 
           </div>
           <div className="col-6 col-md-4 col-lg-2">
-
             <h6 className="font-weight-bold text-uppercase text-gray-700">
               Products
+            </h6>
+            <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+              <li className="mb-3">
+                <a href="/private-podcast" className="text-reset">Private podcast</a>
+              </li>
+              <li className="mb-3">
+                <a href="/audiogram" className="text-reset">Audiogram</a>
+              </li>              
+            </ul>
+          </div>
+          <div className="col-6 col-md-4 col-lg-2">
+
+            <h6 className="font-weight-bold text-uppercase text-gray-700">
+              Learn More
             </h6>
 
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">

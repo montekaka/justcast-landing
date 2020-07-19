@@ -18,7 +18,7 @@ const LandingPageDashboardDemo = () => {
               Social video generates 1200% more shares than text and image content combined. - <a href="https://learn.g2.com/video-marketing-statistics">G2 Crowd</a>
             </p>
             <a id="justcast_landing_page_learn_more_waveform" 
-              href="https://justcast.zendesk.com/hc/en-us/articles/360042714192" className="btn btn-primary-desat mb-6 mb-md-0 lift">
+              href="/audiogram" className="btn btn-primary-desat mb-6 mb-md-0 lift">
               Learn more <i className="fe fe-arrow-right ml-3"></i>
             </a>
           </div>

@@ -1,5 +1,6 @@
 import React, {useEffect, useContext} from "react";
 import queryString from 'query-string'
+import {Mixpanel} from '../api/mixpanel'
 import {Context as LocalStorageContext} from '../context/LocalStorageContext'
 import PrivatePodcastWelcome from '../components/landingpages/PrivatePodcastWelcome'
 import AudiogramAbout from '../components/landingpages/AudiogramAbout'
@@ -7,6 +8,10 @@ import TryPodcastingForFree from '../components/TryPodcastingForFree'
 
 const AudiogramPage = (props) => {
   const {initLocalStorageState} = useContext(LocalStorageContext);
+
+  Mixpanel.track('Audiogram landing page loaded', {"First Time": "TRUE"}, () => {
+    setTimeout(Mixpanel.register({"First Time": "FALSE"}), 500);
+  });
 
   useEffect(() => {
     const values = queryString.parse(props.location.search);

@@ -1,10 +1,15 @@
 import React from "react";
-import {localStorageManagement} from '../libs'
+import {Mixpanel} from '../api/mixpanel'
 import PrivatePodcastWelcome from './../components/landingpages/PrivatePodcastWelcome'
 import PrivatePodcastHowItWorks from './../components/landingpages/PrivatePodcastHowItWorks'
 import TryPodcastingForFree from './../components/TryPodcastingForFree'
 
 const PrivatePodcastPage = () => {
+
+  Mixpanel.track('Private Podcast landing page loaded', {"First Time": "TRUE"}, () => {
+    setTimeout(Mixpanel.register({"First Time": "FALSE"}), 500);
+  });
+
   return (
     <>
       <PrivatePodcastWelcome 
