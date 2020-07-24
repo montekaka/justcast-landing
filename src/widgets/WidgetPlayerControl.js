@@ -45,7 +45,7 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
   }
 
   const handleProgress = (progress) => {  
-    if(audiopost.duration) {
+    if(duration) {
       setAudiopost({...audiopost, ...progress})
     }    
   }
