@@ -29,6 +29,7 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
   const [audiopost, setAudiopost] = useState(initState);
   const [section, setSection] = useState('control') //[control, subscribe, share, more_info]
   // const [navItems, setNavItems] = useState([]);
+  const [duration, setDuration] = useState(0);
 
   const toggleSeeking = () => {
     setAudiopost({...audiopost, seeking: !audiopost.seeking});
@@ -38,8 +39,9 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
     setAudiopost({...audiopost, playing: !audiopost.playing})
   }
 
-  const handleDuration = (duration) => {
-    setAudiopost({...audiopost, duration: duration})
+  const handleDuration = (_duration) => {
+    // setAudiopost({...audiopost, duration: duration})
+    setDuration(_duration)
   }
 
   const handleProgress = (progress) => {  
@@ -100,7 +102,7 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
           playing={audiopost.playing}
           played={audiopost.played}
           playedSeconds={audiopost.playedSeconds}
-          duration={audiopost.duration}
+          duration={duration}
           handleDuration={handleDuration} 
           handleProgress={handleProgress}
           handlPlayPauseClick={playPause}
