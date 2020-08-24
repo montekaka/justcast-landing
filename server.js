@@ -93,7 +93,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
-    // const rss_url = shows.rss_feed;
+    const rss_url = show.rss_feed;
 
     const meta = {
       title,
@@ -107,7 +107,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
       img_256: img_256,
       twitter_handle,
       apple_iutnes_app_id,
-      // rss_url: rss_url
+      rss_url: rss_url
     }
 
     if(show.is_private) {
