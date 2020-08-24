@@ -50,7 +50,35 @@ const PublicPodcast = (props) => {
       if(data.overcast) {
         _links.push({value: data.overcast, name: 'Overcast', label: "Overcast", id: "overcast"})
       }      
-    
+
+      if(data.pocket_casts) {
+        _links.push({value: data.pocket_casts, name: 'Pocket Casts', label: "Pocket Casts", id: "pocket_casts"})
+      }
+
+      if(data.breaker) {
+        _links.push({value: data.breaker, name: 'Breaker', label: "Breaker", id: "breaker"})
+      }
+
+      if(data.castro) {
+        _links.push({value: data.castro, name: 'Castro', label: "Castro", id: "castro"})
+      }
+
+      if(data.radio_public) {
+        _links.push({value: data.radio_public, name: 'Radio Public', label: "Radio Public", id: "radio_public"})
+      }
+
+      if(data.castbox) {
+        _links.push({value: data.castbox, name: 'Castbox', label: "Castbox", id: "castbox"})
+      } 
+      
+      if(data.tune_in) {
+        _links.push({value: data.tune_in, name: 'Tune In', label: "Tune In", id: "tune_in"})
+      }
+
+      if(data.stitcher) {
+        _links.push({value: data.stitcher, name: 'Stitcher', label: "Stitcher", id: "stitcher"})
+      }
+
       setLinks(_links);
       setRssFeed(data.rss_feed)
       setQRCode(_links[0])
