@@ -21,6 +21,7 @@ import HowJustCastWorks from './../landingpages/HowJustCastWorks'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
 import WidgetPlaylist from './../widgets/WidgetPlaylist'
 import PrivatePodcast from './../podcasters/PrivatePodcast'
+import PublicPodcast from './../podcasters/PublicPodcast'
 import PrivatePodcastPage from './../landingpages/PrivatePodcastPage'
 import AudiogramPage from '../landingpages/AudiogramPage'
 
@@ -34,6 +35,7 @@ const MainRoutes = () => {
       <PodcastPageRoute exact path="/shows/:id/subscribe" component={SubscribePage}/>
       <PodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={Episode}/>
       <Route exact path="/shows/:show_id/subscribers/:id" component={PrivatePodcast}/>
+      <Route exact path="/podcasts/:show_id/" component={PublicPodcast}/>
       <Route exact path="/widget/:show_id/audioposts/:id" component={SingleWidgetPlayer} />
       <Route exact path="/widget/:id/audioposts" component={WidgetPlaylist} />
       <LandingPageRoute exact path="/" component={Home}/>
