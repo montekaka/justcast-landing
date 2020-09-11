@@ -1,6 +1,8 @@
 import React from "react";
 import facebookImg from '../assets/img/icons/social/facebook.svg'
 import twitterImg from '../assets/img/icons/social/twitter.svg'
+import instagramImg from '../assets/img/icons/social/instagram.svg'
+import slackImg from '../assets/img/icons/social/slack.svg'
 
 const ListItem = ({url, iconImg, name}) => {
   if(url) {
@@ -16,7 +18,7 @@ const ListItem = ({url, iconImg, name}) => {
   return null;
 }
 
-const SocialNetwork = ({facebook_page, twitter_handle}) => {
+const SocialNetwork = ({facebook_page, twitter_handle, instagram_profile, slack}) => {
   const twitterLink = twitter_handle ? twitter_handle.replace('@', 'https://www.twitter.com/') : null;
 
   return (
@@ -36,6 +38,8 @@ const SocialNetwork = ({facebook_page, twitter_handle}) => {
                   <ul className="d-inline list-unstyled list-inline list-social">
                     <ListItem url={facebook_page} iconImg={facebookImg} name="facebook"/>
                     <ListItem url={twitterLink} iconImg={twitterImg} name="twitter"/>
+                    <ListItem url={instagram_profile} iconImg={instagramImg} name="instagram"/>
+                    <ListItem url={slack} iconImg={slackImg} name="slack"/>
                   </ul>
                 </div>
               </div>

@@ -33,7 +33,12 @@ const PodcastAbout = (props) => {
     return (
       <>
         <SimplePageHeader title="About our podcast" bodyText={state.show.name}/>        
-        <SocialNetwork facebook_page={state.show.facebook_page} twitter_handle={state.show.twitter_handle}/>
+        <SocialNetwork 
+          instagram_profile={state.show.instagram_profile}
+          facebook_page={state.show.facebook_page} 
+          twitter_handle={state.show.twitter_handle}
+          slack={state.show.slack}
+        />
         <SimplePageBody bodyText={state.show.description}/>
       </>
     )
