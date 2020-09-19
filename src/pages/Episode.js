@@ -5,6 +5,7 @@ import data from './../dumps/result.json'
 import PageHeader from './../components/PageHeader'
 import EpisodeMeta from './../components/EpisodeMeta'
 import PrivateShow from './../components/PrivateShow';
+import EpisodeImages from './../components/EpisodeImages'
 
 const getAudiopostById = (audioposts, id) => {
   const _ = audioposts.filter(audiopost => audiopost.id.toString() === id.toString());
@@ -31,6 +32,7 @@ const Episode = (props) => {
   const id = props.match.params.id;
   const showId = props.match.params.show_id;
   const [audiopost, setAudiopost] = useState({});
+  const [images, setImages] = useState([]);
   
   const {state, add} = useContext(PodcastContext);
 
@@ -55,6 +57,18 @@ const Episode = (props) => {
       console.log(err);
     })
   }, [showId, id])
+
+  useEffect(() => {
+    justcastApi.get(`/v1/shows/${showId}/audioposts/${id}`)
+    .then((res) => {
+      if(res.data.audiopost_images && res.data.audiopost_images.length > 0) {
+        setImages(res.data.audiopost_images)
+      }      
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }, [id])
 
   if(audiopost.id) {
     if(state.show.is_private) {
@@ -94,10 +108,11 @@ const Episode = (props) => {
               <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
                 dangerouslySetInnerHTML={{__html: audiopost.description}}>
               </div>
-              <RenderImg artwork={audiopost.artwork_url} name={audiopost.name}/>
-            </div>
+              <RenderImg artwork={audiopost.artwork_url} name={audiopost.name}/>                            
+              <EpisodeImages images={images}/>
+            </div>            
           </div>
-        </section>
+        </section>        
       </>
     )
   }
