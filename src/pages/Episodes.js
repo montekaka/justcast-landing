@@ -20,7 +20,6 @@ const Episodes = (props) => {
       // condition on google_analytic_id e.g. UA-52969503-3
       ReactGA.initialize('UA-52969503-3');
       ReactGA.pageview(`/shows/${data.show.slug}/episodes`)      
-
     })
     .catch((err) => {
       // development only
