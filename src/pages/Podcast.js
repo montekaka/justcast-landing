@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
+import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import {Context as PodcastContext} from '../context/PodcastContext'
 import justcastApi from '../api/justcast'
@@ -39,9 +40,12 @@ const Podcast = (props) => {
   useEffect(() => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
     .then((res) => {
-      const data = res.data;      
+      const data = res.data;
       add(data)
       setLatestEpisode(data.audioposts[0]);
+      // condition on google_analytic_id e.g. UA-52969503-3
+      ReactGA.initialize('UA-52969503-3');
+      ReactGA.pageview(`/shows/${data.show.slug}`)
     })
     .catch((err) => {
       if(process.env.ENV === 'DEVELOPMENT') {
@@ -50,7 +54,7 @@ const Podcast = (props) => {
         setLatestEpisode(data.audioposts[0]);
       }
       console.log(err);
-    })
+    })    
   }, [id])
 
   const handleMoreEpisodesClicked = () => {
