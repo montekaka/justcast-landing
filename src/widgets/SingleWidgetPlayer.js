@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import ReactGA from 'react-ga';
 import justcastApi from '../api/justcast'
 import WidgetPlayerControl from './WidgetPlayerControl';
 
@@ -25,6 +26,14 @@ const SingleWidgetPlayer = (props) => {
       }
       menus.push({key: 'more_info', label: 'more info'})
       setMenuItems(menus)
+
+      const googleAnalyticsId = res.data.show.google_analytics_id;
+      
+      if(googleAnalyticsId) {
+        ReactGA.initialize(googleAnalyticsId);
+        ReactGA.pageview(`/widget/${res.data.show.slug}/audioposts/${id}`)
+      }
+
     })
     .catch((err) => {
       console.log(err);

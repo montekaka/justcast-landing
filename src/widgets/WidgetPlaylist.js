@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Spinner } from 'reactstrap';
+import ReactGA from 'react-ga';
 import justcastApi from '../api/justcast'
 import WidgetPlayerControl from './WidgetPlayerControl';
 import WidgetPlaylistItem from './WidgetPlaylistItem'
@@ -29,7 +30,14 @@ const WidgetPlaylist = (props) => {
         menus.push({key: 'share', label: 'share'})
       }
       menus.push({key: 'more_info', label: 'more info'})
-      setMenuItems(menus)      
+      setMenuItems(menus)  
+      
+      const googleAnalyticsId = res.data.show.google_analytics_id;
+      
+      if(googleAnalyticsId) {
+        ReactGA.initialize(googleAnalyticsId);
+        ReactGA.pageview(`/widget/${res.data.show.slug}/audioposts`)
+      }      
     })
     .catch((err) => {
       console.log('this is not available')
