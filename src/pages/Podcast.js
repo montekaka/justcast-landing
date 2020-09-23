@@ -45,7 +45,7 @@ const Podcast = (props) => {
       setLatestEpisode(data.audioposts[0]);
       // condition on google_analytic_id e.g. UA-52969503-3
       ReactGA.initialize('UA-52969503-3');
-      ReactGA.pageview(`/shows/${data.show.slug}`)
+      ReactGA.pageview(`/shows/${data.show.slug}/audioposts`)
     })
     .catch((err) => {
       if(process.env.ENV === 'DEVELOPMENT') {

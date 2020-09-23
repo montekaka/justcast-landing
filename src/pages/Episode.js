@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
+import ReactGA from 'react-ga';
 import {Context as PodcastContext} from '../context/PodcastContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
@@ -63,7 +64,12 @@ const Episode = (props) => {
     .then((res) => {
       if(res.data.audiopost_images && res.data.audiopost_images.length > 0) {
         setImages(res.data.audiopost_images)
-      }      
+      } 
+            
+      // condition on google_analytic_id e.g. UA-52969503-3
+      ReactGA.initialize('UA-52969503-3');
+      ReactGA.pageview(`/shows/${res.data.show.slug}/audioposts/${id}`)
+
     })
     .catch((err) => {
       console.log(err);
