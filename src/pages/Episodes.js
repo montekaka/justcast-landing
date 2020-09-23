@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
+import ReactGA from 'react-ga';
 import {Context as PodcastContext} from '../context/PodcastContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
@@ -15,6 +16,11 @@ const Episodes = (props) => {
     .then((res) => {
       const data = res.data;
       add(data)
+
+      // condition on google_analytic_id e.g. UA-52969503-3
+      ReactGA.initialize('UA-52969503-3');
+      ReactGA.pageview(`/shows/${data.show.slug}/episodes`)      
+
     })
     .catch((err) => {
       // development only
