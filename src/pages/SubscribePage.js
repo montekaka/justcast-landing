@@ -17,8 +17,12 @@ const SubscribePage = (props) => {
       const data = res.data;
       add(data)
 
-      ReactGA.initialize('UA-52969503-3');
-      ReactGA.pageview(`/shows/${res.data.show.slug}/subscribe`)
+      const googleAnalyticsId = data.show.google_analytics_id;
+      if(googleAnalyticsId) {
+        ReactGA.initialize(googleAnalyticsId);
+        ReactGA.pageview(`/shows/${data.show.slug}/subscribe`)
+      }    
+
     })
     .catch((err) => {
       if(process.env.ENV === 'DEVELOPMENT') {

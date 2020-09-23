@@ -67,9 +67,11 @@ const Episode = (props) => {
       } 
             
       // condition on google_analytic_id e.g. UA-52969503-3
-      ReactGA.initialize('UA-52969503-3');
-      ReactGA.pageview(`/shows/${res.data.show.slug}/audioposts/${id}`)
-
+      const googleAnalyticsId = res.data.show.google_analytics_id;
+      if(googleAnalyticsId) {
+        ReactGA.initialize(googleAnalyticsId);
+        ReactGA.pageview(`/shows/${res.data.show.slug}/audioposts/${id}`)        
+      }
     })
     .catch((err) => {
       console.log(err);

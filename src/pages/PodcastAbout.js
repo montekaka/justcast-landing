@@ -17,9 +17,12 @@ const PodcastAbout = (props) => {
     .then((res) => {
       const data = res.data;
       add(data)
-
-      ReactGA.initialize('UA-52969503-3');
-      ReactGA.pageview(`/shows/${data.show.slug}/about_us`)            
+      
+      const googleAnalyticsId = data.show.google_analytics_id;
+      if(googleAnalyticsId) {
+        ReactGA.initialize(googleAnalyticsId);
+        ReactGA.pageview(`/shows/${data.show.slug}/about_us`)
+      }            
     })
     .catch((err) => {
       if(process.env.ENV === 'DEVELOPMENT') {
