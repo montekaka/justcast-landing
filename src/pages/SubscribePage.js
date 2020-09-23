@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
+import ReactGA from 'react-ga';
 import {Context as PodcastContext} from '../context/PodcastContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
@@ -15,6 +16,9 @@ const SubscribePage = (props) => {
     .then((res) => {
       const data = res.data;
       add(data)
+
+      ReactGA.initialize('UA-52969503-3');
+      ReactGA.pageview(`/shows/${res.data.show.slug}/subscribe`)
     })
     .catch((err) => {
       if(process.env.ENV === 'DEVELOPMENT') {
