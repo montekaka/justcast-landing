@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 
 const HTMLBody = ({text}) => {
   if(text) {

@@ -2,6 +2,7 @@ import createDataContext from './createDataContext';
 
 const initState = {
   backgroundColor: null, 
+  backgroundColorClass: null,
   // highlightColor: null, 
   cardBackgroundColor:  null,
   textColor: null, 
@@ -26,6 +27,7 @@ const themeReducer = (state, action) => {
 const add = dispatch => {
   return ({
     backgroundColor, 
+    backgroundColorClass,
     // highlightColor, 
     cardBackgroundColor,
     textColor, 
@@ -39,6 +41,7 @@ const add = dispatch => {
   }) => {
     dispatch({type: 'add', payload: {
       backgroundColor, 
+      backgroundColorClass,
       // highlightColor, 
       cardBackgroundColor,
       textColor, 

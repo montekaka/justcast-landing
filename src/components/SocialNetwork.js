@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import {Context as ThemeContext} from '../context/ThemeContext'
 import facebookImg from '../assets/img/icons/social/facebook.svg'
 import twitterImg from '../assets/img/icons/social/twitter.svg'
 import instagramImg from '../assets/img/icons/social/instagram.svg'
@@ -20,7 +21,9 @@ const ListItem = ({url, iconImg, name}) => {
 
 const SocialNetwork = ({facebook_page, twitter_handle, instagram_profile, slack}) => {
   const twitterLink = twitter_handle ? twitter_handle.replace('@', 'https://www.twitter.com/') : null;
-
+  const themeContext = useContext(ThemeContext);
+  const {backgroundColorClass} = themeContext.state;
+  
   return (
     <>
       <section className="pt-8 pt-md-11">
@@ -30,7 +33,7 @@ const SocialNetwork = ({facebook_page, twitter_handle, instagram_profile, slack}
               <div className="row align-items-center py-5 border-top border-bottom">
                 <div className="col-auto"></div>
                 <div className="col ml-n5">
-                  <h6 className="text-uppercase mb-0">
+                  <h6 className="text-uppercase mb-0" style={{color: backgroundColorClass === "bg-dark" ? "white" : null}}>
                     You can find us on
                   </h6>
                 </div>
