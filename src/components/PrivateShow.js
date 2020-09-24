@@ -5,7 +5,7 @@ const divStyle = {
   backgroundImage: `url(${backgroundImg})`
 }
 
-export default () => {
+export default ({message}) => {
   return (
     <section>
       <div className="container d-flex flex-column">
@@ -15,7 +15,7 @@ export default () => {
               Uh Oh.
             </h1>
             <p className="mb-5 text-muted">
-              Sorry, this page does not exist
+              {message ? message : "Sorry, this page does not exist"}
             </p>
           </div>
           <div className="col-lg-7 offset-lg-1 align-self-stretch d-none d-lg-block">

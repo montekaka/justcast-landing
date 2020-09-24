@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useContext} from "react";
 import ReactGA from 'react-ga';
 import {Context as PodcastContext} from '../context/PodcastContext'
+import {Context as ThemeContext} from '../context/ThemeContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import SimplePageHeader from './../components/SimplePageHeader'
@@ -11,6 +12,8 @@ import PrivateShow from './../components/PrivateShow';
 const PodcastAbout = (props) => {
   const id = props.match.params.id;
   const {state, add} = useContext(PodcastContext);
+  const themeContext = useContext(ThemeContext);
+  const {cardBackgroundColor} = themeContext.state;
 
   useEffect(() => {
     justcastApi.get(`/v1/shows/${id}/audioposts`)
@@ -22,7 +25,14 @@ const PodcastAbout = (props) => {
       if(googleAnalyticsId) {
         ReactGA.initialize(googleAnalyticsId);
         ReactGA.pageview(`/shows/${data.show.slug}/about_us`)
-      }            
+      }    
+      
+      if(cardBackgroundColor === null) {
+        const show = res.data.show;
+        const { navbarColor, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme } = show;
+        themeContext.add({ navbarColor, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme })        
+      }
+
     })
     .catch((err) => {
       if(process.env.ENV === 'DEVELOPMENT') {

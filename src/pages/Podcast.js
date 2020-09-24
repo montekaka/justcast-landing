@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
 import ReactGA from 'react-ga';
-import {Link} from 'react-router-dom'
 import {Context as PodcastContext} from '../context/PodcastContext'
 import {Context as ThemeContext} from '../context/ThemeContext'
 import justcastApi from '../api/justcast'
