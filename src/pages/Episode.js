@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useContext} from "react";
 import ReactGA from 'react-ga';
 import {Context as PodcastContext} from '../context/PodcastContext'
+import {Context as ThemeContext} from '../context/ThemeContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import PageHeader from './../components/PageHeader'
@@ -36,6 +37,8 @@ const Episode = (props) => {
   const [images, setImages] = useState([]);
   
   const {state, add} = useContext(PodcastContext);
+  const themeContext = useContext(ThemeContext);
+  const { textColor } = themeContext.state;
 
   useEffect(() => {
     justcastApi.get(`/v1/shows/${showId}/audioposts`)
@@ -101,8 +104,10 @@ const Episode = (props) => {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-12 col-md-10 col-lg-9 col-xl-8">
-                <h1 className="display-4 text-center">{audiopost.name}</h1>
-                <EpisodeMeta artwork={state.show.artwork_url ? state.show.artwork_url :  "https://justcast.herokuapp.com/images/default_thumb_show_image.png"}
+                <h1 className="display-4 text-center" style={{color: textColor}}>{audiopost.name}</h1>
+                <EpisodeMeta 
+                  textColor={textColor}
+                  artwork={state.show.artwork_url ? state.show.artwork_url :  "https://justcast.herokuapp.com/images/default_thumb_show_image.png"}
                   showName={state.show.name}
                   audio_date={audiopost.audio_date}
                 />                
@@ -112,7 +117,7 @@ const Episode = (props) => {
         </section>
         <section className="pt-6 pt-md-8 last-piece">
           <div className="container">
-            <div className="row justify-content-center">
+            <div className="row justify-content-center" style={{color: textColor}}>
               <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
                 dangerouslySetInnerHTML={{__html: audiopost.description}}>
               </div>

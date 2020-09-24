@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import moment from 'moment'
 
-const EpisodeMeta = ({artwork, showName, audio_date}) => {
+const EpisodeMeta = ({artwork, showName, audio_date, textColor}) => {
   const datetime = moment(audio_date).format('YYYY-MM-DD');
   const englishDateString = moment(audio_date).format('MMM DD, YYYY');
 
@@ -16,12 +16,12 @@ const EpisodeMeta = ({artwork, showName, audio_date}) => {
       </div>
       <div className="col ml-n5">
     
-        <h6 className="text-uppercase mb-0">
+        <h6 className="text-uppercase mb-0" style={{color: textColor}}>
           {showName}
         </h6>
     
     
-        <time className="font-size-sm text-muted" dateTime={datetime}>
+        <time className="font-size-sm" dateTime={datetime} style={{color: textColor}}>
           Published on {englishDateString}
         </time>
     
