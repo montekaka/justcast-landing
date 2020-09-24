@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {Context as ThemeContext} from '../context/ThemeContext'
 import EpisodeListItem from './../components/EpisodeListItem'
 
 const EpisodeList = ({showId, items, artwork_url, handlePlay}) => {
+  
+  const {state} = useContext(ThemeContext)
+  const { navBarColorTheme, backgroundColor, buttonTextColor, buttonColor, cardBackgroundColor, textColor, linkColor} = state;
+
   return (
     <section className="py-4 py-md-10">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-md-6">
-            <h6 className="text-uppercase text-primary font-weight-bold">Latest episodes</h6>
+            <h6 className="text-uppercase font-weight-bold" style={{color: buttonColor}}>Latest episodes</h6>
           </div>
         </div>
         <div className="row">

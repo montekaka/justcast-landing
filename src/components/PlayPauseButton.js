@@ -1,11 +1,12 @@
 import React, {useContext} from "react";
 import {Context as PlayerContext} from '../context/PlayerContext'
+import {Context as ThemeContext} from '../context/ThemeContext'
 
-const ButtonIcon = ({playing, playingId, id}) => {
+const ButtonIcon = ({playing, playingId, id, iconColor}) => {
   if(playing && playingId === id) {
-    return <i className="fe fe-pause"></i>
+    return <i className="fe fe-pause" style={{color: iconColor}}></i>
   }
-  return <i className="fe fe-play"></i>
+  return <i className="fe fe-play" style={{color: iconColor}}></i>
 }
 
 const PlayPauseButton = ({
@@ -18,11 +19,14 @@ const PlayPauseButton = ({
   embedUrl,
   shareUrl,
   shareOnFacebook,
-  shareOnTwitter  
+  shareOnTwitter,
+  buttonBackgroundColor
 }) => {
   return (
     <SimplePlayerPlayPauseButton audio_date={audio_date} 
-    id={id} url={url} 
+    buttonBackgroundColor={buttonBackgroundColor}
+    id={id} 
+    url={url} 
     name={name} 
     description={description} 
     artwork={artwork} 
@@ -46,6 +50,8 @@ const SimplePlayerPlayPauseButton = ({
   shareOnTwitter
 }) => {
   const {state, add, playPause} = useContext(PlayerContext);
+  const themeState = useContext(ThemeContext);
+  const { buttonTextColor, buttonColor} = themeState.state;
 
   const handlePlayClick = () => {
     if(!state.id) {
@@ -61,8 +67,8 @@ const SimplePlayerPlayPauseButton = ({
   }
 
   return (
-    <div className="btn btn-primary btn-rounded-circle btn" onClick={handlePlayClick}>
-      <ButtonIcon playing={state.playing} playingId={state.id} id={id}/>
+    <div className="btn btn-rounded-circle btn" onClick={handlePlayClick} style={{backgroundColor: buttonColor}}>
+      <ButtonIcon playing={state.playing} playingId={state.id} id={id} iconColor={buttonTextColor}/>
     </div>    
   )
 }

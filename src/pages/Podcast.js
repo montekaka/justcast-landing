@@ -2,13 +2,14 @@ import React, {useEffect, useState, useContext} from "react";
 import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import {Context as PodcastContext} from '../context/PodcastContext'
+import {Context as ThemeContext} from '../context/ThemeContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
 import PageHeader from './../components/PageHeader'
 import EpisodeList from './../components/EpisodeList';
 import PrivateShow from './../components/PrivateShow';
 
-const MoreEpisodes = ({handleMoreEpisodesClicked, totalNumberOfEpisodes, showingNumberOfEpisodes}) => {
+const MoreEpisodes = ({handleMoreEpisodesClicked, totalNumberOfEpisodes, showingNumberOfEpisodes}) => {  
   if(totalNumberOfEpisodes > showingNumberOfEpisodes) {
     return (
       <section>
@@ -16,7 +17,7 @@ const MoreEpisodes = ({handleMoreEpisodesClicked, totalNumberOfEpisodes, showing
           <div className="row justify-content-center">
             <div className="col-12 col-md-9 col-lg-8 col-xl-7">            
               <div className="btn btn-block btn-outline-gray-300 d-flex align-items-center" onClick={handleMoreEpisodesClicked}>
-                <span className="mx-auto">MORE EPISODES</span> <i className="fe fe-arrow-right"></i>
+                <span className="mx-auto">MORE EPISODES</span> <i className="fe fe-arrow-right"/>
               </div>
             </div>
           </div>

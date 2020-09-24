@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {Context as ThemeContext} from '../context/ThemeContext'
 import {Link} from 'react-router-dom'
 import parse from 'html-react-parser';
 import moment from 'moment'
@@ -40,6 +41,10 @@ const EpisodeListItem = ({
   share_on_facebook,
   share_on_twitter
   }) => {
+
+  const {state} = useContext(ThemeContext)
+  const { buttonColor, cardBackgroundColor, textColor } = state;
+
   const date = moment(audio_date).format('YYYY-MM-DD');
   const html = description ? parse(description) : null;
   const pageUrl = `/shows/${showId}/audioposts/${id}`
@@ -47,7 +52,7 @@ const EpisodeListItem = ({
   const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`
   
   return (
-    <Card className="col-12 card-border border-primary shadow-light-lg media-card-item" data-aos="fade-up">
+    <Card className="col-12 card-border shadow-light-lg media-card-item" data-aos="fade-up" style={{borderTopColor: buttonColor, backgroundColor: cardBackgroundColor, color: textColor}}>
       <CardBody>
         <div className="simple-player-container">
           <div className="simple-player-artwork">
@@ -58,7 +63,7 @@ const EpisodeListItem = ({
           <div className="simple-player-body">
             <div className="main-content">
               <div className="row-one">
-                <Link to={pageUrl} className="name-black" ><h3 >{name}</h3></Link>
+                <Link to={pageUrl} className="name-black" style={{color: textColor}}><h3 >{name}</h3></Link>
                 <span className="date-string">{date}</span>
               </div>
               <div className="player-control">
