@@ -41,6 +41,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
     const meta = {
       title,
@@ -53,7 +54,8 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id
+      apple_iutnes_app_id,
+      backgroundColorClass,      
     }
 
     if(show.is_private) {
@@ -94,6 +96,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
     const rss_url = show.rss_feed;
+    const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
     const meta = {
       title,
@@ -107,7 +110,8 @@ app.get('/shows/:id/audioposts', function(request, response) {
       img_256: img_256,
       twitter_handle,
       apple_iutnes_app_id,
-      rss_url: rss_url
+      rss_url: rss_url,
+      backgroundColorClass
     }
 
     if(show.is_private) {
@@ -135,7 +139,8 @@ app.get('/podcasts/:id', function(request, response) {
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
-    const show = res.data;
+    const show = res.data;    
+
     const url = show.link;
     const title = `${show.name}`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
@@ -148,6 +153,8 @@ app.get('/podcasts/:id', function(request, response) {
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    
+    const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
     const meta = {
       title,
@@ -160,7 +167,8 @@ app.get('/podcasts/:id', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id
+      apple_iutnes_app_id,
+      backgroundColorClass
     }
 
     if(show.is_private) {
@@ -202,6 +210,8 @@ app.get('/shows/:id/episodes', function(request, response) {
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
+    const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
+
     const meta = {
       title,
       description,
@@ -213,7 +223,8 @@ app.get('/shows/:id/episodes', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id
+      apple_iutnes_app_id,
+      backgroundColorClass
     }
     
     if(show.is_private) {
@@ -255,6 +266,8 @@ app.get('/shows/:id/subscribe', function(request, response) {
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
+    const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
+
     const meta = {
       title,
       description,
@@ -266,7 +279,8 @@ app.get('/shows/:id/subscribe', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id
+      apple_iutnes_app_id,
+      backgroundColorClass
     }
     
     if(show.is_private) {
@@ -307,6 +321,8 @@ app.get('/shows/:id/about_us', function(request, response) {
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
+    const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
+
     const meta = {
       title,
       description,
@@ -318,7 +334,8 @@ app.get('/shows/:id/about_us', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id
+      apple_iutnes_app_id,
+      backgroundColorClass
     }
     
     if(show.is_private) {
@@ -352,7 +369,8 @@ app.get('/features-pricing', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -376,7 +394,8 @@ app.get('/affiliates', (request, response) => {
     keywords: "affiliate",
     url: "https://www.justcast.com/affiliates",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -399,7 +418,8 @@ app.get('/how-justcast-works', (request, response) => {
     keywords: "Podcasting, Church, COVID-19 Response",
     url: "https://www.justcast.com/how-justcast-works",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -423,7 +443,8 @@ app.get('/blogs/resources-for-church-impacted-by-coronavirus', (request, respons
     keywords: "Podcasting, Church, COVID-19 Response",
     url: "https://www.justcast.com/blogs/resources-for-church-impacted-by-coronavirus",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -447,7 +468,8 @@ app.get('/terms', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -470,7 +492,8 @@ app.get('/privacy', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -494,7 +517,8 @@ app.get('/page_404', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -518,7 +542,8 @@ app.get('/about_us', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -542,7 +567,8 @@ app.get('/audiogram', (request, response) => {
     keywords: "Podcasting, audiogram",
     url: "https://www.justcast.com/audiogram",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -565,7 +591,8 @@ app.get('/private-podcast', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com/private-podcast",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -589,7 +616,8 @@ app.get('/examples', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
@@ -786,7 +814,8 @@ app.get('/', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: ""
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
