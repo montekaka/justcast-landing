@@ -29,7 +29,7 @@ const TopNavbars = () => {
   const {state} = useContext(PodcastContext)
   const themeContext = useContext(ThemeContext);
   const themeState = themeContext.state;
-  const { navBarColorTheme, backgroundColor, buttonTextColor, buttonColor, cardBackgroundColor, textColor, linkColor} = themeState;
+  const { navbarColorTheme, backgroundColor, buttonTextColor, buttonColor, cardBackgroundColor, textColor, linkColor} = themeState;
   // console.log({backgroundColor, cardBackgroundColor, textColor, linkColor})
   // navbar-light bg-white
   if(state.show.is_private) {
@@ -38,7 +38,7 @@ const TopNavbars = () => {
   
   return (
     <div>
-      <nav className={`navbar navbar-expand-lg ${navBarColorTheme}`} style={{backgroundColor}}>
+      <nav className={`navbar navbar-expand-lg ${navbarColorTheme}`}>
         <div className="container-fluid">
           <Link             
             className="navbar-brand" 
@@ -52,16 +52,16 @@ const TopNavbars = () => {
             <NavbarToggler onClick={toggle}>x</NavbarToggler>
             <Nav className="mr-auto ml-auto" navbar>
               <NavItem onClick={handleNavItemClicked}>
-                <NavLink to={`/shows/${state.show.slug}/audioposts`} tag={Link} style={{color: textColor}}>HOME</NavLink>
+                <NavLink to={`/shows/${state.show.slug}/audioposts`} tag={Link}>HOME</NavLink>
               </NavItem>
               <NavItem onClick={handleNavItemClicked}>
-                <NavLink to={`/shows/${state.show.slug}/about_us`} tag={Link} style={{color: textColor}}>ABOUT</NavLink>
+                <NavLink to={`/shows/${state.show.slug}/about_us`} tag={Link}>ABOUT</NavLink>
               </NavItem>
               <NavItem onClick={handleNavItemClicked}>
-                <NavLink to={`/shows/${state.show.slug}/episodes`} tag={Link} style={{color: textColor}}>EPISODES</NavLink>
+                <NavLink to={`/shows/${state.show.slug}/episodes`} tag={Link}>EPISODES</NavLink>
               </NavItem>
               <NavItem onClick={handleNavItemClicked}>
-                <NavLink to={`/shows/${state.show.slug}/subscribe`} tag={Link} style={{color: textColor}}>SUBSCRIBE</NavLink>
+                <NavLink to={`/shows/${state.show.slug}/subscribe`} tag={Link}>SUBSCRIBE</NavLink>
               </NavItem>
             </Nav>
             <a

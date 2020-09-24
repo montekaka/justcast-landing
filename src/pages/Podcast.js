@@ -32,6 +32,9 @@ const MoreEpisodes = ({handleMoreEpisodesClicked, totalNumberOfEpisodes, showing
 const Podcast = (props) => {
 
   const {state, add} = useContext(PodcastContext);
+  const themeContext = useContext(ThemeContext);
+  const {cardBackgroundColor} = themeContext.state;
+  
   
   const [latestEpisode, setLatestEpisode] = useState({})
   const [numberOfEpisodes, setNumberOfEpisodes] = useState(5)
@@ -49,6 +52,12 @@ const Podcast = (props) => {
       if(googleAnalyticsId) {
         ReactGA.initialize(googleAnalyticsId);
         ReactGA.pageview(`/shows/${data.show.slug}/audioposts`)
+      }
+
+      if(cardBackgroundColor === null) {
+        const show = data.show;
+        const { navbarColor, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme } = show;
+        themeContext.add({ navbarColor, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme })        
       }
 
     })

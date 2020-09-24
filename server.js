@@ -97,7 +97,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
 
     const rss_url = show.rss_feed;
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
-
+    
     const meta = {
       title,
       description,
