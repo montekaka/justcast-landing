@@ -1,15 +1,17 @@
 import createDataContext from './createDataContext';
 
 const initState = {
-  backgroundColor: null, 
-  highlightColor: null, 
-  cardBackgroundColor: null,
-  textColor: null, 
-  linkColor: null,
-  buttonColor: null,
+  backgroundColor: "#F2F3F9", 
+  // highlightColor: null, 
+  cardBackgroundColor: "#A9B0CE",
+  textColor: "#6359EF", 
+  linkColor: "#D3674E",
+  buttonColor: "#D3674E",
+  buttonTextColor: "#fff",
   playerBackgroundColor: null,
   playerTextColor: null,
-  playerButtonColor: null
+  playerButtonColor: null,
+  navBarColorTheme: "navbar-light"
 }
 
 const themeReducer = (state, action) => {
@@ -24,25 +26,29 @@ const themeReducer = (state, action) => {
 const add = dispatch => {
   return ({
     backgroundColor, 
-    highlightColor, 
+    // highlightColor, 
     cardBackgroundColor,
     textColor, 
     linkColor,
     buttonColor,
+    buttonTextColor,
     playerBackgroundColor,
     playerTextColor,
-    playerButtonColor
+    playerButtonColor,
+    navBarColorTheme
   }) => {
     dispatch({type: 'add', payload: {
       backgroundColor, 
-      highlightColor, 
+      // highlightColor, 
       cardBackgroundColor,
       textColor, 
       linkColor,
       buttonColor,
       playerBackgroundColor,
       playerTextColor,
-      playerButtonColor
+      buttonTextColor,
+      playerButtonColor,
+      navBarColorTheme
     }})
   }
 }
