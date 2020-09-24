@@ -35,7 +35,6 @@ const Podcast = (props) => {
   const themeContext = useContext(ThemeContext);
   const {cardBackgroundColor} = themeContext.state;
   
-  
   const [latestEpisode, setLatestEpisode] = useState({})
   const [numberOfEpisodes, setNumberOfEpisodes] = useState(5)
   //const [showingNumberOfEpisodes, setShowingNumberOfEpisodes] = useState(0)

@@ -38,7 +38,7 @@ const Episode = (props) => {
   
   const {state, add} = useContext(PodcastContext);
   const themeContext = useContext(ThemeContext);
-  const { textColor } = themeContext.state;
+  const { cardBackgroundColor, textColor } = themeContext.state;  
 
   useEffect(() => {
     justcastApi.get(`/v1/shows/${showId}/audioposts`)
@@ -75,6 +75,13 @@ const Episode = (props) => {
         ReactGA.initialize(googleAnalyticsId);
         ReactGA.pageview(`/shows/${res.data.show.slug}/audioposts/${id}`)        
       }
+
+      if(cardBackgroundColor === null) {
+        const show = res.data.show;
+        const { navbarColor, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme } = show;
+        themeContext.add({ navbarColor, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme })        
+      }
+
     })
     .catch((err) => {
       console.log(err);

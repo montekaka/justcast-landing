@@ -32,9 +32,9 @@ const add = dispatch => {
     linkColor,
     buttonColor,
     buttonTextColor,
-    playerBackgroundColor,
-    playerTextColor,
-    playerButtonColor,
+    // playerBackgroundColor,
+    // playerTextColor,
+    // playerButtonColor,
     navbarColorTheme
   }) => {
     dispatch({type: 'add', payload: {
@@ -44,10 +44,10 @@ const add = dispatch => {
       textColor, 
       linkColor,
       buttonColor,
-      playerBackgroundColor,
-      playerTextColor,
       buttonTextColor,
-      playerButtonColor,
+      // playerBackgroundColor,
+      // playerTextColor,      
+      // playerButtonColor,
       navbarColorTheme
     }})
   }
