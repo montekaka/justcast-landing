@@ -78,8 +78,8 @@ const Episode = (props) => {
 
       if(cardBackgroundColor === null) {
         const show = res.data.show;
-        const { navbarColor, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme } = show;
-        themeContext.add({ navbarColor, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme })        
+        const { navbarColor, backgroundColorClass, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme } = show;
+        themeContext.add({ navbarColor, backgroundColorClass, cardBackgroundColor, textColor, linkColor, buttonColor, buttonTextColor, navbarColorTheme })        
       }
 
     })
