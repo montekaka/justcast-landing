@@ -20,7 +20,7 @@ const Quote = () => {
           <footer className="blockquote-footer">
             <a className="card-meta justify-content-center" href="https://twitter.com/djgeoffe">
               <div className="avatar avatar-lg mr-2">
-                <img src="https://pbs.twimg.com/profile_images/1307222379119013888/FZlc_XQ__400x400.jpg" alt="profile" className="avatar-img rounded-circle"/>
+                <img src="https://cdn.shopify.com/s/files/1/0427/1154/8070/files/Geoffrey_Colon_Creative_Director_1_480x480.png?v=1599514641" alt="profile" className="avatar-img rounded-circle"/>
               </div>
               <span className="h6 text-uppercase">Geoffrey Colon, Head of Brand Studio, Microsoft Advertising</span>                
             </a>
