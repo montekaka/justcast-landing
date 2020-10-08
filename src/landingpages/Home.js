@@ -10,7 +10,7 @@ import LandingPagePricing from './../components/landingpages/LandingPagePricing'
 import LandingPageDashboardDemo from './../components/landingpages/LandingPageDashboardDemo'
 import LandingPageWidgetDemo from './../components/landingpages/LandingPageWidgetDemo'
 import LandingPageFeatures from './../components/landingpages/LandingPageFeatures'
-
+import LandingTwitterIntegration from './../components/landingpages/LandingTwitterIntegration'
 
 const Home = (props) => {
   const {state, initLocalStorageState, add} = useContext(LocalStorageContext);
@@ -41,8 +41,9 @@ const Home = (props) => {
       <LandingPageHero/>
       <LandingPageAbout/>
       <LandingPageTestimonials/>
-      <LandingPageFeatures/>
+      <LandingPageFeatures/>      
       <LandingPageDashboardDemo/>
+      <LandingTwitterIntegration/>
       <LandingPagePricing/>
     </>
   )

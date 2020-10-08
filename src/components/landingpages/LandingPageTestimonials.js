@@ -5,13 +5,13 @@ import msftsvg from '../../assets/img/brands/logotype/microsoft.svg'
 const Quote = () => {
   return (
     <div className="card shadow-light-lg lift">
-      <a className="card-body my-auto" href="https://about.ads.microsoft.com">
+      <div className="card-body my-auto" >
         <blockquote className="blockquote text-center mb-0">
           <div className="row justify-content-center mb-5 mb-md-7">
             <div className="col-6 col-sm-4 col-md-7 col-lg-5">
-              <div className="img-fluid svg-shim" style={{height: 48}}>
+              <a className="img-fluid svg-shim" style={{height: 48}} href="https://about.ads.microsoft.com">
                 <img src={msftsvg} alt="logo"/>                  
-              </div>
+              </a>
             </div>
           </div>
           <p className="mb-5 mb-md-7">
@@ -22,11 +22,11 @@ const Quote = () => {
               <div className="avatar avatar-lg mr-2">
                 <img src="https://cdn.shopify.com/s/files/1/0427/1154/8070/files/Geoffrey_Colon_Creative_Director_1_480x480.png?v=1599514641" alt="profile" className="avatar-img rounded-circle"/>
               </div>
-              <span className="h6 text-uppercase">Geoffrey Colon, Head of Brand Studio, Microsoft Advertising</span>                
+              <span className="h6 text-uppercase">Geoffrey Colon, Head of Brand Studio, Microsoft Advertising</span>
             </a>
           </footer>
         </blockquote>
-      </a>        
+      </div>        
     </div>    
   )
 }
