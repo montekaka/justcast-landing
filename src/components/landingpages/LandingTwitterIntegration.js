@@ -22,7 +22,7 @@ const LandingTwitterIntegration = () => {
                 JustCast also has an embedded player that integrates directly with Twitter. Now folks can listen to your show within the <a href="https://twitter.com/thejustcast/status/1313956304038187008?s=20" target="_blank">tweet</a>.
               </p> 
               <a id="justcast_landing_page_learn_more_twitter_integration" 
-              href="/social_networks_integration" className="btn btn-success mb-6 mb-md-0 lift">
+              href="/integration-twitter" className="btn btn-success mb-6 mb-md-0 lift">
                 Learn more <i className="fe fe-arrow-right ml-3"></i>
               </a>                         
             </div>              
