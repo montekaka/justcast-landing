@@ -603,6 +603,29 @@ app.get('/private-podcast', (request, response) => {
   });   
 })
 
+app.get('/integration-twitter', (request, response) => {
+  const meta = {
+    title: "Twitter Integration",
+    description: "Auto-tweet new podcast episodes when you publish/",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",    
+    keywords: "Podcasting, Dropbox",
+    url: "https://www.justcast.com/integration-twitter",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
 
 app.get('/examples', (request, response) => {
   const meta = {
@@ -838,6 +861,7 @@ app.get('/sitemap.xml', (request, response) => {
     `${rootPath}/about_us`,
     `${rootPath}/how-justcast-works`,
     `${rootPath}/private-podcast`,
+    `${rootPath}/integration-twitter`,
     `${rootPath}/audiogram`,
     `${rootPath}/terms`,
     `${rootPath}/privacy`,

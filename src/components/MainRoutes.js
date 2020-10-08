@@ -24,6 +24,7 @@ import PrivatePodcast from './../podcasters/PrivatePodcast'
 import PrivatePodcastInvite from './../podcasters/PrivatePodcastInvite'
 import PublicPodcast from './../podcasters/PublicPodcast'
 import PrivatePodcastPage from './../landingpages/PrivatePodcastPage'
+import SoicalNetworkIntegrationPage from './../landingpages/SoicalNetworkIntegrationPage'
 import AudiogramPage from '../landingpages/AudiogramPage'
 
 const MainRoutes = () => {
@@ -50,6 +51,7 @@ const MainRoutes = () => {
       <LandingPageRoute exact path="/blogs/resources-for-church-impacted-by-coronavirus" component={BlogPost}/>
       <LandingPageRoute exact path="/how-justcast-works" component={HowJustCastWorks}/>
       <LandingPageRoute exact path="/private-podcast" component={PrivatePodcastPage}/>
+      <LandingPageRoute exact path="/integration-twitter" component={SoicalNetworkIntegrationPage}/>
       <LandingPageRoute exact path="/audiogram" component={AudiogramPage}/>
       <Route path="/" component={Error}/>
     </Switch>
