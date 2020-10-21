@@ -4,7 +4,7 @@ import {Context as PodcastContext} from '../context/PodcastContext'
 import {Context as ThemeContext} from '../context/ThemeContext'
 import justcastApi from '../api/justcast'
 import data from './../dumps/result.json'
-import PageHeader from './../components/PageHeader'
+import {PageHeader} from './../components/podcastpages'
 import EpisodeList from './../components/EpisodeList';
 import PrivateShow from './../components/PrivateShow';
 
@@ -80,18 +80,9 @@ const Podcast = (props) => {
     return (
       <>
         <PageHeader 
-          headerTitle={"LATEST EPISODE"}
-          name={latestEpisode.name}
-          id={latestEpisode.id}
-          url={latestEpisode.url}
-          artwork={state.show.artwork_url}
-          description={latestEpisode.description}
-          audio_date={latestEpisode.audio_date}
-          embedUrl={`${process.env.REACT_APP_BASE_PATH}/widget/${id}/audioposts/${latestEpisode.id}`}
-          shareUrl={`${process.env.REACT_APP_BASE_PATH}/shows/${id}/audioposts/${latestEpisode.id}`}
-          shareOnFacebook={latestEpisode.share_on_facebook}
-          shareOnTwitter={latestEpisode.share_on_twitter} 
-          imgURL={state.show.header_img_url}         
+          headerTitle={state.show.name}
+          text={state.show.site_intro_text}
+          imgURL={state.show.header_img_url}
         />    
         <div className="container player-container">
           <EpisodeList
