@@ -20,7 +20,7 @@ const PodcastAbout = (props) => {
     .then((res) => {
       const data = res.data;
       add(data)
-      
+      console.log(data.show)
       const googleAnalyticsId = data.show.google_analytics_id;
       if(googleAnalyticsId) {
         ReactGA.initialize(googleAnalyticsId);
@@ -56,7 +56,7 @@ const PodcastAbout = (props) => {
           twitter_handle={state.show.twitter_handle}
           slack={state.show.slack}
         />
-        <SimplePageBody bodyText={state.show.description}/>
+        <SimplePageBody bodyText={state.show.about_page_content}/>
       </>
     )
   }
