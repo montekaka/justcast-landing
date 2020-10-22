@@ -11,12 +11,10 @@ const EpisodeCard = (props) => {
     <Card className="shadow-lg lift lift-lg">
       <CardImg top width="100%" src={artworkUrl} alt={title}/>
       <CardBody>
-        <CardTitle>{title}</CardTitle>
-      </CardBody>
-      <div className="card-meta">
+        <p className="h6 text-uppercase">{footer}</p>
         <hr className="card-meta-divider"/>
-        <p className="h6 text-uppercase text-muted mb-0 ml-auto">{footer}</p>
-      </div>
+        <CardText>{title}</CardText>
+      </CardBody>
     </Card>
   )
 }

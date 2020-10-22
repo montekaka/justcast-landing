@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
 import { useShowQuery } from '../hooks'
-import {PageHeader, EpisodeList} from '../components/podcastpages'
+import {Layout, PageHeader, EpisodeList} from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 
 const Home = (props) => {
@@ -23,7 +23,7 @@ const Home = (props) => {
         text={state.site_intro_text}
         imgURL={state.header_img_url}    
       />
-      <section className="py-8 py-md-11">
+      <Layout>      
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-md-10 col-lg-7 text-center">
@@ -38,8 +38,8 @@ const Home = (props) => {
               All Episodes
             </Link>
           </div>
-        </div>
-      </section>
+        </div>      
+      </Layout>
     </>
   )
 }

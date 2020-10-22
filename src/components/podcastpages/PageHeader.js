@@ -25,7 +25,7 @@ const PageHeader = ({
             <h1 className="text-center text-md-left display-2 text-white">
               {headerTitle}
             </h1>
-            <p className="lead text-center text-md-left mb-6 mb-lg-8">
+            <p className="lead text-center text-md-left mb-6 mb-lg-8 text-white">
               {text}
             </p>         
           </div>
