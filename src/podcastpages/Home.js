@@ -32,10 +32,10 @@ const Home = (props) => {
             </div>
           </div>
           <div className="form-row">
-            <EpisodeList items={audioposts}/>                          
+            <EpisodeList slug={state.slug} items={audioposts}/>
           </div>
           <div className="row justify-content-center">
-            <Link className="btn lift" to={`/shows/${id}/episodes`} style={{backgroundColor: buttonColor, color: buttonTextColor}}>
+            <Link className="btn lift" to={`/shows/${state.slug}/episodes`} style={{backgroundColor: buttonColor, color: buttonTextColor}}>
               All Episodes
             </Link>
           </div>

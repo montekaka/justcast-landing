@@ -3,11 +3,15 @@ import TopNavbars from './TopNavbars'
 import EpisodeList from './EpisodeList'
 import SimplePageHeader from './SimplePageHeader'
 import Layout from './Layout'
+import EpisodeArtwork from './EpisodeArtwork'
+import EpisodeImages from './EpisodeImages'
 
 export {
   PageHeader,
   TopNavbars,
   EpisodeList,
   Layout,
-  SimplePageHeader
+  SimplePageHeader,
+  EpisodeArtwork,
+  EpisodeImages
 }

@@ -30,7 +30,7 @@ const Episodes = (props) => {
             </div>
           </div>
           <div className="form-row">
-            <EpisodeList items={state.audioposts}/>                          
+            <EpisodeList slug={state.slug} items={state.audioposts}/>
           </div>          
         </div>
       </Layout>

@@ -2,7 +2,7 @@ import React from "react";
 import { Row } from 'reactstrap';
 import EpisodeCard from './EpisodeCard';
 
-const EpisodeList = ({items}) => {
+const EpisodeList = ({slug, items}) => {
   if(items && items.length > 0) {
     return (
       <Row>
@@ -13,7 +13,7 @@ const EpisodeList = ({items}) => {
                 title={item.name}
                 footer={item.audio_date}
                 artworkUrl={item.artwork_url ? item.artwork_url : 'https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80'}
-                link={`/shows/${item.show_id}/audioposts/${item.id}`}
+                link={`/shows/${slug}/audioposts/${item.id}`}
               />
             </div>
           )
