@@ -33,7 +33,7 @@ const TopNavbars = (props) => {
           <Link             
             className="navbar-brand" 
             to={`/shows/${slug}/audioposts`}
-            style={{color: textColor}}
+            
           >
             {name}
           </Link>
