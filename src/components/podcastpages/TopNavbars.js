@@ -32,10 +32,9 @@ const TopNavbars = (props) => {
         <div className="container-fluid">
           <Link             
             className="navbar-brand" 
-            to={`/shows/${slug}/audioposts`}
-            
+            to={`/shows/${slug}/audioposts`}            
           >
-            {name}
+            <i className="fe fe-home"/>
           </Link>
           <NavbarToggler onClick={toggle}/>
           <Collapse isOpen={isOpen} navbar>
