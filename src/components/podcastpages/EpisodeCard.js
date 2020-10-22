@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect, useState, useContext} from "react";
+import {Context as PublicPodcastContext} from '../../context/PublicPodcastContext'
 import {
   Card, Button, CardImg, CardTitle, CardText,
   CardSubtitle, CardBody, CardFooter
@@ -6,14 +7,16 @@ import {
 
 const EpisodeCard = (props) => {
   const {title, footer, link, artworkUrl} = props;
+  const { state } = useContext(PublicPodcastContext);
+  const {cardBackgroundColor, textColor} = state;
 
   return (
-    <Card className="shadow-lg lift lift-lg">
+    <Card className="shadow-lg lift lift-lg" style={{backgroundColor: cardBackgroundColor}}>
       <CardImg top width="100%" src={artworkUrl} alt={title}/>
       <CardBody>
-        <p className="h6 text-uppercase">{footer}</p>
+        <p className="h6 text-uppercase" style={{color: textColor}}>{footer}</p>
         <hr className="card-meta-divider"/>
-        <CardText>{title}</CardText>
+        <CardText style={{color: textColor}}>{title}</CardText>
       </CardBody>
     </Card>
   )
