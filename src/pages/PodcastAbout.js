@@ -20,7 +20,6 @@ const PodcastAbout = (props) => {
     .then((res) => {
       const data = res.data;
       add(data)
-      console.log(data.show)
       const googleAnalyticsId = data.show.google_analytics_id;
       if(googleAnalyticsId) {
         ReactGA.initialize(googleAnalyticsId);

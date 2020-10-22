@@ -39,7 +39,7 @@ const Home = (props) => {
               All Episodes
             </Link>
           </div>
-        </div>      
+        </div>
       </Layout>
     </>
   )
