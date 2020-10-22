@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from 'react-router-dom'
 import PodcastPageRoute from './PodcastPageRoute';
 import LandingPageRoute from './LandingPageRoute';
+import {PodcastPageRoute as PublicPodcastPageRoute} from './Routes'
 import Podcast from './../pages/Podcast'
 import Episode from './../pages/Episode'
 import Episodes from './../pages/Episodes'
@@ -26,14 +27,15 @@ import PublicPodcast from './../podcasters/PublicPodcast'
 import PrivatePodcastPage from './../landingpages/PrivatePodcastPage'
 import SoicalNetworkIntegrationPage from './../landingpages/SoicalNetworkIntegrationPage'
 import AudiogramPage from '../landingpages/AudiogramPage'
+import {Home as PublicPodcastHome} from '../podcastpages'
 
 const MainRoutes = () => {
   return (
     <Switch>
       <Route exact path="/page_404" component={PodcastPrivate}/>
+      <PublicPodcastPageRoute exact path="/shows/:id/audioposts" component={PublicPodcastHome}/>
       <PodcastPageRoute exact path="/shows/:id/about_us" component={PodcastAbout}/>
-      <PodcastPageRoute exact path="/shows/:id/episodes" component={Episodes}/>
-      <PodcastPageRoute exact path="/shows/:id/audioposts" component={Podcast}/>
+      <PodcastPageRoute exact path="/shows/:id/episodes" component={Episodes}/>      
       <PodcastPageRoute exact path="/shows/:id/subscribe" component={SubscribePage}/>
       <PodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={Episode}/>
       <Route exact path="/shows/:show_id/subscribers/:id" component={PrivatePodcast}/>
