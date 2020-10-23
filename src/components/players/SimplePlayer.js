@@ -46,6 +46,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
           className='react-player'
           width='0%'
           height='0%'
+          volume={0.2}
           ref={handlePlayerRef}
           onDuration={handleDuration}
           onProgress={handleProgress}

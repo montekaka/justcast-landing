@@ -18,7 +18,8 @@ const initState = {
   minimize: true,
   section: "control", // [control, subscribe, share, more_info]
   embedUrl: "",
-  shareUrl: ""
+  shareUrl: "",
+  reactPlayer: null
 }
 
 const playerReducer = (state, action) => {
@@ -45,10 +46,34 @@ const playerReducer = (state, action) => {
       return {...state, ...action.payload}
     case 'update_section':
       return {...state, ...action.payload}
-    case 'reset': 
+    case 'update_player_ref':
+      return {...state, ...action.payload}
+    case 'updatePlayerRef':          
       return {...initState}
     default:
       return state
+  }
+}
+
+
+const preLoad = dispatch => {
+  return ({audio_date, url, id, name, description, artwork, shareUrl, embedUrl, shareOnFacebook, shareOnTwitter
+  }) => {
+    dispatch({type: 'reset'})
+    dispatch({type: 'add', payload: {
+      audio_date, 
+      url, 
+      id, 
+      name, 
+      description, 
+      artwork, 
+      shareUrl,
+      embedUrl,
+      shareOnFacebook,
+      shareOnTwitter,
+      playing: false, 
+      hide: false   
+    }})
   }
 }
 
@@ -116,16 +141,11 @@ const updateSection = dispatch => {
   }
 }
 
-// const hideFooterBar = dispatch => {
-//   return () => {
-//     dispatch({type: 'hide_footer_bar'});
-//   }
-// }
-
 export const {Provider, Context} = createDataContext(
   playerReducer,
   {
     add,
+    preLoad,
     playPause,
     updateDuration,
     updateProgress,

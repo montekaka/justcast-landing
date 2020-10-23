@@ -60,6 +60,7 @@ const FullPlayer = ({
 
   const playerControlClass = playerControlSquare ? 'widget-player-app' : 'widget-player-app widget-player-app-rounded';
 
+  
   return (
     <div className='widget-player-container dark-html-widget-player'>
       <section className={playerControlClass}>

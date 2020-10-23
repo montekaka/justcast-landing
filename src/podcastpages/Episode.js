@@ -2,6 +2,7 @@ import React, {useEffect, useState, useContext} from "react";
 import justcastApi from '../api/justcast'
 import ReactGA from 'react-ga';
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
+import {Context as PlayerContext} from '../context/PlayerContext'
 import {Layout, SimplePageHeader, EpisodeArtwork, EpisodeImages, EpisodePlayer} from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 
@@ -14,13 +15,29 @@ const getAudiopostById = (audioposts, id) => {
 }
 
 const Episode = (props) => {
-  
   const { state, add } = useContext(PublicPodcastContext);
+  const { preLoad } = useContext(PlayerContext);
+
   const {textColor, buttonColor, buttonTextColor} = state;
   const [audiopost, setAudiopost] = useState({})
 
   const id = props.match.params.show_id;
   const audiopost_id = props.match.params.id;
+
+  const setupPlayer = (data) => {
+    preLoad({
+      audio_date: data.audio_date,
+      id: data.id,
+      url: data.url,
+      name: data.name,
+      description: data.description,
+      artwork: state.artwork_url, 
+      embedUrl: `${process.env.REACT_APP_BASE_PATH}/widget/${state.slug}/audioposts/${data.id}`, 
+      shareUrl: `${process.env.REACT_APP_BASE_PATH}/shows/${state.slug}/audioposts/${data.id}`, 
+      shareOnFacebook: data.share_on_facebook, 
+      shareOnTwitter: data.share_on_twitter
+    })
+  }
 
   useEffect(() => {
     if(!state.name) {
@@ -28,17 +45,19 @@ const Episode = (props) => {
       .then((res) => {
         const data = res.data;
         const {show, audioposts} = data;
-        const _ = getAudiopostById(audioposts, audiopost_id);
-        setAudiopost(_);        
+        const _audiopost = getAudiopostById(audioposts, audiopost_id);
+        setAudiopost(_audiopost);
+        setupPlayer(_audiopost)
         add({show, audioposts});
-        // setShow(res.data);
       })
       .catch((err) => {
         console.log(err);
       })
     } else {
-      const _ = getAudiopostById(state.audioposts, audiopost_id)
-      setAudiopost(_);
+      const _audiopost = getAudiopostById(state.audioposts, audiopost_id)
+      // console.log(_audiopost)
+      setupPlayer(_audiopost)
+      setAudiopost(_audiopost);
     }
   }, [id, audiopost_id])
 
@@ -62,7 +81,7 @@ const Episode = (props) => {
             <div className="col-12">
               <EpisodePlayer 
                 audiopost={audiopost}
-                audiopostId={audiopost_id}
+                audiopostId={audiopost.id}
               />
             </div>
           </div>  
