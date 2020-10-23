@@ -4,7 +4,7 @@ import SimplePlayer from './players/SimplePlayer'
 
 const FooterPlayer = () => {
   const {state, playPause, updateDuration, updateProgress, updateSection,
-    toggleSeeking, handleSeekChange, toggleMinimizePlayer, updatePlayerRef} = useContext(PlayerContext);
+    toggleSeeking, handleSeekChange, toggleMinimizePlayer} = useContext(PlayerContext);
   // let reactPlayer = null;
 
   const handleDuration = (duration) => {
@@ -20,8 +20,8 @@ const FooterPlayer = () => {
   }
 
   const handleSeekMouseUp = (e) => {
-    toggleSeeking()    
-    state.reactPlayer.seekTo(state.playedSeconds);
+    toggleSeeking()
+    state.reactPlayerRef.current.seekTo(state.playedSeconds);
   }
 
   const handleSeekMouseDown = (event) => {    

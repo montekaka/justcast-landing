@@ -16,14 +16,14 @@ import FullPlayer from '../players/FullPlayer'
 
 const EpisodePlayer = (props) => {
   const {state, playPause, updateDuration, updateProgress, updateSection,
-    toggleSeeking, handleSeekChange, toggleMinimizePlayer} = useContext(PlayerContext);
+    toggleSeeking, handleSeekChange, toggleMinimizePlayer, add} = useContext(PlayerContext);
   
   const { audiopostId, audiopost} = props;
   // console.log(audiopost)
   // console.log(audiopost.url)
 
   const publicPodcastContext = useContext(PublicPodcastContext);
-  const {hide_widget_subscribe, hide_widget_share, artwork_url} = publicPodcastContext.state;
+  const {hide_widget_subscribe, hide_widget_share, artwork_url, slug} = publicPodcastContext.state;
 
   const menus = [];
   if(hide_widget_subscribe !== true) {
@@ -35,7 +35,7 @@ const EpisodePlayer = (props) => {
   // menus.push({key: 'more_info', label: 'more info'})
   // setMenuItems(menus)
 
-  const {section, duration, playedSeconds, played, playing, reactPlayer} = state;
+  const {section, duration, playedSeconds, played, playing, reactPlayerRef} = state;
 
   const handleDuration = (duration) => {
     updateDuration(duration)
@@ -51,12 +51,32 @@ const EpisodePlayer = (props) => {
 
   const handleSeekMouseUp = (e) => {
     toggleSeeking()    
-    reactPlayer.seekTo(state.playedSeconds);
+    reactPlayerRef.current.seekTo(state.playedSeconds);
   }
 
   const handleSeekMouseDown = (event) => {    
     toggleSeeking()
   }  
+
+  const handlePlayClick = () => {
+    if(state.id !== audiopostId) {
+      add({
+        audio_date: audiopost.audio_date,
+        id: audiopost.id,
+        url: audiopost.url,
+        name: audiopost.name,
+        description: audiopost.description,
+        artwork: artwork_url, 
+        embedUrl: `${process.env.REACT_APP_BASE_PATH}/widget/${slug}/audioposts/${audiopost.id}`, 
+        shareUrl: `${process.env.REACT_APP_BASE_PATH}/shows/${slug}/audioposts/${audiopost.id}`, 
+        shareOnFacebook: audiopost.share_on_facebook, 
+        shareOnTwitter: audiopost.share_on_twitter
+      })      
+    } else {
+      playPause();
+    }
+  }
+
 
   return (
     <FullPlayer 
@@ -72,7 +92,7 @@ const EpisodePlayer = (props) => {
       playing={playing} 
       handleDuration={handleDuration} 
       handleProgress={handleProgress} 
-      handlPlayPauseClick={playPause} 
+      handlPlayPauseClick={handlePlayClick} 
       handleSliderChange={handleSliderChange} 
       handleSeekMouseDown={handleSeekMouseDown} 
       handleSeekMouseUp={handleSeekMouseUp}       

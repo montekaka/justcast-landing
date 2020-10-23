@@ -16,7 +16,7 @@ const getAudiopostById = (audioposts, id) => {
 
 const Episode = (props) => {
   const { state, add } = useContext(PublicPodcastContext);
-  const { preLoad } = useContext(PlayerContext);
+  const playerContext = useContext(PlayerContext);
 
   const {textColor, buttonColor, buttonTextColor} = state;
   const [audiopost, setAudiopost] = useState({})
@@ -25,18 +25,20 @@ const Episode = (props) => {
   const audiopost_id = props.match.params.id;
 
   const setupPlayer = (data) => {
-    preLoad({
-      audio_date: data.audio_date,
-      id: data.id,
-      url: data.url,
-      name: data.name,
-      description: data.description,
-      artwork: state.artwork_url, 
-      embedUrl: `${process.env.REACT_APP_BASE_PATH}/widget/${state.slug}/audioposts/${data.id}`, 
-      shareUrl: `${process.env.REACT_APP_BASE_PATH}/shows/${state.slug}/audioposts/${data.id}`, 
-      shareOnFacebook: data.share_on_facebook, 
-      shareOnTwitter: data.share_on_twitter
-    })
+    if(!playerContext.state.id ) {
+      playerContext.preLoad({
+        audio_date: data.audio_date,
+        id: data.id,
+        url: data.url,
+        name: data.name,
+        description: data.description,
+        artwork: state.artwork_url, 
+        embedUrl: `${process.env.REACT_APP_BASE_PATH}/widget/${state.slug}/audioposts/${data.id}`, 
+        shareUrl: `${process.env.REACT_APP_BASE_PATH}/shows/${state.slug}/audioposts/${data.id}`, 
+        shareOnFacebook: data.share_on_facebook, 
+        shareOnTwitter: data.share_on_twitter
+      })
+    }
   }
 
   useEffect(() => {

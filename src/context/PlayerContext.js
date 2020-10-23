@@ -19,7 +19,7 @@ const initState = {
   section: "control", // [control, subscribe, share, more_info]
   embedUrl: "",
   shareUrl: "",
-  reactPlayer: null
+  reactPlayerRef: null
 }
 
 const playerReducer = (state, action) => {
@@ -48,7 +48,7 @@ const playerReducer = (state, action) => {
       return {...state, ...action.payload}
     case 'update_player_ref':
       return {...state, ...action.payload}
-    case 'updatePlayerRef':          
+    case 'reset':          
       return {...initState}
     default:
       return state
@@ -141,6 +141,12 @@ const updateSection = dispatch => {
   }
 }
 
+const updateReactPlayerRef = dispatch => {
+  return (reactPlayerRef) => {
+    dispatch({type: 'update_player_ref', payload: {reactPlayerRef}})
+  }
+}
+
 export const {Provider, Context} = createDataContext(
   playerReducer,
   {
@@ -152,7 +158,8 @@ export const {Provider, Context} = createDataContext(
     toggleSeeking,
     handleSeekChange,
     toggleMinimizePlayer,
-    updateSection
+    updateSection,
+    updateReactPlayerRef
   },
   initState
 )

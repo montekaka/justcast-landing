@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useRef} from "react";
 import {Context as PlayerContext} from '../../context/PlayerContext'
 import {Context as PodcastContext} from '../../context/PodcastContext'
 import ReactPlayer from 'react-player'
@@ -7,8 +7,15 @@ import FullPlayer from './FullPlayer'
 // menuItems={[{key: 'subscribe', label:'subscribe'},{key: 'share', label: 'share'},{key: 'more_info', label: 'more info'}]}
 const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, section, updateSection, embedUrl, shareUrl, menuItems}) => {
 
-  const {state} = useContext(PlayerContext);
+  const {state, updateReactPlayerRef} = useContext(PlayerContext);
   const podcastConext = useContext(PodcastContext);
+  const reactPlayerRef = useRef(null);
+
+  useEffect(() => {
+    if(reactPlayerRef) {
+      updateReactPlayerRef(reactPlayerRef)
+    }    
+  }, [reactPlayerRef])
 
   if(url) {    
     return (    
@@ -47,7 +54,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
           width='0%'
           height='0%'
           volume={0.2}
-          ref={handlePlayerRef}
+          ref={reactPlayerRef}
           onDuration={handleDuration}
           onProgress={handleProgress}
           playing={playing}
