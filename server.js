@@ -37,6 +37,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
@@ -55,6 +56,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
       img_256: img_256,
       twitter_handle,
       apple_iutnes_app_id,
+      custom_favicon_image,
       backgroundColorClass,      
     }
 
@@ -90,6 +92,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
@@ -111,6 +114,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
       twitter_handle,
       apple_iutnes_app_id,
       rss_url: rss_url,
+      custom_favicon_image,
       backgroundColorClass
     }
 
@@ -149,6 +153,7 @@ app.get('/podcasts/:id', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
@@ -168,6 +173,7 @@ app.get('/podcasts/:id', function(request, response) {
       img_256: img_256,
       twitter_handle,
       apple_iutnes_app_id,
+      custom_favicon_image,
       backgroundColorClass
     }
 
@@ -205,6 +211,7 @@ app.get('/shows/:id/episodes', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
@@ -224,6 +231,7 @@ app.get('/shows/:id/episodes', function(request, response) {
       img_256: img_256,
       twitter_handle,
       apple_iutnes_app_id,
+      custom_favicon_image,
       backgroundColorClass
     }
     
@@ -261,6 +269,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
@@ -280,6 +289,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
       img_256: img_256,
       twitter_handle,
       apple_iutnes_app_id,
+      custom_favicon_image,
       backgroundColorClass
     }
     
@@ -316,6 +326,7 @@ app.get('/shows/:id/about_us', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
@@ -333,6 +344,7 @@ app.get('/shows/:id/about_us', function(request, response) {
       img_32: img_32,
       img_64: img_64,
       img_256: img_256,
+      custom_favicon_image,
       twitter_handle,
       apple_iutnes_app_id,
       backgroundColorClass
@@ -669,6 +681,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
@@ -685,6 +698,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
+      custom_favicon_image,
       apple_iutnes_app_id
     }
     
@@ -734,6 +748,7 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const keywords = show.keywords ? show.keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
@@ -749,6 +764,7 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
       img_32: img_32,
       img_64: img_64,
       img_256: img_256,
+      custom_favicon_image,
       twitter_handle,
       apple_iutnes_app_id
     }
@@ -798,12 +814,14 @@ app.get('/shows/:show_id/subscribers/:id', function(request, response) {
     const img_32 = show.artwork_url_32;
     const img_64 = show.artwork_url_64;
     const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
 
     const meta = {
       title,
       description,
       img,      
       url,
+      custom_favicon_image,
       img_16: img_16,
       img_32: img_32,
       img_64: img_64,
