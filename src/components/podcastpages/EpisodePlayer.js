@@ -37,6 +37,11 @@ const EpisodePlayer = (props) => {
 
   const {section, duration, playedSeconds, played, playing, reactPlayerRef} = state;
 
+  const thisPlayerDuration = state.id === audiopostId ? duration : 1;
+  const thisPlayedSeconds = state.id === audiopostId ? playedSeconds : 0;
+  const thisPlayed = state.id === audiopostId ? played : false;
+  const thisPlaying = state.id === audiopostId ? playing : false;
+
   const handleDuration = (duration) => {
     updateDuration(duration)
   }
@@ -86,10 +91,10 @@ const EpisodePlayer = (props) => {
       description={audiopost.description} 
       name={audiopost.name} 
       url={audiopost.url} 
-      duration={duration} 
-      playedSeconds={playedSeconds} 
-      played={played} 
-      playing={playing} 
+      duration={thisPlayerDuration} 
+      playedSeconds={thisPlayedSeconds} 
+      played={thisPlayed} 
+      playing={thisPlaying} 
       handleDuration={handleDuration} 
       handleProgress={handleProgress} 
       handlPlayPauseClick={handlePlayClick} 
