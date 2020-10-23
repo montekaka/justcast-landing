@@ -10,9 +10,10 @@ const PodcastPageRoute = ({ component: Component, ...rest }) => {
   const {state} = useContext(PublicPodcastContext);
   const {is_private, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor} = state;  
   // const {cardBackgroundColor} = state.show;
+  
   return (    
     <Route {...rest} render={(props) => (      
-      state.cardBackgroundColor ? <>
+      state.name ? <>
       <TopNavbars
         is_private={is_private}
         name={name} 

@@ -10,6 +10,7 @@ const Layout = (props) => {
       {props.children}
     </section>
   )
+
 }
 
 export default Layout;
