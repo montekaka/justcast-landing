@@ -30,7 +30,8 @@ import AudiogramPage from '../landingpages/AudiogramPage'
 import {Home as PublicPodcastHome, 
   Episodes as PublicPodcastEpisodes,
   Episode as PublicPodcastEpisode,
-  About as PublicPodcastAbout
+  About as PublicPodcastAbout,
+  Subscribe as PublicPodcastSubscribe
 } from '../podcastpages'
 
 const MainRoutes = () => {
@@ -40,7 +41,7 @@ const MainRoutes = () => {
       <PublicPodcastPageRoute exact path="/shows/:id/audioposts" component={PublicPodcastHome}/>
       <PublicPodcastPageRoute exact path="/shows/:id/about_us" component={PublicPodcastAbout}/>
       <PublicPodcastPageRoute exact path="/shows/:id/episodes" component={PublicPodcastEpisodes}/>      
-      <PodcastPageRoute exact path="/shows/:id/subscribe" component={SubscribePage}/>
+      <PublicPodcastPageRoute exact path="/shows/:id/subscribe" component={PublicPodcastSubscribe}/>
       <PublicPodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={PublicPodcastEpisode}/>
       <Route exact path="/shows/:show_id/subscribers/:id" component={PrivatePodcast}/>
       <Route exact path="/shows/:show_id/subscribers_invite" component={PrivatePodcastInvite}/>
