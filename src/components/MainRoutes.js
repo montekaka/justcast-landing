@@ -29,7 +29,8 @@ import SoicalNetworkIntegrationPage from './../landingpages/SoicalNetworkIntegra
 import AudiogramPage from '../landingpages/AudiogramPage'
 import {Home as PublicPodcastHome, 
   Episodes as PublicPodcastEpisodes,
-  Episode as PublicPodcastEpisode
+  Episode as PublicPodcastEpisode,
+  About as PublicPodcastAbout
 } from '../podcastpages'
 
 const MainRoutes = () => {
@@ -37,7 +38,7 @@ const MainRoutes = () => {
     <Switch>
       <Route exact path="/page_404" component={PodcastPrivate}/>
       <PublicPodcastPageRoute exact path="/shows/:id/audioposts" component={PublicPodcastHome}/>
-      <PodcastPageRoute exact path="/shows/:id/about_us" component={PodcastAbout}/>
+      <PublicPodcastPageRoute exact path="/shows/:id/about_us" component={PublicPodcastAbout}/>
       <PublicPodcastPageRoute exact path="/shows/:id/episodes" component={PublicPodcastEpisodes}/>      
       <PodcastPageRoute exact path="/shows/:id/subscribe" component={SubscribePage}/>
       <PublicPodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={PublicPodcastEpisode}/>

@@ -6,7 +6,8 @@ import Layout from './Layout'
 import EpisodeArtwork from './EpisodeArtwork'
 import EpisodeImages from './EpisodeImages'
 import EpisodePlayer from './EpisodePlayer'
-
+import SocialNetworks from './SocialNetworks'
+import SimplePageBody from './SimplePageBody'
 
 export {
   PageHeader,
@@ -16,5 +17,7 @@ export {
   SimplePageHeader,
   EpisodeArtwork,
   EpisodeImages,
-  EpisodePlayer
+  EpisodePlayer,
+  SocialNetworks,
+  SimplePageBody
 }
