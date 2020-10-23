@@ -60,7 +60,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
       backgroundColorClass,      
     }
 
-    if(show.is_private) {
+    if(show.is_private_show) {
       response.redirect('/page_404')
     } else {    
       fs.readFile(filePath, 'utf8', function (err,data) {
@@ -118,7 +118,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
       backgroundColorClass
     }
 
-    if(show.is_private) {
+    if(show.is_private_show) {
       // redirect to error page
       response.redirect('/page_404')
     } else {
@@ -132,7 +132,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
     }
   })
   .catch((err) => {
-    // TODO: redirect to error page
+    // TODO: redirect to error page    
     response.redirect('/error')
   })
 });
@@ -177,7 +177,7 @@ app.get('/podcasts/:id', function(request, response) {
       backgroundColorClass
     }
 
-    if(show.is_private) {
+    if(show.is_private_show) {
       // redirect to error page
       response.redirect('/page_404')
     } else {
@@ -235,7 +235,7 @@ app.get('/shows/:id/episodes', function(request, response) {
       backgroundColorClass
     }
     
-    if(show.is_private) {
+    if(show.is_private_show) {
       response.redirect('/page_404')
     } else {
       fs.readFile(filePath, 'utf8', function (err,data) {
@@ -293,7 +293,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
       backgroundColorClass
     }
     
-    if(show.is_private) {
+    if(show.is_private_show) {
       response.redirect('/page_404')
     } else {
       fs.readFile(filePath, 'utf8', function (err,data) {
@@ -350,7 +350,7 @@ app.get('/shows/:id/about_us', function(request, response) {
       backgroundColorClass
     }
     
-    if(show.is_private) {
+    if(show.is_private_show) {
       response.redirect('/page_404')
     } else {
       fs.readFile(filePath, 'utf8', function (err,data) {

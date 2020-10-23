@@ -17,6 +17,7 @@ const useShowQuery = (showId) => {
         // setShow(res.data);
       })
       .catch((err) => {
+        
         console.log(err);
       })
     }
