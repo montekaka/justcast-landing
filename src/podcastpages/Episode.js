@@ -24,6 +24,14 @@ const Episode = (props) => {
   const id = props.match.params.show_id;
   const audiopost_id = props.match.params.id;
 
+  useEffect(() => {
+    if(state.id && state.google_analytics_id) {
+      const googleAnalyticsId = state.googleAnalyticsId;
+      ReactGA.initialize(googleAnalyticsId);
+      ReactGA.pageview(`/shows/${state.slug}/audioposts/${audiopost_id}`)
+    }
+  }, [id, audiopost_id])  
+
   const setupPlayer = (data) => {
     if(!playerContext.state.id ) {
       playerContext.preLoad({

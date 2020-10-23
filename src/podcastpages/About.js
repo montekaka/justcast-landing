@@ -13,6 +13,14 @@ const About = (props) => {
   const id = props.match.params.id;
   const _ = useShowQuery(id);
 
+  useEffect(() => {
+    if(state.id && state.google_analytics_id) {
+      const googleAnalyticsId = state.googleAnalyticsId;
+      ReactGA.initialize(googleAnalyticsId);
+      ReactGA.pageview(`/shows/${state.slug}/about`)
+    }
+  }, [id])  
+
   if(state.is_private) {
     return <PrivateShow/>;
   }
