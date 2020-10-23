@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
+import moment from 'moment'
 import justcastApi from '../api/justcast'
 import ReactGA from 'react-ga';
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
@@ -20,6 +21,7 @@ const Episode = (props) => {
 
   const {textColor, buttonColor, buttonTextColor} = state;
   const [audiopost, setAudiopost] = useState({})
+  const [audioDate, setAudioDate] = useState('');
 
   const id = props.match.params.show_id;
   const audiopost_id = props.match.params.id;
@@ -68,6 +70,8 @@ const Episode = (props) => {
       // console.log(_audiopost)
       setupPlayer(_audiopost)
       setAudiopost(_audiopost);
+      const _audioDate = moment(_audiopost.audio_date).format('YYYY-MM-DD');
+      setAudioDate(_audioDate)
     }
   }, [id, audiopost_id])
 
@@ -83,7 +87,7 @@ const Episode = (props) => {
     <>
       <SimplePageHeader
         title={audiopost.name}
-        text={audiopost.audio_date}  
+        text={audioDate}  
       />
       <Layout>      
         <div className="container">
