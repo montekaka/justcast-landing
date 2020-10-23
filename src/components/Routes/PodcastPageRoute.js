@@ -8,7 +8,7 @@ import {Context as PublicPodcastContext} from '../../context/PublicPodcastContex
 const PodcastPageRoute = ({ component: Component, ...rest }) => {  
 
   const {state} = useContext(PublicPodcastContext);
-  const {is_private, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor} = state;  
+  const {is_private, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
   // const {cardBackgroundColor} = state.show;
   
   return (    
@@ -23,7 +23,7 @@ const PodcastPageRoute = ({ component: Component, ...rest }) => {
         buttonColor={buttonColor} 
         textColor={textColor}
       />
-        <div className="main-content">
+        <div className="main-content" style={{backgroundColor: bodyColor}}>
           <Component {...props} />
           <FooterPlayer/>
         </div>

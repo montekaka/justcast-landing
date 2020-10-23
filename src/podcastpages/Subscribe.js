@@ -3,13 +3,13 @@ import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
 import { useShowQuery } from '../hooks'
-import {Layout, SimplePageHeader, SocialNetworks, SimplePageBody } from '../components/podcastpages'
+import {Layout, SimplePageHeader, PodcastApps } from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 
 const Subscribe = (props) => {
   const { state } = useContext(PublicPodcastContext);  
-  const {name, textColor, buttonColor, buttonTextColor, about_page_content, instagram_profile, facebook_page, twitter_handle, slack} = state;
-
+  const {name, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug} = state;
+  
   const id = props.match.params.id;
   const _ = useShowQuery(id);
 
@@ -23,7 +23,20 @@ const Subscribe = (props) => {
         text={"Listen in your favorite apps"}
       />
       <Layout>      
-        
+        <PodcastApps 
+          apple_podcast={apple_podcast}
+          google_podcast={google_podcast}
+          overcast={overcast}
+          spotify={spotify}
+          pocket_casts={pocket_casts}
+          breaker={breaker}
+          castro={castro}
+          radio_public={radio_public}
+          castbox={castbox}
+          tune_in={tune_in}
+          stitcher={stitcher}
+          slug={slug}
+        />
       </Layout>
     </>
   )
