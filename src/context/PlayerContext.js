@@ -16,6 +16,7 @@ const initState = {
   playedSeconds: 0,
   seeking: false,
   minimize: true,
+  showFooterPlayer: true,
   section: "control", // [control, subscribe, share, more_info]
   embedUrl: "",
   shareUrl: "",
@@ -27,7 +28,7 @@ const playerReducer = (state, action) => {
     case 'add':
       return {...state, ...action.payload}
     case 'play_pause':
-      return {...state, playing: !state.playing}
+      return {...state, playing: !state.playing, showFooterPlayer: true}
     case 'hide_footer_bar': 
       return {...state, hide: !state.hide}
     case 'update_duration':
@@ -41,7 +42,7 @@ const playerReducer = (state, action) => {
     case 'toggle_seeking':
       return {...state, seeking: !state.seeking}
     case 'toggle_minimize':
-      return {...state, minimize: !state.minimize}
+      return {...state, minimize: !state.minimize, showFooterPlayer: true}
     case 'seek_change':
       return {...state, ...action.payload}
     case 'update_section':
@@ -72,7 +73,8 @@ const preLoad = dispatch => {
       shareOnFacebook,
       shareOnTwitter,
       playing: false, 
-      hide: false   
+      hide: false,
+      showFooterPlayer: false,
     }})
   }
 }
@@ -93,7 +95,8 @@ const add = dispatch => {
       shareOnFacebook,
       shareOnTwitter,
       playing: true, 
-      hide: false   
+      hide: false,
+      showFooterPlayer: true,
     }})
   }
 }

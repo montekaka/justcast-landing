@@ -10,6 +10,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
   const {state, updateReactPlayerRef} = useContext(PlayerContext);
   const podcastConext = useContext(PodcastContext);
   const reactPlayerRef = useRef(null);
+  const { showFooterPlayer } = state;
 
   useEffect(() => {
     if(reactPlayerRef) {
@@ -21,7 +22,8 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
     return (    
       <>
         {
-          minimize ? <MinimizePlayer handleMinimizePlayer ={handleMinimizePlayer} valuenow={playedSeconds} maxvalue={duration}/> : 
+          showFooterPlayer ? <>{
+            minimize ? <MinimizePlayer handleMinimizePlayer ={handleMinimizePlayer} valuenow={playedSeconds} maxvalue={duration}/> : 
           <FullPlayer progressBarIdName="footer-player-progressbar" minimize={minimize} audio_date={audio_date} 
             artwork={artwork} description={description} name={name} url={url} duration={duration} 
             playedSeconds={playedSeconds} played={played} playing={playing} handleDuration={handleDuration} 
@@ -48,7 +50,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
             rssFeed={podcastConext.state.show.rss_feed}
             menuItems={menuItems}
           />
-        }      
+        }</> : null}      
         <ReactPlayer url={url}
           className='react-player'
           width='0%'
