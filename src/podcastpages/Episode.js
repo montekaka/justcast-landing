@@ -28,7 +28,7 @@ const Episode = (props) => {
 
   useEffect(() => {
     if(state.id && state.google_analytics_id) {
-      const googleAnalyticsId = state.googleAnalyticsId;
+      const googleAnalyticsId = state.google_analytics_id;
       ReactGA.initialize(googleAnalyticsId);
       ReactGA.pageview(`/shows/${state.slug}/audioposts/${audiopost_id}`)
     }
