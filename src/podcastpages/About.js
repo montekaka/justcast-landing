@@ -28,6 +28,7 @@ const About = (props) => {
     <>
       <SimplePageHeader
         title={"About the Show"}
+        text={state.copyright ? state.copyright : `© ${new Date().getFullYear()} ${state.name}`}
       />
       <Layout>      
         <div className="container">
