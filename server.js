@@ -39,7 +39,8 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
     const img_256 = show.artwork_url_256;
     const custom_favicon_image = show.custom_favicon_image;
 
-    const keywords = show.keywords ? show.keywords : '';
+    // const keywords = show.keywords ? show.keywords : '';
+    const keywords = data.itunes_keywords ? data.itunes_keywords : (show.keywords ? show.keywords : '');
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
@@ -83,7 +84,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
-    const show = res.data;
+    const show = res.data;    
     const url = show.link;
     const title = `${show.name}`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
@@ -94,7 +95,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
     const img_256 = show.artwork_url_256;
     const custom_favicon_image = show.custom_favicon_image;
 
-    const keywords = show.keywords ? show.keywords : '';
+    const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
@@ -155,7 +156,7 @@ app.get('/podcasts/:id', function(request, response) {
     const img_256 = show.artwork_url_256;
     const custom_favicon_image = show.custom_favicon_image;
 
-    const keywords = show.keywords ? show.keywords : '';
+    const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
     
@@ -213,7 +214,7 @@ app.get('/shows/:id/episodes', function(request, response) {
     const img_256 = show.artwork_url_256;
     const custom_favicon_image = show.custom_favicon_image;
 
-    const keywords = show.keywords ? show.keywords : '';
+    const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
@@ -271,7 +272,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
     const img_256 = show.artwork_url_256;
     const custom_favicon_image = show.custom_favicon_image;
 
-    const keywords = show.keywords ? show.keywords : '';
+    const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
@@ -328,7 +329,7 @@ app.get('/shows/:id/about_us', function(request, response) {
     const img_256 = show.artwork_url_256;
     const custom_favicon_image = show.custom_favicon_image;
 
-    const keywords = show.keywords ? show.keywords : '';
+    const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
@@ -683,7 +684,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
     const img_256 = show.artwork_url_256;
     const custom_favicon_image = show.custom_favicon_image;
 
-    const keywords = show.keywords ? show.keywords : '';
+    const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
@@ -750,7 +751,7 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
     const img_256 = show.artwork_url_256;
     const custom_favicon_image = show.custom_favicon_image;
 
-    const keywords = show.keywords ? show.keywords : '';
+    const keywords = data.itunes_keywords ? data.itunes_keywords : (show.keywords ? show.keywords : '');
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
     const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
 
