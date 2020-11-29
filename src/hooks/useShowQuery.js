@@ -13,7 +13,19 @@ const useShowQuery = (showId) => {
       .then((res) => {
         const data = res.data;
         const {show, audioposts} = data;
-        add({show, audioposts});
+        
+        if(show.recommend_audiopost_id) {
+          const recommend_audiopost = audioposts.filter((a) => a.id === show.recommend_audiopost_id)
+          if(recommend_audiopost && recommend_audiopost.length === 1) {
+            const recommend_episode = recommend_audiopost[0];
+            add({show, audioposts, recommend_episode});
+          } else {
+            add({show, audioposts});
+          }
+        } else {
+          add({show, audioposts});
+        }
+        
         // setShow(res.data);
       })
       .catch((err) => {

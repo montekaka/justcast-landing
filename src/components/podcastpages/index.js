@@ -9,6 +9,7 @@ import EpisodePlayer from './EpisodePlayer'
 import SocialNetworks from './SocialNetworks'
 import SimplePageBody from './SimplePageBody'
 import PodcastApps from './PodcastApps'
+import FeaturedEpisode from './FeaturedEpisode'
 
 export {
   PageHeader,
@@ -21,5 +22,6 @@ export {
   EpisodePlayer,
   SocialNetworks,
   SimplePageBody,
-  PodcastApps
+  PodcastApps,
+  FeaturedEpisode
 }

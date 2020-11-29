@@ -10,6 +10,7 @@ const initState = {
   buttonTextColor: null,
   navbarColorTheme: null,
   audioposts: [],
+  recommend_episode: null,
 }
 
 const publicPodcastReducer = (state, action) => {
@@ -22,8 +23,8 @@ const publicPodcastReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({show, audioposts}) => {
-    dispatch({type: 'add', payload: {...show, audioposts}})
+  return ({show, audioposts, recommend_episode}) => {    
+    dispatch({type: 'add', payload: {...show, audioposts, recommend_episode}})
   }
 }
 
