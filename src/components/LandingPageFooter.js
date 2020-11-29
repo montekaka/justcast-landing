@@ -4,6 +4,7 @@ import {Context as LocalStorageContext} from '../context/LocalStorageContext'
 import {Link} from 'react-router-dom'
 import fbicon from './../assets/img/icons/social/facebook.svg'
 import twtricon from './../assets/img/icons/social/twitter.svg'
+import discordicon from './../assets/img/icons/social/discord.svg'
 
 const LandingPageFooter = () => {
   const {state, getURL} = useContext(LocalStorageContext);
@@ -44,6 +45,12 @@ const LandingPageFooter = () => {
                   <img src={twtricon} className="list-social-icon" alt="justcast twitter page"/>
                 </a>
               </li>
+              <li className="list-inline-item list-social-item mr-3">
+                <a href="https://discord.gg/hYTEdGUXsN" className="text-decoration-none">
+                  <img src={discordicon} className="list-social-icon" alt="justcast discord page"/>
+                </a>
+              </li>
+              
             </ul>
 
           </div>
