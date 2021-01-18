@@ -12,6 +12,7 @@ export const playerAtom = atom({
   onReady: false,
   playerRef: null,
   playing: false,
+  seeking: false,
   openModal: false,
 })
 

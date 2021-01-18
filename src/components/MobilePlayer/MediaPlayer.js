@@ -8,7 +8,7 @@ const MediaPlayer = () => {
   const [player] = useAtom(playerAtom);
   const [, playerRefSet] = useAtom(addPlayerRefAtom);
   const [, playerStatusSet] = useAtom(updatePlayerStatus);
-  
+  const { seeking } = player;
   // const playerRef = useRef(null);
 
   // useEffect(() => {
@@ -35,8 +35,10 @@ const MediaPlayer = () => {
             playerStatusSet({durationSeconds})
           }}
           onProgress={(res) => {
-            const playedSeconds = res.playedSeconds;
-            playerStatusSet({playedSeconds})
+            if(!seeking) {
+              const playedSeconds = res.playedSeconds;            
+              playerStatusSet({playedSeconds})
+            }
           }}
           onReady={(res) => {
             if(res) {

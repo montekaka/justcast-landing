@@ -34,7 +34,6 @@ const PlayerControls = () => {
     return (
       <>
         <PlayerProgress/>
-
         <div className="music-changer">
           <div className="prev" onClick={() => {
             handleSeekTo(-30)
@@ -50,22 +49,6 @@ const PlayerControls = () => {
             <p>+30s</p>
           </div>
         </div> 
-
-        {/* <div className="mobile-player-buttons">
-          <div onClick={() => {
-            handleSeekTo(-30)
-          }} className="">
-            <img src={minus30s} width="40"/>
-          </div>
-          <div onClick={toggle} className="">
-            {playing ? <img src={pauseIcon} width="80"/> : <img src={playIcon} width="80"/>}
-          </div>
-          <div onClick={() => {
-            handleSeekTo(30)
-          }} className="">
-            <img src={add30s} width="40"/>
-          </div>
-        </div> */}
       </>
     )
   }

@@ -1,5 +1,5 @@
 .mobile-music-player {
-  height: 550px;
+  height: 600px;
   width: 265px;
   position: absolute;
   top: 50%;
@@ -63,6 +63,13 @@
 .mobile-music-player > .music-detail > h2 {
   color: #444;
   font-size: 20px;
+}
+
+.mobile-music-player > .music-detail > p {
+  display: block;
+  margin-top: 5px;
+  color: #444;
+  font-size: 13px;
 }
 
 .mobile-music-player > .play-timeline {

@@ -15,7 +15,7 @@ const PlayerMeta = () => {
     return (
       <>
         <div className="music-top-icon">
-          <p>{podcast.name}</p>
+        <p>Playing Now</p>
           <div className="music-bar">
             <i className="fe fe-menu"/>
           </div>
@@ -25,6 +25,7 @@ const PlayerMeta = () => {
         </div>
         <div className="music-detail">
           <h2>{player.name}</h2>
+          <p>{podcast.name}</p>
         </div>
         {/* <div className="menu">
           <div className="btn btn-primary btn-sm" onClick={toggleModalSet}>

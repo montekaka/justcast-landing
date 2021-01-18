@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 import moment from 'moment'
-import { CustomInput, Progress } from 'reactstrap';
 import { useAtom } from 'jotai';
-import { playerAtom } from '../../jotai'
+import { playerAtom, updatePlayerStatus } from '../../jotai'
 
 const PlayerProgress = () => {
   const [player] = useAtom(playerAtom);
-  // const [, playerStatusSet] = useAtom(updatePlayerStatus);
+  const [, playerStatusSet] = useAtom(updatePlayerStatus);
   const [seekTo, setSeekTo] = useState(0);
 
   const {durationSeconds, playedSeconds} = player;
@@ -20,11 +19,18 @@ const PlayerProgress = () => {
   // moues up update the seconds 
 
   const handleSliderChange = (event) => {
-    setSeekTo(event.target.value);
+    const sec = event.target.value;
+    setSeekTo(sec);
+    playerStatusSet({playedSeconds: sec})
   }
 
   const handleSeekMouseUp = () => {
-    player.playerRef.seekTo(seekTo, 'seconds');
+    player.playerRef.seekTo(seekTo, 'seconds');    
+    playerStatusSet({seeking: false})
+  }
+
+  const handleSeekStart = () => {    
+    playerStatusSet({seeking: true})
   }
 
   return (
@@ -42,6 +48,7 @@ const PlayerProgress = () => {
           min={0} 
           max={durationSeconds}
           step='any'
+          onMouseDown={handleSeekStart}
           onMouseUp={handleSeekMouseUp}
           onChange={handleSliderChange}
         />
