@@ -1,16 +1,20 @@
 import React from "react";
 import PlayerMeta from './PlayerMeta';
-import MediaPlayer from './MediaPlayer'
-import PlaylistModal from './PlaylistModal'
+import MediaPlayer from './MediaPlayer';
+import PlaylistModal from './PlaylistModal';
+import Header from './Header';
 
 const PlayerContainer = () => {
 
   return (
-    <div className="mobile-music-player">
+    <>
       <PlaylistModal/>
-      <PlayerMeta/>
-      <MediaPlayer/>
-    </div>     
+      <div className="mobile-music-player">  
+        <Header/>    
+        <PlayerMeta/>
+        <MediaPlayer/>
+      </div>     
+    </>
   )
 }
 

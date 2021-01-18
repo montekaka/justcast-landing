@@ -32,7 +32,7 @@ const PlayerControls = () => {
 
   if(player && player.playerRef) {
     return (
-      <>
+      <div className="player-controls">
         <PlayerProgress/>
         <div className="music-changer">
           <div className="prev" onClick={() => {
@@ -49,7 +49,7 @@ const PlayerControls = () => {
             <p>+30s</p>
           </div>
         </div> 
-      </>
+      </div>
     )
   }
   return null;
