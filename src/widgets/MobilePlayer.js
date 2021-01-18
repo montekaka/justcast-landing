@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import { useAtom } from 'jotai';
 import justcastApi from '../api/justcast'
 import { addPodcastAtom, addEpisodesAtom, addPlayerAtom } from './../jotai'
+import { PlayerContainer} from './../components/MobilePlayer'
 
 const MobilePlayer = (props)  => {
   const id = props.match.params.id;
@@ -27,7 +28,9 @@ const MobilePlayer = (props)  => {
 
   }, [id])
 
-  return <h1>Hello</h1>;
+  return (
+    <PlayerContainer/> 
+  );
 }
 
 export default MobilePlayer;
