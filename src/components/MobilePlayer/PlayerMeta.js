@@ -13,18 +13,25 @@ const PlayerMeta = () => {
 
   if(podcast && player && podcast.name && player.name) {
     return (
-      <div className="player-meta">
-        <div className="player-meta-title">{podcast.name}</div>
-        <div className="player-meta-artwork">
-          <img src={podcast.artwork_url} name="podcast artwork" style={{width: 200, height: 200}}/>
-        </div>        
-        <div className="player-meta-subtitle">{player.name}</div>
-        <div className="menu">
+      <>
+        <div className="music-top-icon">
+          <p>{podcast.name}</p>
+          <div className="music-bar">
+            <i className="fe fe-menu"/>
+          </div>
+        </div>
+        <div className="music-album-photo">
+          <img src={podcast.artwork_url} name="podcast artwork"/>
+        </div>
+        <div className="music-detail">
+          <h2>{player.name}</h2>
+        </div>
+        {/* <div className="menu">
           <div className="btn btn-primary btn-sm" onClick={toggleModalSet}>
             <i className="fe fe-menu"></i>  Episodes
           </div>
-        </div>
-      </div>
+        </div> */}
+      </>
     )
   }
   

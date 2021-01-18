@@ -32,8 +32,25 @@ const PlayerControls = () => {
 
   if(player && player.playerRef) {
     return (
-      <div className="mobile-player-controls">
+      <>
         <PlayerProgress/>
+
+        <div className="music-changer">
+          <div className="prev" onClick={() => {
+            handleSeekTo(-30)
+          }}>
+            <p>-30s</p>
+          </div>
+          <div className="pause" onClick={toggle}>
+            {playing ? <i className="fe fe-pause"/> : <i className="fe fe-play"/>}
+          </div>
+          <div className="next" onClick={() => {
+            handleSeekTo(30)
+          }}>
+            <p>+30s</p>
+          </div>
+        </div> 
+
         {/* <div className="mobile-player-buttons">
           <div onClick={() => {
             handleSeekTo(-30)
@@ -49,7 +66,7 @@ const PlayerControls = () => {
             <img src={add30s} width="40"/>
           </div>
         </div> */}
-      </div>
+      </>
     )
   }
   return null;

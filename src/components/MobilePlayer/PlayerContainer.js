@@ -6,7 +6,7 @@ import PlaylistModal from './PlaylistModal'
 const PlayerContainer = () => {
 
   return (
-    <div className="container-fluid">
+    <div className="mobile-music-player">
       <PlaylistModal/>
       <PlayerMeta/>
       <MediaPlayer/>

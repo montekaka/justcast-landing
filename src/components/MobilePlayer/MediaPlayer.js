@@ -21,7 +21,7 @@ const MediaPlayer = () => {
   if(player && player.audio_url) {
     // console.log(player)
     return (
-      <div className="fixed-bottom">
+      <>
         <PlayerControls/>
         <ReactPlayer url={player.audio_url}
           // ref={playerRef}
@@ -45,7 +45,7 @@ const MediaPlayer = () => {
           }}
           playing={player.playing}
         />
-      </div>
+      </>
     )
 
   }

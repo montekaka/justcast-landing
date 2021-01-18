@@ -15,8 +15,8 @@ const PlayerProgress = () => {
   const durationString = durationSeconds > 1 ? moment.duration(Math.floor(durationSeconds), "seconds").format() : "0:00"
   
   // slider change
-  // mouse down, do not do any thing
-  // slider then keep change the time
+  // mouse down, then stop update played time from the player
+  // change then update the played time
   // moues up update the seconds 
 
   const handleSliderChange = (event) => {
@@ -28,8 +28,25 @@ const PlayerProgress = () => {
   }
 
   return (
-    <div className="mobile-player-progress-control">
-      <div className="miscellaneous">
+    <>
+      <div className="play-timeline">
+        <div className="time">
+          <span>{playedString}</span>
+          <span>{durationString}</span>
+        </div>
+        <input 
+          id="player-progressbar"
+          className="timeline-bar" 
+          type="range" 
+          value={playedSeconds}
+          min={0} 
+          max={durationSeconds}
+          step='any'
+          onMouseUp={handleSeekMouseUp}
+          onChange={handleSliderChange}
+        />
+      </div>
+      {/* <div className="miscellaneous">
         <div className="player-progress-bar">
           <CustomInput
             id="player-progressbar" //"footer-player-progressbar"
@@ -45,12 +62,8 @@ const PlayerProgress = () => {
           />
           <Progress max={durationSeconds} value={playedSeconds} />      
         </div>
-        <div className="player-times">          
-          <span>{playedString}</span>
-          <span>{durationString}</span>
-        </div>
-      </div>      
-    </div>
+      </div>       */}
+    </>
 
   )
 }

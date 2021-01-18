@@ -29,7 +29,9 @@ const MobilePlayer = (props)  => {
   }, [id])
 
   return (
-    <PlayerContainer/> 
+    <div style={{height: "100vh", width: "100%", background: "#d0dee9", margin: 0, padding: 0, boxSizing: 'border-box'}}>
+      <PlayerContainer/> 
+    </div>
   );
 }
 
