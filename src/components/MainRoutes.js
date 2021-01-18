@@ -21,6 +21,7 @@ import BlogPost from './../landingpages/BlogPost'
 import HowJustCastWorks from './../landingpages/HowJustCastWorks'
 import SingleWidgetPlayer from './../widgets/SingleWidgetPlayer'
 import WidgetPlaylist from './../widgets/WidgetPlaylist'
+import MobilePlayer from './../widgets/MobilePlayer'
 import PrivatePodcast from './../podcasters/PrivatePodcast'
 import PrivatePodcastInvite from './../podcasters/PrivatePodcastInvite'
 import PublicPodcast from './../podcasters/PublicPodcast'
@@ -48,6 +49,7 @@ const MainRoutes = () => {
       <Route exact path="/podcasts/:show_id/" component={PublicPodcast}/>
       <Route exact path="/widget/:show_id/audioposts/:id" component={SingleWidgetPlayer} />
       <Route exact path="/widget/:id/audioposts" component={WidgetPlaylist} />
+      <Route exact path="/mobile-player-widget/:id/audioposts" component={MobilePlayer} />
       <LandingPageRoute exact path="/" component={Home}/>
       <LandingPageRoute exact path="/features-pricing" component={Pricing}/>
       <LandingPageRoute exact path="/terms" component={TermsOfService}/>
