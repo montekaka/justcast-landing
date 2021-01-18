@@ -48,12 +48,12 @@ const PlayerProgress = () => {
           min={0} 
           max={durationSeconds}
           step='any'
-          onTouchStart={handleSeekStart}
-          onTouchEnd={handleSeekMouseUp}
-          onTouchMove={handleSliderChange}
-          // onMouseDown={handleSeekStart}
-          // onMouseUp={handleSeekMouseUp}
-          // onChange={handleSliderChange}
+          // onTouchStart={handleSeekStart}
+          // onTouchEnd={handleSeekMouseUp}
+          // onTouchMove={handleSliderChange}
+          onMouseDown={handleSeekStart}
+          onMouseUp={handleSeekMouseUp}
+          onChange={handleSliderChange}
         />
       </div>
       {/* <div className="miscellaneous">
