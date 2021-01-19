@@ -16,7 +16,7 @@
 }
 
 .mobile-music-player > .music-top-icon {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   width: 100%;
   height: 35px;
   padding: 0, 5px;
@@ -44,14 +44,14 @@
   cursor: pointer;
   font-size: 12px;
 }
-
+/* 
 .mobile-music-player > .player-meta-data {
   flex-grow: 3;
-}
+} */
 
 .mobile-music-player > .player-meta-data > .music-album-photo {
-  height: 180px;
-  width: 180px;
+  height: 160px;
+  width: 160px;
   overflow: hidden;
   margin: 25px auto;
   border-radius: 50%;
@@ -59,8 +59,8 @@
 }
 
 .mobile-music-player > .player-meta-data > .music-album-photo > img {
-  height: 180px;
-  width: 180px;
+  height: 160px;
+  width: 160px;
 }
 
 .mobile-music-player > .player-meta-data > .music-detail {
@@ -83,10 +83,9 @@
   font-size: 13px;
 }
 
-.mobile-music-player > .player-controls {
+/* .mobile-music-player > .player-controls {
   flex-grow: 1;
-  /* background-color: #abd; */
-}
+} */
 
 .mobile-music-player > .player-controls > .play-timeline {
   margin-top: 20px;
@@ -148,4 +147,8 @@
   height: 50px;
   width: 50px;
   line-height: 50px;
+}
+
+.mobile-music-player > .playlist-table {
+  margin-top: 40px;
 }

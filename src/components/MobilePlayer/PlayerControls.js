@@ -30,7 +30,7 @@ const PlayerControls = () => {
     }
   }
 
-  if(player && player.playerRef) {
+  //if(player && player.playerRef) {
     return (
       <div className="player-controls">
         <PlayerProgress/>
@@ -50,9 +50,10 @@ const PlayerControls = () => {
           </div>
         </div> 
       </div>
-    )
-  }
-  return null;
+     )
+  // }
+
+  // return null;
 }
 
 export default PlayerControls;

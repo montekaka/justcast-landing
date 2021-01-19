@@ -2,6 +2,7 @@ import React from "react";
 import PlayerMeta from './PlayerMeta';
 import MediaPlayer from './MediaPlayer';
 import PlaylistModal from './PlaylistModal';
+import PlaylistTable from './PlaylistTable';
 import Header from './Header';
 
 const PlayerContainer = () => {
@@ -13,6 +14,7 @@ const PlayerContainer = () => {
         <Header/>    
         <PlayerMeta/>
         <MediaPlayer/>
+        <PlaylistTable/>
       </div>     
     </>
   )

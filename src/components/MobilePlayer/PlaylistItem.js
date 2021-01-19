@@ -31,22 +31,13 @@ const PlaylistItem = (props) => {
   }
 
   return (
-    <div className={`list-group-item ${activeClass}`} onClick={handleClick}>
-      <div className="row">
-        <div className="col-auto">
-          <div className="avatar avatar-sm">            
-            <img src={artwork_url} alt={`${name} artwork`} className="avatar-img rounded-circle"/>            
-          </div>
-        </div>
-        <div className="col ml-n2">
-          <p className="small mb-0">
-            <strong>{name}</strong>
-          </p>
-          <small>
-            Publish date: {date}
-          </small>     
-        </div>
-      </div>
+    <div className={`list-group-item ${activeClass}`} onClick={handleClick}>      
+      <p className="small mb-0">
+        <strong>{name}</strong>
+      </p>
+      <small>
+        Publish date: {date}
+      </small>       
     </div>
   )
 }

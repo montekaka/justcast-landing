@@ -18,7 +18,7 @@ const MediaPlayer = () => {
   //   }
   // }, [playerRef])
   
-  if(player && player.audio_url) {
+  //if(player && player.audio_url) {
     // console.log(player)
     return (
       <>
@@ -50,9 +50,9 @@ const MediaPlayer = () => {
       </>
     )
 
-  }
+  //}
 
-  return null;
+  // return null;
 }
 
 export default MediaPlayer;
