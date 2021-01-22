@@ -257,11 +257,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.widget-playlist > .playlist-items > .widget-playlist-item > .title {
-  flex-grow: 2;
-}
-
-.widget-playlist > .playlist-items > .widget-playlist-item > .duration {
-  flex-grow: 1;
-}
