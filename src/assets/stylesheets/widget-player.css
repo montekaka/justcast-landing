@@ -238,7 +238,7 @@
 }
 
 .widget-playlist > .playlist-items {
-  max-height: 300px;  
+  height: 300px;
   overflow: scroll;
 }
 .widget-playlist > .playlist-items > .selected-item {
@@ -249,11 +249,19 @@
 .widget-playlist > .playlist-items > .widget-playlist-item {
   padding: 10px 20px;
   opacity: 0.75;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   font-size: 13px;
   line-height: 20px;
   /* white-space: nowrap; */
   word-wrap: break-word;
   display: flex;
   justify-content: space-between;
+}
+
+.widget-playlist > .playlist-items > .widget-playlist-item > .title {
+  flex-grow: 2;
+}
+
+.widget-playlist > .playlist-items > .widget-playlist-item > .duration {
+  flex-grow: 1;
 }
