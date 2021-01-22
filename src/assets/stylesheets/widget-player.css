@@ -239,6 +239,7 @@
 
 .widget-playlist > .playlist-items {
   height: 300px;
+  padding-bottom: 140px;
   overflow: scroll;
 }
 .widget-playlist > .playlist-items > .selected-item {
