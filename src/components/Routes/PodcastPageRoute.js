@@ -8,7 +8,7 @@ import {Context as PublicPodcastContext} from '../../context/PublicPodcastContex
 const PodcastPageRoute = ({ component: Component, ...rest }) => {  
 
   const {state} = useContext(PublicPodcastContext);
-  const {is_private, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
+  const {is_private, enabled_tip_jar, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
   // const {cardBackgroundColor} = state.show;
   
   return (    
@@ -17,7 +17,8 @@ const PodcastPageRoute = ({ component: Component, ...rest }) => {
       <TopNavbars
         is_private={is_private}
         name={name} 
-        slug={slug} 
+        slug={slug}
+        enabled_tip_jar={enabled_tip_jar} 
         navbarColorTheme={navbarColorTheme}
         buttonTextColor={buttonTextColor}
         buttonColor={buttonColor} 

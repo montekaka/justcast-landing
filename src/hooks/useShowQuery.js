@@ -13,6 +13,8 @@ const useShowQuery = (showId) => {
       .then((res) => {
         const data = res.data;
         const {show, audioposts} = data;
+
+        console.log(data)
         
         if(show.recommend_audiopost_id) {
           const recommend_audiopost = audioposts.filter((a) => a.id === show.recommend_audiopost_id)
