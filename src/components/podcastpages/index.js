@@ -10,6 +10,7 @@ import SocialNetworks from './SocialNetworks'
 import SimplePageBody from './SimplePageBody'
 import PodcastApps from './PodcastApps'
 import FeaturedEpisode from './FeaturedEpisode'
+import TipJarPrices from './TipJarPrices'
 
 export {
   PageHeader,
@@ -23,5 +24,6 @@ export {
   SocialNetworks,
   SimplePageBody,
   PodcastApps,
-  FeaturedEpisode
+  FeaturedEpisode,
+  TipJarPrices
 }

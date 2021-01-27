@@ -12,10 +12,7 @@ const useShowQuery = (showId) => {
       justcastApi.get((`/v1/shows/${showId}/audioposts`))
       .then((res) => {
         const data = res.data;
-        const {show, audioposts} = data;
-
-        console.log(data)
-        
+        const {show, audioposts} = data;        
         if(show.recommend_audiopost_id) {
           const recommend_audiopost = audioposts.filter((a) => a.id === show.recommend_audiopost_id)
           if(recommend_audiopost && recommend_audiopost.length === 1) {

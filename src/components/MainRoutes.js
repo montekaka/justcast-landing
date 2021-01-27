@@ -32,7 +32,8 @@ import {Home as PublicPodcastHome,
   Episodes as PublicPodcastEpisodes,
   Episode as PublicPodcastEpisode,
   About as PublicPodcastAbout,
-  Subscribe as PublicPodcastSubscribe
+  Subscribe as PublicPodcastSubscribe,
+  Tipjar as PublicPodcastTipjar
 } from '../podcastpages'
 
 const MainRoutes = () => {
@@ -44,6 +45,7 @@ const MainRoutes = () => {
       <PublicPodcastPageRoute exact path="/shows/:id/episodes" component={PublicPodcastEpisodes}/>      
       <PublicPodcastPageRoute exact path="/shows/:id/subscribe" component={PublicPodcastSubscribe}/>
       <PublicPodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={PublicPodcastEpisode}/>
+      <PublicPodcastPageRoute exact path="/shows/:id/support_us" component={PublicPodcastTipjar}/>
       <Route exact path="/shows/:show_id/subscribers/:id" component={PrivatePodcast}/>
       <Route exact path="/shows/:show_id/subscribers_invite" component={PrivatePodcastInvite}/>
       <Route exact path="/podcasts/:show_id/" component={PublicPodcast}/>

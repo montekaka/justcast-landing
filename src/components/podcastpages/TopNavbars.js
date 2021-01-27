@@ -54,8 +54,8 @@ const TopNavbars = (props) => {
               </NavItem>
               {
                 enabled_tip_jar ? <NavItem onClick={handleNavItemClicked}>
-                  <NavLink to={`/shows/${slug}/subscribe`} tag={Link}>SUPPORT US</NavLink>
-                </NavItem>  : null
+                  <NavLink to={`/shows/${slug}/support_us`} tag={Link}>SUPPORT US</NavLink>
+                </NavItem> : null
               }                           
             </Nav>
             <a

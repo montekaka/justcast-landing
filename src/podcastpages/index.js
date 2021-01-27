@@ -2,6 +2,7 @@ import Home from './Home'
 import About from './About'
 import Episodes from './Episodes'
 import Episode from './Episode'
+import Tipjar from './Tipjar'
 import Subscribe from './Subscribe'
 
 export {
@@ -9,5 +10,6 @@ export {
   About,
   Episodes,
   Episode,
-  Subscribe
+  Subscribe,
+  Tipjar
 }
