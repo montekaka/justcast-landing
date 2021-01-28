@@ -8,6 +8,10 @@ import { useShowQuery } from '../hooks'
 import {Layout, SimplePageHeader, TipJarPrices } from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+
 const Tipjar = (props) => {
   const { state } = useContext(PublicPodcastContext);  
   const id = props.match.params.id;
@@ -24,6 +28,33 @@ const Tipjar = (props) => {
       console.log(err);
     })
   }, [id])  
+
+  const handlePriceClick = (price_id) => {
+    console.log({price_id})
+    // justcastApi.post(`/v1/create-checkout-session/${price_id}`)
+    // .then((res) => {
+    //   return res.data;
+    // })
+    // .then((session) => {
+    //   return stripePromise.redirectToCheckout({
+    //     sessionId: session.id
+    //   })
+    // })
+    // .then((res) => {
+    //   if(res.error) {
+    //     console.log(res.error.message);
+    //     // If `redirectToCheckout` fails due to a browser or network
+    //     // error, display the localized error message to your customer
+    //     // using `result.error.message`.         
+    //   }
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    //   // If `redirectToCheckout` fails due to a browser or network
+    //   // error, display the localized error message to your customer
+    //   // using `result.error.message`.      
+    // })    
+  }
   
   if(state.is_private) {
     return <PrivateShow/>;
@@ -44,7 +75,10 @@ const Tipjar = (props) => {
           </div>
           <div className="row justify-content-center">
             <div className="col-12 col-md-12 col-lg-10">
-              <TipJarPrices prices={prices}/>
+              <TipJarPrices 
+                prices={prices}
+                handlePriceClick={handlePriceClick}
+              />
             </div>
           </div>
         </div>
