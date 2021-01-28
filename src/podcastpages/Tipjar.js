@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
+import { loadStripe } from "@stripe/stripe-js";
 import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import justcastApi from '../api/justcast'
