@@ -6,7 +6,7 @@ const TipJarPrices = (props) => {
 
   if(prices) {
     return (
-      <>
+      <div style={{display: "flex", justifyContent: 'center'}}>
       {
         prices.map((price) => 
           <TipJarPrice 
@@ -18,7 +18,7 @@ const TipJarPrices = (props) => {
           />
         )
       }
-      </>
+      </div>
     )
   }
 
