@@ -6,6 +6,8 @@ import {playerAtom, addPlayerAtom,
   changeEpisodeAtom
 } from './playerAtom'
 
+import {notificationAtom, addNotifcationAtom} from './NotificationAtom';
+
 export {
   podcastAtom,
   addEpisodesAtom,
@@ -16,5 +18,7 @@ export {
   addPlayerRefAtom,
   updatePlayerStatus,
   toggleModal,
-  changeEpisodeAtom
+  changeEpisodeAtom,
+  notificationAtom,
+  addNotifcationAtom
 }
