@@ -1,10 +1,12 @@
 import React, {useEffect, useState, useContext} from "react";
+import { useAtom } from "jotai";
 import { loadStripe } from "@stripe/stripe-js";
 import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import justcastApi from '../api/justcast'
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
 import { useShowQuery } from '../hooks'
+import { addNotifcationAtom } from './../jotai'
 import {Layout, SimplePageHeader, TipJarPrices } from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 
@@ -17,6 +19,7 @@ const Tipjar = (props) => {
   const id = props.match.params.id;
   const [prices, setPrices] = useState([]);
   const [accountId, setAccountId] = useState('');
+  const [, addNotifcation] = useAtom(addNotifcationAtom);
   
   // const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
   // let stripePromise;
@@ -33,6 +36,21 @@ const Tipjar = (props) => {
       console.log(err);
     })
   }, [id])  
+
+
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("success")) {
+      addNotifcation({title: "Success", message: "Order placed! You will receive an email confirmation.", active: true});
+      // setMessage("Order placed! You will receive an email confirmation.");
+    }
+    if (query.get("canceled")) {
+      addNotifcation({title: "Error", 
+        message: "Order canceled -- continue to enjoy the podcast and tip to support when you're ready.",
+        active: true});
+    }
+  }, []);  
 
   const handlePriceClick = (price_id) => {
     // console.log({price_id})
@@ -61,14 +79,13 @@ const Tipjar = (props) => {
         console.log(res.error.message);
         // If `redirectToCheckout` fails due to a browser or network
         // error, display the localized error message to your customer
-        // using `result.error.message`.         
+        // using `result.error.message`.
+        const message = res.error.message;   
+        addNotifcationAtom({title: 'Error', message, active: true})
       }
     })
     .catch((err) => {
-      console.log(err);
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.      
+      console.log(err);     
     })    
   }
   

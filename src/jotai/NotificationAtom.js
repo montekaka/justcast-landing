@@ -15,7 +15,13 @@ export const addNotifcationAtom = atom(null, (_get, set, input) => {
   setTimeout(() => {
     set(notificationAtom, () => {
       // const {title, message, active} = input
-      return {title: "", message: "", active: 3000};
+      return {title: "", message: "", active: false};
     });
-  }, 3000)
+  }, 5000)
+})
+
+export const closeNotifcationAtom = atom(null , (_get, set, input) => {
+  set(notificationAtom, () => {
+    return {title: "", message: "", active: false};
+  })
 })
