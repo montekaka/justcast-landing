@@ -88,7 +88,11 @@ const Episode = (props) => {
       <SimplePageHeader
         title={audiopost.name}
         text={audioDate}  
-      />
+      >
+        <a className="btn btn-primary lift" href={audiopost.audio_url} download={audiopost.name} alt={`Download ${audiopost.name}`}>
+          <i className="fe fe-download"/> Download
+        </a>
+      </SimplePageHeader>
       <Layout>      
         <div className="container">
           <div className="row justify-content-center">
