@@ -139,6 +139,66 @@ app.get('/shows/:id/audioposts', function(request, response) {
 });
 
 
+app.get('/shows/:id/support_us', function(request, response) {
+  const id = request.params.id;
+  instance.get(`/v1/shows/${id}`)
+  .then((res) => {
+
+    const show = res.data;    
+    const url = show.link;
+    const title = `${show.name} | Support us`;
+    const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
+    const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
+    const img_16 = show.artwork_url_16;
+    const img_32 = show.artwork_url_32;
+    const img_64 = show.artwork_url_64;
+    const img_256 = show.artwork_url_256;
+    const custom_favicon_image = show.custom_favicon_image;
+
+    const keywords = show.itunes_keywords ? show.itunes_keywords : '';
+    const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
+    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+
+    const rss_url = show.rss_feed;
+    const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
+    
+    const meta = {
+      title,
+      description,
+      img,
+      keywords,
+      url,
+      img_16: img_16,
+      img_32: img_32,
+      img_64: img_64,
+      img_256: img_256,
+      twitter_handle,
+      apple_iutnes_app_id,
+      rss_url: rss_url,
+      custom_favicon_image,
+      backgroundColorClass
+    }
+
+    if(show.is_private_show) {
+      // redirect to error page
+      response.redirect('/page_404')
+    } else {
+      fs.readFile(filePath, 'utf8', function (err,data) {
+        if (err) {
+          return console.log(err);
+        }
+        const result = SEOHelpers.set(meta, data)
+        response.send(result);
+      });
+    }
+  })
+  .catch((err) => {
+    // TODO: redirect to error page    
+    response.redirect('/error')
+  })
+});
+
+
 app.get('/podcasts/:id', function(request, response) {
   const id = request.params.id;
   instance.get(`/v1/shows/${id}`)
