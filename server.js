@@ -793,7 +793,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
 
     const show = res.data.show;
     const url = show.link;
-    const title = `${show.name} | About Us`;
+    const title = `${show.name}`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
