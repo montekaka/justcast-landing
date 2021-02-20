@@ -5,7 +5,7 @@ const faqs = [
     title: 'How many podcasts can I have?',
     classNameItem: 'mb-6',
     paragraphs: [
-      `You can create as many podcasts as you'd like on JustCast, starting at $5 / month.`,
+      `You can create as many podcasts as you'd like on JustCast, starting at $9 / month.`,
       `Each podcast is a separate show and can contain unlimited episodes. Your storage limits is based on your storage limits with Dropbox.`
     ]
   }, 
@@ -27,7 +27,8 @@ const faqs = [
       `Customizable podcast website`,
       `Standard analytics`,
       `Embeddable audio player`,
-      `Audiogram to turn your podcast into engaging animated videos to share on social media`
+      `Audiogram to turn your podcast into engaging animated videos to share on social media`,
+      `Tip jar`
     ]
   },
   {

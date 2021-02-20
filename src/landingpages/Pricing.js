@@ -11,7 +11,7 @@ const Pricing = () => {
       <ShapeHeader 
         title={"Features & Pricing"} 
         subtitle="From your first listener to your first million, JustCast provides powerful tools needed to manage, distribute, share, and grow your podcast."/>
-      <LandingPagePricing sectionClassName="mt-n8 mt-md-n14" titleColor="text-white-80"/>      
+        <LandingPagePricing sectionClassName="mt-n8 mt-md-n14" titleColor="text-white-80"/>      
     </>
   )
 }

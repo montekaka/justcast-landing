@@ -7,6 +7,19 @@ import {localStorageManagement} from '../../libs'
 const LandingPagePricing = ({sectionClassName, titleColor}) => {
   const [isMonthlyPlan, setIsMonthlyPlan] = useState(true);
 
+  const podcasterFeatures = [ 
+    {label: 'Create unlimited podcasts', id: "feature1"},
+    {label: 'Unlimited episodes', id: "feature2"},    
+    {label: 'Tip Jar', id: "feature10"},    
+    {label: 'Embedded player', id: "feature3"},
+    {label: 'Podcast website',  id: "feature4"},
+    {label: 'Standard analytics', id: "feature5"},
+    {label: 'Episode scheduler',  id: "feature6"},
+    {label: 'Audiogram (beta)', id: "feature7"},
+    {label: 'Private podcasting', id: "feature9"},    
+    {label: 'Chat & email support', id: "feature8"},
+  ]
+
   const handleSwitchChange = () => {
     setIsMonthlyPlan(!isMonthlyPlan)
   }
@@ -25,7 +38,13 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
           <div>
             <div className="row justify-content-center">
               <div className="col-12 col-md-10 col-lg-8 text-center">
-                <h1 className={titleColor}>Podcaster</h1>
+                <h1>Podcaster</h1>
+                <div className="text-center">
+                  {
+                    podcasterFeatures.map((feature) => <span key={feature.id} className="badge badge-primary-soft" style={{fontSize: "1.2em", margin: 10}}>{feature.label} <i className="fe fe-check-circle"/></span>)
+                  }
+                </div>
+                <br/>
               </div>
             </div>
           </div>        
@@ -50,7 +69,7 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
           <div>
             <div className="row justify-content-center">
               <div className="col-12 col-md-10 col-lg-8 text-center">
-                <h1 className={titleColor}>Personal</h1>
+                <h1>Personal</h1>
               </div>
             </div>
           </div>               
@@ -59,10 +78,10 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
               <PriceCard title="Personal" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 5: 50} buttonLabel="Try for Free" buttonClassName="btn-primary" features={["Create unlimited podcasts", "Unlimited episodes", "Private podcasting", "Chat & email support"]}/>
             </div> 
           </div>  
-          {/* <div className="row text-white">
-            <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p>
+          <div className="row text-white">
+            {/* <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p> */}
             <p>Need more bandwidth and spaces?  <a href="mailto:justcastapp@gmail.com" className="badge badge-warning">Contact us <span className="fe fe-mail"></span></a>  for a quota</p>
-          </div> */}
+          </div>
         </div>
       </section>
       <FAQs/>
