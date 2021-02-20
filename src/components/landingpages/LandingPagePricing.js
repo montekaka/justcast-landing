@@ -22,21 +22,47 @@ const LandingPagePricing = ({sectionClassName, titleColor}) => {
               <p className="lead mb-6 mb-md-8">12 months for the price of 10 when you pay yearly.</p>
             </div>
           </div>
+          <div>
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-10 col-lg-8 text-center">
+                <h1 className={titleColor}>Podcaster</h1>
+              </div>
+            </div>
+          </div>        
           <div className="row mb-5">
-            <div className="col-12 col-md-6 col-lg-4">
+            {/* <div className="col-12 col-md-6 col-lg-4">
               <PriceCard title="TESTER" periodLabel="Forever" price={0} buttonLabel="Try for Free" buttonClassName="btn-primary-soft" features={['Create unlimited podcasts','3 Items in RSS feed','Chat & email support']}/>
             </div>
             <div className="col-12 col-md-6 col-lg-4">
               <PriceCard title="PERSONAL" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 5: 50} buttonLabel="Try for Free" buttonClassName="btn-primary" features={['Create unlimited podcasts', 'Unlimited episodes', 'Private podcasting', 'Chat & email support']}/>
+            </div> */}
+            {/* ['Create unlimited podcasts', 'Unlimited episodes', 'Embedded player', 'Podcast website', 'Standard analytics', 'Episode scheduler', 'Audiogram (beta)', 'Private podcasting', 'Chat & email support'] */}
+            <div className="col-12 col-lg-4">
+              <PriceCard title="Starter" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 9: 90} buttonLabel="Try for Free" buttonClassName="btn-primary" features={["50,000 downloads/mo"]}/>
             </div>
             <div className="col-12 col-lg-4">
-              <PriceCard title="PROFESSIONAL" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 7: 70} buttonLabel="Try for Free" buttonClassName="btn-primary" features={['Create unlimited podcasts', 'Unlimited episodes', 'Embedded player', 'Podcast website', 'Standard analytics', 'Episode scheduler', 'Audiogram (beta)', 'Private podcasting', 'Chat & email support']}/>
+              <PriceCard title="Plus" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 19: 190} buttonLabel="Try for Free" buttonClassName="btn-primary" features={["200,000 downloads/mo"]}/>
             </div>
-          </div>
-          <div className="row text-white">
+            <div className="col-12 col-lg-4">
+              <PriceCard title="Business" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 90: 900} buttonLabel="Try for Free" buttonClassName="btn-primary" features={["500,000 downloads/mo"]}/>
+            </div>                        
+          </div>   
+          <div>
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-10 col-lg-8 text-center">
+                <h1 className={titleColor}>Personal</h1>
+              </div>
+            </div>
+          </div>               
+          <div className="row mb-5">
+            <div className="col-12 col-lg-12">
+              <PriceCard title="Personal" periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} price={isMonthlyPlan ? 5: 50} buttonLabel="Try for Free" buttonClassName="btn-primary" features={["Create unlimited podcasts", "Unlimited episodes", "Private podcasting", "Chat & email support"]}/>
+            </div> 
+          </div>  
+          {/* <div className="row text-white">
             <p>Basic dropbox accounts are limited to 10 GB/day of bandwidth. Paid dropbox accounts have up to 250 GB/day of bandwidth.</p>
             <p>Need more bandwidth and spaces?  <a href="mailto:justcastapp@gmail.com" className="badge badge-warning">Contact us <span className="fe fe-mail"></span></a>  for a quota</p>
-          </div>
+          </div> */}
         </div>
       </section>
       <FAQs/>

@@ -6,7 +6,7 @@ const LandingPageAbout = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-md-12 col-lg-6" data-aos="fade-right">
-            <h2>The easiest way to start podcasting</h2>          
+            <h2>Integrate with Dropbox</h2>          
             <div className="d-flex">
               <div className="ml-5">
                 <h4 className="mb-1">1. Create a Dropbox folder for your show</h4>
