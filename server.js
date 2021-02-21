@@ -491,8 +491,8 @@ app.get('/shows/:id/about_us', function(request, response) {
 
 app.get('/features-pricing', (request, response) => {
   const meta = {
-    title: "JustCast - Turns your Dropbox into Podcast Hosting",
-    description: "Turns your Dropbox into Podcast Hosting",
+    title: "JustCast - The podcast hosting that save your time.",
+    description: "The easiest way to host, promote, and track your podcast.  Start your podcast today.",
     img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
     img_16: "",
     img_32: "",
@@ -590,8 +590,8 @@ app.get('/blogs/resources-for-church-impacted-by-coronavirus', (request, respons
 
 app.get('/terms', (request, response) => {
   const meta = {
-    title: "JustCast - Turns your Dropbox into Podcast Hosting",
-    description: "Turns your Dropbox into Podcast Hosting",
+    title: "JustCast - The podcast hosting that save your time.",
+    description: "The easiest way to host, promote, and track your podcast.  Start your podcast today.",
     img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
     img_16: "",
     img_32: "",
@@ -614,8 +614,8 @@ app.get('/terms', (request, response) => {
 
 app.get('/privacy', (request, response) => {
   const meta = {
-    title: "JustCast - Turns your Dropbox into Podcast Hosting",
-    description: "Turns your Dropbox into Podcast Hosting",
+    title: "JustCast - The podcast hosting that save your time.",
+    description: "The easiest way to host, promote, and track your podcast.  Start your podcast today.",
     img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
     img_16: "",
     img_32: "",
@@ -639,8 +639,8 @@ app.get('/privacy', (request, response) => {
 
 app.get('/page_404', (request, response) => {
   const meta = {
-    title: "JustCast - Turns your Dropbox into Podcast Hosting",
-    description: "Turns your Dropbox into Podcast Hosting",
+    title: "JustCast - The podcast hosting that save your time.",
+    description: "The easiest way to host, promote, and track your podcast.  Start your podcast today.",
     img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
     img_16: "",
     img_32: "",
@@ -664,8 +664,8 @@ app.get('/page_404', (request, response) => {
 
 app.get('/about_us', (request, response) => {
   const meta = {
-    title: "JustCast - Turns your Dropbox into Podcast Hosting",
-    description: "Turns your Dropbox into Podcast Hosting",
+    title: "JustCast - The podcast hosting that save your time.",
+    description: "The easiest way to host, promote, and track your podcast.  Start your podcast today.",
     img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
     img_16: "",
     img_32: "",
@@ -762,7 +762,7 @@ app.get('/integration-twitter', (request, response) => {
 app.get('/examples', (request, response) => {
   const meta = {
     title: "What podcasts are hosted on JustCast?",
-    description: "Turns your Dropbox into Podcast Hosting",
+    description: "The easiest way to host, promote, and track your podcast.  Start your podcast today.",
     img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
     img_16: "",
     img_32: "",
@@ -965,8 +965,8 @@ app.get('/shows/:show_id/subscribers/:id', function(request, response) {
 
 app.get('/', (request, response) => {
   const meta = {
-    title: "JustCast - Turns your Dropbox into Podcast Hosting",
-    description: "Turns your Dropbox into Podcast Hosting",
+    title: "JustCast - The podcast hosting that save your time.",
+    description: "The easiest way to host, promote, and track your podcast.  Start your podcast today.",
     img: "",
     img_16: "",
     img_32: "",
