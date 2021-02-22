@@ -297,18 +297,27 @@ app.get('/mobile-player-widget/:id/audioposts', function(request, response) {
       backgroundColorClass
     }
 
-    if(show.is_private_show) {
-      // redirect to error page
-      response.redirect('/page_404')
-    } else {
-      fs.readFile(filePath, 'utf8', function (err,data) {
-        if (err) {
-          return console.log(err);
-        }
-        const result = SEOHelpers.set(meta, data)
-        response.send(result);
-      });
-    }
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      const result = SEOHelpers.set(meta, data)
+      response.send(result);
+    });
+
+    // allow everyone has the link to access the widget
+    // if(show.is_private_show) {
+    //   // redirect to error page
+    //   response.redirect('/page_404')
+    // } else {
+    //   fs.readFile(filePath, 'utf8', function (err,data) {
+    //     if (err) {
+    //       return console.log(err);
+    //     }
+    //     const result = SEOHelpers.set(meta, data)
+    //     response.send(result);
+    //   });
+    // }
   })
   .catch((err) => {
     // TODO: redirect to error page
