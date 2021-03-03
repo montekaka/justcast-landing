@@ -44,7 +44,10 @@ const WidgetPlayer = ({
   twitter_handle,
   playerControlSquare,
   hideWidgetPubDate,
-  menuItems
+  menuItems,
+  volume,
+  increaseVolumeClicked,
+  decreaseVolumeClicked
 }) => {
   return (
     <>
@@ -83,11 +86,14 @@ const WidgetPlayer = ({
       playerControlSquare={playerControlSquare}
       hideWidgetPubDate={hideWidgetPubDate}
       menuItems={menuItems}
+      increaseVolumeClicked={increaseVolumeClicked}
+      decreaseVolumeClicked={decreaseVolumeClicked}      
       />
       <ReactPlayer url={url}
           className='react-player'
           width='0%'
           height='0%'
+          volume={volume >= 0 ? volume : 0.3}
           ref={handlePlayerRef}
           onDuration={handleDuration}
           onProgress={handleProgress}

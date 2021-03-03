@@ -30,6 +30,7 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
   const [section, setSection] = useState('control') //[control, subscribe, share, more_info]
   // const [navItems, setNavItems] = useState([]);
   const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(0.3);
 
   const toggleSeeking = () => {
     setAudiopost({...audiopost, seeking: !audiopost.seeking});
@@ -66,6 +67,23 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
   const handlePlayerRef = (player) => {
     if(reactPlayer === null) {
       reactPlayer = player;
+    }
+  }
+
+  const increaseVolumeClicked = () => {
+    if(volume < 1) {
+      setVolume(volume + 0.1)
+    } else {
+      setVolume(1)
+    }
+  }
+
+  const decreaseVolumeClicked = () => {
+    console.log(volume)
+    if(volume <= 0.1 ) {
+      setVolume(0)
+    } else {
+      setVolume(volume - 0.1)      
     }
   }
 
@@ -130,7 +148,10 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
           facebook_page={show.facebook_page}
           twitter_handle={show.twitter_handle}
           hideWidgetPubDate={show.hide_widget_pub_date}  
-          menuItems={menuItems}        
+          menuItems={menuItems} 
+          volume={volume}  
+          increaseVolumeClicked={increaseVolumeClicked}
+          decreaseVolumeClicked={decreaseVolumeClicked}               
         />
       </>
     )
