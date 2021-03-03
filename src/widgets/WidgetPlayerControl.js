@@ -72,7 +72,7 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
 
   const increaseVolumeClicked = () => {
     if(volume < 1) {
-      setVolume(volume + 0.1)
+      setVolume((volume * 10 + 1) / 10)
     } else {
       setVolume(1)
     }
@@ -82,7 +82,7 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
     if(volume <= 0.1 ) {
       setVolume(0)
     } else {
-      setVolume(volume - 0.1)      
+      setVolume((volume * 10 - 1) / 10)  
     }
   }
 
