@@ -127,6 +127,7 @@ const EpisodePlayer = (props) => {
       menuItems={menus}
       increaseVolumeClicked={increaseVolume}
       decreaseVolumeClicked={decreaseVolume}
+      volume={state.volume}
     />
   )
 }

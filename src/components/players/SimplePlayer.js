@@ -49,6 +49,7 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
             stitcher={podcastConext.state.show.stitcher}
             rssFeed={podcastConext.state.show.rss_feed}
             menuItems={menuItems}
+            volume={state.volume}
             increaseVolumeClicked={increaseVolume}
             decreaseVolumeClicked={decreaseVolume}         
           />
