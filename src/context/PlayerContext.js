@@ -51,9 +51,10 @@ const playerReducer = (state, action) => {
     case 'update_player_ref':
       return {...state, ...action.payload}
     case 'increase_volume_player_ref':
-      return {...state, volume: state.volume >= 1 ? 1 : state.volume + action.payload}
+      // https://www.w3schools.com/js/js_numbers.asp
+      return {...state, volume: state.volume >= 1 ? 1 : (Math.ceil(state.volume * 10 + action.payload * 10 ) / 10) }
       case 'decrease_volume_player_ref':
-        return {...state, volume: state.volume <= 0 ? 0 : state.volume - action.payload}      
+        return {...state, volume: state.volume <= 0 ? 0 : (Math.floor(state.volume * 10 - action.payload * 10) / 10)}      
     case 'reset':          
       return {...initState}
     default:

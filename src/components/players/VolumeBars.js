@@ -15,7 +15,7 @@ const VolumeBars = ({volume}) => {
           width: "4px",
           marginLeft: "2px",
           marginRight: "2px",
-          opacity: index <= Math.floor(volume >= 0 ? (volume * 10) : 0)  ? "0.8" : "0.4",
+          opacity: index < ( volume >= 0 ? (volume * 10) : 0)  ? "0.8" : "0.4",
           backgroundColor: "white"
         }}/>)
       }
