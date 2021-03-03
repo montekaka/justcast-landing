@@ -79,7 +79,6 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
   }
 
   const decreaseVolumeClicked = () => {
-    console.log(volume)
     if(volume <= 0.1 ) {
       setVolume(0)
     } else {

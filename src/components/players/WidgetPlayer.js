@@ -85,6 +85,7 @@ const WidgetPlayer = ({
       rssFeed={rssFeed}  
       playerControlSquare={playerControlSquare}
       hideWidgetPubDate={hideWidgetPubDate}
+      volume={volume}
       menuItems={menuItems}
       increaseVolumeClicked={increaseVolumeClicked}
       decreaseVolumeClicked={decreaseVolumeClicked}      

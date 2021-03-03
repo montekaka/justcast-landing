@@ -40,6 +40,7 @@ const FullPlayer = ({
   twitter_handle,
   playerControlSquare,
   hideWidgetPubDate,
+  volume,
   menuItems,
   increaseVolumeClicked,
   decreaseVolumeClicked
@@ -62,12 +63,24 @@ const FullPlayer = ({
 
   const playerControlClass = playerControlSquare ? 'widget-player-app' : 'widget-player-app widget-player-app-rounded';
 
-  
   return (
     <div className='widget-player-container dark-html-widget-player'>
       <section className={playerControlClass}>
-        <div className="artwork">
-          <img src={artwork ? artwork : "https://justcast.herokuapp.com/images/default_thumb_show_image.png"} />
+        <div className="artwork">          
+          <div style={{
+            width: "120px",
+            height: "120px",
+            borderRadius: "5px",
+            // display: 'flex',
+            // alignItems: 'center',
+            // justifyContent: 'center',
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: 'white',
+            // opacity: "0.2",
+            backgroundImage: `url(${artwork ? artwork : "https://justcast.herokuapp.com/images/default_thumb_show_image.png"})`
+          }}>                 
+          </div>
         </div>
         <div className="main">
           <WidgetPlayerControl
@@ -77,6 +90,7 @@ const FullPlayer = ({
             handleSliderChange={handleSliderChange} section={section}
             handleSectionChange={handleSectionChange}
             menuItems={menuItems}
+            volume={volume}
             increaseVolumeClicked={increaseVolumeClicked}
             decreaseVolumeClicked={decreaseVolumeClicked}            
           />

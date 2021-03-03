@@ -27,7 +27,6 @@
 }
 
 .widget-player-app > .artwork > img {
-
   height: 120px;
   width: 120px;    
   border-radius: 5px;
@@ -115,6 +114,12 @@
 }
 
 .widget-player-container > .widget-player-app > .main > .controls > .miscellaneous > .buttons > .extra-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.widget-player-container > .widget-player-app > .main > .controls > .miscellaneous > .buttons > .extra-controls > .volume-control {
   cursor: pointer;
 }
 

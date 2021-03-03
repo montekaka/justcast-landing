@@ -3,6 +3,7 @@ import moment from 'moment'
 import { CustomInput, Form, FormGroup, Label, Progress } from 'reactstrap';
 import WidgetPlayerPlayPauseButton from './WidgetPlayerPlayPauseButton'
 import WidgetPlayerMenu from './WidgetPlayerMenu';
+import VolumeBars from './VolumeBars'
 
 // const menuItems = [
 //   {key: 'subscribe', label: 'Subscribe'},
@@ -14,17 +15,17 @@ const WidgetPlayerControl = ({
     date, name, playing, handlPlayPauseClick,
     progressBarIdName, playedSeconds, duration,
     handleSeekMouseDown, handleSeekMouseUp, handleSliderChange,
-    section, handleSectionChange, menuItems, increaseVolumeClicked,
+    section, handleSectionChange, menuItems, volume, increaseVolumeClicked,
     decreaseVolumeClicked
   }) => {
   if(section === 'control') {
     return (
       <>
         <section className="podcast-name">
-            {date}
+          {date}
         </section>
         <section className="episode-name">
-            {name}
+          {name}
         </section>
         <section className="controls">
           <div className="play-button">
@@ -53,8 +54,9 @@ const WidgetPlayerControl = ({
                 <span>{moment.duration(Math.floor(duration), "seconds").format()}</span>              
               </section>
               <section className="extra-controls">
-                <span className="fe fe-volume-1" onClick={decreaseVolumeClicked}/>
-                <span className="fe fe-volume-2" onClick={increaseVolumeClicked}/>
+                <span className="volume-control fe fe-volume-1" onClick={decreaseVolumeClicked}/>
+                <VolumeBars volume={volume}/>
+                <span className="volume-control fe fe-volume-2" onClick={increaseVolumeClicked}/>
               </section>
             </div>
           </div>
