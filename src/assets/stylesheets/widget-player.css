@@ -102,11 +102,20 @@
   width: 100%;
 }
 
+.widget-player-container > .widget-player-app > .main > .controls > .miscellaneous > .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .widget-player-container > .widget-player-app > .main > .controls > .miscellaneous > .buttons > .time {
   display: flex;
   flex-direction: row;
   width: 60px;
   justify-content: space-between;
+}
+
+.widget-player-container > .widget-player-app > .main > .controls > .miscellaneous > .buttons > .extra-controls {
+  cursor: pointer;
 }
 
 .widget-player-container > .widget-player-app > .main > .controls > .miscellaneous > .buttons > .time > span {

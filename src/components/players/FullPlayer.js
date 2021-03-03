@@ -40,7 +40,9 @@ const FullPlayer = ({
   twitter_handle,
   playerControlSquare,
   hideWidgetPubDate,
-  menuItems
+  menuItems,
+  increaseVolumeClicked,
+  decreaseVolumeClicked
 }) => {
   const date = hideWidgetPubDate === true ? '' : moment(audio_date).format('YYYY-MM-DD');
   const embedCode = `<iframe src='${embedUrl}' width='100%' height='180' frameborder='0' scrolling='no' seamless='true' style='width:100%; height:180px;'></iframe>`
@@ -74,7 +76,9 @@ const FullPlayer = ({
             handleSeekMouseDown={handleSeekMouseDown} handleSeekMouseUp={handleSeekMouseUp} 
             handleSliderChange={handleSliderChange} section={section}
             handleSectionChange={handleSectionChange}
-            menuItems={menuItems}            
+            menuItems={menuItems}
+            increaseVolumeClicked={increaseVolumeClicked}
+            decreaseVolumeClicked={decreaseVolumeClicked}            
           />
           <WidgetPlayerMoreInfo section={section === 'subscribe'} 
             title='Subscribe' 

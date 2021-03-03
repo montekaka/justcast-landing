@@ -14,7 +14,8 @@ const WidgetPlayerControl = ({
     date, name, playing, handlPlayPauseClick,
     progressBarIdName, playedSeconds, duration,
     handleSeekMouseDown, handleSeekMouseUp, handleSliderChange,
-    section, handleSectionChange, menuItems
+    section, handleSectionChange, menuItems, increaseVolumeClicked,
+    decreaseVolumeClicked
   }) => {
   if(section === 'control') {
     return (
@@ -50,6 +51,10 @@ const WidgetPlayerControl = ({
                 <span>{playedSeconds > 1 ? moment.duration(Math.floor(playedSeconds), "seconds").format() : "0:00"}</span>
                 <span>|</span>
                 <span>{moment.duration(Math.floor(duration), "seconds").format()}</span>              
+              </section>
+              <section className="extra-controls">
+                <span className="fe fe-volume-1" onClick={decreaseVolumeClicked}/>
+                <span className="fe fe-volume-2" onClick={increaseVolumeClicked}/>
               </section>
             </div>
           </div>

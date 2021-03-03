@@ -7,7 +7,7 @@ import FullPlayer from './FullPlayer'
 // menuItems={[{key: 'subscribe', label:'subscribe'},{key: 'share', label: 'share'},{key: 'more_info', label: 'more info'}]}
 const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, duration, playedSeconds, played, playing, handleDuration, handleProgress, handlPlayPauseClick, handleSliderChange, handleSeekMouseDown, handleSeekMouseUp, handlePlayerRef, handleMinimizePlayer, section, updateSection, embedUrl, shareUrl, menuItems}) => {
 
-  const {state, updateReactPlayerRef} = useContext(PlayerContext);
+  const {state, updateReactPlayerRef, increaseVolume, decreaseVolume} = useContext(PlayerContext);
   const podcastConext = useContext(PodcastContext);
   const reactPlayerRef = useRef(null);
   const { showFooterPlayer } = state;
@@ -49,13 +49,15 @@ const SimplePlayer = ({minimize, audio_date, artwork, name, description, url, du
             stitcher={podcastConext.state.show.stitcher}
             rssFeed={podcastConext.state.show.rss_feed}
             menuItems={menuItems}
+            increaseVolumeClicked={increaseVolume}
+            decreaseVolumeClicked={decreaseVolume}         
           />
         }</> : null}      
         <ReactPlayer url={url}
           className='react-player'
           width='0%'
           height='0%'
-          volume={0.2}
+          volume={state.volume}
           ref={reactPlayerRef}
           onDuration={handleDuration}
           onProgress={handleProgress}

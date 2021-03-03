@@ -20,6 +20,7 @@ const initState = {
   section: "control", // [control, subscribe, share, more_info]
   embedUrl: "",
   shareUrl: "",
+  volume: 0.3,
   reactPlayerRef: null
 }
 
@@ -49,6 +50,10 @@ const playerReducer = (state, action) => {
       return {...state, ...action.payload}
     case 'update_player_ref':
       return {...state, ...action.payload}
+    case 'increase_volume_player_ref':
+      return {...state, volume: state.volume >= 1 ? 1 : state.volume + action.payload}
+      case 'decrease_volume_player_ref':
+        return {...state, volume: state.volume <= 0 ? 0 : state.volume - action.payload}      
     case 'reset':          
       return {...initState}
     default:
@@ -150,6 +155,18 @@ const updateReactPlayerRef = dispatch => {
   }
 }
 
+const increaseVolume = dispatch => {
+  return () => {
+    dispatch({type: 'increase_volume_player_ref', payload: 0.1})
+  }  
+}
+
+const decreaseVolume = dispatch => {
+  return () => {
+    dispatch({type: 'decrease_volume_player_ref', payload: 0.1})
+  }  
+}
+
 export const {Provider, Context} = createDataContext(
   playerReducer,
   {
@@ -162,6 +179,8 @@ export const {Provider, Context} = createDataContext(
     handleSeekChange,
     toggleMinimizePlayer,
     updateSection,
+    increaseVolume,
+    decreaseVolume,
     updateReactPlayerRef
   },
   initState

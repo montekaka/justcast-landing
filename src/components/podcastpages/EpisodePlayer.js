@@ -16,7 +16,9 @@ import FullPlayer from '../players/FullPlayer'
 
 const EpisodePlayer = (props) => {
   const {state, playPause, updateDuration, updateProgress, updateSection,
-    toggleSeeking, handleSeekChange, toggleMinimizePlayer, add} = useContext(PlayerContext);
+    toggleSeeking, handleSeekChange, toggleMinimizePlayer, add, 
+    increaseVolume, decreaseVolume
+  } = useContext(PlayerContext);
   
   const { audiopostId, audiopost} = props;
   // console.log(audiopost)
@@ -123,6 +125,8 @@ const EpisodePlayer = (props) => {
       stitcher={publicPodcastContext.state.stitcher}
       rssFeed={publicPodcastContext.state.rss_feed}
       menuItems={menus}
+      increaseVolumeClicked={increaseVolume}
+      decreaseVolumeClicked={decreaseVolume}
     />
   )
 }
