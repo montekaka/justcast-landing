@@ -7,15 +7,15 @@ const VolumeBars = ({volume, volumBinClicked}) => {
       display: 'flex',
       padding: "4px",
       height: "18px",
-      alignContent: 'center',
-      cursor: 'pointer',
+      alignContent: 'center',      
     }}>
       {
         volums.map((vol, index) => <span key={index} style={{
           height: "10px",          
           width: "4px",
           marginLeft: "2px",
-          marginRight: "2px",          
+          marginRight: "2px",      
+          cursor: 'pointer',    
           opacity: index < ( volume >= 0 ? (volume * 10) : 0)  ? "0.8" : "0.4",
           backgroundColor: "white"
         }}
