@@ -54,7 +54,7 @@ const WidgetPlayerControl = ({
                 <span>{moment.duration(Math.floor(duration), "seconds").format()}</span>              
               </section>
               <section className="extra-controls">
-                <span className="volume-control fe fe-volume-1" onClick={decreaseVolumeClicked}/>
+                <span className={`volume-control fe fe-volume-${volume > 0 ? "1" : "x"}`} onClick={decreaseVolumeClicked}/>
                 <VolumeBars volume={volume} volumBinClicked={volumBinClicked}/>
                 <span className="volume-control fe fe-volume-2" onClick={increaseVolumeClicked}/>
               </section>
