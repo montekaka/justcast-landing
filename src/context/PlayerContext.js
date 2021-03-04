@@ -53,8 +53,10 @@ const playerReducer = (state, action) => {
     case 'increase_volume_player_ref':
       // https://www.w3schools.com/js/js_numbers.asp
       return {...state, volume: state.volume >= 1 ? 1 : (Math.ceil(state.volume * 10 + action.payload * 10 ) / 10) }
-      case 'decrease_volume_player_ref':
-        return {...state, volume: state.volume <= 0 ? 0 : (Math.floor(state.volume * 10 - action.payload * 10) / 10)}      
+    case 'decrease_volume_player_ref':
+      return {...state, volume: state.volume <= 0 ? 0 : (Math.floor(state.volume * 10 - action.payload * 10) / 10)}      
+    case 'set_volume_player_ref':
+      return {...state, ...action.payload}
     case 'reset':          
       return {...initState}
     default:
@@ -167,6 +169,14 @@ const decreaseVolume = dispatch => {
     dispatch({type: 'decrease_volume_player_ref', payload: 0.1})
   }  
 }
+// set_volume_player_ref
+const setVolume = dispatch => {
+  return (vol) => {
+    // console.log(volume)
+    const volume = vol / 10;
+    dispatch({type: 'set_volume_player_ref', payload: {volume}})
+  }
+}
 
 export const {Provider, Context} = createDataContext(
   playerReducer,
@@ -182,6 +192,7 @@ export const {Provider, Context} = createDataContext(
     updateSection,
     increaseVolume,
     decreaseVolume,
+    setVolume,
     updateReactPlayerRef
   },
   initState

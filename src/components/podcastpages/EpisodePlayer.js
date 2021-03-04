@@ -17,7 +17,7 @@ import FullPlayer from '../players/FullPlayer'
 const EpisodePlayer = (props) => {
   const {state, playPause, updateDuration, updateProgress, updateSection,
     toggleSeeking, handleSeekChange, toggleMinimizePlayer, add, 
-    increaseVolume, decreaseVolume
+    increaseVolume, decreaseVolume, setVolume
   } = useContext(PlayerContext);
   
   const { audiopostId, audiopost} = props;
@@ -64,6 +64,11 @@ const EpisodePlayer = (props) => {
   const handleSeekMouseDown = (event) => {    
     toggleSeeking()
   }  
+
+  // const handleVolumeClick = (vol) => {
+  //   console.log(vol);
+  //   // setVolume
+  // }
 
   const handlePlayClick = () => {
     if(state.id !== audiopostId) {
@@ -125,6 +130,7 @@ const EpisodePlayer = (props) => {
       stitcher={publicPodcastContext.state.stitcher}
       rssFeed={publicPodcastContext.state.rss_feed}
       menuItems={menus}
+      volumBinClicked={setVolume}
       increaseVolumeClicked={increaseVolume}
       decreaseVolumeClicked={decreaseVolume}
       volume={state.volume}
