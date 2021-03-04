@@ -47,7 +47,8 @@ const WidgetPlayer = ({
   menuItems,
   volume,
   increaseVolumeClicked,
-  decreaseVolumeClicked
+  decreaseVolumeClicked,
+  volumBinClicked
 }) => {
   return (
     <>
@@ -87,6 +88,7 @@ const WidgetPlayer = ({
       hideWidgetPubDate={hideWidgetPubDate}
       volume={volume}
       menuItems={menuItems}
+      volumBinClicked={volumBinClicked}
       increaseVolumeClicked={increaseVolumeClicked}
       decreaseVolumeClicked={decreaseVolumeClicked}      
       />

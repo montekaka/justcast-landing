@@ -86,6 +86,10 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
     }
   }
 
+  const volumBinClicked = (binIndex) => {
+    setVolume(binIndex / 10);
+  }
+
   useEffect(() => {
     if(audiopostData.id && show.id) {
       setAudiopost({
@@ -149,6 +153,7 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
           hideWidgetPubDate={show.hide_widget_pub_date}  
           menuItems={menuItems} 
           volume={volume}  
+          volumBinClicked={volumBinClicked}
           increaseVolumeClicked={increaseVolumeClicked}
           decreaseVolumeClicked={decreaseVolumeClicked}               
         />

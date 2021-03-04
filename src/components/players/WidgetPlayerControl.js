@@ -16,7 +16,7 @@ const WidgetPlayerControl = ({
     progressBarIdName, playedSeconds, duration,
     handleSeekMouseDown, handleSeekMouseUp, handleSliderChange,
     section, handleSectionChange, menuItems, volume, increaseVolumeClicked,
-    decreaseVolumeClicked
+    decreaseVolumeClicked, volumBinClicked
   }) => {
   if(section === 'control') {
     return (
@@ -55,7 +55,7 @@ const WidgetPlayerControl = ({
               </section>
               <section className="extra-controls">
                 <span className="volume-control fe fe-volume-1" onClick={decreaseVolumeClicked}/>
-                <VolumeBars volume={volume}/>
+                <VolumeBars volume={volume} volumBinClicked={volumBinClicked}/>
                 <span className="volume-control fe fe-volume-2" onClick={increaseVolumeClicked}/>
               </section>
             </div>

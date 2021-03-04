@@ -42,6 +42,7 @@ const FullPlayer = ({
   hideWidgetPubDate,
   volume,
   menuItems,
+  volumBinClicked,
   increaseVolumeClicked,
   decreaseVolumeClicked
 }) => {
@@ -91,6 +92,7 @@ const FullPlayer = ({
             handleSectionChange={handleSectionChange}
             menuItems={menuItems}
             volume={volume}
+            volumBinClicked={volumBinClicked}
             increaseVolumeClicked={increaseVolumeClicked}
             decreaseVolumeClicked={decreaseVolumeClicked}            
           />
