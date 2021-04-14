@@ -63,7 +63,7 @@ const FullPlayer = ({
   ]
 
   const playerControlClass = playerControlSquare ? 'widget-player-app' : 'widget-player-app widget-player-app-rounded';
-  console.log(artwork)
+  
   return (
     <div className='widget-player-container dark-html-widget-player'>
       <section className={playerControlClass}>
@@ -79,7 +79,8 @@ const FullPlayer = ({
             backgroundRepeat: "no-repeat",
             backgroundColor: 'white',
             // opacity: "0.2",
-            backgroundImage: `url(${artwork ? artwork : "https://justcast.herokuapp.com/images/default_thumb_show_image.png"})`
+            backgroundImage: `url(${artwork ? encodeURI(artwork) : "https://justcast.herokuapp.com/images/default_thumb_show_image.png"})`
+            // backgroundImage: `url(${encodeURI('https://justcast.sfo2.digitaloceanspaces.com/js-production/1613978336079-GPS Logo Podcast_256.png')})`
           }}>                 
           </div>
         </div>
