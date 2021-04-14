@@ -52,7 +52,7 @@ const WidgetPlaylist = (props) => {
     }
   }
 
-  if(show) {
+  if(show.id) {
     return (
       <>
         <WidgetPlayerControl
