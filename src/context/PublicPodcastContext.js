@@ -10,6 +10,7 @@ const initState = {
   buttonTextColor: null,
   navbarColorTheme: null,
   audioposts: [],
+  facebook_pixel_base_code: null,
   recommend_episode: null,
 }
 

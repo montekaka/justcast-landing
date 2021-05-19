@@ -4,16 +4,18 @@ import { Route } from 'react-router-dom'
 import {TopNavbars} from '../podcastpages'
 import FooterPlayer from '../FooterPlayer'
 import {Context as PublicPodcastContext} from '../../context/PublicPodcastContext'
+import {TrackingLayout} from '../third-party-tracking'
 
 const PodcastPageRoute = ({ component: Component, ...rest }) => {  
 
   const {state} = useContext(PublicPodcastContext);
-  const {is_private, enabled_tip_jar, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
+  const {facebook_pixel_base_code, is_private, enabled_tip_jar, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
+  
   // const {cardBackgroundColor} = state.show;
   
   return (    
     <Route {...rest} render={(props) => (      
-      state.name ? <>
+      state.name ? <TrackingLayout facebook_pixel_base_code={facebook_pixel_base_code}>
       <TopNavbars
         is_private={is_private}
         name={name} 
@@ -28,7 +30,7 @@ const PodcastPageRoute = ({ component: Component, ...rest }) => {
           <Component {...props} />
           <FooterPlayer/>
         </div>
-      </> : <Component {...props} />
+      </TrackingLayout> : <Component {...props} />
     )} />
   )
 }
