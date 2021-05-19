@@ -65,6 +65,9 @@ const PrivatePodcastPage = () => {
           <UnorderList items={["Publish your episodes and subscribers can listen in their podcast app or via your podcast website."]}/>
         </ParagraphsSection>
       </SectionLayout>   
+      <SectionLayout>
+        <h2 className="font-weight-bold">More About Private Podcasting</h2>
+      </SectionLayout>
     </>
   )
 }
