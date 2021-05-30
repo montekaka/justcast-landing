@@ -9,9 +9,71 @@ import {
   UnorderList
 } from '../components/landingpages/article-blocks'
 import LandingPagePricingTable from '../components/landingpages/LandingPagePricingTable'
-import PrivatePodcastWelcome from './../components/landingpages/PrivatePodcastWelcome'
-import PrivatePodcastHowItWorks from './../components/landingpages/PrivatePodcastHowItWorks'
-import TryPodcastingForFree from './../components/TryPodcastingForFree'
+import FAQs from '../components/FAQs'
+
+const faqs = [
+  {
+    title: 'Do Private RSS Feeds Work With All Podcast Apps?',
+    classNameItem: 'mb-6',
+    paragraphs: [
+      `Your private RSS feed should work with most podcast apps that allow you to add an RSS feed including Apple Podcasts, Google Podcasts, AntennaPod, Pocket Casts, CastBox, Podcast Addict and Overcast. However, they don’t work with platform-based apps like Spotify and Stitcher.`,
+    ]
+  }, 
+  {
+    title: 'How long does the free trial last?', 
+    classNameItem: 'mb-6',
+    paragraphs: [
+      `The free trial is unlimited! The only limits are the storage space on your Dropbox account, and the number of episodes in your feed which is restricted to 3 episodes on a free plan.`
+    ]
+  },
+  {
+    title: 'What is the difference between the Personal Private Podcast and Members Private Podcast?', 
+    classNameItem: 'mb-6',
+    paragraphs: [
+      `The members private podcast feed option allows creation of multiple feeds while the personal private feed is just one feed.`
+    ],
+  },
+  {
+    title: 'Can I set up a paid subscription podcast using JustCast?', 
+    classNameItem: 'mb-6',
+    paragraphs: [
+      `Yes! JustCast can be used alongside Patreon. Just send your subscribers a link to your private feed, or create personalised feeds for each of them using their email address. JustCast is also beta testing tip jars and taking payments within the platform.`
+    ]
+  },
+  {
+    title: 'Can I have a public feed and a private feed for subscribers?', 
+    classNameItem: 'mb-6',
+    paragraphs: [
+      `If you have tiered subscriptions with a free feed and a paid bonus feed then you will need to create two podcasts and make the subscription RSS feed private.`]
+  },
+  {
+    title: 'Why can’t I see my full stats and analytics?', 
+    classNameItem: 'mb-6',
+    paragraphs: [
+      `Detailed reporting is restricted for paying users only. The cheapest paid option starts from $5 per month. Sign up here.`]
+  },
+  {
+    title: 'Why are only 3 episodes in my JustCast feed?', 
+    classNameItem: 'mb-6',
+    paragraphs: [
+      `Free plans are restricted to 3 episodes per RSS feed.`
+    ]
+  },
+  {
+    title: 'How can I get more storage?', 
+    classNameItem: 'mb-6',
+    paragraphs: [
+      `You can get more Dropbox storage by upgrading your plan or referring a friend (+500MB per referral). Alternatively you can get premium podcast hosting storage with JustCast.`
+    ]
+  },
+  {
+    title: 'Are there limits on Dropbox bandwidth if I have a lot of listeners?', 
+    classNameItem: 'mb-12',
+    paragraphs: [
+      `Yes. Dropbox is not designed to support hosting podcasts with a large number of listeners. Upgrade to JustCast hosting from $9 per month if you have.`
+    ]
+  }                
+]
 
 const PrivatePodcastPage = () => {
 
@@ -104,7 +166,7 @@ const PrivatePodcastPage = () => {
       </SectionLayout>
       
       <LandingPagePricingTable/>
-      
+      <FAQs items={faqs}/>
     </>
   )
 }
