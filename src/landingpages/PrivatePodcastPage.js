@@ -8,6 +8,7 @@ import {
   TryForFreeSection,
   UnorderList
 } from '../components/landingpages/article-blocks'
+import LandingPagePricingTable from '../components/landingpages/LandingPagePricingTable'
 import PrivatePodcastWelcome from './../components/landingpages/PrivatePodcastWelcome'
 import PrivatePodcastHowItWorks from './../components/landingpages/PrivatePodcastHowItWorks'
 import TryPodcastingForFree from './../components/TryPodcastingForFree'
@@ -67,7 +68,43 @@ const PrivatePodcastPage = () => {
       </SectionLayout>   
       <SectionLayout>
         <h2 className="font-weight-bold">More About Private Podcasting</h2>
+        <h3 className="font-weight-bold">Why Make a Podcast Private?</h3>
+        <p>There are a number of use cases for private podcasting. Three common reasons to use a private podcast are outlined below. </p>
+        <h4 className="font-weight-bold">Internal Podcasts For Work Teams &#38; Managers</h4>
+        <p>With more people working from home many CEOs and managers are turning to private podcasts to communicate with their employees and keep remote teams engaged.</p>
+        <h4 className="font-weight-bold">For Teachers &#38; Educators</h4>
+        <p>Podcasts also offer opportunities for teachers and educators, as well as students. Teachers and professors can share audio-versions of classes and lectures for students to use for revision purposes.</p>
+        <h4 className="font-weight-bold">For Invite-Only Premium Content</h4>
+        <p>Private podcast feeds are perfect for offering bonus content to paying subscribers. For example, JustCast’s private feed can be shared with your Patreon subscribers using their email addresses.</p>
+      </SectionLayout>  
+      <SectionLayout>
+        <h2 className="font-weight-bold">How The Private Podcast Feed Works</h2>
+        <h3 className="font-weight-bold">What Exactly is a Private Podcast Feed?</h3>
+        {/* TODO: INCLUDE DIAGRAM */}
+        <p>A private podcast feed is an RSS feed that is not made available to the public. Each user has a unique RSS feed that they use to access the podcast. The feed requests that public platforms like iTunes do not index it in their system if it is discovered.</p>
+        <p>To add private listeners hosts can add them by their email addresses and JustCast will send them a personal link. They can use this link to subscribe to the private feed on their podcast app.</p>
+        <p>Alternatively JustCast allows you to create a password-protected podcast or a single URL private feed that can be shared by multiple people or just one individual.</p>
+        <h4 className="font-weight-bold">How Private is it?</h4>
+        <p>It’s important to understand that private podcast rss feeds do not guarantee complete privacy.</p>
+        <p>Personal feeds can still be shared by individuals - either deliberately or accidentally - which could lead to your content becoming public (as with most forms of online communication). With this in mind private podcasting should not be used to share truly private information such as personal data or commercially sensitive company data.</p>
       </SectionLayout>
+      <SectionLayout>
+        <h2 className="font-weight-bold">Why Choose JustCast for Private Podcasting</h2>
+        <UnorderList items={[
+          "You own and control your content - even on the free plan. JustCast does not monetise free content with advertising like other free podcast hosting solutions.",
+          "The free version provides a lot more space (2GB using Dropbox) than other free hosting solutions.",
+          // "Professional-looking and customisable podcast website.",
+          // "Detailed metrics and stats.",
+          "Beautiful audiograms (audio-visual clips) you can share on social media.",
+          "Scales with your podcast."
+        ]} iconClassName="fe fe-check"/>
+        <hr/>
+        <TryForFreeSection/>
+        <hr/>
+      </SectionLayout>
+      
+      <LandingPagePricingTable/>
+      
     </>
   )
 }
