@@ -722,8 +722,8 @@ app.get('/audiogram', (request, response) => {
 
 app.get('/private-podcast', (request, response) => {
   const meta = {
-    title: "How to create a private podcast",
-    description: "Create unlimited podcasts for one monthly price. Invite team members, see your podcast's stats, and distribute to Apple Podcasts, Spotify, Google Podcasts. We also offer private podcasting for your company or membership site.",
+    title: "JustCast: Create a Private Podcast for Free",
+    description: "Want to create a private podcast, internal podcast or subscription based podcast? Create a private podcast for free with JustCast.",
     img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
     img_16: "",
     img_32: "",
