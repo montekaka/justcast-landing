@@ -26,6 +26,7 @@ import PrivatePodcast from './../podcasters/PrivatePodcast'
 import PrivatePodcastInvite from './../podcasters/PrivatePodcastInvite'
 import PublicPodcast from './../podcasters/PublicPodcast'
 import PrivatePodcastPage from './../landingpages/PrivatePodcastPage'
+import ChurchPodcasting from './../landingpages/ChurchPodcasting'
 import SoicalNetworkIntegrationPage from './../landingpages/SoicalNetworkIntegrationPage'
 import AudiogramPage from '../landingpages/AudiogramPage'
 import {Home as PublicPodcastHome, 
@@ -64,6 +65,7 @@ const MainRoutes = () => {
       <LandingPageRoute exact path="/private-podcast" component={PrivatePodcastPage}/>
       <LandingPageRoute exact path="/integration-twitter" component={SoicalNetworkIntegrationPage}/>
       <LandingPageRoute exact path="/audiogram" component={AudiogramPage}/>
+      <LandingPageRoute exact path="/church-podcasting" component={ChurchPodcasting}/>
       <Route path="/" component={Error}/>
     </Switch>
   )
