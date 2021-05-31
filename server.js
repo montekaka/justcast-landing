@@ -720,6 +720,31 @@ app.get('/audiogram', (request, response) => {
   });   
 })
 
+
+app.get('/church-podcasting', (request, response) => {
+  const meta = {
+    title: "JustCast: Podcast Hosting for Churches",
+    description: "Creating a podcast for your church? Get unlimited episodes, analytics and a podcast website for free with JustCast.",
+    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",    
+    keywords: "Podcasting, Dropbox",
+    url: "https://www.justcast.com/church-podcasting",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
+
 app.get('/private-podcast', (request, response) => {
   const meta = {
     title: "JustCast: Create a Private Podcast for Free",
