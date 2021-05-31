@@ -67,7 +67,10 @@ const LandingPageFooter = () => {
               </li>
               <li className="mb-3">
                 <a href="/integration-twitter" className="text-reset">Twitter Integration</a>
-              </li>                            
+              </li>    
+              <li className="mb-3">
+                <a href="/church-podcasting" className="text-reset">Podcast Hosting for Churches</a>
+              </li>                                          
             </ul>
           </div>
           <div className="col-6 col-md-4 col-lg-2">
