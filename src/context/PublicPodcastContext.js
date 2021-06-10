@@ -12,6 +12,7 @@ const initState = {
   audioposts: [],
   facebook_pixel_base_code: null,
   recommend_episode: null,
+  brand_link_back: null,
 }
 
 const publicPodcastReducer = (state, action) => {
