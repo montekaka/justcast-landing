@@ -3,12 +3,12 @@ import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
 import { useShowQuery } from '../hooks'
-import {Layout, SimplePageHeader, PodcastApps } from '../components/podcastpages'
+import {Layout, SimplePageHeader, PodcastApps, EmailSubscribeInput } from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 
 const Subscribe = (props) => {
   const { state } = useContext(PublicPodcastContext);  
-  const {name, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug} = state;
+  const {buttonColor, buttonTextColor, name, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug, mailchimp_connection} = state;
   
   const id = props.match.params.id;
   const _ = useShowQuery(id);
@@ -44,6 +44,15 @@ const Subscribe = (props) => {
           tune_in={tune_in}
           stitcher={stitcher}
           slug={slug}
+        />
+        <EmailSubscribeInput
+          show_id={state.id}
+          buttonColor={buttonColor}
+          buttonTextColor={buttonTextColor}
+          show_form={mailchimp_connection.show_form}
+          button_text={mailchimp_connection.button_text}
+          success_message={mailchimp_connection.success_message}
+          button_title_message={mailchimp_connection.button_title_message}
         />
       </Layout>
     </>

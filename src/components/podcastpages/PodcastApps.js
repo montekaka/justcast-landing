@@ -51,7 +51,7 @@ const PodcastApps = (props) => {
           <IconButton iconImg={tuneinSvg} name="TuneIn" subtitle="LISTEN ON" url={tune_in}/>
           <IconButton iconImg={stitcherSvg} name="Stitcher" subtitle="LISTEN ON" url={stitcher}/>
           <IconButton iconImg={rssSvg} name="RSS Feed" subtitle="SUBSCRIBE" url={`${process.env.REACT_APP_API_PROXY_SERVER_BASE_PATH}/shows/${slug}/audioposts.rss`}/>
-        </div>
+        </div>           
       </div>
     </section>
   )

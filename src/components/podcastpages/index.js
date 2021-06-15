@@ -11,6 +11,7 @@ import SimplePageBody from './SimplePageBody'
 import PodcastApps from './PodcastApps'
 import FeaturedEpisode from './FeaturedEpisode'
 import TipJarPrices from './TipJarPrices'
+import EmailSubscribeInput from './EmailSubscribeInput'
 
 export {
   PageHeader,
@@ -25,5 +26,6 @@ export {
   SimplePageBody,
   PodcastApps,
   FeaturedEpisode,
-  TipJarPrices
+  TipJarPrices,
+  EmailSubscribeInput
 }
