@@ -3,7 +3,7 @@ import { Input, Button, Col, FormFeedback, FormText } from 'reactstrap';
 import justcastApi from '../../api/justcast'
 
 const EmailSubscribeInput = (props) => {
-  const {show_id, show_form, buttonColor, buttonTextColor, button_text, success_message, button_title_message} = props;
+  const {show_id, show_form, textColor, buttonColor, buttonTextColor, button_text, success_message, button_title_message} = props;
   const [email, setEmail] = useState('');
   // const [errorMessage, setErrorMessage] = useState('');
   const [callbackMessage, setCallbackMessage] = useState({
@@ -47,7 +47,7 @@ const EmailSubscribeInput = (props) => {
       <section>
         <div className="container">
           <div className="justify-content-center">
-            <h3 className="text-center" style={{marginBottom: '20px'}}>{button_title_message}</h3>           
+            <h3 className="text-center" style={{marginBottom: '20px', color: textColor}}>{button_title_message}</h3>           
           </div>
           <div className="row justify-content-center">
             <Col sm={6}>

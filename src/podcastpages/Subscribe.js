@@ -8,7 +8,7 @@ import PrivateShow from './../components/PrivateShow';
 
 const Subscribe = (props) => {
   const { state } = useContext(PublicPodcastContext);  
-  const {buttonColor, buttonTextColor, name, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug, mailchimp_connection} = state;
+  const {textColor, buttonColor, buttonTextColor, name, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug, mailchimp_connection} = state;
   
   const id = props.match.params.id;
   const _ = useShowQuery(id);
@@ -47,6 +47,7 @@ const Subscribe = (props) => {
         />
         <EmailSubscribeInput
           show_id={state.id}
+          textColor={textColor}
           buttonColor={buttonColor}
           buttonTextColor={buttonTextColor}
           show_form={mailchimp_connection.show_form}
