@@ -9,7 +9,6 @@ const initState = {
   buttonColor: null,
   buttonTextColor: null,
   navbarColorTheme: null,
-  mailchimp_connection: {},
   audioposts: [],
   facebook_pixel_base_code: null,
   recommend_episode: null,

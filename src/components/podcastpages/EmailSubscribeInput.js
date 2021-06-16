@@ -3,7 +3,7 @@ import { Input, Button, Col, FormFeedback, FormText } from 'reactstrap';
 import justcastApi from '../../api/justcast'
 
 const EmailSubscribeInput = (props) => {
-  const {show_id, show_form, textColor, buttonColor, buttonTextColor, button_text, success_message, button_title_message} = props;
+  const {show_id, show_form, textColor, buttonColor, buttonTextColor, button_text, button_title_message} = props;
   const [email, setEmail] = useState('');
   // const [errorMessage, setErrorMessage] = useState('');
   const [callbackMessage, setCallbackMessage] = useState({
