@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import axios from 'axios'
 import ReactGA from 'react-ga';
 import justcastApi from '../api/justcast'
 import WidgetPlayerControl from './WidgetPlayerControl';
@@ -9,6 +10,8 @@ const SingleWidgetPlayer = (props) => {
   const [audiopost, setAudiopost] = useState({});
   const [show, setShow] = useState({});
   const [menuItems, setMenuItems] = useState([])
+  const [chaptersUrl, setChaptersUrl] = useState('');
+  const [chapters, setChapters] = useState([]);
 
   useEffect(() => {
     const referer_url = document.referrer;
@@ -34,11 +37,28 @@ const SingleWidgetPlayer = (props) => {
         ReactGA.pageview(`/widget/${res.data.show.slug}/audioposts/${id}`)
       }
 
+      if(data.chapters_url && data.chapters_url.length > 10) {
+        setChaptersUrl(data.chapters_url)
+      }
     })
     .catch((err) => {
       console.log(err);
     })
   }, [showId, id])  
+
+  useEffect(() => {
+    if(chaptersUrl && chaptersUrl.length > 10) {
+      axios.get(chaptersUrl)
+      .then((res) => {
+        if(res.data && res.data.chapters && res.data.chapters.length > 0) {
+          setChapters(res.data.chapters);                      
+        }
+      })
+      .catch((err) => {
+
+      })
+    }
+  }, [chaptersUrl])
 
   if(audiopost.id) {
     return (
@@ -50,6 +70,7 @@ const SingleWidgetPlayer = (props) => {
           playerControlSquare={true}
           audiopostData={audiopost}
           menuItems={menuItems}
+          chapters={chapters}
         />
       </>
     )

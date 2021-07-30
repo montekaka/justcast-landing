@@ -2,54 +2,56 @@ import React from "react";
 import ReactPlayer from 'react-player'
 import FullPlayer from './FullPlayer'
 
-const WidgetPlayer = ({
-  progressBarIdName,
-  minimize, 
-  audio_date, 
-  artwork, 
-  name, 
-  description,
-  url, 
-  embedUrl,
-  shareUrl,
-  duration, 
-  playedSeconds, 
-  played, 
-  playing, 
-  handleDuration, 
-  handleProgress, 
-  handlPlayPauseClick, 
-  handleSliderChange, 
-  handleSeekMouseDown, 
-  handleSeekMouseUp, 
-  handlePlayerRef, 
-  handleMinimizePlayer,
-  section,
-  handleSectionChange,
-  shareOnTwitter,
-  shareOnFacebook,
-  apple_podcast,
-  google_podcast,
-  overcast,
-  spotify,
-  pocket_casts,
-  breaker,
-  castro,
-  radio_public,
-  castbox,
-  tune_in,
-  stitcher,
-  rssFeed,
-  facebook_page,
-  twitter_handle,
-  playerControlSquare,
-  hideWidgetPubDate,
-  menuItems,
-  volume,
-  increaseVolumeClicked,
-  decreaseVolumeClicked,
-  volumBinClicked
-}) => {
+const WidgetPlayer = (props) => {
+  const {
+    progressBarIdName,
+    minimize, 
+    audio_date, 
+    artwork, 
+    name, 
+    description,
+    url, 
+    embedUrl,
+    shareUrl,
+    duration, 
+    playedSeconds, 
+    played, 
+    playing, 
+    handleDuration, 
+    handleProgress, 
+    handlPlayPauseClick, 
+    handleSliderChange, 
+    handleSeekMouseDown, 
+    handleSeekMouseUp, 
+    handlePlayerRef, 
+    handleMinimizePlayer,
+    section,
+    handleSectionChange,
+    shareOnTwitter,
+    shareOnFacebook,
+    apple_podcast,
+    google_podcast,
+    overcast,
+    spotify,
+    pocket_casts,
+    breaker,
+    castro,
+    radio_public,
+    castbox,
+    tune_in,
+    stitcher,
+    rssFeed,
+    facebook_page,
+    twitter_handle,
+    playerControlSquare,
+    hideWidgetPubDate,
+    menuItems,
+    volume,
+    increaseVolumeClicked,
+    decreaseVolumeClicked,
+    volumBinClicked
+  } = props;
+
   return (
     <>
       <FullPlayer 
@@ -92,6 +94,7 @@ const WidgetPlayer = ({
       increaseVolumeClicked={increaseVolumeClicked}
       decreaseVolumeClicked={decreaseVolumeClicked}      
       />
+      {props.children}
       <ReactPlayer url={url}
           className='react-player'
           width='0%'

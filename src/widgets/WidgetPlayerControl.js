@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Spinner } from 'reactstrap';
 import WidgetPlayer from './../components/players/WidgetPlayer'
+import PlayerChapters from './PlayerChapters'
 
 const initState = {
   id: "",
@@ -19,10 +20,10 @@ const initState = {
   seeking: false,
   minimize: false,  
   shareOnFacebook: "",
-  shareOnTwitter: ""
+  shareOnTwitter: "",
 }
 
-const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, audiopostData, autoplay}) => {
+const WidgetPlayerControl = ({chapters, playerControlSquare, id, showId, show, menuItems, audiopostData, autoplay}) => {
   let reactPlayer = null;
   const embedUrl = `${process.env.REACT_APP_BASE_PATH}/widget/${showId}/audioposts/${id}`
   const shareUrl = `${process.env.REACT_APP_BASE_PATH}/shows/${showId}/audioposts/${id}`    
@@ -63,6 +64,13 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
   const handleSeekMouseDown = (event) => {    
     toggleSeeking()
   }  
+
+  const handleChapterClick = (seconds) => {
+    reactPlayer.seekTo(seconds)
+    if(audiopost.playing === false) {
+      setAudiopost({...audiopost, playing: true, playedSeconds: seconds});
+    }    
+  }
 
   const handlePlayerRef = (player) => {
     if(reactPlayer === null) {
@@ -156,7 +164,12 @@ const WidgetPlayerControl = ({playerControlSquare, id, showId, show, menuItems, 
           volumBinClicked={volumBinClicked}
           increaseVolumeClicked={increaseVolumeClicked}
           decreaseVolumeClicked={decreaseVolumeClicked}               
-        />
+        >
+          <PlayerChapters 
+            chapters={chapters}
+            handleChapterClick={handleChapterClick}
+          />
+        </WidgetPlayer>
       </>
     )
   }

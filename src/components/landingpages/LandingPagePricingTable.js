@@ -16,7 +16,9 @@ const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
     {title: "Tip Jar", check: true}, 
     {title: "Podcast website", check: true}, 
     {title: "Embedded player", check: true}, 
-    {title: "Audiogram", check: true}, 
+    {title: "Audiogram", check: true},
+    {title: "Twitter integration", check: true},
+    {title: "Mailchimp integration", check: true},
   ];
 
   const personalFeatures = [
@@ -29,6 +31,8 @@ const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
     {title: "Podcast website", check: false}, 
     {title: "Embedded player", check: false}, 
     {title: "Audiogram", check: false}, 
+    {title: "Twitter integration", check: false},
+    {title: "Mailchimp integration", check: false},    
   ];
 
   return (

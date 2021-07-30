@@ -30,7 +30,9 @@ const faqs = [
       `Standard analytics`,
       `Embeddable audio player`,
       `Audiogram to turn your podcast into engaging animated videos to share on social media`,
-      `Tip jar`
+      `Tip jar`,
+      `Twitter integration`,
+      `Mailchimp integration`
     ]
   },
   {

@@ -271,4 +271,9 @@
   word-wrap: break-word;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
+}
+
+.widget-playlist > .playlist-items > .widget-playlist-item > .duration {
+  margin-left: 10px;
 }
