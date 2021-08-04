@@ -4,6 +4,7 @@ export const podcastAtom = atom({
   name: "",
   id: "",
   artwork_url: "",  
+  hide_widget_pub_date: false,
   // loading: true,
 });
 
@@ -20,8 +21,8 @@ export const episodesAtom = atom([]);
 
 export const addPodcastAtom = atom(null, (_get, set, input) => {
   set(podcastAtom, () => {
-    const {name, id, artwork_url_256} = input
-    return {name, id, artwork_url: artwork_url_256};
+    const {name, id, artwork_url_256, hide_widget_pub_date} = input
+    return {name, id, artwork_url: artwork_url_256, hide_widget_pub_date};
   });
 })
 

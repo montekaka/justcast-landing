@@ -4,7 +4,7 @@ import { useAtom } from 'jotai';
 import { playerAtom, changeEpisodeAtom, toggleModal } from '../../jotai'
 
 const PlaylistItem = (props) => {
-  const {id, name, audio_date, artwork_url, audio_url, duration} = props;
+  const {id, name, audio_date, artwork_url, audio_url, duration, hide_widget_pub_date} = props;
   const date = moment(audio_date).format('YYYY-MM-DD');
 
   const [podcast] = useAtom(playerAtom);
@@ -35,9 +35,8 @@ const PlaylistItem = (props) => {
       <p className="small mb-0">
         <strong>{name}</strong>
       </p>
-      <small>
-        Publish date: {date}
-      </small>       
+      {!hide_widget_pub_date ? <small>Publish date: {date}</small> : null}
+      
     </div>
   )
 }

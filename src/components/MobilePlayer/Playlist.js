@@ -21,6 +21,7 @@ const Playlist = () => {
               artwork_url={episode.artwork_url ? episode.artwork_url : podcast.artwork_url}
               audio_date={episode.audio_date}
               duration={episode.duration}
+              hide_widget_pub_date={podcast.hide_widget_pub_date}
             />
           )
         }

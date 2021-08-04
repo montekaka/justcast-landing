@@ -10,6 +10,8 @@ const PlaylistTable = () => {
   const [episodes] = useAtom(episodesAtom);
   const [, toggleModalSet] = useAtom(toggleModal);
 
+  const {hide_widget_pub_date} = podcast;
+
   if(player && episodes) {
     const _episodes = episodes.slice(0, 1);
 
@@ -35,6 +37,7 @@ const PlaylistTable = () => {
                 artwork_url={episode.artwork_url ? episode.artwork_url : podcast.artwork_url}
                 audio_date={episode.audio_date}
                 duration={episode.duration}
+                hide_widget_pub_date={hide_widget_pub_date}
               />
             )
           }
