@@ -1,14 +1,51 @@
 import React, {useRef, useEffect} from "react";
 import { useAtom } from 'jotai';
 import ReactPlayer from 'react-player'
-import { playerAtom, addPlayerRefAtom, updatePlayerStatus } from '../../jotai'
+import { 
+  playerAtom, 
+  // addPlayerRefAtom, 
+  updatePlayerStatus, 
+  podcastAtom, 
+  changeEpisodeAtom, 
+  episodesAtom,
+  updatePlayingEpisodeAtom
+} from '../../jotai'
 import PlayerControls from './PlayerControls'
 
 const MediaPlayer = () => {
   const [player] = useAtom(playerAtom);
-  const [, playerRefSet] = useAtom(addPlayerRefAtom);
+  // const [, playerRefSet] = useAtom(addPlayerRefAtom);
   const [, playerStatusSet] = useAtom(updatePlayerStatus);
   const { seeking } = player;
+
+  const [podcast] = useAtom(podcastAtom);
+  const [episodes] = useAtom(episodesAtom)
+  const [, changeEpisodeSet] = useAtom(changeEpisodeAtom);
+  const [, updatePlayingEpisode] = useAtom(updatePlayingEpisodeAtom)
+  const {total_episodes, current_episode_idx} = podcast
+
+  const playNext = () => {        
+    if(current_episode_idx + 1 < total_episodes) {
+      const nextId = current_episode_idx + 1;
+      const {id, name, audio_date, artwork_url, audio_url} = episodes[nextId];
+      changeEpisodeSet({
+        id, 
+        name, 
+        audio_date, 
+        artwork_url, 
+        audio_url, 
+        durationSeconds: 0,
+        playedSeconds: 0,
+        playing: true,
+        openModal: false
+      })   
+      updatePlayingEpisode(nextId)
+    } else {
+      // reach the end
+      // stop the player
+      playerStatusSet({playing: false})
+    }
+  }
   // const playerRef = useRef(null);
 
   // useEffect(() => {
@@ -47,7 +84,10 @@ const MediaPlayer = () => {
           }}
           playing={player.playing}
           onEnded={(res) => {
-            console.log(res)
+            playNext()
+          }}
+          onError={(res) =>{
+            playNext()
           }}
         />
       </>
