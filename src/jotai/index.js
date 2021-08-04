@@ -1,4 +1,4 @@
-import {podcastAtom, episodesAtom, addPodcastAtom, addEpisodesAtom} from './fetchAtom';
+import {podcastAtom, episodesAtom, addPodcastAtom, addEpisodesAtom, updatePlayingEpisodeAtom} from './fetchAtom';
 import {playerAtom, addPlayerAtom, 
   addPlayerRefAtom,
   updatePlayerStatus,
@@ -21,5 +21,6 @@ export {
   changeEpisodeAtom,
   notificationAtom,
   addNotifcationAtom,
-  closeNotifcationAtom
+  closeNotifcationAtom,
+  updatePlayingEpisodeAtom
 }

@@ -19,7 +19,8 @@ const MobilePlayer = (props)  => {
       const show = data.show;
       const audioposts = data.audioposts;
       episodesSet({items: audioposts})
-      podcastSet(show);
+      const total_episodes = audioposts.length;
+      podcastSet({...show, current_episode_idx: 0, total_episodes});
       playerSet({item: audioposts[0]});      
     })
     .catch((err) => {

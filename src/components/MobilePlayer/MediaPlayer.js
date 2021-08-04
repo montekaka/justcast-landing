@@ -46,6 +46,9 @@ const MediaPlayer = () => {
             }
           }}
           playing={player.playing}
+          onEnded={(res) => {
+            console.log(res)
+          }}
         />
       </>
     )

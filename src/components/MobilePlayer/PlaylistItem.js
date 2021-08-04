@@ -1,15 +1,16 @@
 import React from "react";
 import moment from 'moment'
 import { useAtom } from 'jotai';
-import { playerAtom, changeEpisodeAtom, toggleModal } from '../../jotai'
+import { playerAtom, changeEpisodeAtom, toggleModal, updatePlayingEpisodeAtom} from '../../jotai'
 
 const PlaylistItem = (props) => {
-  const {id, name, audio_date, artwork_url, audio_url, duration, hide_widget_pub_date} = props;
+  const {id, name, audio_date, artwork_url, audio_url, duration, hide_widget_pub_date, idx} = props;
   const date = moment(audio_date).format('YYYY-MM-DD');
 
   const [podcast] = useAtom(playerAtom);
   const [, changeEpisodeSet] = useAtom(changeEpisodeAtom);
   const [, toggleModalSet] = useAtom(toggleModal);
+  const [, updatePlayingEpisode] = useAtom(updatePlayingEpisodeAtom)
   const activeClass = podcast.id === id ? 'active' : null;
 
   const handleClick = () => {
@@ -27,6 +28,8 @@ const PlaylistItem = (props) => {
         playing: true,
         openModal: false
       })
+
+      updatePlayingEpisode(idx);
     }    
   }
 

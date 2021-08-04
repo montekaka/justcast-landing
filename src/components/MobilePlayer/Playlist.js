@@ -12,7 +12,7 @@ const Playlist = () => {
     return (
       <div className="list-group list-group-focus">
         {
-          episodes.map((episode) => 
+          episodes.map((episode, idx) => 
             <PlaylistItem 
               key={episode.id} 
               id={episode.id}
@@ -22,6 +22,7 @@ const Playlist = () => {
               audio_date={episode.audio_date}
               duration={episode.duration}
               hide_widget_pub_date={podcast.hide_widget_pub_date}
+              idx={idx}
             />
           )
         }

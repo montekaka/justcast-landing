@@ -28,7 +28,7 @@ const PlaylistTable = () => {
         <hr/>
         <div>
           {
-            _episodes.map((episode) => 
+            _episodes.map((episode, idx) => 
               <PlaylistItem 
                 key={episode.id} 
                 id={episode.id}
@@ -38,6 +38,7 @@ const PlaylistTable = () => {
                 audio_date={episode.audio_date}
                 duration={episode.duration}
                 hide_widget_pub_date={hide_widget_pub_date}
+                idx={idx}
               />
             )
           }

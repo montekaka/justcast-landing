@@ -5,6 +5,8 @@ export const podcastAtom = atom({
   id: "",
   artwork_url: "",  
   hide_widget_pub_date: false,
+  current_episode_idx: 0,
+  total_episodes: 0
   // loading: true,
 });
 
@@ -33,4 +35,10 @@ export const addEpisodesAtom = atom(null, (_get, set, input) => {
   });
 })
 
+export const updatePlayingEpisodeAtom = atom(null, (_get, set, current_episode_idx) => {
+  const state = _get(podcastAtom)
+  set(podcastAtom, () => {
+    return {...state, current_episode_idx};
+  })
+}) 
 
