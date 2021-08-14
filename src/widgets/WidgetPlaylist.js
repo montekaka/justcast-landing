@@ -99,11 +99,13 @@ const WidgetPlaylist = (props) => {
 
   if(show.id) {
     return (
-      <NinjaPlayer
-        configs={playerConfigs}
-        playerId={`${id}-playlist`}
-        episodes={episodes}
-      />  
+      <div style={{height: "100vh", width: "100%", background: "#d0dee9", margin: 0, padding: 0, boxSizing: 'border-box'}}>
+        <NinjaPlayer
+          configs={playerConfigs}
+          playerId={`${id}-playlist`}
+          episodes={episodes}
+        />  
+      </div>
     )  
   }
 
