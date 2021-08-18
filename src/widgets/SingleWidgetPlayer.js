@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ReactGA from 'react-ga';
 import justcastApi from '../api/justcast'
-import {NinjaPlayer} from 'react-podcast-ninja'
+import WidgetPlayerControl from './WidgetPlayerControl';
 
 const SingleWidgetPlayer = (props) => {
   const id = props.match.params.id;
@@ -82,16 +82,18 @@ const SingleWidgetPlayer = (props) => {
     })
   }, [showId, id])  
 
-  if(episodes.length > 0) {
+  if(audiopost.id) {
     return (
-      
-        <NinjaPlayer
-          configs={playerConfigs}
-          playerId={`${id}-single`}
-          episodes={episodes}
-          singleEpisode={true}
-        />  
-      
+      <>
+        <WidgetPlayerControl
+          id={id}
+          showId={showId}
+          show={show}
+          playerControlSquare={true}
+          audiopostData={audiopost}
+          menuItems={menuItems}
+        />
+      </>
     )
   }
   return null;
