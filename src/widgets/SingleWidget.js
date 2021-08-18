@@ -6,7 +6,7 @@ import {NinjaPlayer} from 'react-podcast-ninja'
 const SingleWidget = (props) => {
   const id = props.match.params.id;
   const showId = props.match.params.show_id;  
-  console.log({id, showId})
+  
   const [audiopost, setAudiopost] = useState({});
   const [episodes, setEpisodes] = useState([])
   const [playerConfigs, setPlayerConfigs] = useState({});
