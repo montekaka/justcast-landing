@@ -84,14 +84,14 @@ const SingleWidgetPlayer = (props) => {
 
   if(episodes.length > 0) {
     return (
-      <div style={{height: "100vh", width: "100%", background: "#d0dee9", margin: 0, padding: 0, boxSizing: 'border-box'}}>
+      // <div style={{height: "100vh", width: "100%", background: "#d0dee9", margin: 0, padding: 0, boxSizing: 'border-box'}}>
         <NinjaPlayer
           configs={playerConfigs}
           playerId={`${id}-single`}
           episodes={episodes}
           singleEpisode={true}
         />  
-      </div>
+      // </div>
     )
   }
   return null;
