@@ -3,16 +3,10 @@ import { Spinner } from 'reactstrap';
 import ReactGA from 'react-ga';
 import {NinjaPlayer} from 'react-podcast-ninja'
 import justcastApi from '../api/justcast'
-import WidgetPlayerControl from './WidgetPlayerControl';
-import WidgetPlaylistItem from './WidgetPlaylistItem'
 
-const WidgetPlaylist = (props) => {
+const PodcastWidget = (props) => {
   const id = props.match.params.id;
   const [show, setShow] = useState({});
-  const [audioposts, setAudioposts] = useState([]);
-  const [selectedAudiopost, setSelectedAudiopost] = useState({});
-  const [autoplay, setAutoplay] = useState(false);
-  const [menuItems, setMenuItems] = useState([])
   const [playerConfigs, setPlayerConfigs] = useState({});
   const [episodes, setEpisodes] = useState([])
 
@@ -22,8 +16,8 @@ const WidgetPlaylist = (props) => {
     .then((res) => {
       const showdata = res.data;
       setShow(showdata.show);
-      setAudioposts(showdata.audioposts);
-      setSelectedAudiopost(showdata.audioposts[0]);
+      // setAudioposts(showdata.audioposts);
+      // setSelectedAudiopost(showdata.audioposts[0]);
       // setMenuItems([{key: 'subscribe', label: 'Subscribe'}, {key: 'share', label: 'share'}, {key: 'more_info', label: 'more info'}])
       const menus = [];
       if(showdata.show.hide_widget_subscribe !== true) {
@@ -33,7 +27,7 @@ const WidgetPlaylist = (props) => {
         menus.push({key: 'share', label: 'share'})
       }
       menus.push({key: 'more_info', label: 'more info'})
-      setMenuItems(menus)  
+      // setMenuItems(menus)  
       
       const googleAnalyticsId = res.data.show.google_analytics_id;
       
@@ -89,51 +83,19 @@ const WidgetPlaylist = (props) => {
     })
   }, [id])
 
-  const handleAudiopostClicked = (selectedId) => {
-    const audiopost = audioposts.filter(audiopost => audiopost.id === selectedId);
-    if(audiopost.length > 0) {
-      setSelectedAudiopost(audiopost[0]);
-      setAutoplay(true);
-    }
-  }
-
   if(show.id) {
     return (
-      <>
-        <WidgetPlayerControl
-          playerControlSquare={true}
-          id={selectedAudiopost.id}
-          showId={id}
-          show={show}
-          audiopostData={selectedAudiopost}
-          autoplay={autoplay}
-          menuItems={menuItems}
-        />    
-        <div className="widget-playlist">
-          <div className="playlist-header">
-            <div>{audioposts.length} LATEST EPISODES</div>
-          </div>
-          <div className="playlist-items">
-            {
-              audioposts.map((audiopost) => 
-                <WidgetPlaylistItem 
-                  key={audiopost.id.toString()} 
-                  name={audiopost.name} 
-                  id={audiopost.id} 
-                  audioDate={audiopost.audio_date}
-                  duration={audiopost.duration}
-                  selectedId={selectedAudiopost.id}
-                  handleClicked={handleAudiopostClicked}
-                />            
-              )
-            }
-          </div>
-        </div>
-      </>
-    )
+      // <div style={{height: "100vh", width: "100%", background: "#d0dee9", margin: 0, padding: 0, boxSizing: 'border-box'}}>
+        <NinjaPlayer
+          configs={playerConfigs}
+          playerId={`${id}-playlist`}
+          episodes={episodes}
+        />  
+      // </div>
+    )  
   }
-  
+
   return <Spinner color="primary" />
 }
 
-export default WidgetPlaylist
+export default PodcastWidget
