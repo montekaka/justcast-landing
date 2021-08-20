@@ -27,9 +27,9 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
     const data = res.data;
 
     const show = data.show;
-    const podcastName = data.name;
+    const podcastName = data.episode_title;
     const url = data.permulink;
-    const title = `${show.name} | ${podcastName}`;
+    const title = `${show.podcast_title} | ${podcastName}`;
     const description = data.description ? sanitizeHtml(data.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
@@ -86,7 +86,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
 
     const show = res.data;    
     const url = show.link;
-    const title = `${show.name}`;
+    const title = `${show.podcast_title}`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     const img_16 = show.artwork_url_16;
@@ -146,7 +146,7 @@ app.get('/shows/:id/support_us', function(request, response) {
 
     const show = res.data;    
     const url = show.link;
-    const title = `${show.name} | Support us`;
+    const title = `${show.podcast_title} | Support us`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     const img_16 = show.artwork_url_16;
@@ -207,7 +207,7 @@ app.get('/podcasts/:id', function(request, response) {
     const show = res.data;    
 
     const url = show.link;
-    const title = `${show.name}`;
+    const title = `${show.podcast_title}`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     const img_16 = show.artwork_url_16;
@@ -266,7 +266,7 @@ app.get('/mobile-player-widget/:id/audioposts', function(request, response) {
     const show = res.data;    
 
     const url = show.link;
-    const title = `${show.name}`;
+    const title = `${show.podcast_title}`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
     const img_16 = show.artwork_url_16;
@@ -332,7 +332,7 @@ app.get('/shows/:id/episodes', function(request, response) {
 
     const show = res.data;
     const url = show.link;
-    const title = `${show.name} | Episodes`;
+    const title = `${show.podcast_title} | Episodes`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
@@ -390,7 +390,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
 
     const show = res.data;
     const url = show.link;
-    const title = `${show.name} | Subscribe`;
+    const title = `${show.podcast_title} | Subscribe`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
@@ -447,7 +447,7 @@ app.get('/shows/:id/about_us', function(request, response) {
 
     const show = res.data;
     const url = show.link;
-    const title = `${show.name} | About Us`;
+    const title = `${show.podcast_title} | About Us`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
@@ -827,7 +827,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
 
     const show = res.data.show;
     const url = show.link;
-    const title = `${show.name}`;
+    const title = `${show.podcast_title}`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
@@ -892,9 +892,9 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
     const data = res.data;
 
     const show = data.show;
-    const podcastName = data.name;
+    const podcastName = data.podcast_title;
     const url = data.permulink;
-    const title = `${show.name} | ${data.name}`;
+    const title = `${show.podcast_title} | ${data.episode_title}`;
     const description = data.description ? sanitizeHtml(data.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
@@ -960,7 +960,7 @@ app.get('/shows/:show_id/subscribers/:id', function(request, response) {
     const show = data.show;
     const podcastName = data.name;
     const url = data.permulink;
-    const title = `${show.name} | ${data.name}`;
+    const title = `${show.podcast_title} | ${data.episode_title}`;
     const description = data.description ? sanitizeHtml(data.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
     // const description = "Podcast power by JustCast";
     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
