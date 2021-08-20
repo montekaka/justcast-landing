@@ -28,7 +28,7 @@ const Home = (props) => {
   return (
     <>
       <PageHeader
-        headerTitle={state.name}
+        headerTitle={state.podcast_title}
         text={state.site_intro_text}
         imgURL={state.header_img_url}    
       />

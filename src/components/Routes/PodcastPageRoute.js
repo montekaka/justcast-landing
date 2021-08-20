@@ -9,16 +9,16 @@ import {TrackingLayout} from '../third-party-tracking'
 const PodcastPageRoute = ({ component: Component, ...rest }) => {  
 
   const {state} = useContext(PublicPodcastContext);
-  const {facebook_pixel_base_code, is_private, enabled_tip_jar, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
+  const {facebook_pixel_base_code, is_private, enabled_tip_jar, name, podcast_title, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
   
   // const {cardBackgroundColor} = state.show;
   
   return (    
     <Route {...rest} render={(props) => (      
-      state.name ? <TrackingLayout facebook_pixel_base_code={facebook_pixel_base_code}>
+      podcast_title ? <TrackingLayout facebook_pixel_base_code={facebook_pixel_base_code}>
       <TopNavbars
         is_private={is_private}
-        name={name} 
+        name={podcast_title} 
         slug={slug}
         enabled_tip_jar={enabled_tip_jar} 
         navbarColorTheme={navbarColorTheme}
