@@ -27,7 +27,7 @@ const Episodes = (props) => {
   return (
     <>
       <SimplePageHeader
-        title={state.name}
+        title={state.podcast_title}
         text={`Total episodes: ${state.audioposts.length}`}  
       />
       <Layout>      

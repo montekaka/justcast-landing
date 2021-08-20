@@ -40,7 +40,7 @@ const Episode = (props) => {
         audio_date: data.audio_date,
         id: data.id,
         url: data.url,
-        name: data.name,
+        name: data.episode_title,
         description: data.description,
         artwork: state.artwork_url, 
         embedUrl: `${process.env.REACT_APP_BASE_PATH}/widget/${state.slug}/audioposts/${data.id}`, 
@@ -86,10 +86,10 @@ const Episode = (props) => {
   return (
     <>
       <SimplePageHeader
-        title={audiopost.name}
+        title={audiopost.episode_title}
         text={audioDate}  
       >
-        <a className="btn btn-primary lift" href={audiopost.audio_url} download={audiopost.name} alt={`Download ${audiopost.name}`}>
+        <a className="btn btn-primary lift" href={audiopost.audio_url} download={audiopost.name} alt={`Download ${audiopost.episode_title}`}>
           <i className="fe fe-download"/> Download
         </a>
       </SimplePageHeader>
@@ -107,7 +107,7 @@ const Episode = (props) => {
           <div className="row justify-content-center" style={{color: textColor}}>
             <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
               dangerouslySetInnerHTML={{__html: audiopost.description}}/>
-            <EpisodeArtwork artwork={audiopost.artwork_url} name={audiopost.name}/>
+            <EpisodeArtwork artwork={audiopost.artwork_url} name={audiopost.episode_title}/>
             <EpisodeImages images={audiopost.images}/>
           </div>
         </div>

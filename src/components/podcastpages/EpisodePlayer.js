@@ -76,7 +76,7 @@ const EpisodePlayer = (props) => {
         audio_date: audiopost.audio_date,
         id: audiopost.id,
         url: audiopost.url,
-        name: audiopost.name,
+        name: audiopost.episode_title,
         description: audiopost.description,
         artwork: artwork_url, 
         embedUrl: `${process.env.REACT_APP_BASE_PATH}/widget/${slug}/audioposts/${audiopost.id}`, 
@@ -96,7 +96,7 @@ const EpisodePlayer = (props) => {
       audio_date={audiopost.audio_date} 
       artwork={artwork_url} 
       description={audiopost.description} 
-      name={audiopost.name} 
+      name={audiopost.episode_title} 
       url={audiopost.url} 
       duration={thisPlayerDuration} 
       playedSeconds={thisPlayedSeconds} 

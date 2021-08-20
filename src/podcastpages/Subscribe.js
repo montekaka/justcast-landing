@@ -8,7 +8,7 @@ import PrivateShow from './../components/PrivateShow';
 
 const Subscribe = (props) => {
   const { state } = useContext(PublicPodcastContext);  
-  const {textColor, buttonColor, buttonTextColor, name, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug, mailchimp_button_title_message, mailchimp_show_form, mailchimp_button_text} = state;
+  const {textColor, buttonColor, buttonTextColor, name, podcast_title, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug, mailchimp_button_title_message, mailchimp_show_form, mailchimp_button_text} = state;
   
   const id = props.match.params.id;
   const _ = useShowQuery(id);
@@ -27,7 +27,7 @@ const Subscribe = (props) => {
   return (
     <>
       <SimplePageHeader
-        title={name}
+        title={podcast_title}
         text={"Listen in your favorite apps"}
       />
       <Layout>      
