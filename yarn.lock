@@ -9769,10 +9769,10 @@ react-player@^1.14.2:
     load-script "^1.0.0"
     prop-types "^15.7.2"
 
-react-podcast-ninja@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/react-podcast-ninja/-/react-podcast-ninja-1.3.1.tgz#21dcbb98b2108a552be0f7b84f25de80e753fc28"
-  integrity sha512-yAgjqRZdoIlPnsvc79PqT6HY3Uy8t8xVJakQ6JVtp4g7ylSaCJVHhUHPRGDmMzq+a1V57w45zRjthhnEbpXq8w==
+react-podcast-ninja@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/react-podcast-ninja/-/react-podcast-ninja-1.3.2.tgz#65f608ad2c1bd01492629985267cb761e6beb29b"
+  integrity sha512-bBvdWw3Ua9I0R1YwhyP7dtAGVydM1hlEs67DKqXWKKu0W+ht1ydVruO9tSTWrqGI55fWi5vhM+828RRJcPkokQ==
 
 react-popper@^1.3.6:
   version "1.3.7"

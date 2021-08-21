@@ -90,6 +90,7 @@ const PodcastWidget = (props) => {
           configs={playerConfigs}
           playerId={`${id}-playlist`}
           episodes={episodes}
+          themeName="retro"
         />  
       // </div>
     )  

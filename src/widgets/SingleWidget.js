@@ -91,6 +91,7 @@ const SingleWidget = (props) => {
           playerId={`${id}-single`}
           episodes={episodes}
           singleEpisode={true}
+          themeName="retro"
         />  
       
     )
