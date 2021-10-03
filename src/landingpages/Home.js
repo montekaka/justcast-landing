@@ -8,6 +8,7 @@ import LandingPageAbout from './../components/landingpages/LandingPageAbout'
 import LandingPageTestimonials from './../components/landingpages/LandingPageTestimonials'
 import LandingPagePricing from './../components/landingpages/LandingPagePricing'
 import LandingPageDashboardDemo from './../components/landingpages/LandingPageDashboardDemo'
+import LandingPageChapters from './../components/landingpages/LandingPageChapters'
 import LandingPageWidgetDemo from './../components/landingpages/LandingPageWidgetDemo'
 import LandingPageFeatures from './../components/landingpages/LandingPageFeatures'
 import LandingTwitterIntegration from './../components/landingpages/LandingTwitterIntegration'
@@ -49,9 +50,10 @@ const Home = (props) => {
       <LandingPageHero/>
       <LandingPageAbout/>
       <LandingPageTestimonials/>
-      <LandingPageFeatures/>      
-      <LandingPageDashboardDemo/>
+      <LandingPageFeatures/>
+      <LandingPageChapters/>
       <LandingTwitterIntegration/>
+      <LandingPageDashboardDemo/>      
       <LandingPagePricing/>
     </>
   )
