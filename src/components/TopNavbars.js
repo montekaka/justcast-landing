@@ -66,7 +66,7 @@ const TopNavbars = () => {
             </Nav>
             <a
               className="navbar-btn btn btn-sm lift ml-auto" 
-              href={`${process.env.REACT_APP_API_PROXY_SERVER_BASE_PATH}/shows/${state.show.slug}/audioposts.rss`}
+              href={`${process.env.REACT_APP_RSS_FEED_BASE_PATH}/shows/${state.show.slug}/audioposts.rss`}
               target="_blank"
               style={{backgroundColor: buttonColor, color: buttonTextColor}}
             >

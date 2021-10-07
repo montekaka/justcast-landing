@@ -48,7 +48,7 @@ const PodcastApps = ({show}) => {
           <IconButton iconImg={castboxSvg} name="Castbox" subtitle="LISTEN ON" url={show.castbox}/>
           <IconButton iconImg={tuneinSvg} name="TuneIn" subtitle="LISTEN ON" url={show.tune_in}/>
           <IconButton iconImg={stitcherSvg} name="Stitcher" subtitle="LISTEN ON" url={show.stitcher}/>
-          <IconButton iconImg={rssSvg} name="RSS Feed" subtitle="SUBSCRIBE" url={`${process.env.REACT_APP_API_PROXY_SERVER_BASE_PATH}/shows/${show.slug}/audioposts.rss`}/>
+          <IconButton iconImg={rssSvg} name="RSS Feed" subtitle="SUBSCRIBE" url={`${process.env.REACT_APP_RSS_FEED_BASE_PATH}/shows/${show.slug}/audioposts.rss`}/>
         </div>
       </div>
     </section>
