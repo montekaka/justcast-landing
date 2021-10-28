@@ -19,6 +19,16 @@ const instance = axios.create({
 const filePath = path.resolve(__dirname, './build', 'index.html');
 const privatePodcastFilePath = path.resolve(__dirname, './build', 'privatepodcast.html');
 
+const appleVerification = {
+  root: path.join(__dirname, `./build`, 'apple-developer-merchantid-domain-association'),
+};
+
+// apple-developer-merchantid-domain-association
+app.get('/.well-known/apple-developer-merchantid-domain-association', (req, res) => {
+  res.status(200)
+  .sendFile(`apple-developer-merchantid-domain-association`, appleVerification)
+})
+
 app.get('/shows/:show_id/audioposts/:id', function(request, response) {    
   const id = request.params.id;
   const show_id = request.params.show_id;
