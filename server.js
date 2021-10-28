@@ -20,7 +20,7 @@ const filePath = path.resolve(__dirname, './build', 'index.html');
 const privatePodcastFilePath = path.resolve(__dirname, './build', 'privatepodcast.html');
 
 const appleVerification = {
-  root: path.join(__dirname, `./public/.well-known`),
+  root: path.join(__dirname, `./public/`),
 };
 
 // apple-developer-merchantid-domain-association
