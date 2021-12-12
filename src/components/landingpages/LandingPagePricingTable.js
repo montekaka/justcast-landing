@@ -49,14 +49,13 @@ const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
           </div>          
           <div className="row mb-5">
             <div className="col-12 col-lg-4">
-            <PriceTableItem 
-                title="Plus" 
+              <PriceTableItem 
+                title="Starter" 
                 periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} 
-                price={isMonthlyPlan ? 90: 900} 
+                price={isMonthlyPlan ? 9: 90} 
                 buttonLabel="Try for Free" 
                 buttonClassName="btn-primary" 
-                features={[ {title: "500,000 downloads/mo", check: true}, ...features]}/>
-
+                features={[ {title: "50,000 downloads/mo", check: true}, ...features]}/>
             </div>            
             <div className="col-12 col-lg-4">
               <PriceTableItem 
@@ -69,12 +68,12 @@ const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
             </div>   
             <div className="col-12 col-lg-4">
               <PriceTableItem 
-                title="Starter" 
+                title="Plus" 
                 periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} 
-                price={isMonthlyPlan ? 9: 90} 
+                price={isMonthlyPlan ? 90: 900} 
                 buttonLabel="Try for Free" 
                 buttonClassName="btn-primary" 
-                features={[ {title: "50,000 downloads/mo", check: true}, ...features]}/>
+                features={[ {title: "500,000 downloads/mo", check: true}, ...features]}/>             
             </div>                                         
           </div>
           <div className="row mb-5">
