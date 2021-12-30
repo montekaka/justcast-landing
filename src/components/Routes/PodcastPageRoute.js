@@ -9,7 +9,7 @@ import {TrackingLayout} from '../third-party-tracking'
 const PodcastPageRoute = ({ component: Component, ...rest }) => {  
 
   const {state} = useContext(PublicPodcastContext);
-  const {facebook_pixel_base_code, is_private, enabled_tip_jar, name, podcast_title, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
+  const {facebook_pixel_base_code, is_private, enabled_tip_jar, patreon_support_link, name, podcast_title, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor, bodyColor} = state;  
   
   // const {cardBackgroundColor} = state.show;
   
@@ -21,6 +21,7 @@ const PodcastPageRoute = ({ component: Component, ...rest }) => {
         name={podcast_title} 
         slug={slug}
         enabled_tip_jar={enabled_tip_jar} 
+        patreon_support_link={patreon_support_link}
         navbarColorTheme={navbarColorTheme}
         buttonTextColor={buttonTextColor}
         buttonColor={buttonColor} 

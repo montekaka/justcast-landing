@@ -9,6 +9,7 @@ import { useShowQuery } from '../hooks'
 import { addNotifcationAtom } from './../jotai'
 import {Layout, SimplePageHeader, TipJarPrices } from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
+import patreon from './../assets/img/icons/social/patreon.svg'
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -20,11 +21,12 @@ const Tipjar = (props) => {
   const [prices, setPrices] = useState([]);
   const [accountId, setAccountId] = useState('');
   const [, addNotifcation] = useAtom(addNotifcationAtom);
+  const {patreon_support_link} = state;
   
   // const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
   // let stripePromise;
   const _ = useShowQuery(id);  
-
+  console.log(state)
   useEffect(() => {
     justcastApi.get((`/v1/shows/${id}/tip_jar_prices_public`))
     .then((res) => {
@@ -101,7 +103,9 @@ const Tipjar = (props) => {
       />
       <Layout>      
         <div className="container">
-          <div className="row justify-content-center">
+          <>
+          {
+            prices.length > 0 && <><div className="row justify-content-center">
             <div className="col-12 col-md-10 col-lg-8 text-center">
               <h2 className="font-weight-bold">How much would you like to tip?</h2>
             </div>
@@ -113,7 +117,43 @@ const Tipjar = (props) => {
                 handlePriceClick={handlePriceClick}
               />
             </div>
-          </div>
+          </div></>
+          }
+          </>
+          <>
+          {
+            patreon_support_link && <><div className="row justify-content-center">
+              <div className="col-12 col-md-10 col-lg-8 text-center">
+                <h2 className="font-weight-bold">Support us on Patreon</h2>
+              </div>
+            </div>
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-12 col-lg-10">
+                <div style={{display: "flex", justifyContent: 'center'}}>
+                  <a className="lift" href={patreon_support_link} style={{
+                    textDecoration: "none",
+                    color: '#fff'
+                  }}>
+                    <div style={{
+                      backgroundColor: "rgb(255, 66, 77)",
+                      width: '240px',
+                      height: '60px',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignContent: 'center',
+                      alignItems: 'center',
+                      borderRadius: "30px"            
+                    }}>
+                      <img src={patreon} width="60px" height="60px"/>
+                      <div>Become a patron</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </>
+          }
+          </>
         </div>
       </Layout>
     </>
