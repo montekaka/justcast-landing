@@ -11,6 +11,8 @@ import spotifySvg from '../../assets/img/icons/podcasts/spotify.svg'
 import stitcherSvg from '../../assets/img/icons/podcasts/stitcher.svg'
 import tuneinSvg from '../../assets/img/icons/podcasts/tunein.svg'
 import rssSvg from '../../assets/img/icons/podcasts/rss.svg'
+import amazonSvg from '../../assets/img/icons/podcasts/amazon_music.svg'
+
 
 const IconButton = ({url, iconImg, name, subtitle}) => {
   const clickHander = () => {
@@ -33,16 +35,17 @@ const IconButton = ({url, iconImg, name, subtitle}) => {
 }
 
 const PodcastApps = (props) => {
-  const {apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug} = props;
+  const {apple_podcast, amazon_podcast_link, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug} = props;
 
   return (
     <section className="py-8 py-md-11">
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center">          
           <IconButton iconImg={applePodcastSvg} name="Apple Podcasts" subtitle="LISTEN ON" url={apple_podcast}/>
           <IconButton iconImg={googlePodcastSvg} name="Google Podcasts" subtitle="LISTEN ON" url={google_podcast}/>
           <IconButton iconImg={overcastSvg} name="Overcast" subtitle="LISTEN ON" url={overcast}/>
           <IconButton iconImg={spotifySvg} name="Spotify" subtitle="LISTEN ON" url={spotify}/>
+          <IconButton iconImg={amazonSvg} name="Amazon Music" subtitle="LISTEN ON" url={amazon_podcast_link}/>
           <IconButton iconImg={pocketcastSvg} name="Pocket Casts" subtitle="LISTEN ON" url={pocket_casts}/>
           <IconButton iconImg={breakerSvg} name="Breaker" subtitle="LISTEN ON" url={breaker}/>
           <IconButton iconImg={castroSvg} name="Castro" subtitle="LISTEN ON" url={castro}/>
@@ -50,7 +53,7 @@ const PodcastApps = (props) => {
           <IconButton iconImg={castboxSvg} name="Castbox" subtitle="LISTEN ON" url={castbox}/>
           <IconButton iconImg={tuneinSvg} name="TuneIn" subtitle="LISTEN ON" url={tune_in}/>
           <IconButton iconImg={stitcherSvg} name="Stitcher" subtitle="LISTEN ON" url={stitcher}/>
-          <IconButton iconImg={rssSvg} name="RSS Feed" subtitle="SUBSCRIBE" url={`${process.env.REACT_APP_RSS_FEED_BASE_PATH}/shows/${slug}/audioposts.rss`}/>
+          <IconButton iconImg={rssSvg} name="RSS Feed" subtitle="SUBSCRIBE" url={`${process.env.REACT_APP_RSS_FEED_BASE_PATH}/shows/${slug}/audioposts.rss`}/>          
         </div>           
       </div>
     </section>
