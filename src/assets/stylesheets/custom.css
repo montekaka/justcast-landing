@@ -197,7 +197,7 @@
 
 .host-card {
   width: 280px;
-  height: 420px;
+  height: 500px;
   border-radius: 8px;
 }
 
@@ -221,4 +221,17 @@
   font-size: 36px;
   justify-content: center;
   align-items: center;
+}
+
+.host-card-body {
+  padding: 20px;
+}
+
+.host-card-body > .description {
+  margin-top: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;    
 }

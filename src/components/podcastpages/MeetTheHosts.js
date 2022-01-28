@@ -19,7 +19,10 @@ export default function MeetTheHosts(props) {
               key={item.id}              
               name={item.name}
               img={item.img}
-              cardBackgroundColor={cardBackgroundColor}
+              href={item.href}
+              description={item.description}
+              group={item.group}
+              role={item.role}
             />)
           }
         </div>      
