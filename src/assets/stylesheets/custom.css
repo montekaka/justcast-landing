@@ -1,3 +1,4 @@
+
 #navbar-text-color {
   color: white;
 }
@@ -183,4 +184,41 @@
 .private-podcast-subscribers-page-artwork {
   width: 200px;
   height: 200px;
+}
+
+
+.host-list {
+  max-width: 940px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px
+}
+
+.host-card {
+  width: 280px;
+  height: 420px;
+  border-radius: 8px;
+}
+
+.host-card > .avatar {
+  width: 280px;
+  height: 280px;
+  border-radius: 8px 8px 0 0;
+}
+
+.host-card > .avatar-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.host-card > .avatar-flex > .avatar-missing-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+  display: flex;
+  font-size: 36px;
+  justify-content: center;
+  align-items: center;
 }

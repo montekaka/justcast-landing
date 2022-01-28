@@ -12,6 +12,7 @@ import PodcastApps from './PodcastApps'
 import FeaturedEpisode from './FeaturedEpisode'
 import TipJarPrices from './TipJarPrices'
 import EmailSubscribeInput from './EmailSubscribeInput'
+import MeetTheHosts from './MeetTheHosts'
 
 export {
   PageHeader,
@@ -27,5 +28,6 @@ export {
   PodcastApps,
   FeaturedEpisode,
   TipJarPrices,
-  EmailSubscribeInput
+  EmailSubscribeInput,
+  MeetTheHosts
 }

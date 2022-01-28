@@ -15,7 +15,7 @@ const Layout = (props) => {
 
   return (
     <>
-      <section className="py-8 py-md-11" style={{backgroundColor: bodyColor}}>
+      <section className="py-8 py-md-11" style={{backgroundColor: bodyColor, minHeight: "600px"}}>
         <ModalNotification
           title={title}
           message={message}
