@@ -10,6 +10,7 @@ const initState = {
   buttonTextColor: null,
   navbarColorTheme: null,
   audioposts: [],
+  people: [],
   facebook_pixel_base_code: null,
   recommend_episode: null,
   brand_link_back: null,
@@ -25,8 +26,8 @@ const publicPodcastReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({show, audioposts, recommend_episode, mailchimp_connection}) => {   
-    dispatch({type: 'add', payload: {...show, audioposts, recommend_episode, mailchimp_connection}})
+  return ({show, audioposts, recommend_episode, mailchimp_connection, people}) => {   
+    dispatch({type: 'add', payload: {...show, audioposts, recommend_episode, mailchimp_connection, people}})
   }
 }
 

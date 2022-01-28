@@ -13,7 +13,7 @@ const useShowQuery = (showId) => {
       .then((res) => {
         const data = res.data;
         
-        const {show, audioposts, mailchimp_connection} = data;
+        const {show, audioposts, mailchimp_connection, people} = data;
 
         if(mailchimp_connection) {
           show['mailchimp_button_title_message'] = mailchimp_connection.button_title_message;
@@ -25,12 +25,12 @@ const useShowQuery = (showId) => {
           const recommend_audiopost = audioposts.filter((a) => a.id === show.recommend_audiopost_id)
           if(recommend_audiopost && recommend_audiopost.length === 1) {
             const recommend_episode = recommend_audiopost[0];
-            add({show, audioposts, recommend_episode});
+            add({show, audioposts, recommend_episode, people});
           } else {
-            add({show, audioposts});
+            add({show, audioposts, people});
           }
         } else {
-          add({show, audioposts});
+          add({show, audioposts, people});
         }
         
         // setShow(res.data);
