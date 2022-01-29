@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react';
+import styled from 'styled-components';
 import {Context as PublicPodcastContext} from '../../context/PublicPodcastContext'
 import { Badge, Button } from 'reactstrap';
 
@@ -16,6 +17,15 @@ export default function HostCard(props) {
       setCardHeight("500px")
     }
   }
+
+  const Description = styled.div`
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;    
+  `  
+
 // bg-gray-80
   return (
     <div className="host-card" style={{height: cardHeight, backgroundColor: cardBackgroundColor, color: textColor}}>
@@ -27,7 +37,9 @@ export default function HostCard(props) {
           <Badge>{role}</Badge>
         </div>
         {href ? <a className='badge badge-secondary' href={href} target="_blank"><i className='fe fe-home'/> Home page</a> : null}
-        {description ? <div className='description' onClick={toggle}>{description}</div> : null}
+        {description ? <div className='host-description' onClick={toggle}>
+          {cardHeight === "100%" ? <div>{description}</div> : <Description>{description}</Description> } 
+        </div> : null}
         
       </div>      
     </div>

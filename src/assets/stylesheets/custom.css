@@ -228,8 +228,9 @@
   padding: 20px;
 }
 
-.host-card-body > .description {
+.host-card-body > .host-description {
   margin-top: 20px;
+  cursor: pointer;
   /* overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
