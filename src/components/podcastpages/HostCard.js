@@ -2,14 +2,14 @@ import React, {useContext, useState} from 'react';
 import {Context as PublicPodcastContext} from '../../context/PublicPodcastContext'
 import { Badge, Button } from 'reactstrap';
 import HostCardDescription from './HostCardDescription'
+import PersonSocialNetwork from './PersonSocialNetwork'
 
 export default function HostCard(props) {
-  const {img, href, name, description, roles} = props;
+  const {img, href, name, description, roles, facebook_url, twitter_url, linkedin_url, tiktok_url, instagram_url, youtube_url} = props;
   const { state } = useContext(PublicPodcastContext);
-  const {cardBackgroundColor, textColor, buttonColor, buttonTextColor} = state;
-
+  const {cardBackgroundColor, textColor, buttonColor, buttonTextColor} = state;  
   const [cardHeight, setCardHeight] = useState("500px");
-
+  
   const toggle = () => {
     if(cardHeight === "500px") {
       setCardHeight("100%")
@@ -28,6 +28,11 @@ export default function HostCard(props) {
         <div className='host-card-roles'>
           {
             roles.map((role) => <Badge key={role.code}>{role.role_title}</Badge>)
+          }
+        </div>
+        <div className='host-card-roles'>
+          {
+            [{href: facebook_url, name: "Facebook"}, {href: twitter_url, name: "Twitter"}, {href: linkedin_url, name: "LinkedIn"}, {href: tiktok_url, name: "Tiktok"}, {href: instagram_url, name: "Instagram"}, {href: youtube_url, name: "Youtube"}].map((item) => <PersonSocialNetwork key={item.name} href={item.href} name={item.name} size="24" fill={textColor} />)
           }
         </div>
         {href ? <a className='badge badge-secondary' href={href} target="_blank"><i className='fe fe-home'/> Home page</a> : null}
