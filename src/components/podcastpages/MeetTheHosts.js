@@ -23,6 +23,7 @@ export default function MeetTheHosts(props) {
               description={item.description}
               group={item.group}
               role={item.role}
+              roles={item.roles}
             />)
           }
         </div>      
