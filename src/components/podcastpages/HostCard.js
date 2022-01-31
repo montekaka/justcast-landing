@@ -1,8 +1,8 @@
 import React, {useContext, useState} from 'react';
 import {Context as PublicPodcastContext} from '../../context/PublicPodcastContext'
 import { Badge, Button } from 'reactstrap';
-import HostCardDescription from './HostCardDescription'
 import PersonSocialNetwork from './PersonSocialNetwork'
+import HostDescription from './HostDescription'
 
 export default function HostCard(props) {
   const {img, href, name, description, roles, facebook_url, twitter_url, linkedin_url, tiktok_url, instagram_url, youtube_url} = props;
@@ -37,9 +37,8 @@ export default function HostCard(props) {
         </div>
         {href ? <a className='badge badge-secondary' href={href} target="_blank"><i className='fe fe-home'/> Home page</a> : null}
         {description ? <div className='host-description' onClick={toggle}>
-          {cardHeight === "100%" ? <div>{description}</div> : <HostCardDescription text={description}/>} 
-        </div> : null}
-        
+          <HostDescription cardHeight={cardHeight} description={description}/>
+        </div> : null}        
       </div>      
     </div>
   );

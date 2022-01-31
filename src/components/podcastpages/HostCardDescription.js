@@ -9,7 +9,13 @@ display: -webkit-box;
 -webkit-box-orient: vertical;    
 `  
 
-export default function HostCardDescription({text}) {
+export default function HostCardDescription(props) {
+  const {text} = props;
 
-  return <Description>{text}</Description>;
+  return (
+    <div>
+      <Description>{text}</Description>
+      {props.children}
+    </div>    
+  );
 }
