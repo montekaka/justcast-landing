@@ -24,6 +24,12 @@ export default function MeetTheHosts(props) {
               group={item.group}
               role={item.role}
               roles={item.roles}
+              facebook_url={item.facebook_url}
+              twitter_url={item.twitter_url}
+              linkedin_url={item.linkedin_url}
+              tiktok_url={item.tiktok_url}
+              instagram_url={item.instagram_url}
+              youtube_url={item.youtube_url}
             />)
           }
         </div>      
