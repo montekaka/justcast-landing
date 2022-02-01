@@ -20,6 +20,7 @@ export default function MeetTheHosts(props) {
               name={item.name}
               img={item.img}
               href={item.href}
+              email={item.email}
               description={item.description}
               group={item.group}
               role={item.role}
