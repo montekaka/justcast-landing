@@ -24,7 +24,10 @@ export default function SupportUsButton({name, title, url, backgroundColor, text
       
         <a className="lift" href={url} style={{
           textDecoration: "none",
-          color: textColor
+          color: textColor,
+          width: '240px',
+          height: '60px',    
+          borderRadius: "30px"        
         }}>
           <div style={{
             // backgroundColor: "rgb(255, 66, 77)",
