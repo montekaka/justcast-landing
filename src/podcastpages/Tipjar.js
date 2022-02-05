@@ -145,7 +145,7 @@ const Tipjar = (props) => {
             /> 
             <SupportUsButton 
               name="square_cash" 
-              title="Cash App" 
+              title="Support with Cash App" 
               url={square_cash} 
               textColor={"#fff"}
               backgroundColor={"#005B2B"}
