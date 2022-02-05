@@ -19,7 +19,7 @@ export default function SupportUsButton({name, title, url, backgroundColor, text
     }
   }, [name])
   
-  if(name && url) {
+  if(name && url && url.length > 5) {
     return (
       
         <a className="lift" href={url} style={{
