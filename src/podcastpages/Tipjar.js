@@ -119,9 +119,8 @@ const Tipjar = (props) => {
             </div>
           </div></>
           }
-          </>
-                         
-          <div className="row" style={{display: "flex", gap: "10px", justifyContent: 'center'}}>
+          </>                         
+          <div className="row" style={{marginTop: "30px", display: "flex", gap: "10px", justifyContent: 'center'}}>
             <SupportUsButton 
               name="patreon" 
               title="Become a patron" 
