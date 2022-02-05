@@ -13,6 +13,7 @@ import FeaturedEpisode from './FeaturedEpisode'
 import TipJarPrices from './TipJarPrices'
 import EmailSubscribeInput from './EmailSubscribeInput'
 import MeetTheHosts from './MeetTheHosts'
+import SupportUsButton from './SupportUsButton'
 
 export {
   PageHeader,
@@ -29,5 +30,6 @@ export {
   FeaturedEpisode,
   TipJarPrices,
   EmailSubscribeInput,
-  MeetTheHosts
+  MeetTheHosts,
+  SupportUsButton
 }

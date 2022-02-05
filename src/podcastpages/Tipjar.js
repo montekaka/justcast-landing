@@ -7,7 +7,7 @@ import justcastApi from '../api/justcast'
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
 import { useShowQuery } from '../hooks'
 import { addNotifcationAtom } from './../jotai'
-import {Layout, SimplePageHeader, TipJarPrices } from '../components/podcastpages'
+import {Layout, SimplePageHeader, TipJarPrices, SupportUsButton} from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 import patreon from './../assets/img/icons/social/patreon.svg'
 
@@ -21,12 +21,12 @@ const Tipjar = (props) => {
   const [prices, setPrices] = useState([]);
   const [accountId, setAccountId] = useState('');
   const [, addNotifcation] = useAtom(addNotifcationAtom);
-  const {patreon_support_link} = state;
+  const {textColor, patreon_support_link, paypal_url, square_cash, buy_me_a_coffee_url } = state;
   
   // const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
   // let stripePromise;
   const _ = useShowQuery(id);  
-  console.log(state)
+
   useEffect(() => {
     justcastApi.get((`/v1/shows/${id}/tip_jar_prices_public`))
     .then((res) => {
@@ -107,7 +107,7 @@ const Tipjar = (props) => {
           {
             prices.length > 0 && <><div className="row justify-content-center">
             <div className="col-12 col-md-10 col-lg-8 text-center">
-              <h2 className="font-weight-bold">How much would you like to tip?</h2>
+              <h2 className="font-weight-bold" style={{color: textColor}}>How much would you like to tip?</h2>
             </div>
           </div>
           <div className="row justify-content-center">
@@ -120,40 +120,38 @@ const Tipjar = (props) => {
           </div></>
           }
           </>
-          <>
-          {
-            patreon_support_link && <><div className="row justify-content-center">
-              <div className="col-12 col-md-10 col-lg-8 text-center">
-                <h2 className="font-weight-bold">Support us on Patreon</h2>
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-12 col-md-12 col-lg-10">
-                <div style={{display: "flex", justifyContent: 'center'}}>
-                  <a className="lift" href={patreon_support_link} style={{
-                    textDecoration: "none",
-                    color: '#fff'
-                  }}>
-                    <div style={{
-                      backgroundColor: "rgb(255, 66, 77)",
-                      width: '240px',
-                      height: '60px',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignContent: 'center',
-                      alignItems: 'center',
-                      borderRadius: "30px"            
-                    }}>
-                      <img src={patreon} width="60px" height="60px"/>
-                      <div>Become a patron</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            </>
-          }
-          </>
+                         
+          <div className="row" style={{display: "flex", gap: "10px", justifyContent: 'center'}}>
+            <SupportUsButton 
+              name="patreon" 
+              title="Become a patron" 
+              url={patreon_support_link} 
+              textColor={"#fff"}
+              backgroundColor={"rgb(255, 66, 77)"}
+            />
+            <SupportUsButton 
+              name="buy_me_a_coffee" 
+              title="Buy me a coffee" 
+              url={buy_me_a_coffee_url} 
+              textColor={"#fff"}
+              backgroundColor={"#ff6937"}
+            /> 
+            <SupportUsButton 
+              name="paypal" 
+              title="Support with PayPal" 
+              url={paypal_url} 
+              textColor={"#040404"}
+              backgroundColor={"#EBEBEB"}
+            /> 
+            <SupportUsButton 
+              name="square_cash" 
+              title="Cash App" 
+              url={square_cash} 
+              textColor={"#fff"}
+              backgroundColor={"#005B2B"}
+            />                                          
+          </div>                    
+          
         </div>
       </Layout>
     </>
