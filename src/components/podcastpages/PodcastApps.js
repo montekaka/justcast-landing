@@ -40,6 +40,7 @@ const PodcastApps = (props) => {
   return (
     <section className="py-8 py-md-11">
       <div className="container">
+        {props.children}
         <div className="row justify-content-center">          
           <IconButton iconImg={applePodcastSvg} name="Apple Podcasts" subtitle="LISTEN ON" url={apple_podcast}/>
           <IconButton iconImg={googlePodcastSvg} name="Google Podcasts" subtitle="LISTEN ON" url={google_podcast}/>

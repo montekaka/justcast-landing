@@ -4,7 +4,7 @@ import justcastApi from '../api/justcast'
 import ReactGA from 'react-ga';
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
 import {Context as PlayerContext} from '../context/PlayerContext'
-import {Layout, SimplePageHeader, EpisodeArtwork, EpisodeImages, EpisodePlayer} from '../components/podcastpages'
+import {Layout, SimplePageHeader, EpisodeArtwork, EpisodeImages, EpisodePlayer, PodcastApps} from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 
 const getAudiopostById = (audioposts, id) => {
@@ -19,7 +19,7 @@ const Episode = (props) => {
   const { state, add } = useContext(PublicPodcastContext);
   const playerContext = useContext(PlayerContext);
 
-  const {textColor, buttonColor, buttonTextColor} = state;
+  const {textColor, amazon_podcast_link, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug} = state;
   const [audiopost, setAudiopost] = useState({})
   const [audioDate, setAudioDate] = useState('');
 
@@ -93,7 +93,7 @@ const Episode = (props) => {
           <i className="fe fe-download"/> Download
         </a>
       </SimplePageHeader>
-      <Layout>      
+      <Layout>                                     
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12">
@@ -103,14 +103,33 @@ const Episode = (props) => {
               />
             </div>
           </div>  
-          <br/>        
+          <br/>  
           <div className="row justify-content-center" style={{color: textColor}}>
             <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
               dangerouslySetInnerHTML={{__html: audiopost.description}}/>
             <EpisodeArtwork artwork={audiopost.artwork_url} name={audiopost.episode_title}/>
             <EpisodeImages images={audiopost.images}/>
           </div>
-        </div>
+        </div> 
+        <PodcastApps 
+            apple_podcast={apple_podcast}
+            google_podcast={google_podcast}
+            overcast={overcast}
+            spotify={spotify}
+            pocket_casts={pocket_casts}
+            breaker={breaker}
+            castro={castro}
+            radio_public={radio_public}
+            castbox={castbox}
+            tune_in={tune_in}
+            stitcher={stitcher}
+            amazon_podcast_link={amazon_podcast_link}
+            slug={slug}
+          >        
+            <div className="row justify-content-center">
+              Listen in your favorite apps
+            </div>
+        </PodcastApps>                
       </Layout>
     </>
   )  
