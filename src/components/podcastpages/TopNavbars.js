@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 
 const TopNavbars = (props) => {
-  const {is_private, patreon_support_link, enabled_tip_jar, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor} = props;
+  const {hide_subscribe_page, is_private, patreon_support_link, enabled_tip_jar, name, slug, navbarColorTheme, buttonTextColor, buttonColor, textColor} = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -49,9 +49,12 @@ const TopNavbars = (props) => {
               <NavItem onClick={handleNavItemClicked}>
                 <NavLink to={`/shows/${slug}/episodes`} tag={Link}>EPISODES</NavLink>
               </NavItem>
-              <NavItem onClick={handleNavItemClicked}>
-                <NavLink to={`/shows/${slug}/subscribe`} tag={Link}>SUBSCRIBE</NavLink>
-              </NavItem>
+              {
+                !hide_subscribe_page && (<NavItem onClick={handleNavItemClicked}>
+                  <NavLink to={`/shows/${slug}/subscribe`} tag={Link}>SUBSCRIBE</NavLink>
+                </NavItem>)
+              }
+
               {
                 (enabled_tip_jar || patreon_support_link) ? <NavItem onClick={handleNavItemClicked}>
                   <NavLink to={`/shows/${slug}/support_us`} tag={Link}>SUPPORT US</NavLink>

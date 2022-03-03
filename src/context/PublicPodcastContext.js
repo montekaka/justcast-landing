@@ -3,7 +3,7 @@ import createDataContext from './createDataContext';
 const initState = {
   backgroundColor: null, 
   backgroundColorClass: null,
-  cardBackgroundColor:  null,
+  cardBackgroundColor:  null,  
   textColor: null, 
   linkColor: null,
   buttonColor: null,
@@ -14,6 +14,7 @@ const initState = {
   facebook_pixel_base_code: null,
   recommend_episode: null,
   brand_link_back: null,
+  hide_subscribe_page: false,
 }
 
 const publicPodcastReducer = (state, action) => {

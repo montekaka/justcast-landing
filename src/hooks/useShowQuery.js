@@ -14,6 +14,7 @@ const useShowQuery = (showId) => {
         const data = res.data;
         
         const {show, audioposts, mailchimp_connection, people} = data;
+        const {hide_subscribe_page} = show;
 
         if(mailchimp_connection) {
           show['mailchimp_button_title_message'] = mailchimp_connection.button_title_message;
@@ -25,12 +26,12 @@ const useShowQuery = (showId) => {
           const recommend_audiopost = audioposts.filter((a) => a.id === show.recommend_audiopost_id)
           if(recommend_audiopost && recommend_audiopost.length === 1) {
             const recommend_episode = recommend_audiopost[0];
-            add({show, audioposts, recommend_episode, people});
+            add({show, audioposts, recommend_episode, people, hide_subscribe_page});
           } else {
-            add({show, audioposts, people});
+            add({show, audioposts, people, hide_subscribe_page});
           }
         } else {
-          add({show, audioposts, people});
+          add({show, audioposts, people, hide_subscribe_page});
         }
         
         // setShow(res.data);
