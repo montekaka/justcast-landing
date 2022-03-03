@@ -399,6 +399,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
   .then((res) => {
 
     const show = res.data;
+    
     const url = show.link;
     const title = `${show.podcast_title} | Subscribe`;
     const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
@@ -432,7 +433,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
       backgroundColorClass
     }
     
-    if(show.is_private_show) {
+    if(show.is_private_show || show.hide_subscribe_page) {
       response.redirect('/page_404')
     } else {
       fs.readFile(filePath, 'utf8', function (err,data) {
