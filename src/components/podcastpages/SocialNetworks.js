@@ -23,32 +23,36 @@ const SocialNetworks = ({facebook_page, twitter_handle, instagram_profile, slack
   // const themeContext = useContext(ThemeContext);
   // const {backgroundColorClass} = themeContext.state;
   
-  return (
-    <>      
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-10 col-lg-9 col-xl-8">
-            <div className="row align-items-center py-5 border-top border-bottom">
-              <div className="col-auto"></div>
-              <div className="col ml-n5">
-                <h6 className="text-uppercase mb-0" style={{color: textColor}}>
-                  You can find us on
-                </h6>
-              </div>
-              <div className="col-auto">
-                <ul className="d-inline list-unstyled list-inline list-social">
-                  <ListItem url={facebook_page} iconImg={facebookImg} name="facebook"/>
-                  <ListItem url={twitterLink} iconImg={twitterImg} name="twitter"/>
-                  <ListItem url={instagram_profile} iconImg={instagramImg} name="instagram"/>
-                  <ListItem url={slack} iconImg={slackImg} name="slack"/>
-                </ul>
+  if(facebook_page || twitter_handle || instagram_profile || slack) {
+    return (
+      <>      
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-10 col-lg-9 col-xl-8">
+              <div className="row align-items-center py-5 border-top border-bottom">
+                <div className="col-auto"></div>
+                <div className="col ml-n5">
+                  <h6 className="text-uppercase mb-0" style={{color: textColor}}>
+                    You can find us on
+                  </h6>
+                </div>
+                <div className="col-auto">
+                  <ul className="d-inline list-unstyled list-inline list-social">
+                    <ListItem url={facebook_page} iconImg={facebookImg} name="facebook"/>
+                    <ListItem url={twitterLink} iconImg={twitterImg} name="twitter"/>
+                    <ListItem url={instagram_profile} iconImg={instagramImg} name="instagram"/>
+                    <ListItem url={slack} iconImg={slackImg} name="slack"/>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>                      
-    </>    
-  )
+        </div>                      
+      </>    
+    )
+  }
+  
+  return null;
 }
 
 export default SocialNetworks;
