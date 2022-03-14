@@ -15,11 +15,12 @@ const PrivatePodcast = (props) => {
   const [rssFeed, setRssFeed] = useState('')
   const [qrCode, setQRCode] = useState({})
   const [copyFeedLink, setCopyFeedLink] = useState('Copy Feed Link')
+  const [webPlayerURL, setWebPlayerURL] = useState("");
 
   const copyToClipboard = () => {
     const copyText = document.querySelector('#text-rss-feed');
     copyText.select();
-    document.execCommand("Copy");
+    document.execCommand("Copy");    
     setCopyFeedLink('Copied!');
     setTimeout(() => {
       setCopyFeedLink('Copy Feed Link');      
@@ -41,6 +42,7 @@ const PrivatePodcast = (props) => {
       setLinks(_links);
       setRssFeed(res.data.private_feed.rss_feed)
       setQRCode(_links[0])
+      setWebPlayerURL(res.data.private_feed.web_player_url)
       // setBackgroundImage("https://source.unsplash.com/1600x900/?"+data.show.name.split(' ').join(','))
       setBackgroundImage(data.show.artwork_url_256)
     })
@@ -74,6 +76,8 @@ const PrivatePodcast = (props) => {
                 )}
               )
             }                  
+            <hr/>
+            <a className="btn btn-primary btn-block lift" href={webPlayerURL}>Listen now</a>
             <hr/>
             <div onClick={copyToClipboard} className="btn btn-secondary btn-block lift">{copyFeedLink}</div>            
             <input defaultValue={rssFeed} id="text-rss-feed" style={{position: "absolute", left: '-9999px'}}/>
