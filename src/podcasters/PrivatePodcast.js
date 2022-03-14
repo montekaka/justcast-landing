@@ -77,10 +77,10 @@ const PrivatePodcast = (props) => {
               )
             }                  
             <hr/>
-            <a className="btn btn-primary btn-block lift" href={webPlayerURL}>Listen now</a>
-            <hr/>
             <div onClick={copyToClipboard} className="btn btn-secondary btn-block lift">{copyFeedLink}</div>            
             <input defaultValue={rssFeed} id="text-rss-feed" style={{position: "absolute", left: '-9999px'}}/>
+            <hr/>
+            <a className="btn btn-warning btn-block lift" href={webPlayerURL}>Listen now</a>            
           </div>
           <RightSideCoverImage imageURL={backgroundImage}/>          
         </div>        
