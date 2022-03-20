@@ -22,11 +22,12 @@ const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
   ];
 
   const personalFeatures = [
-    {title: "Limited downloads (via Dropbox)", check: true}, 
+    {title: "Limited downloads (via Dropbox)", check: true},
     {title: "Private RSS Feeds", check: true},
-    {title: "Unlimited Podcasts with Unlimited Episodes", check: true}, 
-    {title: "RSS Feed Shows All Episodes", check: true},     
-    {title: "Detailed Stats and Analytics About Your Listeners", check: false}, 
+    {title: "Unlimited Podcasts with Unlimited Episodes", check: true},
+    {title: "RSS Feed Shows All Episodes", check: true},
+    {title: "Detailed Stats and Analytics About Your Listeners", check: false},
+    {title: "Able to submit to Podcasts Network (e.g. Apple Podcasts)", check: false},
     {title: "Tip Jar", check: false}, 
     {title: "Podcast website", check: false}, 
     {title: "Embedded player", check: false}, 
