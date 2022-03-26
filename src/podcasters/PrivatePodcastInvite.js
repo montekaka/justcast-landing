@@ -14,7 +14,7 @@ const PrivatePodcastInvite = (props) => {
   // const [validEmail, setValidEmail] = useState(false);
   const [inputValid, setInputValid] = useState(false);
   const [message, setMessage] = useState("");
-
+  const [requestButtons, setRequestButtons] = useState(false);
 
   useEffect(() => {
     justcastApi.get(`/v1/shows/${showId}`)
@@ -45,13 +45,13 @@ const PrivatePodcastInvite = (props) => {
           email_address: email
         })
         .then((res) => {
+          setEamil("");
           setMessage(res.data.message)
         })
         .catch((err) => {
-          setMessage(err.message)
+          setMessage(err.response.data.error);
+          setRequestButtons(true);
         })
-        
-        setEamil("");
       } else {
         setInputValid(true);
       }
@@ -62,6 +62,28 @@ const PrivatePodcastInvite = (props) => {
     setTimeout(() => {
       setInputValid(false);
     }, 3000)
+  }
+  
+  const clickSendRequest = () => {
+    if(email) {
+      justcastApi.post(`/v1/shows/${showId}/request_access`, {
+        email_address: email
+      })
+      .then((res) => {
+        setMessage(res.data.message);
+        setEamil("");
+        setRequestButtons(false);
+      })
+      .catch((err) => {
+        setEamil("");
+        setMessage(err.response.data.error);
+        setRequestButtons(false);
+      })
+    } else {
+      setMessage("");
+      setEamil("");
+      setRequestButtons(false);
+    }
   }
 
   return (
@@ -102,10 +124,21 @@ const PrivatePodcastInvite = (props) => {
                     block
                     onClick={clickSubmit}
                   >
-                      VERIFY EMAIL &#38; SUBSCRIBE
+                    VERIFY EMAIL &#38; SUBSCRIBE
                   </Button>
                 </Form>
               </>
+            }
+            {
+              requestButtons && <div>
+                <hr/>
+                <Button color="warning" block onClick={clickSendRequest}>Yes</Button>
+                <Button color="secondary" block onClick={() => {
+                  setMessage("");
+                  setEamil("");
+                  setRequestButtons(false);
+                }}>No</Button>                
+              </div>
             }            
           </div>
           <RightSideCoverImage imageURL={backgroundImage}/>          
