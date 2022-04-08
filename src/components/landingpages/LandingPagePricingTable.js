@@ -71,7 +71,7 @@ const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
               <PriceTableItem 
                 title="Plus" 
                 periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} 
-                price={isMonthlyPlan ? 90: 900} 
+                price={isMonthlyPlan ? 49: 490} 
                 buttonLabel="Try for Free" 
                 buttonClassName="btn-primary" 
                 features={[ {title: "500,000 downloads/mo", check: true}, ...features]}/>             
