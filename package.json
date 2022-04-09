@@ -18,7 +18,7 @@
     "html-react-parser": "^0.10.0",
     "jotai": "^0.12.5",
     "mixpanel-browser": "^2.32.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-duration-format": "^2.3.2",
     "morgan": "^1.9.1",
     "querystring": "^0.2.0",
