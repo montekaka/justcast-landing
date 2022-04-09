@@ -31,6 +31,7 @@ export default function MeetTheHosts(props) {
               tiktok_url={item.tiktok_url}
               instagram_url={item.instagram_url}
               youtube_url={item.youtube_url}
+              patreon={item.patreon}
             />)
           }
         </div>      

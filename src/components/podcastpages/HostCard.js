@@ -5,7 +5,7 @@ import PersonSocialNetwork from './PersonSocialNetwork'
 import HostDescription from './HostDescription'
 
 export default function HostCard(props) {
-  const {img, href, email, name, description, roles, facebook_url, twitter_url, linkedin_url, tiktok_url, instagram_url, youtube_url} = props;
+  const {img, href, email, name, description, roles, facebook_url, twitter_url, linkedin_url, tiktok_url, instagram_url, youtube_url, patreon} = props;
   const { state } = useContext(PublicPodcastContext);
   const {cardBackgroundColor, textColor, buttonColor, buttonTextColor} = state;  
   const [cardHeight, setCardHeight] = useState("500px");
@@ -36,7 +36,7 @@ export default function HostCard(props) {
         </div>        
         <div className='host-card-roles'>
           {
-            [{href: facebook_url, name: "Facebook"}, {href: twitter_url, name: "Twitter"}, {href: linkedin_url, name: "LinkedIn"}, {href: tiktok_url, name: "Tiktok"}, {href: instagram_url, name: "Instagram"}, {href: youtube_url, name: "Youtube"}].map((item) => <PersonSocialNetwork key={item.name} href={item.href} name={item.name} size="24" fill={textColor} />)
+            [{href: patreon, name: "Patreon"}, {href: facebook_url, name: "Facebook"}, {href: twitter_url, name: "Twitter"}, {href: linkedin_url, name: "LinkedIn"}, {href: tiktok_url, name: "Tiktok"}, {href: instagram_url, name: "Instagram"}, {href: youtube_url, name: "Youtube"}].map((item) => <PersonSocialNetwork key={item.name} href={item.href} name={item.name} size="24" fill={textColor} />)
           }
         </div>        
         {description ? <div className='host-description' onClick={toggle}>
