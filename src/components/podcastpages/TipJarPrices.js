@@ -2,7 +2,7 @@ import React from 'react';
 import TipJarPrice from './TipJarPrice';
 
 const TipJarPrices = (props) => {
-  const {prices, handlePriceClick} = props;
+  const {prices} = props;
 
   if(prices) {
     return (
@@ -14,7 +14,7 @@ const TipJarPrices = (props) => {
             id={price.id}
             product_currency_code_value={price.product_currency_code_value}
             price={price.unit_amount}
-            handlePriceClick={handlePriceClick}
+            stripe_payment_url={price.stripe_payment_url}
           />
         )
       }

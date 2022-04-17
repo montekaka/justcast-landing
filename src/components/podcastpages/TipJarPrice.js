@@ -1,16 +1,15 @@
 import React from 'react';
 
-const TipJarPrice = ({id, product_currency_code_value, handlePriceClick, price}) => {
+const TipJarPrice = ({id, product_currency_code_value, stripe_payment_url, price}) => {
 
   return (
-    <div 
+    <a 
       className="btn btn-outline-success btn-pill"
       style={{marginRight: 10}}
-      onClick={() => {
-      handlePriceClick(id)
-    }}>
+      href={stripe_payment_url}
+    >
       {product_currency_code_value} ${price/100}
-    </div>
+    </a>
   )
 }
 

@@ -114,7 +114,6 @@ const Tipjar = (props) => {
             <div className="col-12 col-md-12 col-lg-10">
               <TipJarPrices 
                 prices={prices}
-                handlePriceClick={handlePriceClick}
               />
             </div>
           </div></>
