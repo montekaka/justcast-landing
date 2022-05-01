@@ -4,7 +4,7 @@ import justcastApi from '../api/justcast'
 import ReactGA from 'react-ga';
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
 import {Context as PlayerContext} from '../context/PlayerContext'
-import {Layout, SimplePageHeader, EpisodeArtwork, EpisodeImages, EpisodePlayer, PodcastApps} from '../components/podcastpages'
+import {Layout, SimplePageHeader, EpisodeArtwork, EpisodeImages, EpisodePlayer, PodcastApps, MeetTheHosts} from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 
 const getAudiopostById = (audioposts, id) => {
@@ -60,7 +60,7 @@ const Episode = (props) => {
         const _audiopost = getAudiopostById(audioposts, audiopost_id);
         setAudiopost(_audiopost);
         setupPlayer(_audiopost)
-        add({show, audioposts});
+        add({show, audioposts});        
       })
       .catch((err) => {
         console.log(err);
@@ -107,8 +107,13 @@ const Episode = (props) => {
           <div className="row justify-content-center" style={{color: textColor}}>
             <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
               dangerouslySetInnerHTML={{__html: audiopost.description}}/>
+            <MeetTheHosts
+              title={state.meet_hosts_title}
+              items={audiopost.hosts}
+              textColor={state.textColor}            
+            />
             <EpisodeArtwork artwork={audiopost.artwork_url} name={audiopost.episode_title}/>
-            <EpisodeImages images={audiopost.images}/>
+            <EpisodeImages images={audiopost.images}/>            
           </div>
         </div> 
         <PodcastApps 
