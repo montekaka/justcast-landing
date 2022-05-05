@@ -23,7 +23,7 @@ const LandingPageHero = () => {
             </h1>
             <p className="lead text-center text-md-left text-muted mb-6 mb-lg-8">
               {/* Record your audio and upload it to Dropbox.  We'll help you distribute your podcast to Apple Podcasts, Spotify, and Google Podcasts. */}
-              JustCast is podcast hosting that save your time.
+              JustCast is podcast hosting that saves your time.
             </p>
             <div className="text-center text-md-left">
               <a id="justcast_landing_page_signup" 
