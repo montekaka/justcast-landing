@@ -103,15 +103,15 @@ const Episode = (props) => {
               />
             </div>
           </div>  
-          <br/>  
+          <br/>
+          <MeetTheHosts
+            title={state.meet_hosts_title}
+            items={audiopost.hosts}
+            textColor={state.textColor}            
+          />
           <div className="row justify-content-center" style={{color: textColor}}>
             <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
               dangerouslySetInnerHTML={{__html: audiopost.description}}/>
-            <MeetTheHosts
-              title={state.meet_hosts_title}
-              items={audiopost.hosts}
-              textColor={state.textColor}            
-            />
             <EpisodeArtwork artwork={audiopost.artwork_url} name={audiopost.episode_title}/>
             <EpisodeImages images={audiopost.images}/>            
           </div>
