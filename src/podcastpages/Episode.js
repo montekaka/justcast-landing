@@ -6,6 +6,7 @@ import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
 import {Context as PlayerContext} from '../context/PlayerContext'
 import {Layout, SimplePageHeader, EpisodeArtwork, EpisodeImages, EpisodePlayer, PodcastApps, MeetTheHosts} from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
+import {redirectPageShowId} from '../libs'
 
 const getAudiopostById = (audioposts, id) => {
   const _ = audioposts.filter(audiopost => audiopost.id.toString() === id.toString());
