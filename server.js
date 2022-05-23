@@ -23,6 +23,14 @@ const appleVerification = {
   root: path.join(__dirname, `./public/`),
 };
 
+const redirectPageShowId = (show_id) => {
+  const dict = {
+    'nixer-show-5e99c437-55be-44f6-8302-23f9188d194e': 'nixershow'
+  }
+
+  return dict[show_id] ? dict[show_id] : show_id
+}
+
 // apple-developer-merchantid-domain-association
 app.get('/.well-known/apple-developer-merchantid-domain-association', (req, res) => {
   res.status(200)
@@ -31,7 +39,7 @@ app.get('/.well-known/apple-developer-merchantid-domain-association', (req, res)
 
 app.get('/shows/:show_id/audioposts/:id', function(request, response) {    
   const id = request.params.id;
-  const show_id = request.params.show_id;
+  const show_id = redirectPageShowId(request.params.show_id);
   instance.get(`/v1/shows/${show_id}/audioposts/${id}`)
   .then((res) => {
     const data = res.data;
@@ -90,7 +98,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
 });
 
 app.get('/shows/:id/audioposts', function(request, response) {
-  const id = request.params.id;
+  const id = redirectPageShowId(request.params.id);
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
@@ -150,7 +158,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
 
 
 app.get('/shows/:id/support_us', function(request, response) {
-  const id = request.params.id;
+  const id = redirectPageShowId(request.params.id);
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
@@ -210,7 +218,7 @@ app.get('/shows/:id/support_us', function(request, response) {
 
 
 app.get('/podcasts/:id', function(request, response) {
-  const id = request.params.id;
+  const id = redirectPageShowId(request.params.id);
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
@@ -269,7 +277,7 @@ app.get('/podcasts/:id', function(request, response) {
 
 
 app.get('/mobile-player-widget/:id/audioposts', function(request, response) {
-  const id = request.params.id;
+  const id = redirectPageShowId(request.params.id);
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
@@ -336,7 +344,7 @@ app.get('/mobile-player-widget/:id/audioposts', function(request, response) {
 });
 
 app.get('/shows/:id/episodes', function(request, response) {    
-  const id = request.params.id;
+  const id = redirectPageShowId(request.params.id);
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
@@ -394,7 +402,7 @@ app.get('/shows/:id/episodes', function(request, response) {
 
 
 app.get('/shows/:id/subscribe', function(request, response) {    
-  const id = request.params.id;
+  const id = redirectPageShowId(request.params.id);
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
@@ -452,7 +460,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
 });
 
 app.get('/shows/:id/about_us', function(request, response) {    
-  const id = request.params.id;
+  const id = redirectPageShowId(request.params.id);
   instance.get(`/v1/shows/${id}`)
   .then((res) => {
 
@@ -897,7 +905,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
 app.get('/widget/:show_id/audioposts/:id', function(request, response) {    
   const referer_url = request.headers.referer;
   const id = request.params.id;
-  const show_id = request.params.show_id;
+  const show_id = redirectPageShowId(request.params.show_id);
   instance.get(`/v1/shows/${show_id}/audioposts/${id}?referer_url=${referer_url}`)
   .then((res) => {
     const data = res.data;
@@ -964,7 +972,7 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
 
 app.get('/shows/:show_id/subscribers/:id', function(request, response) {    
   const id = request.params.id;
-  const show_id = request.params.show_id;
+  const show_id = redirectPageShowId(request.params.show_id);
   instance.get(`/v1/shows/${show_id}/private_feeds/${id}`)
   .then((res) => {
     const data = res.data;
