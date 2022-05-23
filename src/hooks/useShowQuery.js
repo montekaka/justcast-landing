@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext} from 'react';
 import justcastApi from '../api/justcast'
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
+import {redirectPageShowId} from '../libs'
 
 const useShowQuery = (showId) => {
   // const [show, setShow] = useState({})
@@ -9,7 +10,7 @@ const useShowQuery = (showId) => {
 
   useEffect(() => {
     if(!state.name) {
-      justcastApi.get((`/v1/shows/${showId}/audioposts`))
+      justcastApi.get((`/v1/shows/${redirectPageShowId(showId)}/audioposts`))
       .then((res) => {
         const data = res.data;
         

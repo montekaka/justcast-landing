@@ -23,7 +23,7 @@ const Episode = (props) => {
   const [audiopost, setAudiopost] = useState({})
   const [audioDate, setAudioDate] = useState('');
 
-  const id = props.match.params.show_id;
+  const id = redirectPageShowId(props.match.params.show_id);
   const audiopost_id = props.match.params.id;
 
   useEffect(() => {
@@ -43,8 +43,8 @@ const Episode = (props) => {
         name: data.episode_title,
         description: data.description,
         artwork: state.artwork_url, 
-        embedUrl: `${process.env.REACT_APP_BASE_PATH}/widget/${state.slug}/audioposts/${data.id}`, 
-        shareUrl: `${process.env.REACT_APP_BASE_PATH}/shows/${state.slug}/audioposts/${data.id}`, 
+        embedUrl: `${process.env.REACT_APP_BASE_PATH}/widget/${redirectPageShowId(state.slug)}/audioposts/${data.id}`, 
+        shareUrl: `${process.env.REACT_APP_BASE_PATH}/shows/${redirectPageShowId(state.slug)}/audioposts/${data.id}`, 
         shareOnFacebook: data.share_on_facebook, 
         shareOnTwitter: data.share_on_twitter
       })
