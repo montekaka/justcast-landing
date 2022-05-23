@@ -28,6 +28,7 @@ const About = (props) => {
     <>
       <SimplePageHeader
         title={"About the Show"}
+        imgURL={state.header_img_url}    
         text={state.copyright ? state.copyright : `© ${new Date().getFullYear()} ${state.podcast_title}`}
       />
       <Layout>      
