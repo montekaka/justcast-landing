@@ -12,6 +12,7 @@ const Layout = (props) => {
 
   const {bodyColor, textColor, brand_link_back} = state;
   const {title, message, active} = notification;
+  // text={state.copyright ? state.copyright : `© ${new Date().getFullYear()} ${state.podcast_title}`}
 
   return (
     <>
@@ -24,7 +25,8 @@ const Layout = (props) => {
         />
         {props.children}     
       </section>  
-      <Footer brand_link_back={brand_link_back} textColor={textColor}/> 
+      {/* <Footer brand_link_back={brand_link_back} textColor={textColor} />  */}
+      <Footer textColor={textColor} textLabel={state.copyright ? state.copyright : `© ${new Date().getFullYear()} ${state.podcast_title}`}/> 
     </>
   )
 
