@@ -20,7 +20,7 @@ const Episode = (props) => {
   const { state, add } = useContext(PublicPodcastContext);
   const playerContext = useContext(PlayerContext);
 
-  const {textColor, amazon_podcast_link, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug} = state;
+  const {textColor, amazon_podcast_link, apple_podcast, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, podverse, fountain, slug} = state;
   const [audiopost, setAudiopost] = useState({})
   const [audioDate, setAudioDate] = useState('');
 
@@ -129,6 +129,8 @@ const Episode = (props) => {
             castbox={castbox}
             tune_in={tune_in}
             stitcher={stitcher}
+            podverse={podverse}
+            fountain={fountain}
             amazon_podcast_link={amazon_podcast_link}
             slug={slug}
           >        

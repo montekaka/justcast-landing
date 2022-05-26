@@ -3,6 +3,8 @@ import facebookImg from '../../assets/img/icons/social/facebook.svg'
 import twitterImg from '../../assets/img/icons/social/twitter.svg'
 import instagramImg from '../../assets/img/icons/social/instagram.svg'
 import slackImg from '../../assets/img/icons/social/slack.svg'
+import mastodonImg from '../../assets/img/icons/social/mastodon.svg'
+import matrixImg from '../../assets/img/icons/social/matrix.svg'
 
 const ListItem = ({url, iconImg, name}) => {
   if(url) {
@@ -18,7 +20,7 @@ const ListItem = ({url, iconImg, name}) => {
   return null;
 }
 
-const SocialNetworks = ({facebook_page, twitter_handle, instagram_profile, slack, textColor}) => {
+const SocialNetworks = ({facebook_page, twitter_handle, mastodon, matrix, instagram_profile, slack, textColor}) => {
   const twitterLink = twitter_handle ? twitter_handle.replace('@', 'https://www.twitter.com/') : null;
   // const themeContext = useContext(ThemeContext);
   // const {backgroundColorClass} = themeContext.state;
@@ -42,6 +44,8 @@ const SocialNetworks = ({facebook_page, twitter_handle, instagram_profile, slack
                     <ListItem url={twitterLink} iconImg={twitterImg} name="twitter"/>
                     <ListItem url={instagram_profile} iconImg={instagramImg} name="instagram"/>
                     <ListItem url={slack} iconImg={slackImg} name="slack"/>
+                    <ListItem url={matrix} iconImg={matrixImg} name="matrix"/>
+                    <ListItem url={mastodon} iconImg={mastodonImg} name="mastodon"/>
                   </ul>
                 </div>
               </div>

@@ -8,7 +8,9 @@ import PrivateShow from './../components/PrivateShow';
 
 const About = (props) => {
   const { state } = useContext(PublicPodcastContext);  
-  const {textColor, people, meet_hosts_title, buttonColor, buttonTextColor, about_page_content, instagram_profile, facebook_page, twitter_handle, slack} = state;
+  const {textColor, people, meet_hosts_title, buttonColor, buttonTextColor, about_page_content, 
+    instagram_profile, facebook_page, twitter_handle, slack, mastodon, matrix
+  } = state;
 
   const id = props.match.params.id;
   const _ = useShowQuery(id);
@@ -38,6 +40,8 @@ const About = (props) => {
 						facebook_page={facebook_page}
 						twitter_handle={twitter_handle}
 						slack={slack}
+            mastodon={mastodon}
+            matrix={matrix}
 					/>
 					<SimplePageBody
 						bodyText={about_page_content}

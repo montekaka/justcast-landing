@@ -12,6 +12,8 @@ import stitcherSvg from '../../assets/img/icons/podcasts/stitcher.svg'
 import tuneinSvg from '../../assets/img/icons/podcasts/tunein.svg'
 import rssSvg from '../../assets/img/icons/podcasts/rss.svg'
 import amazonSvg from '../../assets/img/icons/podcasts/amazon_music.svg'
+import podverseSvg from '../../assets/img/icons/podcasts/podverse.svg'
+import fountainSvg from '../../assets/img/icons/podcasts/fountain.svg'
 
 
 const IconButton = ({url, iconImg, name, subtitle}) => {
@@ -35,7 +37,7 @@ const IconButton = ({url, iconImg, name, subtitle}) => {
 }
 
 const PodcastApps = (props) => {
-  const {apple_podcast, amazon_podcast_link, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug} = props;
+  const {apple_podcast, amazon_podcast_link, google_podcast, overcast, spotify, pocket_casts, breaker, castro, radio_public, castbox, tune_in, stitcher, slug, podverse, fountain} = props;
 
   return (
     <section className="py-8 py-md-11">
@@ -43,6 +45,8 @@ const PodcastApps = (props) => {
         {props.children}
         <div className="row justify-content-center">          
           <IconButton iconImg={applePodcastSvg} name="Apple Podcasts" subtitle="LISTEN ON" url={apple_podcast}/>
+          <IconButton iconImg={podverseSvg} name="Podverse" subtitle="LISTEN ON" url={podverse}/>
+          <IconButton iconImg={fountainSvg} name="Fountain" subtitle="LISTEN ON" url={fountain}/>
           <IconButton iconImg={googlePodcastSvg} name="Google Podcasts" subtitle="LISTEN ON" url={google_podcast}/>
           <IconButton iconImg={overcastSvg} name="Overcast" subtitle="LISTEN ON" url={overcast}/>
           <IconButton iconImg={spotifySvg} name="Spotify" subtitle="LISTEN ON" url={spotify}/>
@@ -54,7 +58,7 @@ const PodcastApps = (props) => {
           <IconButton iconImg={castboxSvg} name="Castbox" subtitle="LISTEN ON" url={castbox}/>
           <IconButton iconImg={tuneinSvg} name="TuneIn" subtitle="LISTEN ON" url={tune_in}/>
           <IconButton iconImg={stitcherSvg} name="Stitcher" subtitle="LISTEN ON" url={stitcher}/>
-          <IconButton iconImg={rssSvg} name="RSS Feed" subtitle="SUBSCRIBE" url={`${process.env.REACT_APP_RSS_FEED_BASE_PATH}/shows/${slug}/audioposts.rss`}/>          
+          <IconButton iconImg={rssSvg} name="RSS Feed" subtitle="SUBSCRIBE" url={`${process.env.REACT_APP_RSS_FEED_BASE_PATH}/shows/${slug}/audioposts.rss`}/>
         </div>           
       </div>
     </section>
