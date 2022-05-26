@@ -25,7 +25,7 @@ const SocialNetworks = ({facebook_page, twitter_handle, mastodon, matrix, instag
   // const themeContext = useContext(ThemeContext);
   // const {backgroundColorClass} = themeContext.state;
   
-  if(facebook_page || twitter_handle || instagram_profile || slack) {
+  if(mastodon || matrix || facebook_page || twitter_handle || instagram_profile || slack) {
     return (
       <>      
         <div className="container">
