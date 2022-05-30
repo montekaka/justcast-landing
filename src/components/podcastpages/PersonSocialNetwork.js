@@ -6,6 +6,8 @@ import { ReactComponent as LinkedInIcon } from '../../assets/img/icons/simple-ic
 import { ReactComponent as TiktokIcon } from '../../assets/img/icons/simple-icons/tiktok.svg'
 import { ReactComponent as YoutubeIcon } from '../../assets/img/icons/simple-icons/youtube.svg'
 import { ReactComponent as PatreonIcon } from '../../assets/img/icons/social/patreon.svg'
+import { ReactComponent as MatrixIcon } from '../../assets/img/icons/social/matrix.svg'
+import { ReactComponent as MastodonIcon } from '../../assets/img/icons/social/mastodon.svg'
 
 const Logo = ({name, size, fill}) => {
   switch (name) {
@@ -23,6 +25,10 @@ const Logo = ({name, size, fill}) => {
       return <YoutubeIcon fill={fill} width={size} height={size} />;
     case "Patreon":        
       return <PatreonIcon fill={fill} width={size} height={size} />;
+    case "Matrix":        
+      return <MatrixIcon fill={fill} width={size} height={size} />;
+    case "Mastodon":        
+      return <MastodonIcon fill={fill} width={size} height={size} />;
     default:
       return null;
   }  
