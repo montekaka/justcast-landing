@@ -60,6 +60,8 @@ const PrivatePodcast = (props) => {
               <img src={show.artwork_url_256} alt="podcast artwork" className="private-podcast-subscribers-page-artwork"/>
             </div>
             <h1 className="mb-0 font-weight-bold">{show.name}</h1>
+            <a className="btn btn-warning btn-block lift" href={webPlayerURL}>Listen now</a>
+            <hr/>
             <p className="mb-6">Add our private content to your favorite podcast player</p>
             <hr/>
             <Select value={qrCode} options={links} onChange={setQRCode}/>
@@ -78,9 +80,7 @@ const PrivatePodcast = (props) => {
             }                  
             <hr/>
             <div onClick={copyToClipboard} className="btn btn-secondary btn-block lift">{copyFeedLink}</div>            
-            <input defaultValue={rssFeed} id="text-rss-feed" style={{position: "absolute", left: '-9999px'}}/>
-            <hr/>
-            <a className="btn btn-warning btn-block lift" href={webPlayerURL}>Listen now</a>            
+            <input defaultValue={rssFeed} id="text-rss-feed" style={{position: "absolute", left: '-9999px'}}/>            
           </div>
           <RightSideCoverImage imageURL={backgroundImage}/>          
         </div>        
