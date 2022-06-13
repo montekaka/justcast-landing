@@ -13,7 +13,7 @@ const EpisodeList = ({slug, items}) => {
               <EpisodeCard                  
                 title={item.episode_title}                
                 footer={moment(item.audio_date).format('YYYY-MM-DD')}
-                artworkUrl={item.artwork_url ? item.artwork_url : 'https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80'}
+                artworkUrl={item.item_image ? item.item_image : 'https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80'}
                 link={`/shows/${slug}/audioposts/${item.id}`}
               />
             </div>

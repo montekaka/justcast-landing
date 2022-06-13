@@ -113,7 +113,7 @@ const Episode = (props) => {
           <div className="row justify-content-center" style={{color: textColor}}>
             <div className="col-12 col-md-10 col-lg-9 col-xl-8" 
               dangerouslySetInnerHTML={{__html: audiopost.description}}/>
-            <EpisodeArtwork artwork={audiopost.artwork_url} name={audiopost.episode_title}/>
+            <EpisodeArtwork artwork={audiopost.item_image} name={audiopost.episode_title}/>
             <EpisodeImages images={audiopost.images}/>            
           </div>
         </div> 
