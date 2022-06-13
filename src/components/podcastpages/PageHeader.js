@@ -10,12 +10,13 @@ const sectionCSS = (imgURL) => {
 const PageHeader = ({
   headerTitle, 
   text,
-  imgURL
+  imgURL,
+  hideOverlay
 }) => {
   
   return (
     <section data-jarallax
-      className="py-10 py-md-14 overlay overlay-black overlay-60 bg-cover jarallax"
+      className={`py-10 py-md-14 bg-cover jarallax ${!hideOverlay && "overlay overlay-black overlay-60"}`}
       data-speed=".8"
       style={sectionCSS(imgURL)}
     >

@@ -30,7 +30,8 @@ const Home = (props) => {
       <PageHeader
         headerTitle={state.podcast_title}
         text={state.site_intro_text}
-        imgURL={state.header_img_url}    
+        imgURL={state.header_img_url}
+        hideOverlay={state.hide_header_image_overlay}
       />
       <Layout>      
         <div className="container">

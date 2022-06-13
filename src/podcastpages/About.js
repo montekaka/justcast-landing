@@ -30,7 +30,8 @@ const About = (props) => {
     <>
       <SimplePageHeader
         title={"About the Show"}
-        imgURL={state.header_img_url}            
+        imgURL={state.header_img_url}  
+        hideOverlay={state.hide_header_image_overlay}          
       />
       <Layout>      
         <div className="container">

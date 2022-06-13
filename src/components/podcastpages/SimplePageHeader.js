@@ -1,11 +1,11 @@
 import React from "react";
 
 const SimplePageHeader = (props) => {
-  const {title, text, imgURL} = props;
+  const {title, text, imgURL, hideOverlay} = props;
   if(imgURL) {    
     return (
       <section data-jarallax
-        className="py-8 py-md-11 overlay overlay-black overlay-60 bg-cover jarallax"
+        className={`py-8 py-md-11 bg-cover jarallax ${!hideOverlay && "overlay overlay-black overlay-60"}`}
         data-speed=".8"
         style={{
           backgroundImage: `url(${imgURL})`
