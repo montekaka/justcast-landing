@@ -1,6 +1,7 @@
 import createDataContext from './createDataContext';
 
 const initState = {
+  about_page_title: null,
   backgroundColor: null, 
   backgroundColorClass: null,
   cardBackgroundColor:  null,  
