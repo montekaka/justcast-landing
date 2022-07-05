@@ -9,7 +9,8 @@ import PrivateShow from './../components/PrivateShow';
 const About = (props) => {
   const { state } = useContext(PublicPodcastContext);  
   const {textColor, people, meet_hosts_title, buttonColor, buttonTextColor, about_page_content, 
-    instagram_profile, facebook_page, twitter_handle, slack, mastodon, matrix
+    instagram_profile, facebook_page, twitter_handle, slack, mastodon, matrix, about_page_title,
+    header_img_url, about_page_header_image
   } = state;
 
   const id = props.match.params.id;
@@ -29,8 +30,8 @@ const About = (props) => {
   return (
     <>
       <SimplePageHeader
-        title={"About the Show"}
-        imgURL={state.header_img_url}  
+        title={about_page_title ? about_page_title : "About the Show"}
+        imgURL={about_page_header_image ? about_page_header_image : header_img_url}
         hideOverlay={state.hide_header_image_overlay}          
       />
       <Layout>      
