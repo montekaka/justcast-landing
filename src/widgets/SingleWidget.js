@@ -6,7 +6,9 @@ import {NinjaPlayer} from 'react-podcast-ninja'
 const SingleWidget = (props) => {
   const id = props.match.params.id;
   const showId = props.match.params.show_id;  
-  
+  const params = new URLSearchParams(props.location.search);
+  const widget_code = params.get('widget_code');
+
   const [audiopost, setAudiopost] = useState({});
   const [episodes, setEpisodes] = useState([])
   const [playerConfigs, setPlayerConfigs] = useState({});
@@ -14,8 +16,7 @@ const SingleWidget = (props) => {
   const [menuItems, setMenuItems] = useState([])
   
   useEffect(() => {
-    const referer_url = document.referrer;
-    justcastApi.get(`/v1/shows/${showId}/audioposts/${id}?referer_url=${referer_url}`)
+    justcastApi.get(`/v1/shows/${showId}/audioposts/${id}?referer_url=${widget_code}`)
     .then((res) => {
       const data = res.data;
       setAudiopost(data)
