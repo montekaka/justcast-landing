@@ -6,13 +6,17 @@ import justcastApi from '../api/justcast'
 
 const PodcastWidget = (props) => {
   const id = props.match.params.id;
+  const params = new URLSearchParams(props.location.search);
+  const widget_code = params.get('widget_code');
+
+  const referer_url = props.match.params.referer_url;
   const [show, setShow] = useState({});
   const [playerConfigs, setPlayerConfigs] = useState({});
   const [episodes, setEpisodes] = useState([])
 
   useEffect(() => {
-    const referer_url = document.referrer;
-    justcastApi.get(`/v1/shows/${id}/audioposts?referer_url=${referer_url}`)
+    console.log(referer_url)
+    justcastApi.get(`/v1/shows/${id}/audioposts?referer_url=${widget_code}`)
     .then((res) => {
       const showdata = res.data;
       setShow(showdata.show);
