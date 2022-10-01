@@ -1106,6 +1106,7 @@ app.get('/sitemap.xml', (request, response) => {
     `${rootPath}/about_us`,
     `${rootPath}/how-justcast-works`,
     `${rootPath}/private-podcast`,
+    `${rootPath}/mailerlite-podcast-integration`,
     `${rootPath}/integration-twitter`,
     `${rootPath}/audiogram`,
     `${rootPath}/terms`,
