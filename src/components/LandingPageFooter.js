@@ -69,6 +69,11 @@ const LandingPageFooter = () => {
                 <a href="/affiliates" className="text-reset">
                   Affiliates Program
                 </a>
+              </li>
+              <li className="mb-3">
+                <a href="/features-pricing" className="text-reset">
+                  Pricing
+                </a>
               </li>              
               <li className="mb-3">
                 <a href={signUpURL()} 
@@ -98,7 +103,7 @@ const LandingPageFooter = () => {
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li className="mb-3">
                 <a href="/mailerlite-podcast-integration" className="text-reset">MailerLite Integration</a>
-              </li>              
+              </li>
               <li className="mb-3">
                 <a href="/integration-twitter" className="text-reset">Twitter Integration</a>
               </li>
