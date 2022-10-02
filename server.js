@@ -846,11 +846,11 @@ app.get('/mailerlite-podcast-integration', (request, response) => {
   const meta = {
     title: "JustCast MailerLite Integration",
     description: "Simplest way to manage your listeners access via your MailerLite.",
-    img: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",
+    img: "https://justcast-assets.sfo3.cdn.digitaloceanspaces.com/marketing-assets/blogs/integrations/mailerlite%20+%20JustCast%20Social%20sharing.png",
     img_16: "",
     img_32: "",
     img_64: "",
-    img_256: "https://justcast.sfo2.cdn.digitaloceanspaces.com/LandingPageAssets/Imgs/JustCast-logo192.png",    
+    img_256: "https://justcast-assets.sfo3.cdn.digitaloceanspaces.com/marketing-assets/blogs/integrations/mailerlite%20+%20JustCast%20Social%20sharing.png",
     keywords: "Podcasting, MailerLite",
     url: "https://www.justcast.com/mailerlite-podcast-integration",
     twitter_handle: "@thejustcast",
