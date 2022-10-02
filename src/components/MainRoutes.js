@@ -32,6 +32,7 @@ import PrivatePodcastPage from './../landingpages/PrivatePodcastPage'
 import ChurchPodcasting from './../landingpages/ChurchPodcasting'
 import SoicalNetworkIntegrationPage from './../landingpages/SoicalNetworkIntegrationPage'
 import AudiogramPage from '../landingpages/AudiogramPage'
+import MailerLiteIntegrationPage from '../landingpages/MailerLiteIntegrationPage'
 import {Home as PublicPodcastHome, 
   Episodes as PublicPodcastEpisodes,
   Episode as PublicPodcastEpisode,
@@ -68,6 +69,7 @@ const MainRoutes = () => {
       <LandingPageRoute exact path="/blogs/resources-for-church-impacted-by-coronavirus" component={BlogPost}/>
       <LandingPageRoute exact path="/how-justcast-works" component={HowJustCastWorks}/>
       <LandingPageRoute exact path="/private-podcast" component={PrivatePodcastPage}/>
+      <LandingPageRoute exact path="/mailerlite-podcast-integration" component={MailerLiteIntegrationPage}/>
       <LandingPageRoute exact path="/integration-twitter" component={SoicalNetworkIntegrationPage}/>
       <LandingPageRoute exact path="/audiogram" component={AudiogramPage}/>
       <LandingPageRoute exact path="/church-podcasting" component={ChurchPodcasting}/>

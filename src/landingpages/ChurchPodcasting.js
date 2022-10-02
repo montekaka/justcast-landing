@@ -85,7 +85,7 @@ const ChurchPodcasting = () => {
         <hr/>
       </SectionLayout>
       
-      <LandingPagePricingTable/>
+      <LandingPagePricingTable hidePersonal={true}/>
       <FAQShape/>
       <section className="pt-15 bg-dark">
         <div className="container pt-8 pt-md-11">          

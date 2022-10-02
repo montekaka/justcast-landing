@@ -56,30 +56,57 @@ const LandingPageFooter = () => {
           </div>
           <div className="col-6 col-md-4 col-lg-2">
             <h6 className="font-weight-bold text-uppercase text-gray-700">
-              Products
+              JustCast
             </h6>
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li className="mb-3">
                 <a href="/private-podcast" className="text-reset">Private podcast</a>
               </li>
               <li className="mb-3">
-                <a href="/audiogram" className="text-reset">Audiogram</a>
+                <a href="/church-podcasting" className="text-reset">Podcast Hosting for Churches</a>
               </li>
               <li className="mb-3">
-                <a href="/integration-twitter" className="text-reset">Twitter Integration</a>
-              </li>    
+                <a href="/affiliates" className="text-reset">
+                  Affiliates Program
+                </a>
+              </li>
               <li className="mb-3">
-                <a href="/church-podcasting" className="text-reset">Podcast Hosting for Churches</a>
-              </li>                                          
+                <a href="/features-pricing" className="text-reset">
+                  Pricing
+                </a>
+              </li>              
+              <li className="mb-3">
+                <a href={signUpURL()} 
+                onClick={() => {
+                  mixpanelClickTrack("Sign up")
+                }}                
+                className="text-reset" target="_blank">
+                  Sign Up
+                </a>
+              </li>              
+              <li className="mb-3">
+                <a href={signInURL()} 
+                onClick={() => {
+                  mixpanelClickTrack("Sign in")
+                }}
+                className="text-reset" 
+                target="_blank">
+                  Log in
+                </a>
+              </li>
             </ul>
           </div>
           <div className="col-6 col-md-4 col-lg-2">
-
             <h6 className="font-weight-bold text-uppercase text-gray-700">
-              Learn More
+              Resources
             </h6>
-
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+              <li className="mb-3">
+                <a href="/mailerlite-podcast-integration" className="text-reset">MailerLite Integration</a>
+              </li>
+              <li className="mb-3">
+                <a href="/integration-twitter" className="text-reset">Twitter Integration</a>
+              </li>
               <li className="mb-3">
                 <a href="https://medium.com/@justcastapp" target="_blank" className="text-reset">
                   Blog
@@ -90,41 +117,19 @@ const LandingPageFooter = () => {
                   Help
                 </a>
               </li>
-              <li className="mb-3">
-                <a href={signInURL()} 
-                onClick={() => {
-                  mixpanelClickTrack("Sign in")
-                }}
-                className="text-reset" 
-                target="_blank">
-                  Sign in
-                </a>
-              </li>
-              <li>
-                <a href={signUpURL()} 
-                onClick={() => {
-                  mixpanelClickTrack("Sign up")
-                }}                
-                className="text-reset" target="_blank">
-                  Get Started
-                </a>
-              </li>
             </ul>
 
           </div>
-          <div className="col-6 col-md-4 col-lg-2">
-        
-
+          <div className="col-6 col-md-4 col-lg-2">        
             <h6 className="font-weight-bold text-uppercase text-gray-700">
               COMPANY
             </h6>
-
             <ul className="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li className="mb-3">
                 <a href="/about_us" className="text-reset">
                   About us
                 </a>
-              </li>                
+              </li>
               <li className="mb-3">
                 <a href="/terms" className="text-reset">
                   Terms
@@ -134,19 +139,12 @@ const LandingPageFooter = () => {
                 <a href="/privacy" className="text-reset">
                   Privacy
                 </a>
-              </li>
-              <li className="mb-3">
-                <a href="/affiliates" className="text-reset">
-                  Affiliates
-                </a>
-              </li>                          
+              </li>                     
               <li className="mb-3">
                 <a href="mailto:justcastapp@gmail.com" className="text-reset">Contact us</a>
               </li>       
             </ul>
-          </div>
-          
-         
+          </div>       
         </div>
         <div className="row">
           <div className="col-12">

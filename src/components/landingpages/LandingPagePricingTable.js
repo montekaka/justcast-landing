@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import PriceTableItem from './PriceTableItem';
 
-const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
+const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) => {
   const [isMonthlyPlan, setIsMonthlyPlan] = useState(true);
 
   const handleSwitchChange = () => {
@@ -77,7 +77,7 @@ const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
                 features={[ {title: "500,000 downloads/mo", check: true}, ...features]}/>             
             </div>                                         
           </div>
-          <div className="row mb-5">
+          {!hidePersonal && <div className="row mb-5">
             <div className="col-12 col-lg-12">
               <PriceTableItem 
                 title="Personal" 
@@ -87,7 +87,7 @@ const LandingPagePricingTable = ({sectionClassName, titleColor}) => {
                 buttonClassName="btn-primary" 
                 features={personalFeatures}/>                            
             </div>
-          </div>
+          </div>}
         </div>  
       </section>
     </div>

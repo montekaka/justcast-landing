@@ -842,6 +842,30 @@ app.get('/private-podcast', (request, response) => {
   });   
 })
 
+app.get('/mailerlite-podcast-integration', (request, response) => {
+  const meta = {
+    title: "JustCast MailerLite Integration",
+    description: "Simplest way to manage your listeners access via your MailerLite.",
+    img: "https://justcast-assets.sfo3.cdn.digitaloceanspaces.com/marketing-assets/blogs/integrations/mailerlite%20+%20JustCast%20Social%20sharing.png",
+    img_16: "",
+    img_32: "",
+    img_64: "",
+    img_256: "https://justcast-assets.sfo3.cdn.digitaloceanspaces.com/marketing-assets/blogs/integrations/mailerlite%20+%20JustCast%20Social%20sharing.png",
+    keywords: "Podcasting, MailerLite",
+    url: "https://www.justcast.com/mailerlite-podcast-integration",
+    twitter_handle: "@thejustcast",
+    apple_iutnes_app_id: "",
+    backgroundColorClass: "bg-light"
+  }
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    const result = SEOHelpers.set(meta, data)
+    response.send(result);
+  });   
+})
+
 app.get('/integration-twitter', (request, response) => {
   const meta = {
     title: "Twitter Integration",
@@ -1106,6 +1130,7 @@ app.get('/sitemap.xml', (request, response) => {
     `${rootPath}/about_us`,
     `${rootPath}/how-justcast-works`,
     `${rootPath}/private-podcast`,
+    `${rootPath}/mailerlite-podcast-integration`,
     `${rootPath}/integration-twitter`,
     `${rootPath}/audiogram`,
     `${rootPath}/terms`,

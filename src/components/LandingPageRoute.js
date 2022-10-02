@@ -5,6 +5,7 @@ import LandingPageNavbars from './LandingPageNavbars'
 import LandingPageFooter from './LandingPageFooter'
 
 const navItems = [
+  {label:'Private Podcast', url: "/private-podcast"},
   {label:'Pricing', url: "/features-pricing"},
   {label:'How JustCast works', url: "/how-justcast-works"},
   {label:'Examples', url: "/examples"}

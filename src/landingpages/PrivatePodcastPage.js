@@ -155,8 +155,6 @@ const PrivatePodcastPage = () => {
         <UnorderList items={[
           "You own and control your content - even on the free plan. JustCast does not monetise free content with advertising like other free podcast hosting solutions.",
           "The free version provides a lot more space (2GB using Dropbox) than other free hosting solutions.",
-          // "Professional-looking and customisable podcast website.",
-          // "Detailed metrics and stats.",
           "Beautiful audiograms (audio-visual clips) you can share on social media.",
           "Scales with your podcast."
         ]} iconClassName="fe fe-check"/>
@@ -165,7 +163,7 @@ const PrivatePodcastPage = () => {
         <hr/>
       </SectionLayout>
       
-      <LandingPagePricingTable/>
+      <LandingPagePricingTable hidePersonal={true}/>
       <FAQs items={faqs}/>
     </>
   )
