@@ -10,6 +10,8 @@ import {
 } from '../components/landingpages/article-blocks'
 import LandingPagePricingTable from '../components/landingpages/LandingPagePricingTable'
 import FAQs from '../components/FAQs'
+import mailerlite from "../assets/img/illustrations/mailerlitejustcast.png"
+import {Link} from 'react-router-dom'
 
 const faqs = [
   {
@@ -118,40 +120,49 @@ const PrivatePodcastPage = () => {
       </SectionLayout>   
       <SectionLayout>
         <ParagraphsSection title="How To Create Your Private RSS Feed">
-          <h4 className="font-weight-bold">1. Sign up to Justcast for free.</h4>
+          <h4>1. Sign up to Justcast for free.</h4>
           <UnorderList items={["Sign up and follow the steps to create your podcast"]}/>
-          <h4 className="font-weight-bold">2. Set your podcast’s RSS feed to private.</h4>
+          <h4>2. Set your podcast’s RSS feed to private.</h4>
           <UnorderList items={["From your podcast overview, go to Settings > Advanced > Members Private Feed and turn it on"]}/>
-          <h4 className="font-weight-bold">3. Invite your subscribers.</h4>
+          <h4>3. Invite your subscribers.</h4>
           <UnorderList items={["Go to the Private Subscribers page from your podcast overview and add subscribers using their email addresses. You can then send them email invites or instructions on how to subscribe."]}/>
-          <h4 className="font-weight-bold">4. Publish your podcast episodes!</h4>
+          <h4>4. Publish your podcast episodes!</h4>
           <UnorderList items={["Publish your episodes and subscribers can listen in their podcast app or via your podcast website."]}/>
         </ParagraphsSection>
       </SectionLayout>   
       <SectionLayout>
-        <h2 className="font-weight-bold">More About Private Podcasting</h2>
-        <h3 className="font-weight-bold">Why Make a Podcast Private?</h3>
+        <h2>More About Private Podcasting</h2>
+        <h3>Why Make a Podcast Private?</h3>
         <p>There are a number of use cases for private podcasting. Three common reasons to use a private podcast are outlined below. </p>
-        <h4 className="font-weight-bold">Internal Podcasts For Work Teams &#38; Managers</h4>
+        <h4>Internal Podcasts For Work Teams &#38; Managers</h4>
         <p>With more people working from home many CEOs and managers are turning to private podcasts to communicate with their employees and keep remote teams engaged.</p>
-        <h4 className="font-weight-bold">For Teachers &#38; Educators</h4>
+        <h4>For Teachers &#38; Educators</h4>
         <p>Podcasts also offer opportunities for teachers and educators, as well as students. Teachers and professors can share audio-versions of classes and lectures for students to use for revision purposes.</p>
-        <h4 className="font-weight-bold">For Invite-Only Premium Content</h4>
+        <h4>For Invite-Only Premium Content</h4>
         <p>Private podcast feeds are perfect for offering bonus content to paying subscribers. For example, JustCast’s private feed can be shared with your Patreon subscribers using their email addresses.</p>
-      </SectionLayout>  
+      </SectionLayout>
+      <SectionLayout>        
+        <h2>MailerLite integration</h2>        
+        <div className="mr-2">
+          <a href="/mailerlite-podcast-integration">
+            <img src={mailerlite} className="img-fluid" alt="MailerLite integration"/>
+          </a>
+        </div>
+        <p>MailerLite is a fantastic email marketing service that offers custom marketing options and email automation to help you run your private podcast effortlessly. Through JustCast’s MailerLite integration, you can easily add and remove listeners to your feeds by pulling your MailerLite subscribers into your JustCast private podcast feed.</p>
+      </SectionLayout>      
       <SectionLayout>
-        <h2 className="font-weight-bold">How The Private Podcast Feed Works</h2>
-        <h3 className="font-weight-bold">What Exactly is a Private Podcast Feed?</h3>
+        <h2>How The Private Podcast Feed Works</h2>
+        <h3>What Exactly is a Private Podcast Feed?</h3>
         {/* TODO: INCLUDE DIAGRAM */}
         <p>A private podcast feed is an RSS feed that is not made available to the public. Each user has a unique RSS feed that they use to access the podcast. The feed requests that public platforms like iTunes do not index it in their system if it is discovered.</p>
         <p>To add private listeners hosts can add them by their email addresses and JustCast will send them a personal link. They can use this link to subscribe to the private feed on their podcast app.</p>
         <p>Alternatively JustCast allows you to create a password-protected podcast or a single URL private feed that can be shared by multiple people or just one individual.</p>
-        <h4 className="font-weight-bold">How Private is it?</h4>
+        <h4>How Private is it?</h4>
         <p>It’s important to understand that private podcast rss feeds do not guarantee complete privacy.</p>
         <p>Personal feeds can still be shared by individuals - either deliberately or accidentally - which could lead to your content becoming public (as with most forms of online communication). With this in mind private podcasting should not be used to share truly private information such as personal data or commercially sensitive company data.</p>
       </SectionLayout>
       <SectionLayout>
-        <h2 className="font-weight-bold">Why Choose JustCast for Private Podcasting</h2>
+        <h2>Why Choose JustCast for Private Podcasting</h2>
         <UnorderList items={[
           "You own and control your content - even on the free plan. JustCast does not monetise free content with advertising like other free podcast hosting solutions.",
           "The free version provides a lot more space (2GB using Dropbox) than other free hosting solutions.",
