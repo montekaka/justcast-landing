@@ -69,7 +69,7 @@ const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) =
             </div>   
             <div className="col-12 col-lg-4">
               <PriceTableItem 
-                title="Plus" 
+                title="Business" 
                 periodLabel={`per ${isMonthlyPlan ? 'month': 'year'}`} 
                 price={isMonthlyPlan ? 49: 490} 
                 buttonLabel="Try for Free" 
