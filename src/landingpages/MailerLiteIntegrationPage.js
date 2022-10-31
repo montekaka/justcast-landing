@@ -11,6 +11,7 @@ import {
 } from '../components/landingpages/article-blocks'
 import LandingPagePricingTable from '../components/landingpages/LandingPagePricingTable'
 import FAQs from '../components/FAQs'
+import mailerlite from "../assets/img/illustrations/stack-rocks.jpg"
 
 const faqs = [
   {
@@ -84,7 +85,7 @@ const MailerLiteIntegrationPage = () => {
 
   return (
     <>
-      <HeaderImage backgroundImage={"https://justcast-assets.sfo3.cdn.digitaloceanspaces.com/marketing-assets/image/stack%20rocks.jpg"}/>
+      <HeaderImage backgroundImage={mailerlite}/>
       <HeaderSection title="A Podcast integration for MailerLite" summary="JustCast is happy to announce our new MailerLite integration, which allows our Private Podcast hosts to access automated email marketing services directly through JustCast." 
         paragraphs={[
           "MailerLite is a fantastic email marketing service that offers custom marketing options and email automation to help you run your private podcast effortlessly. Through JustCast’s MailerLite integration, you can easily add and remove listeners to your feeds by pulling your MailerLite subscribers into your JustCast private podcast feed.",
