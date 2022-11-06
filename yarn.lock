@@ -7579,6 +7579,11 @@ lodash._reinterpolate@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
 
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==
+
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -9718,6 +9723,11 @@ qr.js@0.0.0:
   resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
   integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
 
+qrcode-generator@^1.4.1:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/qrcode-generator/-/qrcode-generator-1.4.4.tgz#63f771224854759329a99048806a53ed278740e7"
+  integrity sha512-HM7yY8O2ilqhmULxGMpcHSF1EhJJ9yBj8gvDEuZ6M+KGJ0YY2hKpnXvRD+hZPLrDVck3ExIGhmPtSdcjC+guuw==
+
 qs@6.5.2, qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -9929,10 +9939,10 @@ react-player@^1.14.2:
     load-script "^1.0.0"
     prop-types "^15.7.2"
 
-react-podcast-ninja@^1.5.8:
-  version "1.5.8"
-  resolved "https://registry.yarnpkg.com/react-podcast-ninja/-/react-podcast-ninja-1.5.8.tgz#e36b58e23e5c0aafd65d96d034588df111f0ba39"
-  integrity sha512-fjPkErbd5ztwrdMgmZC2DJfXnWuoKCqShRm7IHRpe/fSNvdnODPAXtNYdp3IkVv5G4BS+lZzXL0GP5yg7iqQMg==
+react-podcast-ninja@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/react-podcast-ninja/-/react-podcast-ninja-1.6.3.tgz#e6c649fc230ea8036be3e339f0fb445c08ef4624"
+  integrity sha512-5ezxc/3b+x63KQZ/Y3Ff+Hdo7XJGxWuE1KK+XSNoBbHhajpKf8qHxjmq+mht7HYw5tLHHV1WF7xBLVDHU6zY4w==
 
 react-popper@^1.3.6:
   version "1.3.7"
@@ -9960,6 +9970,14 @@ react-qr-code@^1.0.2:
     "@react-native-community/art" "^1.2.0"
     prop-types "^15.7.2"
     qr.js "0.0.0"
+
+react-qrcode-logo@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/react-qrcode-logo/-/react-qrcode-logo-2.8.0.tgz#67b6febf59277f09e77417565ed9c7f84a6ff86f"
+  integrity sha512-dbEgjsg6C4tK6+oGmCRDlJ7urQAWqybaGBLJtp8Z6ZYvVUP302HBXk/F7VRk54yWTwzlHwig3VK6HMKCha2YFw==
+  dependencies:
+    lodash.isequal "^4.5.0"
+    qrcode-generator "^1.4.1"
 
 react-router-dom@^5.1.2:
   version "5.2.0"
