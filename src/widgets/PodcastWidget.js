@@ -15,7 +15,6 @@ const PodcastWidget = (props) => {
   const [episodes, setEpisodes] = useState([])
 
   useEffect(() => {
-    console.log(referer_url)
     justcastApi.get(`/v1/shows/${id}/audioposts?referer_url=${widget_code}`)
     .then((res) => {
       const showdata = res.data;
@@ -71,6 +70,7 @@ const PodcastWidget = (props) => {
       const configs = {
         hidePubDate: res.data.show.hide_widget_pub_date,
         hideMoreInfo: res.data.show.hide_more_info_from_widget,
+        playlistFullHeight: res.data.show.playlist_full_height,
         primaryBackgroundColor: res.data.show.widget_primary_background_color ?  res.data.show.widget_primary_background_color : "#0c1824",
         primaryButtonColor: res.data.show.widget_primary_button_color ?  res.data.show.widget_primary_button_color : "#f7f8f9",
         primaryTextColor: res.data.show.widget_primary_text_color ?  res.data.show.widget_primary_text_color : "#f7f8f9",
