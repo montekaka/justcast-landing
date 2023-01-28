@@ -12,12 +12,11 @@ const useShowQuery = (showId) => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    let subscribed = true;
-
+    let isCancelled = false;
     if(showId) {      
       justcastApi.get((`/v3/shows/${redirectPageShowId(showId)}`))
       .then((res) => {
-        if(subscribed) {
+        if(!isCancelled) {
           setData(res.data);
           add(res.data)
           setIsPending(false)
@@ -49,7 +48,7 @@ const useShowQuery = (showId) => {
     }
 
     return () => {
-      subscribed = false;
+      isCancelled = true;
     }
   }, [showId])
 
