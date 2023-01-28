@@ -19,6 +19,10 @@ const TopNavbars = (props) => {
       setIsOpen(false);
     }    
   }
+
+  const onClickRSS = () => 
+    window.open(`${process.env.REACT_APP_RSS_FEED_BASE_PATH}/shows/${slug}/audioposts.rss`, '_blank');{
+  }
   
   // console.log({backgroundColor, cardBackgroundColor, textColor, linkColor})
   // navbar-light bg-white
@@ -61,14 +65,14 @@ const TopNavbars = (props) => {
                 </NavItem> : null
               }                           
             </Nav>
-            <a
+            <div
               className="navbar-btn btn btn-sm lift ml-auto" 
-              href={`${process.env.REACT_APP_RSS_FEED_BASE_PATH}/shows/${slug}/audioposts.rss`}
+              onClick={onClickRSS}
               target="_blank"
               style={{backgroundColor: buttonColor, color: buttonTextColor}}
             >
               RSS feed
-            </a>            
+            </div>            
           </Collapse>
         </div>
       </nav>

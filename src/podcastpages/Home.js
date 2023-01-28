@@ -2,16 +2,18 @@ import React, {useEffect, useState, useContext} from "react";
 import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
-import { useShowQuery } from '../hooks'
+import { useShowQuery, useFetch } from '../hooks'
 import {Layout, PageHeader, EpisodeList, FeaturedEpisode} from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
+import {redirectPageShowId} from '../libs'
 
 const Home = (props) => {
-  const { state } = useContext(PublicPodcastContext);
-  const audioposts = state.audioposts.slice(0, 6);
-  const {textColor, buttonColor, buttonTextColor} = state;
-
   const id = props.match.params.id;
+  const { state } = useContext(PublicPodcastContext);
+  // const audioposts = state.audioposts.slice(0, 6);
+  const {textColor, buttonColor, buttonTextColor} = state;
+  const {data, isPending, error} = useFetch(`/v3/shows/${redirectPageShowId(id)}/audioposts.json?limit=3`)
+
   const _ = useShowQuery(id);
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const Home = (props) => {
             </div>
           </div>
           <div className="form-row">
-            <EpisodeList slug={state.slug} items={audioposts}/>
+            {data && !isPending && !error && <EpisodeList slug={state.slug} items={data?.audioposts}/>}
           </div>
           <div className="row justify-content-center">
             <Link className="btn lift" to={`/shows/${state.slug}/episodes`} style={{backgroundColor: buttonColor, color: buttonTextColor}}>
