@@ -5,6 +5,7 @@ import { useShowQuery, useFetch} from '../hooks'
 import {Layout, SimplePageHeader, EpisodeList} from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
 import {redirectPageShowId} from '../libs'
+import { Spinner } from "reactstrap"
 
 const Episodes = (props) => {
   const id = props.match.params.id;
@@ -37,6 +38,7 @@ const Episodes = (props) => {
           <div className="row justify-content-center">
             <div className="col-12 col-md-10 col-lg-7 text-center">
               <h2 className="font-weight-bold" style={{color: textColor}}>Episodes</h2>
+              {isPending && <Spinner color="primary"/>}
             </div>
           </div>
           <div className="form-row">

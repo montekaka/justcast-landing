@@ -2,106 +2,59 @@ import React, {useEffect, useState} from "react";
 import { Spinner } from 'reactstrap';
 import ReactGA from 'react-ga';
 import {NinjaPlayer} from 'react-podcast-ninja'
-import justcastApi from '../api/justcast'
+import {redirectPageShowId} from '../libs'
+import { useFetch} from '../hooks'
 
 const PodcastWidget = (props) => {
   const id = props.match.params.id;
   const params = new URLSearchParams(props.location.search);
   const widget_code = params.get('widget_code');
-
-  const referer_url = props.match.params.referer_url;
-  const [show, setShow] = useState({});
-  const [playerConfigs, setPlayerConfigs] = useState({});
-  const [episodes, setEpisodes] = useState([])
+  const {data, isPending, error} = useFetch(`/v3/shows/${redirectPageShowId(id)}/audioposts.json?referer_url=${widget_code}`)
 
   useEffect(() => {
-    justcastApi.get(`/v1/shows/${id}/audioposts?referer_url=${widget_code}`)
-    .then((res) => {
-      const showdata = res.data;
-      setShow(showdata.show);
-      // setAudioposts(showdata.audioposts);
-      // setSelectedAudiopost(showdata.audioposts[0]);
-      // setMenuItems([{key: 'subscribe', label: 'Subscribe'}, {key: 'share', label: 'share'}, {key: 'more_info', label: 'more info'}])
-      const menus = [];
-      if(showdata.show.hide_widget_subscribe !== true) {
-        menus.push({key: 'subscribe', label: 'subscribe'})
-      }
-      if(showdata.show.hide_widget_share !== true) {
-        menus.push({key: 'share', label: 'share'})
-      }
-      menus.push({key: 'more_info', label: 'more info'})
-      // setMenuItems(menus)  
-      
-      const googleAnalyticsId = res.data.show.google_analytics_id;
-      
-      if(googleAnalyticsId) {
-        ReactGA.initialize(googleAnalyticsId);
-        ReactGA.pageview(`/widget/${res.data.show.slug}/audioposts`)
-      }   
-      
+    if(data?.show?.slug && data?.show?.google_analytics_id) {
+      const googleAnalyticsId = data?.show?.google_analytics_id;
+      ReactGA.initialize(googleAnalyticsId);
+      ReactGA.pageview(`/widget/${data?.show?.slug}/audioposts`)
+    }
+  }, [data?.show?.slug])  
 
-      // ninja player variables
-      const items = [];
-      const feedArtwork = res.data.show.artwork_url;
-      const podcastTitle = res.data.show.name;
-      
-      res.data.audioposts.forEach((item) => {
-        let artworkUrl = feedArtwork;
-        if(item.artwork_url) {
-          artworkUrl = item.artwork_url;
+  if(error) return null;
+  if(isPending) return <Spinner color="primary" /> 
+  if(!data?.show) return null;
+
+  return (
+    <NinjaPlayer
+      configs={{
+        hidePubDate: data?.show?.hide_widget_pub_date,
+        hideMoreInfo: data?.show?.hide_more_info_from_widget,
+        playlistFullHeight: data?.show?.playlist_full_height,
+        primaryBackgroundColor: data?.show?.widget_primary_background_color || "#0c1824",
+        primaryButtonColor: data?.show?.widget_primary_button_color || "#f7f8f9",
+        primaryTextColor: data?.show?.widget_primary_text_color || "#f7f8f9",
+        progressBarFilledColor: data?.show?.widget_progress_bar_filled_color || "#f7f8f9",
+        progressBarBackgroundColor: data?.show?.widget_progress_bar_background_color || "#8A8175",
+        playlistBackgroundColor: data?.show?.widget_playlist_background_color || "#30343c",
+        playlistTextColor: data?.show?.widget_playlist_text_color || "#f7f8f9",
+        chapterBackgroundColor: data?.show?.widget_chapter_background_color || "#30343c",
+        chapterTextColor:  data?.show?.widget_chapter_text_color || "#f7f8f9"
+      }}
+      playerId={`${id}-playlist`}
+      episodes={data?.audioposts.map((item) => {
+        return {
+          title: item?.episode_title,
+          description: item?.description,
+          podcastTitle: data?.show?.podcast_title,
+          artworkUrl: item?.artwork_url,
+          pubDate: item?.audio_date,
+          link: item?.single_page_url,
+          audioUrl: item?.audio_url,
+          chaptersUrl: item?.chapters_url,
         }
-
-        const chaptersUrl = item.chapters_url
-        // console.log(artworkUrl)
-        items.push({
-          title: item.name,
-          description: item.description,
-          podcastTitle: podcastTitle,
-          artworkUrl: artworkUrl,
-          pubDate: item.audio_date,
-          link: item.single_page_url,
-          audioUrl: item.url,
-          chaptersUrl: chaptersUrl,
-        })
-      })
-      
-      setEpisodes(items);    
-      
-      const configs = {
-        hidePubDate: res.data.show.hide_widget_pub_date,
-        hideMoreInfo: res.data.show.hide_more_info_from_widget,
-        playlistFullHeight: res.data.show.playlist_full_height,
-        primaryBackgroundColor: res.data.show.widget_primary_background_color ?  res.data.show.widget_primary_background_color : "#0c1824",
-        primaryButtonColor: res.data.show.widget_primary_button_color ?  res.data.show.widget_primary_button_color : "#f7f8f9",
-        primaryTextColor: res.data.show.widget_primary_text_color ?  res.data.show.widget_primary_text_color : "#f7f8f9",
-        progressBarFilledColor: res.data.show.widget_progress_bar_filled_color ?  res.data.show.widget_progress_bar_filled_color : "#f7f8f9",
-        progressBarBackgroundColor: res.data.show.widget_progress_bar_background_color ?  res.data.show.widget_progress_bar_background_color : "#8A8175",
-        playlistBackgroundColor: res.data.show.widget_playlist_background_color ?  res.data.show.widget_playlist_background_color : "#30343c",
-        playlistTextColor: res.data.show.widget_playlist_text_color ?  res.data.show.widget_playlist_text_color : "#f7f8f9",
-        chapterBackgroundColor: res.data.show.widget_chapter_background_color ?  res.data.show.widget_chapter_background_color : "#30343c",
-        chapterTextColor:  res.data.show.widget_chapter_text_color ?  res.data.show.widget_chapter_text_color : "#f7f8f9"
-      }
-      setPlayerConfigs(configs)      
-    })
-    .catch((err) => {
-      console.log('this is not available')
-    })
-  }, [id])
-
-  if(show.id) {
-    return (
-      // <div style={{height: "100vh", width: "100%", background: "#d0dee9", margin: 0, padding: 0, boxSizing: 'border-box'}}>
-        <NinjaPlayer
-          configs={playerConfigs}
-          playerId={`${id}-playlist`}
-          episodes={episodes}
-          themeName="retro"
-        />  
-      // </div>
-    )  
-  }
-
-  return <Spinner color="primary" />
+      })}
+      themeName="retro"
+    /> 
+  )
 }
 
 export default PodcastWidget
