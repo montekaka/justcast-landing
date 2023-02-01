@@ -9,14 +9,6 @@ import PrivateShow from './../components/PrivateShow';
 import {redirectPageShowId} from '../libs'
 import {NinjaPlayer} from 'react-podcast-ninja'
 
-const getAudiopostById = (audioposts, id) => {
-  const _ = audioposts.filter(audiopost => audiopost.id.toString() === id.toString());
-  if(_.length > 0) {
-    return _[0];
-  }
-  return null;
-}
-
 const Episode = (props) => {
   const id = redirectPageShowId(props.match.params.show_id);
   const audiopost_id = props.match.params.id;
@@ -117,7 +109,7 @@ const Episode = (props) => {
             amazon_podcast_link={amazon_podcast_link}
             slug={slug}
           >        
-            <div className="row justify-content-center">
+            <div className="row justify-content-center" style={{color: textColor}}>
               Listen in your favorite apps
             </div>
         </PodcastApps>                
