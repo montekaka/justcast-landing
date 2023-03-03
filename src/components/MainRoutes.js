@@ -54,8 +54,8 @@ const MainRoutes = () => {
       <Route exact path="/shows/:show_id/subscribers/:id" component={PrivatePodcast}/>
       <Route exact path="/shows/:show_id/subscribers_invite" component={PrivatePodcastInvite}/>
       <Route exact path="/podcasts/:show_id/" component={PublicPodcast}/>
-      <Route exact path="/widget/:show_id/audioposts/:id" component={SingleWidgetPlayer} />
-      <Route exact path="/widget/:id/audioposts" component={WidgetPlaylist} />
+      <Route exact path="/widget/:show_id/audioposts/:id" component={SingleWidget} />
+      <Route exact path="/widget/:id/audioposts" component={PodcastWidget} />
       <Route exact path="/widget/:show_id/episodes/:id" component={SingleWidget} /> {/*using ninja player*/}
       <Route exact path="/widget/:id/episodes" component={PodcastWidget} /> {/*using ninja player*/}
       <Route exact path="/mobile-player-widget/:id/audioposts" component={MobilePlayer} />

@@ -28,8 +28,8 @@ const publicPodcastReducer = (state, action) => {
 }
 
 const add = dispatch => {
-  return ({show, audioposts, recommend_episode, mailchimp_connection, people}) => {   
-    dispatch({type: 'add', payload: {...show, audioposts, recommend_episode, mailchimp_connection, people}})
+  return (show) => {   
+    dispatch({type: 'add', payload: {...show}})
   }
 }
 

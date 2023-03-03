@@ -40,7 +40,7 @@ app.get('/.well-known/apple-developer-merchantid-domain-association', (req, res)
 app.get('/shows/:show_id/audioposts/:id', function(request, response) {    
   const id = request.params.id;
   const show_id = redirectPageShowId(request.params.show_id);
-  instance.get(`/v1/shows/${show_id}/audioposts/${id}`)
+  instance.get(`/v3/shows/${show_id}/audioposts/${id}`)
   .then((res) => {
     const data = res.data;
 
@@ -60,7 +60,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
     // const keywords = show.keywords ? show.keywords : '';
     const keywords = data.itunes_keywords ? data.itunes_keywords : (show.keywords ? show.keywords : '');
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
     const meta = {
@@ -74,7 +74,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id,
+      apple_itunes_app_id,
       custom_favicon_image,
       backgroundColorClass,      
     }
@@ -99,7 +99,7 @@ app.get('/shows/:show_id/audioposts/:id', function(request, response) {
 
 app.get('/shows/:id/audioposts', function(request, response) {
   const id = redirectPageShowId(request.params.id);
-  instance.get(`/v1/shows/${id}`)
+  instance.get(`/v3/shows/${id}`)
   .then((res) => {
 
     const show = res.data;    
@@ -115,7 +115,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
 
     const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
 
     const rss_url = show.rss_feed;
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
@@ -131,7 +131,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id,
+      apple_itunes_app_id,
       rss_url: rss_url,
       custom_favicon_image,
       backgroundColorClass
@@ -159,7 +159,7 @@ app.get('/shows/:id/audioposts', function(request, response) {
 
 app.get('/shows/:id/support_us', function(request, response) {
   const id = redirectPageShowId(request.params.id);
-  instance.get(`/v1/shows/${id}`)
+  instance.get(`/v3/shows/${id}`)
   .then((res) => {
 
     const show = res.data;    
@@ -175,7 +175,7 @@ app.get('/shows/:id/support_us', function(request, response) {
 
     const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
 
     const rss_url = show.rss_feed;
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
@@ -191,7 +191,7 @@ app.get('/shows/:id/support_us', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id,
+      apple_itunes_app_id,
       rss_url: rss_url,
       custom_favicon_image,
       backgroundColorClass
@@ -216,64 +216,9 @@ app.get('/shows/:id/support_us', function(request, response) {
   })
 });
 
-
-app.get('/shows/:id/subscribers_invite', function(request, response) {
-  const id = redirectPageShowId(request.params.id);
-  instance.get(`/v1/shows/${id}`)
-  .then((res) => {
-
-    const show = res.data;    
-    const url = show.link;
-    const title = `${show.podcast_title}`;
-    const description = show.description ? sanitizeHtml(show.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
-    const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
-    const img_16 = show.artwork_url_16;
-    const img_32 = show.artwork_url_32;
-    const img_64 = show.artwork_url_64;
-    const img_256 = show.artwork_url_256;
-    const custom_favicon_image = show.custom_favicon_image;
-
-    const keywords = show.itunes_keywords ? show.itunes_keywords : '';
-    const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
-
-    const rss_url = show.rss_feed;
-    const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
-    
-    const meta = {
-      title,
-      description,
-      img,
-      keywords,
-      url,
-      img_16: img_16,
-      img_32: img_32,
-      img_64: img_64,
-      img_256: img_256,
-      twitter_handle,
-      apple_iutnes_app_id,
-      rss_url: rss_url,
-      custom_favicon_image,
-      backgroundColorClass
-    }
-
-    fs.readFile(filePath, 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      const result = SEOHelpers.set(meta, data)
-      response.send(result);
-    });
-  })
-  .catch((err) => {
-    // TODO: redirect to error page    
-    response.redirect('/error')
-  })
-});
-
 app.get('/podcasts/:id', function(request, response) {
   const id = redirectPageShowId(request.params.id);
-  instance.get(`/v1/shows/${id}`)
+  instance.get(`/v3/shows/${id}`)
   .then((res) => {
 
     const show = res.data;    
@@ -290,7 +235,7 @@ app.get('/podcasts/:id', function(request, response) {
 
     const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
     
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
@@ -305,7 +250,7 @@ app.get('/podcasts/:id', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id,
+      apple_itunes_app_id,
       custom_favicon_image,
       backgroundColorClass
     }
@@ -332,7 +277,7 @@ app.get('/podcasts/:id', function(request, response) {
 
 app.get('/mobile-player-widget/:id/audioposts', function(request, response) {
   const id = redirectPageShowId(request.params.id);
-  instance.get(`/v1/shows/${id}`)
+  instance.get(`/v3/shows/${id}`)
   .then((res) => {
 
     const show = res.data;    
@@ -349,7 +294,7 @@ app.get('/mobile-player-widget/:id/audioposts', function(request, response) {
 
     const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
     
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
@@ -364,7 +309,7 @@ app.get('/mobile-player-widget/:id/audioposts', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id,
+      apple_itunes_app_id,
       custom_favicon_image,
       backgroundColorClass
     }
@@ -399,7 +344,7 @@ app.get('/mobile-player-widget/:id/audioposts', function(request, response) {
 
 app.get('/shows/:id/episodes', function(request, response) {    
   const id = redirectPageShowId(request.params.id);
-  instance.get(`/v1/shows/${id}`)
+  instance.get(`/v3/shows/${id}`)
   .then((res) => {
 
     const show = res.data;
@@ -416,7 +361,7 @@ app.get('/shows/:id/episodes', function(request, response) {
 
     const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
 
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
@@ -431,7 +376,7 @@ app.get('/shows/:id/episodes', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id,
+      apple_itunes_app_id,
       custom_favicon_image,
       backgroundColorClass
     }
@@ -457,7 +402,7 @@ app.get('/shows/:id/episodes', function(request, response) {
 
 app.get('/shows/:id/subscribe', function(request, response) {    
   const id = redirectPageShowId(request.params.id);
-  instance.get(`/v1/shows/${id}`)
+  instance.get(`/v3/shows/${id}`)
   .then((res) => {
 
     const show = res.data;
@@ -475,7 +420,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
 
     const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
 
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
@@ -490,7 +435,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
       img_64: img_64,
       img_256: img_256,
       twitter_handle,
-      apple_iutnes_app_id,
+      apple_itunes_app_id,
       custom_favicon_image,
       backgroundColorClass
     }
@@ -515,7 +460,7 @@ app.get('/shows/:id/subscribe', function(request, response) {
 
 app.get('/shows/:id/about_us', function(request, response) {    
   const id = redirectPageShowId(request.params.id);
-  instance.get(`/v1/shows/${id}`)
+  instance.get(`/v3/shows/${id}`)
   .then((res) => {
 
     const show = res.data;
@@ -532,7 +477,7 @@ app.get('/shows/:id/about_us', function(request, response) {
 
     const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
 
     const backgroundColorClass = show.backgroundColorClass ? show.backgroundColorClass : "bg-light";
 
@@ -548,7 +493,7 @@ app.get('/shows/:id/about_us', function(request, response) {
       img_256: img_256,
       custom_favicon_image,
       twitter_handle,
-      apple_iutnes_app_id,
+      apple_itunes_app_id,
       backgroundColorClass
     }
     
@@ -583,7 +528,7 @@ app.get('/features-pricing', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -608,7 +553,7 @@ app.get('/affiliates', (request, response) => {
     keywords: "affiliate",
     url: "https://www.justcast.com/affiliates",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -632,7 +577,7 @@ app.get('/how-justcast-works', (request, response) => {
     keywords: "Podcasting, Church, COVID-19 Response",
     url: "https://www.justcast.com/how-justcast-works",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -657,7 +602,7 @@ app.get('/blogs/resources-for-church-impacted-by-coronavirus', (request, respons
     keywords: "Podcasting, Church, COVID-19 Response",
     url: "https://www.justcast.com/blogs/resources-for-church-impacted-by-coronavirus",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -682,7 +627,7 @@ app.get('/terms', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -706,7 +651,7 @@ app.get('/privacy', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -731,7 +676,7 @@ app.get('/page_404', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -756,7 +701,7 @@ app.get('/about_us', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -781,7 +726,7 @@ app.get('/audiogram', (request, response) => {
     keywords: "Podcasting, audiogram",
     url: "https://www.justcast.com/audiogram",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -806,7 +751,7 @@ app.get('/church-podcasting', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com/church-podcasting",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -830,7 +775,7 @@ app.get('/private-podcast', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com/private-podcast",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -854,7 +799,7 @@ app.get('/mailerlite-podcast-integration', (request, response) => {
     keywords: "Podcasting, MailerLite",
     url: "https://www.justcast.com/mailerlite-podcast-integration",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -878,7 +823,7 @@ app.get('/integration-twitter', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com/integration-twitter",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -902,7 +847,7 @@ app.get('/examples', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {
@@ -919,7 +864,7 @@ app.get('/examples', (request, response) => {
 app.get('/widget/:id/audioposts', function(request, response) {    
   const referer_url = request.headers.referer;
   const id = request.params.id;
-  instance.get(`/v1/shows/${id}/audioposts?referer_url=${referer_url}`)
+  instance.get(`/v3/shows/${id}/audioposts?referer_url=${referer_url}`)
   .then((res) => {
 
     const show = res.data.show;
@@ -936,7 +881,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
 
     const keywords = show.itunes_keywords ? show.itunes_keywords : '';
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
 
     const meta = {
       title,
@@ -950,7 +895,7 @@ app.get('/widget/:id/audioposts', function(request, response) {
       img_256: img_256,
       twitter_handle,
       custom_favicon_image,
-      apple_iutnes_app_id
+      apple_itunes_app_id
     }
     
     fs.readFile(filePath, 'utf8', function (err,data) {
@@ -984,7 +929,7 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
   const referer_url = request.headers.referer;
   const id = request.params.id;
   const show_id = redirectPageShowId(request.params.show_id);
-  instance.get(`/v1/shows/${show_id}/audioposts/${id}?referer_url=${referer_url}`)
+  instance.get(`/v3/shows/${show_id}/audioposts/${id}?referer_url=${referer_url}`)
   .then((res) => {
     const data = res.data;
 
@@ -1003,7 +948,7 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
 
     const keywords = data.itunes_keywords ? data.itunes_keywords : (show.keywords ? show.keywords : '');
     const twitter_handle = show.twitter_handle ? show.twitter_handle : '';
-    const apple_iutnes_app_id = show.apple_iutnes_app_id ? show.apple_iutnes_app_id : "";
+    const apple_itunes_app_id = show.apple_itunes_app_id ? show.apple_itunes_app_id : "";
 
     const meta = {
       title,
@@ -1017,7 +962,7 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
       img_256: img_256,
       custom_favicon_image,
       twitter_handle,
-      apple_iutnes_app_id
+      apple_itunes_app_id
     }
 
     fs.readFile(filePath, 'utf8', function (err,data) {
@@ -1048,51 +993,51 @@ app.get('/widget/:show_id/audioposts/:id', function(request, response) {
 
 // Protect podcast
 
-app.get('/shows/:show_id/subscribers/:id', function(request, response) {    
-  const id = request.params.id;
-  const show_id = redirectPageShowId(request.params.show_id);
-  instance.get(`/v1/shows/${show_id}/private_feeds/${id}`)
-  .then((res) => {
-    const data = res.data;
-    const show = data.show;
-    const podcastName = data.name;
-    const url = data.permulink;
-    const title = `${show.podcast_title} | ${data.episode_title}`;
-    const description = data.description ? sanitizeHtml(data.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
-    // const description = "Podcast power by JustCast";
-    const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
-    const img_16 = show.artwork_url_16;
-    const img_32 = show.artwork_url_32;
-    const img_64 = show.artwork_url_64;
-    const img_256 = show.artwork_url_256;
-    const custom_favicon_image = show.custom_favicon_image;
+// app.get('/shows/:show_id/subscribers/:id', function(request, response) {    
+//   const id = request.params.id;
+//   const show_id = redirectPageShowId(request.params.show_id);
+//   instance.get(`/v1/shows/${show_id}/private_feeds/${id}`)
+//   .then((res) => {
+//     const data = res.data;
+//     const show = data.show;
+//     const podcastName = data.name;
+//     const url = data.permulink;
+//     const title = `${show.podcast_title} | ${data.episode_title}`;
+//     const description = data.description ? sanitizeHtml(data.description, {allowedTags: [], allowedAttributes: {}}) : "Podcast power by JustCast";
+//     // const description = "Podcast power by JustCast";
+//     const img = show.artwork_url ? show.artwork_url : 'https://i.imgur.com/V7irMl8.png';
+//     const img_16 = show.artwork_url_16;
+//     const img_32 = show.artwork_url_32;
+//     const img_64 = show.artwork_url_64;
+//     const img_256 = show.artwork_url_256;
+//     const custom_favicon_image = show.custom_favicon_image;
 
-    const meta = {
-      title,
-      description,
-      img,      
-      url,
-      custom_favicon_image,
-      img_16: img_16,
-      img_32: img_32,
-      img_64: img_64,
-      img_256: img_256,
-    }
+//     const meta = {
+//       title,
+//       description,
+//       img,      
+//       url,
+//       custom_favicon_image,
+//       img_16: img_16,
+//       img_32: img_32,
+//       img_64: img_64,
+//       img_256: img_256,
+//     }
 
-    fs.readFile(filePath, 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      const result = SEOHelpers.set(meta, data)
-      response.send(result);
-    });    
+//     fs.readFile(filePath, 'utf8', function (err,data) {
+//       if (err) {
+//         return console.log(err);
+//       }
+//       const result = SEOHelpers.set(meta, data)
+//       response.send(result);
+//     });    
 
-  })
-  .catch((err) => {
-    // TODO: redirect to error page
-    response.redirect('/error')
-  })
-});
+//   })
+//   .catch((err) => {
+//     // TODO: redirect to error page
+//     response.redirect('/error')
+//   })
+// });
 
 app.get('/', (request, response) => {
   const meta = {
@@ -1106,7 +1051,7 @@ app.get('/', (request, response) => {
     keywords: "Podcasting, Dropbox",
     url: "https://www.justcast.com",
     twitter_handle: "@thejustcast",
-    apple_iutnes_app_id: "",
+    apple_itunes_app_id: "",
     backgroundColorClass: "bg-light"
   }
   fs.readFile(filePath, 'utf8', function (err,data) {

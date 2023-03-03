@@ -2,19 +2,21 @@ import React, {useEffect, useState, useContext} from "react";
 import ReactGA from 'react-ga';
 import {Link} from 'react-router-dom'
 import {Context as PublicPodcastContext} from '../context/PublicPodcastContext'
-import { useShowQuery } from '../hooks'
+import { useShowQuery, useFetch } from '../hooks'
 import {Layout, SimplePageHeader, SocialNetworks, SimplePageBody, MeetTheHosts } from '../components/podcastpages'
 import PrivateShow from './../components/PrivateShow';
+import {redirectPageShowId} from '../libs'
 
 const About = (props) => {
   const { state } = useContext(PublicPodcastContext);  
-  const {textColor, people, meet_hosts_title, buttonColor, buttonTextColor, about_page_content, 
+  const {textColor, meet_hosts_title, about_page_content, 
     instagram_profile, facebook_page, twitter_handle, slack, mastodon, matrix, about_page_title,
     header_img_url, about_page_header_image
   } = state;
 
   const id = props.match.params.id;
   const _ = useShowQuery(id);
+  const {data, isPending, error} = useFetch(`/v3/shows/${redirectPageShowId(id)}/people`)
 
   useEffect(() => {
     if(state.id && state.google_analytics_id) {
@@ -51,7 +53,7 @@ const About = (props) => {
 					/>
           <MeetTheHosts
             title={meet_hosts_title}
-            items={people}
+            items={data?.people}
             textColor={textColor}
           />
         </div>

@@ -45,7 +45,7 @@
   "scripts": {
     "start": "node server.js",
     "devstart": "nodemon --exec node server.js",
-    "dev": "react-scripts start",
+    "dev": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
