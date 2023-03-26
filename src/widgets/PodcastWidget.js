@@ -5,53 +5,54 @@ import {NinjaPlayer} from 'react-podcast-ninja'
 import {redirectPageShowId} from '../libs'
 import { useFetch} from '../hooks'
 
+const appendWidgetCode = (url, widgetCode) => {
+  if(widgetCode) {
+    return `${url}?referer_url=${widgetCode}`
+  } else {
+    return url
+  }
+}
+
 const PodcastWidget = (props) => {
   const id = props.match.params.id;
   const params = new URLSearchParams(props.location.search);
   const widget_code = params.get('widget_code');
-  const {data, isPending, error} = useFetch(`/v3/shows/${redirectPageShowId(id)}/audioposts.json?referer_url=${widget_code}`)
+  const endpointUrl = appendWidgetCode(`/v3/shows/${redirectPageShowId(id)}/audioposts`, widget_code);
+  const showUrl = appendWidgetCode(`/v3/shows/${redirectPageShowId(id)}`, widget_code);
+  const {data, isPending, error} = useFetch(showUrl)
 
   useEffect(() => {
-    if(data?.show?.slug && data?.show?.google_analytics_id) {
-      const googleAnalyticsId = data?.show?.google_analytics_id;
+    if(data?.slug && data?.google_analytics_id) {
+      const googleAnalyticsId = data?.google_analytics_id;
       ReactGA.initialize(googleAnalyticsId);
-      ReactGA.pageview(`/widget/${data?.show?.slug}/audioposts`)
+      ReactGA.pageview(`/widget/${data?.slug}/audioposts`)
     }
-  }, [data?.show?.slug])  
+  }, [id])  
 
   if(error) return null;
   if(isPending) return <Spinner color="primary" /> 
-  if(!data?.show) return null;
+  // if(!data?.show) return null;
+  if(!data) return null;
+  if(!data.allow_request_referer_url) return null;
 
   return (
     <NinjaPlayer
       configs={{
-        hidePubDate: data?.show?.hide_widget_pub_date,
-        hideMoreInfo: data?.show?.hide_more_info_from_widget,
-        playlistFullHeight: data?.show?.playlist_full_height,
-        primaryBackgroundColor: data?.show?.widget_primary_background_color || "#0c1824",
-        primaryButtonColor: data?.show?.widget_primary_button_color || "#f7f8f9",
-        primaryTextColor: data?.show?.widget_primary_text_color || "#f7f8f9",
-        progressBarFilledColor: data?.show?.widget_progress_bar_filled_color || "#f7f8f9",
-        progressBarBackgroundColor: data?.show?.widget_progress_bar_background_color || "#8A8175",
-        playlistBackgroundColor: data?.show?.widget_playlist_background_color || "#30343c",
-        playlistTextColor: data?.show?.widget_playlist_text_color || "#f7f8f9",
-        chapterBackgroundColor: data?.show?.widget_chapter_background_color || "#30343c",
-        chapterTextColor:  data?.show?.widget_chapter_text_color || "#f7f8f9"
+        hidePubDate: data?.hide_widget_pub_date,
+        hideMoreInfo: data?.hide_more_info_from_widget,
+        playlistFullHeight: data?.playlist_full_height,
+        primaryBackgroundColor: data?.widget_primary_background_color || "#0c1824",
+        primaryButtonColor: data?.widget_primary_button_color || "#f7f8f9",
+        primaryTextColor: data?.widget_primary_text_color || "#f7f8f9",
+        progressBarFilledColor: data?.widget_progress_bar_filled_color || "#f7f8f9",
+        progressBarBackgroundColor: data?.widget_progress_bar_background_color || "#8A8175",
+        playlistBackgroundColor: data?.widget_playlist_background_color || "#30343c",
+        playlistTextColor: data?.widget_playlist_text_color || "#f7f8f9",
+        chapterBackgroundColor: data?.widget_chapter_background_color || "#30343c",
+        chapterTextColor:  data?.widget_chapter_text_color || "#f7f8f9"
       }}
       playerId={`${id}-playlist`}
-      episodes={data?.audioposts.map((item) => {
-        return {
-          title: item?.episode_title,
-          description: item?.description,
-          podcastTitle: data?.show?.podcast_title,
-          artworkUrl: item?.artwork_url,
-          pubDate: item?.audio_date,
-          link: item?.single_page_url,
-          audioUrl: item?.audio_url,
-          chaptersUrl: item?.chapters_url,
-        }
-      })}
+      jcPodcastApi={`${process.env.REACT_APP_API_PROXY_SERVER_BASE_PATH}${endpointUrl}`}
       themeName="retro"
     /> 
   )
