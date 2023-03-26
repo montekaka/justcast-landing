@@ -9,7 +9,6 @@ const useFetch = (url) => {
 
   useEffect(() => {
     let subscribed = true;
-
     if(url) {
       justcastApi.get(url)
       .then((res) => {

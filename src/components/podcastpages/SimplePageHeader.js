@@ -1,7 +1,7 @@
 import React from "react";
 
 const SimplePageHeader = (props) => {
-  const {title, text, imgURL, hideOverlay} = props;
+  const {title, text, imgURL, hideOverlay, subTitle} = props;
   if(imgURL) {    
     return (
       <section data-jarallax
@@ -17,6 +17,7 @@ const SimplePageHeader = (props) => {
               <h1 className="display-2 text-gray-100">
               {title}
               </h1>
+              {subTitle && <h3 className="display-6 text-gray-100">{subTitle}</h3>}
               <div className="lead text-gray-300 mb-7 mb-md-9">{text}</div>
               {props.children}
             </div>
@@ -33,6 +34,7 @@ const SimplePageHeader = (props) => {
               <h1 className="display-2 text-gray-100">
                 {title}
               </h1>
+              {subTitle && <h3 className="display-6 text-gray-100">{subTitle}</h3>}
               <div className="lead text-gray-300 mb-7 mb-md-9">{text}</div>
               {props.children}
             </div>
