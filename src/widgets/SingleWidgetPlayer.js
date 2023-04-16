@@ -5,13 +5,13 @@ import WidgetPlayerControl from './WidgetPlayerControl';
 
 const SingleWidgetPlayer = (props) => {
   const id = props.match.params.id;
-  const showId = props.match.params.show_id;  
+  const showId = props.match.params.show_id;
   const [audiopost, setAudiopost] = useState({});
   const [episodes, setEpisodes] = useState([])
   const [playerConfigs, setPlayerConfigs] = useState({});
   const [show, setShow] = useState({});
   const [menuItems, setMenuItems] = useState([])
-  
+
   useEffect(() => {
     const referer_url = document.referrer;
     justcastApi.get(`/v1/shows/${showId}/audioposts/${id}?referer_url=${referer_url}`)
@@ -30,7 +30,7 @@ const SingleWidgetPlayer = (props) => {
       setMenuItems(menus)
 
       const googleAnalyticsId = res.data.show.google_analytics_id;
-      
+
       if(googleAnalyticsId) {
         ReactGA.initialize(googleAnalyticsId);
         ReactGA.pageview(`/widget/${res.data.show.slug}/audioposts/${id}`)
@@ -40,7 +40,7 @@ const SingleWidgetPlayer = (props) => {
       const items = [];
       const feedArtwork = data.show.artwork_url;
       const podcastTitle = data.show.name;
-      
+
       let artworkUrl = feedArtwork;
       if(data.artwork_url) {
         artworkUrl = data.artwork_url;
@@ -49,6 +49,7 @@ const SingleWidgetPlayer = (props) => {
       const chaptersUrl = data.chapters_url
       // console.log(artworkUrl)
       const item = {
+        id: data.id,
         title: data.name,
         description: data.description,
         podcastTitle: podcastTitle,
@@ -58,10 +59,10 @@ const SingleWidgetPlayer = (props) => {
         audioUrl: data.url,
         chaptersUrl: chaptersUrl,
       }
-      
-      
-      setEpisodes([item]);    
-      
+
+
+      setEpisodes([item]);
+
       const configs = {
         hidePubDate: res.data.show.hide_widget_pub_date,
         primaryBackgroundColor: res.data.show.widget_primary_background_color ?  res.data.show.widget_primary_background_color : "#0c1824",
@@ -74,13 +75,13 @@ const SingleWidgetPlayer = (props) => {
         chapterBackgroundColor: res.data.show.widget_chapter_background_color ?  res.data.show.widget_chapter_background_color : "#30343c",
         chapterTextColor:  res.data.show.widget_chapter_text_color ?  res.data.show.widget_chapter_text_color : "#f7f8f9"
       }
-      setPlayerConfigs(configs)  
+      setPlayerConfigs(configs)
 
     })
     .catch((err) => {
       console.log(err);
     })
-  }, [showId, id])  
+  }, [showId, id])
 
   if(audiopost.id) {
     return (

@@ -4,6 +4,7 @@ import ReactGA from 'react-ga';
 import {NinjaPlayer} from 'react-podcast-ninja'
 import {redirectPageShowId} from '../libs'
 import { useFetch} from '../hooks'
+import justcastApi from '../api/justcast'
 
 const appendWidgetCode = (url, widgetCode) => {
   if(widgetCode) {
@@ -21,16 +22,20 @@ const PodcastWidget = (props) => {
   const showUrl = appendWidgetCode(`/v3/shows/${redirectPageShowId(id)}`, widget_code);
   const {data, isPending, error} = useFetch(showUrl)
 
+  const updateData = (id) => {
+    justcastApi.post(`/v3/audioposts/${id}/track_play`)
+  }
+
   useEffect(() => {
     if(data?.slug && data?.google_analytics_id) {
       const googleAnalyticsId = data?.google_analytics_id;
       ReactGA.initialize(googleAnalyticsId);
       ReactGA.pageview(`/widget/${data?.slug}/audioposts`)
     }
-  }, [id])  
+  }, [id])
 
   if(error) return null;
-  if(isPending) return <Spinner color="primary" /> 
+  if(isPending) return <Spinner color="primary" />
   // if(!data?.show) return null;
   if(!data) return null;
   if(!data.allow_request_referer_url) return null;
@@ -54,7 +59,8 @@ const PodcastWidget = (props) => {
       playerId={`${id}-playlist`}
       jcPodcastApi={`${process.env.REACT_APP_API_PROXY_SERVER_BASE_PATH}${endpointUrl}`}
       themeName="retro"
-    /> 
+      jcCallback={updateData}
+    />
   )
 }
 

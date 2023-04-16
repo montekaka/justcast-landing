@@ -4,13 +4,18 @@ import ReactGA from 'react-ga';
 import {NinjaPlayer} from 'react-podcast-ninja'
 import {redirectPageShowId} from '../libs'
 import { useFetch} from '../hooks'
+import justcastApi from '../api/justcast'
 
 const SingleWidget = (props) => {
   const id = props.match.params.id;
-  const showId = props.match.params.show_id;  
+  const showId = props.match.params.show_id;
   const params = new URLSearchParams(props.location.search);
   const widget_code = params.get('widget_code');
   const {data, isPending, error} = useFetch(`/v3/shows/${redirectPageShowId(showId)}/audioposts/${id}.json?referer_url=${widget_code}`)
+
+  const updateData = (id) => {
+    justcastApi.post(`/v3/audioposts/${id}/track_play`)
+  }
 
   useEffect(() => {
     if(data?.show?.slug && data?.show?.google_analytics_id) {
@@ -21,7 +26,7 @@ const SingleWidget = (props) => {
   }, [data?.show?.slug]);
 
   if(error) return null;
-  if(isPending) return <Spinner color="primary" /> 
+  if(isPending) return <Spinner color="primary" />
   if(!data?.show) return null;
 
   return (
@@ -38,10 +43,11 @@ const SingleWidget = (props) => {
         playlistBackgroundColor: data?.show?.widget_playlist_background_color || "#30343c",
         playlistTextColor: data?.show?.widget_playlist_text_color || "#f7f8f9",
         chapterBackgroundColor: data?.show?.widget_chapter_background_color || "#30343c",
-        chapterTextColor:  data?.show?.widget_chapter_text_color || "#f7f8f9"        
+        chapterTextColor:  data?.show?.widget_chapter_text_color || "#f7f8f9"
       }}
       playerId={`${id}-single`}
       episodes={[{
+        id: data.id,
         title: data?.episode_title,
         description: data?.description,
         podcastTitle: data?.show?.podcast_title,
@@ -53,7 +59,8 @@ const SingleWidget = (props) => {
       }]}
       singleEpisode={true}
       themeName="retro"
-    />  
+      jcCallback={updateData}
+    />
   )
 }
 
