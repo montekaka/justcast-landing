@@ -9,18 +9,18 @@ import discordicon from './../assets/img/icons/social/discord.svg'
 const LandingPageFooter = () => {
   const {state, getURL} = useContext(LocalStorageContext);
 
-  const mixpanelClickTrack = (name) => {    
+  const mixpanelClickTrack = (name) => {
     Mixpanel.track(`${name} clicked`);
   }
 
   const signInURL = () => {
-    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`    
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signin`
     return getURL(state, url);
   }
 
   const signUpURL = () => {
-    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`    
-    return getURL(state, url);    
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`
+    return getURL(state, url);
   }
 
   return (
@@ -50,7 +50,7 @@ const LandingPageFooter = () => {
                   <img src={discordicon} className="list-social-icon" alt="justcast discord page"/>
                 </a>
               </li>
-              
+
             </ul>
 
           </div>
@@ -66,30 +66,25 @@ const LandingPageFooter = () => {
                 <a href="/church-podcasting" className="text-reset">Podcast Hosting for Churches</a>
               </li>
               <li className="mb-3">
-                <a href="/affiliates" className="text-reset">
-                  Affiliates Program
-                </a>
-              </li>
-              <li className="mb-3">
                 <a href="/features-pricing" className="text-reset">
                   Pricing
                 </a>
-              </li>              
+              </li>
               <li className="mb-3">
-                <a href={signUpURL()} 
+                <a href={signUpURL()}
                 onClick={() => {
                   mixpanelClickTrack("Sign up")
-                }}                
+                }}
                 className="text-reset" target="_blank">
                   Sign Up
                 </a>
-              </li>              
+              </li>
               <li className="mb-3">
-                <a href={signInURL()} 
+                <a href={signInURL()}
                 onClick={() => {
                   mixpanelClickTrack("Sign in")
                 }}
-                className="text-reset" 
+                className="text-reset"
                 target="_blank">
                   Log in
                 </a>
@@ -105,9 +100,6 @@ const LandingPageFooter = () => {
                 <a href="/mailerlite-podcast-integration" className="text-reset">MailerLite Integration</a>
               </li>
               <li className="mb-3">
-                <a href="/integration-twitter" className="text-reset">Twitter Integration</a>
-              </li>
-              <li className="mb-3">
                 <a href="https://medium.com/@justcastapp" target="_blank" className="text-reset">
                   Blog
                 </a>
@@ -120,7 +112,7 @@ const LandingPageFooter = () => {
             </ul>
 
           </div>
-          <div className="col-6 col-md-4 col-lg-2">        
+          <div className="col-6 col-md-4 col-lg-2">
             <h6 className="font-weight-bold text-uppercase text-gray-700">
               COMPANY
             </h6>
@@ -139,20 +131,20 @@ const LandingPageFooter = () => {
                 <a href="/privacy" className="text-reset">
                   Privacy
                 </a>
-              </li>                     
+              </li>
               <li className="mb-3">
                 <a href="mailto:justcastapp@gmail.com" className="text-reset">Contact us</a>
-              </li>       
+              </li>
             </ul>
-          </div>       
+          </div>
         </div>
         <div className="row">
           <div className="col-12">
             <br/>
             <p>© {(new Date()).getFullYear()} JustCast All rights reserved.</p>
-          </div>          
+          </div>
         </div>
-      </div> 
+      </div>
     </footer>
   )
 }

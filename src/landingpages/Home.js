@@ -26,17 +26,17 @@ const Home = (props) => {
 
   useEffect(() => {
     const item = localStorageManagement.getAll();
-    if (item.return_user) { 
+    if (item.return_user) {
       Mixpanel.track('Landing page loaded', {"Return user": "true"});
     } else {
-      Mixpanel.track('Landing page loaded', {"Return user": "false"});       
+      Mixpanel.track('Landing page loaded', {"Return user": "false"});
       const values = queryString.parse(props.location.search);
       if(values && values["via"]) {
         const via = values['via'];
         initLocalStorageState({via, return_user: true})
       } else if (values && values["utm_term"]) {
         const utm_term = values['utm_term'];
-        initLocalStorageState({utm_term, return_user: true})      
+        initLocalStorageState({utm_term, return_user: true})
       }
       else {
         initLocalStorageState({return_user: true})
@@ -46,14 +46,14 @@ const Home = (props) => {
   }, []);
 
   return (
-    <>      
+    <>
       <LandingPageHero/>
       <LandingPageAbout/>
       <LandingPageTestimonials/>
       <LandingPageFeatures/>
       <LandingPageChapters/>
-      <LandingTwitterIntegration/>
-      <LandingPageDashboardDemo/>      
+      {/* <LandingTwitterIntegration/> */}
+      {/* <LandingPageDashboardDemo/>       */}
       <LandingPagePricing/>
     </>
   )

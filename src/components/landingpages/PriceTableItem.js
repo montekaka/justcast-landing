@@ -4,14 +4,13 @@ import {Mixpanel} from '../../api/mixpanel'
 import {localStorageManagement} from '../../libs'
 
 const PriceTableItem = ({title, periodLabel, price, features, buttonLabel, buttonClassName}) => {
-
   const mixpanelClickTrack = (name, props) => {
     Mixpanel.track(`${name} clicked`, props);
   }
-  
-  const signUpURL = () => {  
-    const keys = ['via','utm_term'];  
-    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`        
+
+  const signUpURL = () => {
+    const keys = ['via','utm_term'];
+    const url = `${process.env.REACT_APP_DASHBOARD_BASE_PATH}/signup`
     return localStorageManagement.getURLwithParams(url, keys);
   }
 
@@ -30,32 +29,32 @@ const PriceTableItem = ({title, periodLabel, price, features, buttonLabel, butto
         </div>
         <p className="text-center text-muted mb-5">
           {periodLabel}
-        </p>        
-        <Features features={features}/>        
+        </p>
+        <Features features={features}/>
       </div>
-      <a 
-        href={signUpURL()} 
+      <a
+        href={signUpURL()}
         className={`card-btn btn btn-block btn-lg ${buttonClassName}`}
           onClick={() => {
             mixpanelClickTrack(`Sign up`, {Price: price})
           }}
-        >          
+        >
           {buttonLabel} <i className="fe fe-arrow-right ml-3"></i>
-      </a>      
-    </div>    
+      </a>
+    </div>
   )
 }
 // "fe fe-check"
 const Features = ({features}) => {
-  const listFeatures = features.map((feature, idx) => 
+  const listFeatures = features.map((feature, idx) =>
     <div className="d-flex" key={idx.toString()}>
       <div className={`badge badge-rounded-circle badge-${feature.check ? "success": "danger"}-soft mt-1 mr-4`}>
         <i className={feature.check ? "fe fe-check" : "fe fe-x"}></i>
       </div>
       <p>
         {feature.title}
-      </p>      
-    </div>  
+      </p>
+    </div>
   );
 
   return (
