@@ -4,38 +4,45 @@ import LandingPagePricingTable from './LandingPagePricingTable'
 
 const faqs = [
   {
-    title: 'How many podcasts can I have?',
+    title: 'Can I cancel anytime? What happens?',
     classNameItem: 'mb-6',
     paragraphs: [
-      `You can create as many podcasts as you'd like on JustCast, starting at $9 / month.`,
-      `Each podcast is a separate show and can contain unlimited episodes. Your storage limits is based on your storage limits with Dropbox.`
+      `Yes! There are no long-term commitments or complicated contracts! If you decide that JustCast isn’t right for you, you can easily cancel your account from your dashboard at any time.`,
     ]
   },
   {
-    title: 'What happens when I go over my download limit?',
+    title: 'Is there any money back guarantee?',
     classNameItem: 'mb-6',
     paragraphs: [
-      `Let's say you're on the 50,000 downloads per month plan. If we notice that you’re consistently going over your download limit we’ll reach out to you and get you to upgrade to the next level. There's no "automatic shut off;" we'll continue to serve audio for your listeners.`
+      `Definitely, you have the option to cancel your subscription at any time. If you desire a refund, simply reach out to our support team, and we will gladly process it for you.`
     ]
   },
   {
-    title: 'What does JustCast provide?',
+    title: 'Can I change my plan later on?',
     classNameItem: 'mb-6',
     paragraphs: [
-      `JustCast gives you everything you need to get your podcast on Spotify, Apple Podcasts, and Google:`
+      `Absolutely! You can upgrade or downgrade any plan at any time.`
     ],
-    lists: [
-      `A podcast-ready RSS feed`,
-      `Customizable podcast website`,
-      `Standard analytics`,
-      `Embeddable audio player`,
-    ]
   },
   {
-    title: 'Do I own my content on JustCast?',
+    title: 'How do the feeds remain private?',
     classNameItem: 'mb-12',
     paragraphs: [
-      `Yes! We don't control or modify any of the podcast content you upload to JustCast. You can do whatever you'd like with your show: run your own ads, create Patreon membership, and distribute it as you please.`
+      `Your private feed is hidden from iTunes, Google, and only available to those with their own unique link.`
+    ]
+  },
+  {
+    title: `What if I don't have audio versions of my videos yet?`,
+    classNameItem: 'mb-12',
+    paragraphs: [
+      `If your lessons lack audio versions, there's no need to worry! We've taken this into account and offer video-to-audio conversion with every plan`
+    ]
+  },
+  {
+    title: `What do I do if I need help?`,
+    classNameItem: 'mb-12',
+    paragraphs: [
+      `We’re here to support you and your podcast. If you have questions or need help, we have a comprehensive help section and more importantly, we’re only a quick chat or email away.`
     ]
   }
 ]

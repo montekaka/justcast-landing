@@ -23,11 +23,11 @@ const FAQItem = ({title, paragraphs, lists, classNameItem}) => { //mb-12
       <div className="col-12">
         <div className={`card card-border bg-secondary border-warning shadow-lg ${classNameItem} lift lift-lg`}>
           <div className="card-body">
-            <div className="d-flex">        
+            <div className="d-flex">
               <div className="badge badge-lg badge-rounded-circle badge-warning">
                 <span>?</span>
               </div>
-              <div className="ml-5">            
+              <div className="ml-5">
                 <h4 className="text-white">
                   {title}
                 </h4>
@@ -42,10 +42,10 @@ const FAQItem = ({title, paragraphs, lists, classNameItem}) => { //mb-12
               </div>
             </div>
           </div>
-        </div>                        
+        </div>
       </div>
-    </div>    
-  )  
+    </div>
+  )
 }
 
 export default FAQItem;
