@@ -26,21 +26,21 @@ const faqs = [
   },
   {
     title: 'How do the feeds remain private?',
-    classNameItem: 'mb-12',
+    classNameItem: 'mb-6',
     paragraphs: [
       `Your private feed is hidden from iTunes, Google, and only available to those with their own unique link.`
     ]
   },
   {
     title: `What if I don't have audio versions of my videos yet?`,
-    classNameItem: 'mb-12',
+    classNameItem: 'mb-6',
     paragraphs: [
       `If your lessons lack audio versions, there's no need to worry! We've taken this into account and offer video-to-audio conversion with every plan`
     ]
   },
   {
     title: `What do I do if I need help?`,
-    classNameItem: 'mb-12',
+    classNameItem: 'mb-6',
     paragraphs: [
       `We’re here to support you and your podcast. If you have questions or need help, we have a comprehensive help section and more importantly, we’re only a quick chat or email away.`
     ]
