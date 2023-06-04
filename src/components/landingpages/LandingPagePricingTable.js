@@ -62,6 +62,12 @@ const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) =
             </div>
           </div>
         </div>
+        <div className="row justify-content-center">
+          <div className="col-12 text-center">
+            <p className="text-white text-center">Let us know if the pricing doesn't work for you</p>
+            <a href="mailto:justcastapp@gmail.com" className="btn btn-secondary btn-sm">Contact us</a>
+          </div>
+        </div>
       </section>
     </div>
   )
