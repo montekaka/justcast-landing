@@ -1,6 +1,6 @@
 import React from "react";
 import FAQs from './../FAQs'
-import LandingPagePricingTable from './LandingPagePricingTable'
+import LandingPageSecretPricingTable from './LandingPageSecretPricingTable'
 
 const faqs = [
   {
@@ -47,14 +47,14 @@ const faqs = [
   }
 ]
 
-const LandingPagePricing = () => {
+const LandingPageSecretPricing = () => {
 
   return (
     <>
-      <LandingPagePricingTable/>
+      <LandingPageSecretPricingTable/>
       <FAQs items={faqs}/>
     </>
   )
 }
 
-export default LandingPagePricing;
+export default LandingPageSecretPricing;
