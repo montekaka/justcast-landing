@@ -12,7 +12,7 @@ const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) =
     'Unlimited episodes',
     'Unlimited listeners',
     'Automatic video to audio conversion',
-    'Zapier Integration',
+    'Zapier Steps',
     'Custom embedded player',
     'One-Click listener access',
     'Listener management',
