@@ -12,6 +12,7 @@ import PodcastPrivate from './../pages/PodcastPrivate'
 import Error from './../pages/Error'
 import Home from './../landingpages/Home'
 import Pricing from './../landingpages/Pricing'
+import SecretPricing from './../landingpages/SecretPricing'
 import TermsOfService from './../landingpages/TermsOfService'
 import Privacy from './../landingpages/Privacy'
 import Affiliate from './../landingpages/Affiliate'
@@ -33,7 +34,7 @@ import ChurchPodcasting from './../landingpages/ChurchPodcasting'
 import SoicalNetworkIntegrationPage from './../landingpages/SoicalNetworkIntegrationPage'
 import AudiogramPage from '../landingpages/AudiogramPage'
 import MailerLiteIntegrationPage from '../landingpages/MailerLiteIntegrationPage'
-import {Home as PublicPodcastHome, 
+import {Home as PublicPodcastHome,
   Episodes as PublicPodcastEpisodes,
   Episode as PublicPodcastEpisode,
   About as PublicPodcastAbout,
@@ -47,7 +48,7 @@ const MainRoutes = () => {
       <Route exact path="/page_404" component={PodcastPrivate}/>
       <PublicPodcastPageRoute exact path="/shows/:id/audioposts" component={PublicPodcastHome}/>
       <PublicPodcastPageRoute exact path="/shows/:id/about_us" component={PublicPodcastAbout}/>
-      <PublicPodcastPageRoute exact path="/shows/:id/episodes" component={PublicPodcastEpisodes}/>      
+      <PublicPodcastPageRoute exact path="/shows/:id/episodes" component={PublicPodcastEpisodes}/>
       <PublicPodcastPageRoute exact path="/shows/:id/subscribe" component={PublicPodcastSubscribe}/>
       <PublicPodcastPageRoute exact path="/shows/:show_id/audioposts/:id" component={PublicPodcastEpisode}/>
       <PublicPodcastPageRoute exact path="/shows/:id/support_us" component={PublicPodcastTipjar}/>
@@ -61,6 +62,7 @@ const MainRoutes = () => {
       <Route exact path="/mobile-player-widget/:id/audioposts" component={MobilePlayer} />
       <LandingPageRoute exact path="/" component={Home}/>
       <LandingPageRoute exact path="/features-pricing" component={Pricing}/>
+      <LandingPageRoute exact path="/secret-pricing" component={SecretPricing}/>
       <LandingPageRoute exact path="/terms" component={TermsOfService}/>
       <LandingPageRoute exact path="/privacy" component={Privacy}/>
       <LandingPageRoute exact path="/about_us" component={AboutUs}/>

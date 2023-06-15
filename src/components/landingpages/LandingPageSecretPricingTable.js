@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import PriceTableItem from './PriceTableItem';
 
-const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) => {
+const LandingPageSecretPricingTable = ({sectionClassName, titleColor, hidePersonal}) => {
   const [isMonthlyPlan, setIsMonthlyPlan] = useState(true);
 
   const handleSwitchChange = () => {
@@ -9,8 +9,6 @@ const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) =
   }
 
   const features = [
-    'Unlimited episodes',
-    'Unlimited listeners',
     'Automatic video to audio conversion',
     'Zapier Steps',
     'Custom embedded player',
@@ -40,7 +38,7 @@ const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) =
                 price={isMonthlyPlan ? 9: 90}
                 buttonLabel="Try for Free"
                 buttonClassName="btn-primary"
-                features={[ '2 podcasts', ...features].map((title) => {return {title: title, check: true} })}/>
+                features={[ 'Unlimited podcasts', 'Unlimited episodes', '500 Private podcast subscribers', ...features].map((title) => {return {title: title, check: true} })}/>
             </div>
             <div className="col-12 col-lg-4">
               <PriceTableItem
@@ -49,7 +47,7 @@ const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) =
                 price={isMonthlyPlan ? 19: 190}
                 buttonLabel="Try for Free"
                 buttonClassName="btn-primary"
-                features={[ '6 podcasts', ...features].map((title) => {return {title: title, check: true} })}/>
+                features={[ 'Unlimited podcasts', 'Unlimited episodes', '5,000 Private podcast subscribers',  ...features].map((title) => {return {title: title, check: true} })}/>
             </div>
             <div className="col-12 col-lg-4">
               <PriceTableItem
@@ -58,7 +56,7 @@ const LandingPagePricingTable = ({sectionClassName, titleColor, hidePersonal}) =
                 price={isMonthlyPlan ? 70: 700}
                 buttonLabel="Try for Free"
                 buttonClassName="btn-primary"
-                features={[ 'Unlimited podcasts', ...features].map((title) => {return {title: title, check: true} })}/>
+                features={[ 'Unlimited podcasts', 'Unlimited episodes', 'Unlimited Private podcast subscribers',, ...features].map((title) => {return {title: title, check: true} })}/>
             </div>
           </div>
         </div>
@@ -90,4 +88,4 @@ const SwitchPayment = ({handleSwitchChange}) => {
   )
 }
 
-export default LandingPagePricingTable;
+export default LandingPageSecretPricingTable;
