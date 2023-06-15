@@ -62,7 +62,7 @@ const MainRoutes = () => {
       <Route exact path="/mobile-player-widget/:id/audioposts" component={MobilePlayer} />
       <LandingPageRoute exact path="/" component={Home}/>
       <LandingPageRoute exact path="/features-pricing" component={Pricing}/>
-      <LandingPageRoute exact path="/secret-pricing" component={SecretPricing}/>
+      <LandingPageRoute exact path="/special-pricing" component={SecretPricing}/>
       <LandingPageRoute exact path="/terms" component={TermsOfService}/>
       <LandingPageRoute exact path="/privacy" component={Privacy}/>
       <LandingPageRoute exact path="/about_us" component={AboutUs}/>
